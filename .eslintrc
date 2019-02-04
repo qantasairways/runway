@@ -1,0 +1,13 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint",
+  "env": {
+    "jest/globals": true
+  },
+  "plugins": ["prettier", "jsx-a11y", "jest"],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "react/destructuring-assignment": "ignoreClassFields",
+    "prettier/prettier": ["error"]
+  }
+}

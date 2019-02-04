@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
+<ul>
+  <li
+    className="css-1l18fj6"
+  >
+    orange
+  </li>
+  <li
+    className="css-1l18fj6"
+  >
+    grape
+  </li>
+</ul>
+`;
+
+exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
+<ul>
+  <li
+    className="css-1l18fj6"
+  >
+    orange
+  </li>
+  <li
+    className="css-1l18fj6"
+  >
+    grape
+  </li>
+</ul>
+`;
+
+exports[`Typeahead renders correctly when fetching 1`] = `
+.emotion-1 {
+  width: 100%;
+  max-width: 500px;
+}
+
+.emotion-0 {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-0:focus {
+  outline-color: #8de2e0;
+}
+
+<Typeahead
+  className={null}
+  disabled={false}
+  id={null}
+  initialSelectedItem={null}
+  itemToString={[Function]}
+  items={
+    Array [
+      "apple",
+      "pear",
+      "orange",
+      "grape",
+      "banana",
+    ]
+  }
+  label=""
+  message=""
+  minChars={0}
+  placeholder=""
+  valid={true}
+>
+  <Downshift
+    defaultHighlightedIndex={null}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    initialSelectedItem={null}
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label"
+      aria-owns={null}
+      role="combobox"
+    >
+      <div
+        className="emotion-1 null"
+      >
+        <input
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls={null}
+          aria-labelledby="downshift-3-label"
+          autoComplete="off"
+          className="emotion-0"
+          disabled={false}
+          id={null}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          value=""
+        />
+        <ul
+          aria-labelledby="downshift-3-label"
+          id="downshift-3-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </Downshift>
+</Typeahead>
+`;
+
+exports[`Typeahead renders correctly with defaults 1`] = `
+.emotion-1 {
+  width: 100%;
+  max-width: 500px;
+}
+
+.emotion-0 {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-0:focus {
+  outline-color: #8de2e0;
+}
+
+<Typeahead
+  className={null}
+  disabled={false}
+  id={null}
+  initialSelectedItem={null}
+  itemToString={[Function]}
+  items={Array []}
+  label=""
+  message=""
+  minChars={0}
+  placeholder=""
+  valid={true}
+>
+  <Downshift
+    defaultHighlightedIndex={null}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    initialSelectedItem={null}
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      aria-owns={null}
+      role="combobox"
+    >
+      <div
+        className="emotion-1 null"
+      >
+        <input
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls={null}
+          aria-labelledby="downshift-0-label"
+          autoComplete="off"
+          className="emotion-0"
+          disabled={false}
+          id={null}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          value=""
+        />
+        <ul
+          aria-labelledby="downshift-0-label"
+          id="downshift-0-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </Downshift>
+</Typeahead>
+`;
+
+exports[`Typeahead renders correctly with error state 1`] = `
+.emotion-1 {
+  width: 100%;
+  max-width: 500px;
+}
+
+.emotion-0 {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-0:focus {
+  outline-color: #8de2e0;
+}
+
+<Typeahead
+  className={null}
+  disabled={false}
+  id={null}
+  initialSelectedItem={null}
+  itemToString={[Function]}
+  items={
+    Array [
+      "apple",
+      "pear",
+      "orange",
+      "grape",
+      "banana",
+    ]
+  }
+  label=""
+  message="Something went wrong"
+  minChars={0}
+  placeholder=""
+  valid={false}
+>
+  <Downshift
+    defaultHighlightedIndex={null}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    initialSelectedItem={null}
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-2-label"
+      aria-owns={null}
+      role="combobox"
+    >
+      <div
+        className="emotion-1 null"
+      >
+        <input
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls={null}
+          aria-labelledby="downshift-2-label"
+          autoComplete="off"
+          className="emotion-0"
+          disabled={false}
+          id={null}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          value=""
+        />
+        <ul
+          aria-labelledby="downshift-2-label"
+          id="downshift-2-menu"
+          role="listbox"
+        />
+      </div>
+      <div>
+        Something went wrong
+      </div>
+    </div>
+  </Downshift>
+</Typeahead>
+`;
+
+exports[`Typeahead renders correctly with items 1`] = `
+.emotion-1 {
+  width: 100%;
+  max-width: 500px;
+}
+
+.emotion-0 {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-0:focus {
+  outline-color: #8de2e0;
+}
+
+<Typeahead
+  className={null}
+  disabled={false}
+  id={null}
+  initialSelectedItem={null}
+  itemToString={[Function]}
+  items={
+    Array [
+      "apple",
+      "pear",
+      "orange",
+      "grape",
+      "banana",
+    ]
+  }
+  label=""
+  message=""
+  minChars={0}
+  placeholder=""
+  valid={true}
+>
+  <Downshift
+    defaultHighlightedIndex={null}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    initialSelectedItem={null}
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-1-label"
+      aria-owns={null}
+      role="combobox"
+    >
+      <div
+        className="emotion-1 null"
+      >
+        <input
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls={null}
+          aria-labelledby="downshift-1-label"
+          autoComplete="off"
+          className="emotion-0"
+          disabled={false}
+          id={null}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          value=""
+        />
+        <ul
+          aria-labelledby="downshift-1-label"
+          id="downshift-1-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </Downshift>
+</Typeahead>
+`;

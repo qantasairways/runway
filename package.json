@@ -1,0 +1,135 @@
+{
+  "name": "tyson-runway",
+  "version": "0.3.0",
+  "description": "Qantas Style Guide",
+  "main": "hello.js",
+  "scripts": {
+    "build": "npm run clean && node ./rollup",
+    "clean": "rimraf lib && mkdir lib",
+    "semantic-release": "semantic-release",
+    "test": "jest --env=jsdom",
+    "test:update": "jest -u --env=jsdom",
+    "lint": "eslint src",
+    "lint-staged": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tysonwolker/runway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tysonwolker/runway/issues"
+  },
+  "homepage": "https://github.com/tysonwolker/runway#readme",
+  "dependencies": {
+    "downshift": "^3.1.12",
+    "emotion": "^9.2.12",
+    "lodash.debounce": "^4.0.8",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-syntax-async-generators": "^7.2.0",
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@semantic-release/changelog": "^3.0.1",
+    "@semantic-release/git": "^7.0.5",
+    "@semantic-release/npm": "^5.1.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-emotion": "^9.2.11",
+    "babel-preset-airbnb": "^3.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "jest-emotion": "^9.2.11",
+    "lint-staged": "^8.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.15.3",
+    "rollup": "^0.67.4",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-visualizer": "^0.9.2",
+    "semantic-release": "^15.12.4"
+  },
+  "peerDependencies": {
+    "emotion": "^9.2.12",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "babel": {
+    "presets": [
+      "airbnb"
+    ],
+    "plugins": [
+      "emotion",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-syntax-async-generators",
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-transform-regenerator",
+      "@babel/plugin-transform-runtime"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          [
+            "emotion",
+            {
+              "sourceMap": false
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add",
+      "jest --env=jsdom --bail --findRelatedTests"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged",
+    "lint"
+  ],
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  }
+}
