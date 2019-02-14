@@ -48,9 +48,22 @@ exports[`Typeahead renders correctly when fetching 1`] = `
 
 <Typeahead
   className={null}
+  defaultHighlightedIndex={[Function]}
+  defaultIsOpen={[Function]}
   disabled={false}
+  environment={[Function]}
+  getA11yStatusMessage={[Function]}
+  getItemId={[Function]}
+  highlightedIndex={[Function]}
   id={null}
+  initialHighlightedIndex={[Function]}
+  initialInputValue={[Function]}
+  initialIsOpen={[Function]}
   initialSelectedItem={null}
+  inputId={[Function]}
+  inputValue={[Function]}
+  isOpen={[Function]}
+  itemCount={[Function]}
   itemToString={[Function]}
   items={
     Array [
@@ -62,9 +75,19 @@ exports[`Typeahead renders correctly when fetching 1`] = `
     ]
   }
   label=""
+  labelId={[Function]}
+  menuId={[Function]}
   message=""
   minChars={0}
+  onOuterClick={[Function]}
+  onSelect={[Function]}
+  onStateChange={[Function]}
+  onUserAction={[Function]}
   placeholder=""
+  scrollIntoView={[Function]}
+  selectedItem={[Function]}
+  selectedItemChanged={[Function]}
+  suppressRefError={[Function]}
   valid={true}
 >
   <Downshift
@@ -139,15 +162,38 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 
 <Typeahead
   className={null}
+  defaultHighlightedIndex={[Function]}
+  defaultIsOpen={[Function]}
   disabled={false}
+  environment={[Function]}
+  getA11yStatusMessage={[Function]}
+  getItemId={[Function]}
+  highlightedIndex={[Function]}
   id={null}
+  initialHighlightedIndex={[Function]}
+  initialInputValue={[Function]}
+  initialIsOpen={[Function]}
   initialSelectedItem={null}
+  inputId={[Function]}
+  inputValue={[Function]}
+  isOpen={[Function]}
+  itemCount={[Function]}
   itemToString={[Function]}
   items={Array []}
   label=""
+  labelId={[Function]}
+  menuId={[Function]}
   message=""
   minChars={0}
+  onOuterClick={[Function]}
+  onSelect={[Function]}
+  onStateChange={[Function]}
+  onUserAction={[Function]}
   placeholder=""
+  scrollIntoView={[Function]}
+  selectedItem={[Function]}
+  selectedItemChanged={[Function]}
+  suppressRefError={[Function]}
   valid={true}
 >
   <Downshift
@@ -222,9 +268,22 @@ exports[`Typeahead renders correctly with error state 1`] = `
 
 <Typeahead
   className={null}
+  defaultHighlightedIndex={[Function]}
+  defaultIsOpen={[Function]}
   disabled={false}
+  environment={[Function]}
+  getA11yStatusMessage={[Function]}
+  getItemId={[Function]}
+  highlightedIndex={[Function]}
   id={null}
+  initialHighlightedIndex={[Function]}
+  initialInputValue={[Function]}
+  initialIsOpen={[Function]}
   initialSelectedItem={null}
+  inputId={[Function]}
+  inputValue={[Function]}
+  isOpen={[Function]}
+  itemCount={[Function]}
   itemToString={[Function]}
   items={
     Array [
@@ -236,9 +295,19 @@ exports[`Typeahead renders correctly with error state 1`] = `
     ]
   }
   label=""
+  labelId={[Function]}
+  menuId={[Function]}
   message="Something went wrong"
   minChars={0}
+  onOuterClick={[Function]}
+  onSelect={[Function]}
+  onStateChange={[Function]}
+  onUserAction={[Function]}
   placeholder=""
+  scrollIntoView={[Function]}
+  selectedItem={[Function]}
+  selectedItemChanged={[Function]}
+  suppressRefError={[Function]}
   valid={false}
 >
   <Downshift
@@ -316,9 +385,22 @@ exports[`Typeahead renders correctly with items 1`] = `
 
 <Typeahead
   className={null}
+  defaultHighlightedIndex={[Function]}
+  defaultIsOpen={[Function]}
   disabled={false}
+  environment={[Function]}
+  getA11yStatusMessage={[Function]}
+  getItemId={[Function]}
+  highlightedIndex={[Function]}
   id={null}
+  initialHighlightedIndex={[Function]}
+  initialInputValue={[Function]}
+  initialIsOpen={[Function]}
   initialSelectedItem={null}
+  inputId={[Function]}
+  inputValue={[Function]}
+  isOpen={[Function]}
+  itemCount={[Function]}
   itemToString={[Function]}
   items={
     Array [
@@ -330,9 +412,19 @@ exports[`Typeahead renders correctly with items 1`] = `
     ]
   }
   label=""
+  labelId={[Function]}
+  menuId={[Function]}
   message=""
   minChars={0}
+  onOuterClick={[Function]}
+  onSelect={[Function]}
+  onStateChange={[Function]}
+  onUserAction={[Function]}
   placeholder=""
+  scrollIntoView={[Function]}
+  selectedItem={[Function]}
+  selectedItemChanged={[Function]}
+  suppressRefError={[Function]}
   valid={true}
 >
   <Downshift
