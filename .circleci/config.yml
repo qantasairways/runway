@@ -59,6 +59,7 @@ jobs:
           name: Publish package
           command: npm run semantic-release || true
   deploy:
+    working_directory: ~/runway
     docker:
       - image: buildpack-deps:trusty
     steps:
@@ -82,7 +83,7 @@ workflows:
           requires:
             - checkout
       - publish:
-        requires:
+          requires:
             - build
             - test
           filters:
