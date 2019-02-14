@@ -33,6 +33,9 @@ jobs:
       - run:
           name: Build package
           command: npm run build || true
+      - run:
+          name: Build style guide
+          command: npm run styleguide || true
   test:
     <<: *defaults
     steps:
@@ -41,7 +44,7 @@ jobs:
       - run:
           name: Run tests
           command: npm test
-  deploy:
+  publish:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -55,6 +58,11 @@ jobs:
       - run:
           name: Publish package
           command: npm run semantic-release || true
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: runway
 workflows:
   version: 2
   runway:
