@@ -181,6 +181,7 @@ Typeahead.propTypes = {
 };
 
 Typeahead.defaultProps = {
+  ...Downshift.propTypes,
   className: null,
   disabled: false,
   fetchListOnInput: undefined,
