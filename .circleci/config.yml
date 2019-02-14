@@ -35,7 +35,7 @@ jobs:
           command: npm run build || true
       - run:
           name: Build style guide
-          command: npm run styleguide || true
+          command: npm run styleguide:build || true
   test:
     <<: *defaults
     steps:
@@ -81,6 +81,13 @@ workflows:
       - test:
           requires:
             - checkout
+      - publish:
+        requires:
+            - build
+            - test
+          filters:
+            tags:
+              only: /^v.*/
       - deploy:
           requires:
             - build
