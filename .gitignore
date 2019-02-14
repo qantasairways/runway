@@ -68,3 +68,5 @@ typings/
 
 # Rollup bundle visualizer
 stats.html
+
+/styleguide
