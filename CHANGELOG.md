@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/qantasairways/runway/compare/v0.4.1...v0.4.2) (2019-02-15)
+
+
+### Bug Fixes
+
+* **documentation:** added contributing markdown ([1f55464](https://github.com/qantasairways/runway/commit/1f55464))
+
 ## [0.4.1](https://github.com/qantasairways/runway/compare/v0.4.0...v0.4.1) (2019-02-14)
 
 
