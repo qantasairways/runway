@@ -2,8 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Typeahead from '..';
 
-jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
-
 const items = ['apple', 'pear', 'orange', 'grape', 'banana'];
 const itemsCustom = [
   { value: 'apple' },
@@ -35,8 +33,7 @@ describe('Typeahead', () => {
   });
 
   it('renders correctly when fetching', () => {
-    const component = mount(<Typeahead items={items} />);
-    component.instance().setState({ isFetchingList: true });
+    const component = mount(<Typeahead items={items} isFetchingList />);
     expect(component).toMatchSnapshot();
   });
 
@@ -98,32 +95,6 @@ describe('Typeahead', () => {
     it('does nothing when fetchListOnInput prop does not exist', () => {
       const component = mount(<Typeahead items={items} />);
       component.instance().onInputValueChange('grape', { selectedItem: null });
-      expect(fetchListOnInputMock.mock.calls.length).toBe(0);
-    });
-
-    it('does nothing when the value is below the minimum length', () => {
-      const component = mount(
-        <Typeahead
-          items={items}
-          minChars={3}
-          fetchListOnInput={fetchListOnInputMock}
-        />
-      );
-      component.instance().onInputValueChange('gr', { selectedItem: null });
-      expect(fetchListOnInputMock.mock.calls.length).toBe(0);
-    });
-
-    it('does nothing when the value has not changed', () => {
-      const component = mount(
-        <Typeahead
-          items={items}
-          minChars={3}
-          fetchListOnInput={fetchListOnInputMock}
-        />
-      );
-      component
-        .instance()
-        .onInputValueChange('grape', { selectedItem: 'grape' });
       expect(fetchListOnInputMock.mock.calls.length).toBe(0);
     });
 
