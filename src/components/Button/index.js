@@ -1,5 +1,7 @@
 import { css } from 'emotion';
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { CSS_SELECTOR_ACTIVE, CSS_SELECTOR_HOVER } from '../../constants/css';
 import theme from '../../theme/airways';
 
@@ -70,6 +72,11 @@ const Button = ({ className, label, variant, ...buttonProps }) => (
     </button>
   </div>
 );
+
+Button.propTypes = {
+  label: PropTypes.string,
+  variant: PropTypes.oneOf([BUTTON_VARIANT_HOLLOW, BUTTON_VARIANT_SOLID])
+};
 
 Button.defaultProps = {
   label: 'button',
