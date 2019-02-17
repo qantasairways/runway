@@ -2,7 +2,7 @@
  * Components
  */
 const path = require('path');
-const { lstatSync, readdirSync } = require('fs');
+const { lstatSync, readdirSync, appendFileSync } = require('fs');
 
 const COMPONENT_DIR = './src/components';
 
@@ -78,10 +78,17 @@ const outputOptions = (name, type) => {
   };
 };
 
+function writeComponentToIndex(name) {
+  const file = path.resolve(__dirname, `${OUTPUT_DIR}/index.js`);
+  const data = `export { default as ${name} } from './${name}';\n`;
+  return appendFileSync(file, data);
+}
+
 async function build(entrySrc, name, type) {
   try {
     const bundle = await rollup.rollup(inputOptions(entrySrc, type));
     await bundle.write(outputOptions(name, type));
+    writeComponentToIndex(name);
     console.log(chalk.green(` ✅  Successuly packaged ${name} 📦`));
   } catch (error) {
     console.log(chalk.red(` ☠️  Failed to package ${name}`), error);
@@ -91,7 +98,6 @@ async function build(entrySrc, name, type) {
 async function generateModules() {
   for (let index = 0; index < components.length; index++) {
     const name = components[index].split('/').pop();
-    console.log(chalk.cyan(` ⚙️  Now building: ${name}`));
     console.log(
       chalk.cyan(` ⚙️  Now building: ${name}`),
       chalk.cyan(` 🗜  Module type: ${OUTPUT_JS_TYPE}`)
