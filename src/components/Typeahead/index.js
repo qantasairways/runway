@@ -6,7 +6,7 @@ import Downshift from 'downshift';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
-import theme from '../../theme/airways';
+import { colours } from '../../theme/airways';
 
 class Typeahead extends Component {
   state = {
@@ -66,8 +66,8 @@ class Typeahead extends Component {
             css={{
               backgroundColor:
                 highlightedIndex === index
-                  ? theme.colours.highlights
-                  : theme.colours.transparent,
+                  ? colours.highlights
+                  : colours.transparent,
               borderBottom: '1px solid lightgrey',
               fontWeight: selectedItem === item ? 'bold' : 'normal',
               listStyleType: 'none',
@@ -130,7 +130,7 @@ class Typeahead extends Component {
                   padding: '5px',
                   boxSizing: 'border-box',
                   '&:focus': {
-                    outlineColor: theme.colours.highlights
+                    outlineColor: colours.highlights
                   },
                   width: '100%'
                 }}

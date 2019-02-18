@@ -6,6 +6,16 @@
   },
   "plugins": ["prettier", "jsx-a11y", "jest"],
   "rules": {
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ],
     "react/jsx-filename-extension": "off",
     "react/destructuring-assignment": "ignoreClassFields",
     "prettier/prettier": ["error"]
