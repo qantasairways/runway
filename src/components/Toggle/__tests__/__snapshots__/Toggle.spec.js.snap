@@ -1,0 +1,467 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typeahead handleToggle() component is controlled renders correctly 1`] = `
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-0:focus + span {
+  box-shadow: 0px 0px 1px 2px #dadada;
+  outline: none;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8de2e0;
+  border-radius: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  position: relative;
+  -webkit-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
+  width: 100%;
+}
+
+.emotion-1 {
+  background: white;
+  border-radius: 50%;
+  height: 24px;
+  left: calc(100% - 27px);
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 150ms ease-out;
+  transition: left 150ms ease-out;
+  width: 24px;
+}
+
+<Toggle
+  ariaLabel="Press space to toggle"
+  checked={true}
+  defaultChecked={true}
+  id="toggle1"
+  label="Toggle:"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginTop": "5px",
+        "maxWidth": "62px",
+      }
+    }
+  >
+    <label
+      htmlFor="toggle1"
+    >
+      Toggle:
+      <input
+        checked={true}
+        className="emotion-0"
+        id="toggle1"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="emotion-2"
+        onClick={[Function]}
+      >
+        <span
+          className="emotion-1"
+        />
+      </span>
+    </label>
+  </div>
+</Toggle>
+`;
+
+exports[`Typeahead handleToggle() component is uncontrolled renders correctly 1`] = `
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-0:focus + span {
+  box-shadow: 0px 0px 1px 2px #dadada;
+  outline: none;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #dadada;
+  border-radius: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  position: relative;
+  -webkit-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
+  width: 100%;
+}
+
+.emotion-1 {
+  background: white;
+  border-radius: 50%;
+  height: 24px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 150ms ease-out;
+  transition: left 150ms ease-out;
+  width: 24px;
+}
+
+<Toggle
+  ariaLabel="Press space to toggle"
+  defaultChecked={false}
+  id="toggle1"
+  label="Toggle:"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginTop": "5px",
+        "maxWidth": "62px",
+      }
+    }
+  >
+    <label
+      htmlFor="toggle1"
+    >
+      Toggle:
+      <input
+        checked={false}
+        className="emotion-0"
+        id="toggle1"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="emotion-2"
+        onClick={[Function]}
+      >
+        <span
+          className="emotion-1"
+        />
+      </span>
+    </label>
+  </div>
+</Toggle>
+`;
+
+exports[`Typeahead renders correctly when controlled \`checked\` prop updates 1`] = `
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-0:focus + span {
+  box-shadow: 0px 0px 1px 2px #dadada;
+  outline: none;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8de2e0;
+  border-radius: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  position: relative;
+  -webkit-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
+  width: 100%;
+}
+
+.emotion-1 {
+  background: white;
+  border-radius: 50%;
+  height: 24px;
+  left: calc(100% - 27px);
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 150ms ease-out;
+  transition: left 150ms ease-out;
+  width: 24px;
+}
+
+<Toggle
+  ariaLabel="Press space to toggle"
+  checked={true}
+  defaultChecked={true}
+  id="toggle1"
+  label="Toggle:"
+  onChange={[Function]}
+>
+  <div
+    style={
+      Object {
+        "marginTop": "5px",
+        "maxWidth": "62px",
+      }
+    }
+  >
+    <label
+      htmlFor="toggle1"
+    >
+      Toggle:
+      <input
+        checked={true}
+        className="emotion-0"
+        id="toggle1"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="emotion-2"
+        onClick={[Function]}
+      >
+        <span
+          className="emotion-1"
+        />
+      </span>
+    </label>
+  </div>
+</Toggle>
+`;
+
+exports[`Typeahead renders correctly with defaultChecked prop 1`] = `
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-0:focus + span {
+  box-shadow: 0px 0px 1px 2px #dadada;
+  outline: none;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8de2e0;
+  border-radius: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  position: relative;
+  -webkit-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
+  width: 100%;
+}
+
+.emotion-1 {
+  background: white;
+  border-radius: 50%;
+  height: 24px;
+  left: calc(100% - 27px);
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 150ms ease-out;
+  transition: left 150ms ease-out;
+  width: 24px;
+}
+
+<Toggle
+  ariaLabel="Press space to toggle"
+  defaultChecked={true}
+  id="toggle1"
+  label="Toggle:"
+  onChange={[Function]}
+>
+  <div
+    style={
+      Object {
+        "marginTop": "5px",
+        "maxWidth": "62px",
+      }
+    }
+  >
+    <label
+      htmlFor="toggle1"
+    >
+      Toggle:
+      <input
+        checked={true}
+        className="emotion-0"
+        id="toggle1"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="emotion-2"
+        onClick={[Function]}
+      >
+        <span
+          className="emotion-1"
+        />
+      </span>
+    </label>
+  </div>
+</Toggle>
+`;
+
+exports[`Typeahead renders correctly with defaults 1`] = `
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-0:focus + span {
+  box-shadow: 0px 0px 1px 2px #dadada;
+  outline: none;
+}
+
+.emotion-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #dadada;
+  border-radius: 15px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  position: relative;
+  -webkit-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
+  width: 100%;
+}
+
+.emotion-1 {
+  background: white;
+  border-radius: 50%;
+  height: 24px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: left 150ms ease-out;
+  transition: left 150ms ease-out;
+  width: 24px;
+}
+
+<Toggle
+  ariaLabel="Press space to toggle"
+  defaultChecked={false}
+  id="toggle1"
+  label="Toggle:"
+  onChange={[Function]}
+>
+  <div
+    style={
+      Object {
+        "marginTop": "5px",
+        "maxWidth": "62px",
+      }
+    }
+  >
+    <label
+      htmlFor="toggle1"
+    >
+      Toggle:
+      <input
+        checked={false}
+        className="emotion-0"
+        id="toggle1"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="emotion-2"
+        onClick={[Function]}
+      >
+        <span
+          className="emotion-1"
+        />
+      </span>
+    </label>
+  </div>
+</Toggle>
+`;
