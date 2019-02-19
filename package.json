@@ -3,6 +3,7 @@
   "version": "0.6.1",
   "description": "Qantas Style Guide",
   "main": "./lib/index.js",
+  "module": "./lib/index.js",
   "files": [
     "lib"
   ],
@@ -30,9 +31,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tysonwolker/runway/issues"
+    "url": "https://github.com/qantasairways/runway/issues"
   },
-  "homepage": "https://github.com/tysonwolker/runway#readme",
+  "homepage": "https://github.com/qantasairways/runway#readme",
   "dependencies": {
     "downshift": "^3.1.12",
     "ejs": "^2.6.1",
@@ -83,7 +84,8 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-visualizer": "^0.9.2",
     "semantic-release": "^15.12.4",
-    "webpack": "^4.29.3"
+    "webpack": "^4.29.5",
+    "webpack-blocks": "^2.0.0-rc"
   },
   "peerDependencies": {
     "emotion": "^9.2.12",

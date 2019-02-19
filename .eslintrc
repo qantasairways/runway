@@ -6,8 +6,9 @@
   },
   "plugins": ["prettier", "jsx-a11y", "jest"],
   "rules": {
-    "react/jsx-filename-extension": "off",
     "react/destructuring-assignment": "ignoreClassFields",
+    "react/forbid-foreign-prop-types": "off",
+    "react/jsx-filename-extension": "off",
     "prettier/prettier": ["error"]
   }
 }

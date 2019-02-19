@@ -1,4 +1,5 @@
 const path = require('path');
+const { createConfig, babel, postcss } = require('webpack-blocks');
 const { version } = require('./package');
 
 module.exports = {
@@ -7,15 +8,5 @@ module.exports = {
     url: 'https://github.com/styleguidist/react-styleguidist'
   },
   version,
-  webpackConfig: {
-    module: {
-      rules: [
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        }
-      ]
-    }
-  }
+  webpackConfig: createConfig([babel(), postcss()])
 };
