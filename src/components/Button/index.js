@@ -3,17 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CSS_SELECTOR_ACTIVE, CSS_SELECTOR_HOVER } from '../../constants/css';
-import theme from '../../theme/airways';
+import { fontFamily, fontSize, colours, buttons } from '../../theme/airways';
 
 export const BUTTON_VARIANT_SOLID = 'solid';
 export const BUTTON_VARIANT_HOLLOW = 'hollow';
 
 const baseStyles = css({
-  fontFamily: theme.fontFamily.main,
-  fontSize: theme.fontSize.button,
-  width: theme.buttons.width,
-  height: theme.buttons.height,
-  borderRadius: theme.buttons.borderRadius,
+  fontFamily: fontFamily.main,
+  fontSize: fontSize.button,
+  width: buttons.width,
+  height: buttons.height,
+  borderRadius: buttons.borderRadius,
   borderWidth: 0,
   padding: '14px 24px 15px',
   fontWeight: 700,
@@ -22,21 +22,19 @@ const baseStyles = css({
   textTransform: 'uppercase',
   cursor: 'pointer',
   [CSS_SELECTOR_ACTIVE]: {
-    transform: `translate(${theme.buttons.clickOffset}, ${
-      theme.buttons.clickOffset
-    })`
+    transform: `translate(${buttons.clickOffset}, ${buttons.clickOffset})`
   }
 });
 
 const solidStyles = css(
   {
-    backgroundColor: theme.colours.primary,
-    color: theme.colours.white,
+    backgroundColor: colours.primary,
+    color: colours.white,
     [CSS_SELECTOR_HOVER]: {
-      backgroundColor: theme.colours.primaryDark
+      backgroundColor: colours.primaryDark
     },
     [CSS_SELECTOR_ACTIVE]: {
-      backgroundColor: theme.colours.primaryDark
+      backgroundColor: colours.primaryDark
     }
   },
   baseStyles
@@ -44,17 +42,17 @@ const solidStyles = css(
 
 const hollowStyles = css(
   {
-    backgroundColor: theme.colours.transparent,
-    boxShadow: `0 0 0 2px ${theme.colours.primary} inset`,
-    color: theme.colours.primary,
+    backgroundColor: colours.transparent,
+    boxShadow: `0 0 0 2px ${colours.primary} inset`,
+    color: colours.primary,
     fontWeight: 'normal',
     [CSS_SELECTOR_HOVER]: {
-      boxShadow: `0 0 0 2px ${theme.colours.primaryDark} inset`,
-      color: theme.colours.primaryDark
+      boxShadow: `0 0 0 2px ${colours.primaryDark} inset`,
+      color: colours.primaryDark
     },
     [CSS_SELECTOR_ACTIVE]: {
-      boxShadow: `0 0 0 2px ${theme.colours.primaryDark} inset`,
-      color: theme.colours.primaryDark
+      boxShadow: `0 0 0 2px ${colours.primaryDark} inset`,
+      color: colours.primaryDark
     }
   },
   baseStyles
