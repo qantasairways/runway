@@ -1,3 +1,11 @@
+## [0.5.1](https://github.com/qantasairways/runway/compare/v0.5.0...v0.5.1) (2019-02-19)
+
+
+### Bug Fixes
+
+* **button:** Add propTypes to button component. ([12b23ef](https://github.com/qantasairways/runway/commit/12b23ef))
+* **typeahead:** Add default value for items prop. Remove fetchListOnInput functionality as this should be handled by the parent. ([530e3c8](https://github.com/qantasairways/runway/commit/530e3c8))
+
 # [0.5.0](https://github.com/qantasairways/runway/compare/v0.4.2...v0.5.0) (2019-02-19)
 
 
