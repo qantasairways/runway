@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/qantasairways/runway/compare/v0.6.0...v0.6.1) (2019-02-19)
+
+
+### Bug Fixes
+
+* **circleci:** force push to heroku ([517b63e](https://github.com/qantasairways/runway/commit/517b63e))
+
 # [0.6.0](https://github.com/qantasairways/runway/compare/v0.5.1...v0.6.0) (2019-02-19)
 
 
