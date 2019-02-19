@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/qantasairways/runway/compare/v0.6.1...v0.6.2) (2019-02-19)
+
+
+### Bug Fixes
+
+* **packagejson:** added esm and corrected urls ([019e704](https://github.com/qantasairways/runway/commit/019e704))
+
 ## [0.6.1](https://github.com/qantasairways/runway/compare/v0.6.0...v0.6.1) (2019-02-19)
 
 
