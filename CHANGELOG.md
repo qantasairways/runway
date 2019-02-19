@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/qantasairways/runway/compare/v0.4.2...v0.5.0) (2019-02-19)
+
+
+### Features
+
+* **setup:** Auto generate components index file ([3e9ee1a](https://github.com/qantasairways/runway/commit/3e9ee1a))
+
 ## [0.4.2](https://github.com/qantasairways/runway/compare/v0.4.1...v0.4.2) (2019-02-15)
 
 
