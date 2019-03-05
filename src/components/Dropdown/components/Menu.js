@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React, { PureComponent } from 'react';
 
-export const Menu = ({ isOpen, ...props }) => {
-  return <ul {...props} css={{ display: isOpen ? 'block' : 'none' }} />;
-};
+export class Menu extends PureComponent {
+  render() {
+    const { isOpen, focus, ...props } = this.props;
+    return <ul {...props} css={{ display: isOpen ? 'block' : 'none' }} />;
+  }
+}
 
-export const MenuItem = ({ highlighted, ...props }) => {
+export const MenuItem = ({ highlighted, isLast, ...props }) => {
   return <li {...props} css={{ fontWeight: highlighted ? 700 : 400 }} />;
 };

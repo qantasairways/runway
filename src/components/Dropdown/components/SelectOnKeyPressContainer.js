@@ -23,6 +23,7 @@ export default class SelectOnKeyPressContainer extends React.Component {
   keyPress = event => {
     const { focus, downshiftProps } = this.props;
     const lastHistory = this.state.history;
+
     const {
       isOpen,
       highlightedIndex,
@@ -30,27 +31,32 @@ export default class SelectOnKeyPressContainer extends React.Component {
       openMenu
     } = downshiftProps;
 
-    if (!isOpen) openMenu();
-    if (isOpen || focus) {
-      const key = String(event.key);
-      const history = [...lastHistory, key];
-      const spaced = [...lastHistory, ' ', key];
+    if (!focus && !isOpen) {
+      return;
+    }
 
-      // Try finding a match. Firstly, using the key press history
-      // Otherwise, try adding a space or just with the last pressed key
-      const indexHistory = this.find(history.join(''));
-      const indexSpaced = indexHistory !== -1 ? -1 : this.find(spaced.join(''));
-      const indexKey = indexSpaced !== -1 ? -1 : this.find(key);
-      const index = pickIndex(indexHistory, indexKey, indexSpaced);
+    if (focus && !isOpen) {
+      openMenu();
+    }
 
-      // If history search didn't find anything, reset history
-      const resetHistory = indexSpaced !== -1 ? spaced : [key];
-      this.setState({ history: indexHistory !== -1 ? history : resetHistory });
+    const key = String(event.key);
+    const history = [...lastHistory, key];
+    const spaced = [...lastHistory, ' ', key];
 
-      if (index >= 0 && index !== highlightedIndex) {
-        setHighlightedIndex(index);
-        if (!isOpen) openMenu();
-      }
+    // Try finding a match. Firstly, using the key press history
+    // Otherwise, try adding a space or just with the last pressed key
+    const indexHistory = this.find(history.join(''));
+    const indexSpaced = indexHistory !== -1 ? -1 : this.find(spaced.join(''));
+    const indexKey = indexSpaced !== -1 ? -1 : this.find(key);
+    const index = pickIndex(indexHistory, indexKey, indexSpaced);
+
+    // If history search didn't find anything, reset history
+    const resetHistory = indexSpaced !== -1 ? spaced : [key];
+    this.setState({ history: indexHistory !== -1 ? history : resetHistory });
+
+    if (index >= 0 && index !== highlightedIndex) {
+      setHighlightedIndex(index);
+      if (!isOpen) openMenu();
     }
   };
 

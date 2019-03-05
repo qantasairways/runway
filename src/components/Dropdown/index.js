@@ -5,7 +5,15 @@ import { Menu, MenuItem } from './components/Menu';
 import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 
 const render = props => downshiftProps => {
-  const { items, renderItem, itemToString, focus, setFocus } = props;
+  const {
+    items,
+    renderItem,
+    itemToString,
+    focus,
+    setFocus,
+    label,
+    placeholder
+  } = props;
 
   const {
     isOpen,
@@ -34,7 +42,7 @@ const render = props => downshiftProps => {
 
   return (
     <div>
-      <label {...getLabelProps()}>Yooooo</label>
+      <label {...getLabelProps()}>{label}</label>
       <input
         {...getInputProps({
           onClick: event => {
@@ -44,7 +52,7 @@ const render = props => downshiftProps => {
         })}
         readOnly
         tabIndex="0"
-        placeholder="Click to pick a Social Media"
+        placeholder={placeholder}
         onBlur={e => {
           selectHighlightedItem();
           closeMenu();
@@ -118,7 +126,11 @@ class Dropdown extends React.Component {
     };
 
     return (
-      <Downshift {...props.downShiftProps}>
+      <Downshift
+        {...props.downShiftProps}
+        onChange={props.onChange}
+        initialSelectedItem={props.initialSelectedItem}
+      >
         {downshiftProps => {
           return (
             <div>
@@ -137,31 +149,13 @@ class Dropdown extends React.Component {
   }
 }
 
-const itemsArray = [
-  {
-    name: 'YouTube'
-  },
-  {
-    name: 'Instagram'
-  },
-  {
-    name: 'Facebook'
-  },
-  {
-    name: 'Linkedin'
-  },
-  {
-    name: 'Slack'
-  },
-  { name: 'India' },
-  { name: 'Indonesia' },
-  { name: 'United Kingdom' },
-  { name: 'USA' }
-];
-
 Dropdown.defaultProps = {
-  items: itemsArray,
+  items: [],
   renderItem: props => <span>{props.name}</span>,
+  label: '',
+  placeholder: '',
+  onChange: undefined,
+  initialSelectedItem: null,
   downShiftProps: {
     itemToString: selectedItem => {
       if (selectedItem && selectedItem.name) {
