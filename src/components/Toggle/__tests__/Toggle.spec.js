@@ -2,9 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Toggle from '..';
 
-describe('Typeahead', () => {
+describe('Toggle', () => {
   let component;
-  let handleToggleSpy;
   const label = 'Toggle:';
   const ariaLabel = 'Press space to toggle';
   const id = 'toggle1';
@@ -55,24 +54,6 @@ describe('Typeahead', () => {
           checked: true
         }
       );
-    });
-  });
-
-  describe('handleClick()', () => {
-    beforeEach(() => {
-      component = mount(<Toggle label={label} ariaLabel={ariaLabel} id={id} />);
-      handleToggleSpy = jest.spyOn(component.instance(), 'handleToggle');
-      component.instance().handleClick({
-        preventDefault: () => {}
-      });
-    });
-
-    afterEach(() => {
-      handleToggleSpy.mockReset();
-    });
-
-    it('calls handleToggle', () => {
-      expect(handleToggleSpy).toHaveBeenCalled();
     });
   });
 
