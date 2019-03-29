@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { mount } from 'enzyme';
+import Downshift from 'downshift';
+
 import Typeahead from '..';
 
 const items = ['apple', 'pear', 'orange', 'grape', 'banana'];
@@ -98,7 +100,20 @@ describe('Typeahead', () => {
       expect(fetchListOnInputMock.mock.calls.length).toBe(0);
     });
 
-    it('calls fetchListOnInput()', () => {
+    it('does not call fetchListOnInput() when input change type is not "changeInput"', () => {
+      const component = mount(
+        <Typeahead items={items} fetchListOnInput={fetchListOnInputMock} />
+      );
+      const downshiftChangetype = Downshift.stateChangeTypes.clickItem;
+      component.instance().onInputValueChange('grape', {
+        selectedItem: null,
+        type: downshiftChangetype
+      });
+      expect(fetchListOnInputMock.mock.calls.length).toBe(0);
+    });
+
+    it('calls fetchListOnInput() when input change type is "changeInput"', () => {
+      const downshiftChangetype = Downshift.stateChangeTypes.changeInput;
       const component = mount(
         <Typeahead
           items={items}
@@ -106,8 +121,53 @@ describe('Typeahead', () => {
           fetchListOnInput={fetchListOnInputMock}
         />
       );
-      component.instance().onInputValueChange('grap', { selectedItem: null });
+      component.instance().onInputValueChange('grap', {
+        selectedItem: null,
+        type: downshiftChangetype
+      });
       expect(fetchListOnInputMock.mock.calls.length).toBe(1);
+    });
+  });
+
+  describe('Escape Hatches', () => {
+    let fetchListOnInputMock = jest.fn();
+    beforeEach(() => {
+      fetchListOnInputMock = jest.fn().mockResolvedValue({});
+    });
+    afterEach(() => {
+      fetchListOnInputMock.mockReset();
+    });
+    describe('selectItemCollector', () => {
+      it('should hand selectItem to selectItemCollector and allow selected state overrides', () => {
+        // naive implementation of using escape hatch to override Typeaheads internal
+        // state selection for testing purposes.
+        class Tracker extends Component {
+          track = collectedFx => {
+            this.tracked = collectedFx;
+          };
+
+          render = () => (
+            <Typeahead
+              items={items}
+              minChars={3}
+              fetchListOnInput={fetchListOnInputMock}
+              selectItemCollector={(...args) => this.track(...args)}
+            />
+          );
+        }
+
+        const tracker = mount(<Tracker />);
+
+        const { value: initialSelection } = tracker.find('input').props();
+        expect(initialSelection).toEqual('');
+
+        const desiredSelection = 'mock desired new selection';
+        tracker.instance().tracked(desiredSelection);
+        tracker.update();
+
+        const { value: updatedSelection } = tracker.find('input').props();
+        expect(updatedSelection).toEqual(desiredSelection);
+      });
     });
   });
 });
