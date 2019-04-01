@@ -1,3 +1,10 @@
+## [0.7.2](https://github.com/qantasairways/runway/compare/v0.7.1...v0.7.2) (2019-04-01)
+
+
+### Bug Fixes
+
+* **circleci:** persist to workspace build step ([ea346bd](https://github.com/qantasairways/runway/commit/ea346bd))
+
 ## [0.7.1](https://github.com/qantasairways/runway/compare/v0.7.0...v0.7.1) (2019-04-01)
 
 
