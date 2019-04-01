@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/qantasairways/runway/compare/v0.7.0...v0.7.1) (2019-04-01)
+
+
+### Bug Fixes
+
+* **gitignore:** updated gitignore ([799f13c](https://github.com/qantasairways/runway/commit/799f13c))
+
 # [0.7.0](https://github.com/qantasairways/runway/compare/v0.6.2...v0.7.0) (2019-04-01)
 
 
