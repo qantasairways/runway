@@ -36,6 +36,9 @@ jobs:
       - run:
           name: Build style guide
           command: npm run styleguide:build || true
+      - persist_to_workspace:
+          root: ~/runway
+          paths: .
   test:
     <<: *defaults
     steps:
