@@ -5,6 +5,10 @@
     "jest/globals": true
   },
   "plugins": ["prettier", "jsx-a11y", "jest"],
+  "globals": {
+    "window": true,
+    "document": true
+  },
   "rules": {
     "react/destructuring-assignment": "ignoreClassFields",
     "react/forbid-foreign-prop-types": "off",
