@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/qantasairways/runway/compare/v0.6.2...v0.7.0) (2019-04-01)
+
+
+### Features
+
+* **popupfield:** Initial functionality for popup field ([35a37ed](https://github.com/qantasairways/runway/commit/35a37ed))
+
 ## [0.6.2](https://github.com/qantasairways/runway/compare/v0.6.1...v0.6.2) (2019-02-19)
 
 
