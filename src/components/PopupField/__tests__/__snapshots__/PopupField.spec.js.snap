@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopupField renders correctly with defaults 1`] = `
+<PopupField
+  buttonContent="Popup Field"
+  closeAriaLabel="Close dialog"
+  navigationAriaLabel="Tab to navigate"
+  onBlur={[Function]}
+  onClose={[Function]}
+  openAriaLabel="Open dialog"
+  popupAriaLabel="Dialog is open"
+>
+  <div>
+    <button
+      aria-expanded={false}
+      aria-haspopup="dialog"
+      aria-label="Open dialog"
+      onBlur={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Popup Field
+    </button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</PopupField>
+`;
+
+exports[`PopupField renders correctly with jsx button content 1`] = `
+<PopupField
+  buttonContent="Popup Field"
+  closeAriaLabel="Close dialog"
+  navigationAriaLabel="Tab to navigate"
+  onBlur={[Function]}
+  onClose={[Function]}
+  openAriaLabel="Open dialog"
+  popupAriaLabel="Dialog is open"
+>
+  <div>
+    <button
+      aria-expanded={false}
+      aria-haspopup="dialog"
+      aria-label="Open dialog"
+      onBlur={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Popup Field
+    </button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</PopupField>
+`;
+
+exports[`PopupField renders correctly with one child element 1`] = `
+<PopupField
+  buttonContent="Popup Field"
+  closeAriaLabel="Close dialog"
+  navigationAriaLabel="Tab to navigate"
+  onBlur={[Function]}
+  onClose={[Function]}
+  openAriaLabel="Open dialog"
+  popupAriaLabel="Dialog is open"
+>
+  <div>
+    <button
+      aria-expanded={false}
+      aria-haspopup="dialog"
+      aria-label="Open dialog"
+      onBlur={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Popup Field
+    </button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</PopupField>
+`;
+
+exports[`PopupField renders correctly with one child function 1`] = `
+<PopupField
+  buttonContent="Popup Field"
+  closeAriaLabel="Close dialog"
+  navigationAriaLabel="Tab to navigate"
+  onBlur={[Function]}
+  onClose={[Function]}
+  openAriaLabel="Open dialog"
+  popupAriaLabel="Dialog is open"
+>
+  <div>
+    <button
+      aria-expanded={false}
+      aria-haspopup="dialog"
+      aria-label="Open dialog"
+      onBlur={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Popup Field
+    </button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</PopupField>
+`;
+
+exports[`PopupField renders correctly with props 1`] = `
+<PopupField
+  buttonContent="Popup Field"
+  closeAriaLabel="Close dialog"
+  navigationAriaLabel="Tab to navigate"
+  onBlur={[Function]}
+  onClose={[Function]}
+  openAriaLabel="Open dialog"
+  popupAriaLabel="Dialog is open"
+>
+  <div>
+    <button
+      aria-expanded={false}
+      aria-haspopup="dialog"
+      aria-label="Open dialog"
+      onBlur={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Popup Field
+    </button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</PopupField>
+`;
