@@ -1,3 +1,10 @@
+## [0.7.3](https://github.com/qantasairways/runway/compare/v0.7.2...v0.7.3) (2019-04-02)
+
+
+### Bug Fixes
+
+* **typeahead:** Guarantee list fetcher only handed manual user input, expose selectItemCollector to allow component consumer to maintain reference to Downshifts selectItem hook ([550ddc0](https://github.com/qantasairways/runway/commit/550ddc0))
+
 ## [0.7.2](https://github.com/qantasairways/runway/compare/v0.7.1...v0.7.2) (2019-04-01)
 
 
