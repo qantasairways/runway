@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/qantasairways/runway/compare/v0.7.3...v0.8.0) (2019-04-02)
+
+
+### Features
+
+* **toggle:** Update toggle to use native elements click behaviour. Add onBlur. ([4f28294](https://github.com/qantasairways/runway/commit/4f28294))
+
 ## [0.7.3](https://github.com/qantasairways/runway/compare/v0.7.2...v0.7.3) (2019-04-02)
 
 
