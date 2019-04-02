@@ -8,10 +8,12 @@ import PropTypes from 'prop-types';
 import { colours } from '../../theme/airways';
 
 class Typeahead extends Component {
-  onInputValueChange = value => {
+  onInputValueChange = (value, stateAndHelpers) => {
     const { fetchListOnInput } = this.props;
-
-    if (fetchListOnInput) {
+    if (
+      fetchListOnInput &&
+      stateAndHelpers.type === Downshift.stateChangeTypes.changeInput
+    ) {
       fetchListOnInput(value);
     }
   };
@@ -80,7 +82,8 @@ class Typeahead extends Component {
       message,
       placeholder,
       stateReducer,
-      valid
+      valid,
+      selectItemCollector
     } = this.props;
 
     return (
@@ -90,7 +93,6 @@ class Typeahead extends Component {
         itemToString={itemToString}
         onChange={onChange}
         onInputValueChange={this.onInputValueChange}
-        onOuterClick={onBlur}
         stateReducer={stateReducer}
       >
         {({
@@ -101,45 +103,52 @@ class Typeahead extends Component {
           isOpen,
           inputValue,
           highlightedIndex,
-          selectedItem
-        }) => (
-          <div>
-            {label && <label {...getLabelProps()}>{label}</label>}
-            <div
-              css={{ width: '100%', maxWidth: '500px' }}
-              className={className}
-            >
-              <input
-                css={{
-                  padding: '5px',
-                  boxSizing: 'border-box',
-                  '&:focus': {
-                    outlineColor: colours.highlights
-                  },
-                  width: '100%'
-                }}
-                {...getInputProps({
-                  disabled,
-                  id,
-                  placeholder
-                })}
-              />
-              <ul {...getMenuProps()}>
-                {isOpen && !isFetchingList && inputValue.length >= minChars
-                  ? this.renderItems(
-                      getMenuProps,
-                      getItemProps,
-                      highlightedIndex,
-                      selectedItem,
-                      inputValue
-                    )
-                  : null}
-                {isFetchingList && <span>Loading...</span>}
-              </ul>
+          selectedItem,
+          selectItem
+        }) => {
+          if (selectItemCollector) {
+            selectItemCollector(selectItem);
+          }
+          return (
+            <div>
+              {label && <label {...getLabelProps()}>{label}</label>}
+              <div
+                css={{ width: '100%', maxWidth: '500px' }}
+                className={className}
+              >
+                <input
+                  css={{
+                    padding: '5px',
+                    boxSizing: 'border-box',
+                    '&:focus': {
+                      outlineColor: colours.highlights
+                    },
+                    width: '100%'
+                  }}
+                  {...getInputProps({
+                    disabled,
+                    id,
+                    placeholder,
+                    onBlur
+                  })}
+                />
+                <ul {...getMenuProps()}>
+                  {isOpen && !isFetchingList && inputValue.length >= minChars
+                    ? this.renderItems(
+                        getMenuProps,
+                        getItemProps,
+                        highlightedIndex,
+                        selectedItem,
+                        inputValue
+                      )
+                    : null}
+                  {isFetchingList && <span>Loading...</span>}
+                </ul>
+              </div>
+              {message && !valid && <div>{message}</div>}
             </div>
-            {message && !valid && <div>{message}</div>}
-          </div>
-        )}
+          );
+        }}
       </Downshift>
     );
   }
@@ -162,7 +171,8 @@ Typeahead.propTypes = {
   minChars: PropTypes.number,
   placeholder: PropTypes.string,
   stateReducer: PropTypes.func,
-  valid: PropTypes.bool
+  valid: PropTypes.bool,
+  selectItemCollector: PropTypes.func
 };
 
 Typeahead.defaultProps = {
