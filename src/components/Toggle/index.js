@@ -1,127 +1,147 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Switch from 'react-switch';
+import { colours, fontSize } from '../../theme/airways';
 
-import { CSS_SELECTOR_FOCUS, CSS_PSEUDO_AFTER } from '../../constants/css';
-import { colours } from '../../theme/airways';
+const SELECTORS = {
+  REACT_SWITCH: {
+    ELEMENT_CONTAINER: '.react-switch',
+    BACKGROUND: '.react-switch-bg'
+  }
+};
 
-const isControlled = checkedProp => checkedProp !== undefined;
+const LocalStylesInjector = ({
+  height,
+  children,
+  checked,
+  containerClassName
+}) => {
+  const thickenBorder = () => {
+    const existingTransitions = `background 150ms ease 0s`;
+    const offBoxShadow = `inset ${colours.darkGrey} 0px 0px 1px 3px`;
+    return {
+      [SELECTORS.REACT_SWITCH.BACKGROUND]: {
+        transition: `${existingTransitions}, box-shadow 150ms ease 0s !important`,
+        boxShadow: checked ? 'none' : offBoxShadow
+      }
+    };
+  };
+
+  const keepAllVertAligned = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  };
+
+  return (
+    <div
+      className={containerClassName}
+      css={{
+        [SELECTORS.REACT_SWITCH.ELEMENT_CONTAINER]: {
+          marginLeft: '8px',
+          backgroundColor: colours.darkerGrey,
+          height: `${height}px !important`
+        },
+        backgroundColor: colours.darkerGrey,
+        ...thickenBorder(),
+        ...keepAllVertAligned
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+LocalStylesInjector.propTypes = {
+  height: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
+  checked: PropTypes.bool.isRequired,
+  containerClassName: PropTypes.string.isRequired
+};
+
+const LabelText = ({ children }) => (
+  <span
+    css={{
+      textTransform: 'uppercase',
+      color: colours.white,
+      fontSize: fontSize.label
+    }}
+  >
+    {children}
+  </span>
+);
+
+LabelText.propTypes = {
+  children: PropTypes.node.isRequired
+};
 
 class Toggle extends Component {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    containerClassName: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired
+  };
+
+  static defaultProps = {
+    containerClassName: 'react-toggle-container'
+  };
+
+  static isControlled = props => typeof props.checked === 'boolean';
+
   state = {
-    checked: isControlled(this.props.checked)
-      ? this.props.checked
-      : this.props.defaultChecked
+    checked: false
   };
 
-  static getDerivedStateFromProps(props, state) {
-    if (isControlled(props.checked) && props.checked !== state.checked) {
-      return {
-        checked: props.checked
-      };
-    }
-
-    return null;
-  }
-
-  handleToggle = () => {
-    if (isControlled(this.props.checked)) {
+  handleChange = () => {
+    if (Toggle.isControlled(this.props)) {
       this.props.onChange();
-      return;
+    } else {
+      const update = !this.state.checked; // eslint-disable-line
+      this.setState({ checked: update }, () => this.props.onChange(update));
     }
-
-    this.setState(
-      ({ checked }) => ({
-        checked: !checked
-      }),
-      () => this.props.onChange()
-    );
   };
 
-  render() {
-    const { label, id, onBlur } = this.props;
-    const { checked } = this.state;
+  getCheckedState = () =>
+    Toggle.isControlled(this.props) ? this.props.checked : this.state.checked;
 
+  render = () => {
+    const {
+      id,
+      label,
+      containerClassName = 'react-toggle-container'
+    } = this.props;
     return (
-      <div
-        css={{
-          paddingBottom: '35px',
-          position: 'relative'
-        }}
+      <LocalStylesInjector
+        containerClassName={containerClassName}
+        height={31}
+        checked={this.getCheckedState()}
       >
+        {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label htmlFor={id}>
-          {label}
-          <input
-            checked={checked}
-            id={id}
-            onChange={this.handleToggle}
-            onBlur={onBlur}
-            type="checkbox"
-            ref={el => {
-              this.checkbox = el;
-            }}
-            css={{
-              border: 0,
-              clip: 'rect(0 0 0 0)',
-              height: '1px',
-              margin: '-1px',
-              overflow: 'hidden',
-              padding: 0,
-              position: 'absolute',
-              width: '1px',
-              [CSS_SELECTOR_FOCUS]: {
-                '+ span': {
-                  boxShadow: `0px 0px 1px 2px ${colours.lightGrey}`,
-                  outline: 'none'
-                }
-              }
-            }}
-          />
-          <span
-            css={{
-              alignItems: 'center',
-              backgroundColor: checked ? colours.highlights : colours.lightGrey,
-              borderRadius: '15px',
-              bottom: 0,
-              cursor: 'pointer',
-              display: 'flex',
-              height: '30px',
-              maxWidth: '62px',
-              position: 'absolute',
-              transition: 'background-color 150ms linear',
-              width: '100%',
-              [CSS_PSEUDO_AFTER]: {
-                content: '" "',
-                background: 'white',
-                borderRadius: '50%',
-                height: '24px',
-                left: checked ? 'calc(100% - 27px)' : '3px',
-                position: 'absolute',
-                top: '3px',
-                transition: 'left 150ms ease-out',
-                width: '24px'
-              }
-            }}
-          />
+          <LabelText>{label}</LabelText>
         </label>
-      </div>
+        <Switch
+          checked={this.getCheckedState()}
+          onChange={this.handleChange}
+          handleDiameter={24.8}
+          offColor={colours.darkerGrey}
+          onColor={colours.highlights}
+          offHandleColor={colours.white}
+          onHandleColor={colours.white}
+          boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+          uncheckedIcon={false}
+          checkedIcon={false}
+          height={31}
+          width={49}
+          className="react-switch"
+          id={id}
+        />
+      </LocalStylesInjector>
     );
-  }
+  };
 }
-
-Toggle.propTypes = {
-  checked: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func
-};
-
-Toggle.defaultProps = {
-  checked: undefined,
-  defaultChecked: false,
-  onChange: () => {},
-  onBlur: () => {}
-};
 
 export default Toggle;

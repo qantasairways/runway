@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Controlled should render checked="false" correctly 1`] = `
+<LocalStylesInjector
+  checked={false}
+  containerClassName="mockContainerClassName"
+  height={31}
+>
+  <label
+    htmlFor="mockId-3"
+  >
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={false}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={24.8}
+    height={31}
+    id="mockId-3"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={49}
+  />
+</LocalStylesInjector>
+`;
+
+exports[`Toggle Controlled should render checked="true" correctly 1`] = `
+<LocalStylesInjector
+  checked={true}
+  containerClassName="mockContainerClassName"
+  height={31}
+>
+  <label
+    htmlFor="mockId-2"
+  >
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={true}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={24.8}
+    height={31}
+    id="mockId-2"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={49}
+  />
+</LocalStylesInjector>
+`;
+
+exports[`Toggle Uncontrolled should render correctly 1`] = `
+<LocalStylesInjector
+  checked={false}
+  containerClassName="mockContainerClassName"
+  height={31}
+>
+  <label
+    htmlFor="mockId-1"
+  >
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={false}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={24.8}
+    height={31}
+    id="mockId-1"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={49}
+  />
+</LocalStylesInjector>
+`;

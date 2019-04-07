@@ -8,7 +8,7 @@ const airwaysColours = {
   warningOrange: '#ed710b',
   bayBlue: '#8de2e0',
   grey: '#dadada',
-  dimGray: '#666666'
+  darkGrey: '#666666'
 };
 
 const airwaysFontFamily = {
@@ -25,8 +25,8 @@ export const colours = {
   primaryDark: airwaysColours.darkRed,
   white: airwaysColours.white,
   transparent: 'transparent',
-  text: airwaysColours.charcoal,
-  darkGrey: airwaysColours.dimGray,
+  darkerGrey: airwaysColours.charcoal,
+  darkGrey: airwaysColours.darkGrey,
   lightGrey: airwaysColours.grey,
   highlights: airwaysColours.bayBlue,
   warnings: airwaysColours.warningOrange
@@ -41,7 +41,8 @@ export const fontFamily = {
 
 export const fontSize = {
   body: '1.125em',
-  button: '1em'
+  button: '1em',
+  label: '1.125rem'
 };
 
 export const buttons = {
