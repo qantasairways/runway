@@ -1,65 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupField renders correctly with defaults 1`] = `
-<PopupField
-  buttonContent="Popup Field"
-  closeAriaLabel="Close dialog"
-  navigationAriaLabel="Tab to navigate"
-  onBlur={[Function]}
-  onClose={[Function]}
-  openAriaLabel="Open dialog"
-  popupAriaLabel="Dialog is open"
->
-  <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      aria-label="Open dialog"
-      onBlur={[Function]}
-      onClick={[Function]}
-      type="button"
-    >
-      Popup Field
-    </button>
-    <Transition
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={false}
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </div>
-</PopupField>
-`;
+.emotion-3 {
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  background-color: #323232;
+  padding: 0 16px;
+  position: relative;
+  font-family: "Ciutadella",sans-serif;
+}
 
-exports[`PopupField renders correctly with jsx button content 1`] = `
+.emotion-2 {
+  height: 6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
 <PopupField
-  buttonContent="Popup Field"
+  className={null}
   closeAriaLabel="Close dialog"
-  navigationAriaLabel="Tab to navigate"
+  fieldLabel={null}
+  icon={null}
+  largeValue={null}
   onBlur={[Function]}
   onClose={[Function]}
-  openAriaLabel="Open dialog"
-  popupAriaLabel="Dialog is open"
+  placeHolder=""
+  smallValue={null}
 >
   <div>
     <button
       aria-expanded={false}
       aria-haspopup="dialog"
-      aria-label="Open dialog"
+      aria-label="null. ."
+      className="emotion-3 null"
       onBlur={[Function]}
       onClick={[Function]}
       type="button"
     >
-      Popup Field
+      <ButtonContent
+        fieldLabel={null}
+        icon={null}
+        largeValue={null}
+        placeHolder=""
+        smallValue={null}
+      >
+        <div
+          className="emotion-2"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div
+            className="emotion-1"
+          />
+        </div>
+      </ButtonContent>
     </button>
     <Transition
       appear={false}
@@ -81,25 +109,93 @@ exports[`PopupField renders correctly with jsx button content 1`] = `
 `;
 
 exports[`PopupField renders correctly with one child element 1`] = `
+.emotion-3 {
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  background-color: #323232;
+  padding: 0 16px;
+  position: relative;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-2 {
+  height: 6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
 <PopupField
-  buttonContent="Popup Field"
+  className={null}
   closeAriaLabel="Close dialog"
-  navigationAriaLabel="Tab to navigate"
+  fieldLabel={null}
+  icon={null}
+  largeValue={null}
   onBlur={[Function]}
   onClose={[Function]}
-  openAriaLabel="Open dialog"
-  popupAriaLabel="Dialog is open"
+  placeHolder=""
+  smallValue={null}
 >
   <div>
     <button
       aria-expanded={false}
       aria-haspopup="dialog"
-      aria-label="Open dialog"
+      aria-label="null. ."
+      className="emotion-3 null"
       onBlur={[Function]}
       onClick={[Function]}
       type="button"
     >
-      Popup Field
+      <ButtonContent
+        fieldLabel={null}
+        icon={null}
+        largeValue={null}
+        placeHolder=""
+        smallValue={null}
+      >
+        <div
+          className="emotion-2"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div
+            className="emotion-1"
+          />
+        </div>
+      </ButtonContent>
     </button>
     <Transition
       appear={false}
@@ -121,25 +217,93 @@ exports[`PopupField renders correctly with one child element 1`] = `
 `;
 
 exports[`PopupField renders correctly with one child function 1`] = `
+.emotion-3 {
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  background-color: #323232;
+  padding: 0 16px;
+  position: relative;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-2 {
+  height: 6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
 <PopupField
-  buttonContent="Popup Field"
+  className={null}
   closeAriaLabel="Close dialog"
-  navigationAriaLabel="Tab to navigate"
+  fieldLabel={null}
+  icon={null}
+  largeValue={null}
   onBlur={[Function]}
   onClose={[Function]}
-  openAriaLabel="Open dialog"
-  popupAriaLabel="Dialog is open"
+  placeHolder=""
+  smallValue={null}
 >
   <div>
     <button
       aria-expanded={false}
       aria-haspopup="dialog"
-      aria-label="Open dialog"
+      aria-label="null. ."
+      className="emotion-3 null"
       onBlur={[Function]}
       onClick={[Function]}
       type="button"
     >
-      Popup Field
+      <ButtonContent
+        fieldLabel={null}
+        icon={null}
+        largeValue={null}
+        placeHolder=""
+        smallValue={null}
+      >
+        <div
+          className="emotion-2"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div
+            className="emotion-1"
+          />
+        </div>
+      </ButtonContent>
     </button>
     <Transition
       appear={false}
@@ -161,25 +325,93 @@ exports[`PopupField renders correctly with one child function 1`] = `
 `;
 
 exports[`PopupField renders correctly with props 1`] = `
+.emotion-3 {
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  background-color: #323232;
+  padding: 0 16px;
+  position: relative;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-2 {
+  height: 6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
 <PopupField
-  buttonContent="Popup Field"
+  className={null}
   closeAriaLabel="Close dialog"
-  navigationAriaLabel="Tab to navigate"
+  fieldLabel={null}
+  icon={null}
+  largeValue={null}
   onBlur={[Function]}
   onClose={[Function]}
-  openAriaLabel="Open dialog"
-  popupAriaLabel="Dialog is open"
+  placeHolder=""
+  smallValue={null}
 >
   <div>
     <button
       aria-expanded={false}
       aria-haspopup="dialog"
-      aria-label="Open dialog"
+      aria-label="null. ."
+      className="emotion-3 null"
       onBlur={[Function]}
       onClick={[Function]}
       type="button"
     >
-      Popup Field
+      <ButtonContent
+        fieldLabel={null}
+        icon={null}
+        largeValue={null}
+        placeHolder=""
+        smallValue={null}
+      >
+        <div
+          className="emotion-2"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div
+            className="emotion-1"
+          />
+        </div>
+      </ButtonContent>
     </button>
     <Transition
       appear={false}

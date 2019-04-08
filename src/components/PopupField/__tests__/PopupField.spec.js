@@ -10,7 +10,7 @@ describe('PopupField', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = mount(<PopupField buttonContent="Popup Field" />);
+    component = mount(<PopupField />);
 
     expect(component).toMatchSnapshot();
   });
@@ -19,31 +19,15 @@ describe('PopupField', () => {
     beforeAll(() => {
       component = mount(
         <PopupField
-          buttonContent="Popup Field"
-          openAriaLabel="Open Aria Label"
           closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
           onClose={e => e}
-        />
-      );
-      openPopup(component);
-    });
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('renders correctly with jsx button content', () => {
-    beforeAll(() => {
-      const ButtonContent = <div>Button</div>;
-      component = mount(
-        <PopupField
-          buttonContent={ButtonContent}
-          openAriaLabel="Open Aria Label"
-          closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
-          onClose={e => e}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
         />
       );
       openPopup(component);
@@ -54,7 +38,7 @@ describe('PopupField', () => {
 
   it('renders correctly with one child element', () => {
     component = mount(
-      <PopupField buttonContent="Popup Field">
+      <PopupField>
         <span>Child Element</span>
       </PopupField>
     );
@@ -65,7 +49,7 @@ describe('PopupField', () => {
 
   it('renders correctly with one child function', () => {
     component = mount(
-      <PopupField buttonContent="Popup Field">
+      <PopupField>
         {({ closePopup }) => <button type="button" onClick={closePopup} />}
       </PopupField>
     );
@@ -79,12 +63,15 @@ describe('PopupField', () => {
       document.addEventListener = jest.fn();
       component = mount(
         <PopupField
-          buttonContent="Popup Field"
-          openAriaLabel="Open Aria Label"
           closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
           onClose={e => e}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
         />
       );
       openPopup(component);
@@ -119,12 +106,15 @@ describe('PopupField', () => {
       document.removeEventListener = jest.fn();
       component = mount(
         <PopupField
-          buttonContent="Popup Field"
-          openAriaLabel="Open Aria Label"
           closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
           onClose={mockOnClose}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
         />
       );
       jest.spyOn(component.instance().fieldButton, 'focus');
@@ -160,27 +150,30 @@ describe('PopupField', () => {
     beforeEach(() => {
       component = mount(
         <PopupField
-          buttonContent="Popup Field"
-          openAriaLabel="Open Aria Label"
           closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
           onClose={e => e}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
         />
       );
       openPopup(component);
-      jest.spyOn(component.instance(), 'togglePopup');
+      jest.spyOn(component.instance(), 'closePopup');
     });
 
     afterEach(() => {
-      component.instance().togglePopup.mockReset();
+      component.instance().closePopup.mockReset();
     });
 
-    it('calls togglePopup() if the click was outside', () => {
+    it('calls closePopup() if the click was outside', () => {
       const componentInstance = component.instance();
 
       componentInstance.handleClickOutside({ target: document });
-      expect(componentInstance.togglePopup).toHaveBeenCalled();
+      expect(componentInstance.closePopup).toHaveBeenCalled();
     });
 
     it('does nothing if the click was inside', () => {
@@ -189,35 +182,56 @@ describe('PopupField', () => {
       componentInstance.handleClickOutside({
         target: componentInstance.wrapper
       });
-      expect(componentInstance.togglePopup).not.toHaveBeenCalled();
+      expect(componentInstance.closePopup).not.toHaveBeenCalled();
     });
   });
 
-  describe('togglePopup()', () => {
+  describe('openPopup()', () => {
     beforeEach(() => {
       component = mount(
         <PopupField
-          buttonContent="Popup Field"
-          openAriaLabel="Open Aria Label"
           closeAriaLabel="Close Aria Label"
-          popupAriaLabel="Popup Aria Label"
-          navigationAriaLabel="Tab to navigate"
           onClose={e => e}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
         />
       );
     });
 
     it('opens the popup', () => {
-      component.instance().togglePopup();
+      component.instance().openPopup();
 
       expect(component.state('open')).toBe(true);
+    });
+  });
+
+  describe('closePopup()', () => {
+    beforeEach(() => {
+      component = mount(
+        <PopupField
+          closeAriaLabel="Close Aria Label"
+          onClose={e => e}
+          onBlur={e => e}
+          className="class-name"
+          fieldLabel="Field Label"
+          largeValue="Large value"
+          smallValue="small vlaue"
+          placeHolder="placeholder"
+          icon={<div />}
+        />
+      );
     });
 
     it('closes the popup', () => {
       const componentInstance = component.instance();
 
       componentInstance.setState({ open: true });
-      componentInstance.togglePopup();
+      componentInstance.closePopup();
 
       expect(component.state('open')).toBe(false);
     });
