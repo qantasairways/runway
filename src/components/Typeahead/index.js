@@ -83,7 +83,8 @@ class Typeahead extends Component {
       placeholder,
       stateReducer,
       valid,
-      selectItemCollector
+      selectItemCollector,
+      maxlength
     } = this.props;
 
     return (
@@ -129,7 +130,8 @@ class Typeahead extends Component {
                     disabled,
                     id,
                     placeholder,
-                    onBlur
+                    onBlur,
+                    maxlength
                   })}
                 />
                 <ul {...getMenuProps()}>
@@ -172,7 +174,8 @@ Typeahead.propTypes = {
   placeholder: PropTypes.string,
   stateReducer: PropTypes.func,
   valid: PropTypes.bool,
-  selectItemCollector: PropTypes.func
+  selectItemCollector: PropTypes.func,
+  maxlength: PropTypes.string
 };
 
 Typeahead.defaultProps = {
@@ -193,7 +196,8 @@ Typeahead.defaultProps = {
   minChars: 0,
   placeholder: '',
   stateReducer: undefined,
-  valid: true
+  valid: true,
+  maxlength: '100'
 };
 
 export default Typeahead;
