@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExternalLink when desktop renders correctly 1`] = `
+.emotion-5 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 {
+  height: 32px;
+  width: 32px;
+}
+
+.emotion-1 {
+  width: 0.625rem;
+}
+
+.emotion-4 {
+  background-color: #323232;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  text-transform: uppercase;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
+  font-size: 1.125em;
+  color: #fff;
+}
+
+<ExternalLink
+  icon="mockIcon"
+  text="mockText"
+  url="mockUrl"
+>
+  <a
+    className="emotion-5"
+    href="mockUrl"
+  >
+    <Media
+      defaultMatches={true}
+      query="(max-width: 480px)"
+    >
+      <ItemContainerDesktop>
+        <div
+          className="emotion-4"
+        >
+          <Item
+            height="32px"
+            width="32px"
+          >
+            <span
+              className="emotion-0"
+            >
+              mockIcon
+            </span>
+          </Item>
+          <Spacer>
+            <Item
+              width="0.625rem"
+            >
+              <span
+                className="emotion-1"
+              />
+            </Item>
+          </Spacer>
+          <Item>
+            <span
+              className="emotion-3"
+            >
+              <Text
+                color="#fff"
+              >
+                <span
+                  className="emotion-2"
+                >
+                  mockText
+                </span>
+              </Text>
+            </span>
+          </Item>
+        </div>
+      </ItemContainerDesktop>
+    </Media>
+  </a>
+</ExternalLink>
+`;
+
+exports[`ExternalLink when mobile renders correctly 1`] = `
+.emotion-7 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-6 {
+  height: 72px;
+  padding: 20px 16px;
+  background-color: #dadada;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  height: 32px;
+  width: 32px;
+}
+
+.emotion-1 {
+  width: 0.625rem;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.emotion-2 {
+  text-transform: uppercase;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
+  font-size: 1.125em;
+  color: #323232;
+}
+
+<ExternalLink
+  icon="mockIcon"
+  text="mockText"
+  url="mockUrl"
+>
+  <a
+    className="emotion-7"
+    href="mockUrl"
+  >
+    <Media
+      defaultMatches={true}
+      query="(max-width: 480px)"
+    >
+      <ItemContainerMobile>
+        <div
+          className="emotion-6"
+        >
+          <Item
+            height="32px"
+            width="32px"
+          >
+            <span
+              className="emotion-0"
+            >
+              mockIcon
+            </span>
+          </Item>
+          <Spacer>
+            <Item
+              width="0.625rem"
+            >
+              <span
+                className="emotion-1"
+              />
+            </Item>
+          </Spacer>
+          <Item
+            size={1}
+          >
+            <span
+              className="emotion-3"
+            >
+              <Text
+                color="#323232"
+              >
+                <span
+                  className="emotion-2"
+                >
+                  mockText
+                </span>
+              </Text>
+            </span>
+          </Item>
+          <Spacer>
+            <Item
+              width="0.625rem"
+            >
+              <span
+                className="emotion-1"
+              />
+            </Item>
+          </Spacer>
+          <Item
+            height="32px"
+            width="32px"
+          >
+            <span
+              className="emotion-0"
+            >
+              <SVGArrowRight
+                color="#323232"
+                height="100%"
+                width="100%"
+              >
+                <svg
+                  height="100%"
+                  viewBox="0 0 24 24"
+                  width="100%"
+                >
+                  <defs>
+                    <path
+                      d="M10.138 11.269l5.088-4.766.005-.004.769-.721L10.138.287a1.144 1.144 0 0 0-1.53.012.976.976 0 0 0-.013 1.433l3.23 3.024H1.09C.488 4.756 0 5.214 0 5.778 0 6.342.488 6.8 1.09 6.8h10.733L8.595 9.824a.976.976 0 0 0 .014 1.432c.42.394 1.1.4 1.529.013z"
+                      id="arrow-right_svg__a"
+                    />
+                  </defs>
+                  <g
+                    fill="none"
+                    fillRule="evenodd"
+                    transform="translate(4 6)"
+                  >
+                    <mask
+                      fill="#fff"
+                      id="arrow-right_svg__b"
+                    >
+                      <use
+                        xlinkHref="#arrow-right_svg__a"
+                      />
+                    </mask>
+                    <use
+                      fill="#202020"
+                      xlinkHref="#arrow-right_svg__a"
+                    />
+                    <g
+                      fill="#323232"
+                      mask="url(#arrow-right_svg__b)"
+                    >
+                      <path
+                        d="M-4-6h24v24H-4z"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </SVGArrowRight>
+            </span>
+          </Item>
+        </div>
+      </ItemContainerMobile>
+    </Media>
+  </a>
+</ExternalLink>
+`;

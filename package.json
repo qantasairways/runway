@@ -43,6 +43,7 @@
     "rc-input-number": "^4.3.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-media": "1.9.2",
     "react-transition-group": "^2.6.0"
   },
   "devDependencies": {
