@@ -9,6 +9,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
   padding: 0 16px;
   position: relative;
   font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
 }
 
 .emotion-2 {
@@ -117,6 +118,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
   padding: 0 16px;
   position: relative;
   font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
 }
 
 .emotion-2 {
@@ -225,6 +227,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
   padding: 0 16px;
   position: relative;
   font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
 }
 
 .emotion-2 {
@@ -333,6 +336,7 @@ exports[`PopupField renders correctly with props 1`] = `
   padding: 0 16px;
   position: relative;
   font-family: "Ciutadella",sans-serif;
+  font-weight: 700;
 }
 
 .emotion-2 {
