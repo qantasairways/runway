@@ -169,6 +169,7 @@ Typeahead.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onInputValueChange: PropTypes.func,
+  filterItems: PropTypes.func,
   message: PropTypes.string,
   minChars: PropTypes.number,
   placeholder: PropTypes.string,

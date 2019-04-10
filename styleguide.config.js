@@ -8,5 +8,6 @@ module.exports = {
     url: 'https://github.com/styleguidist/react-styleguidist'
   },
   version,
-  webpackConfig: createConfig([babel(), postcss()])
+  webpackConfig: createConfig([babel(), postcss()]),
+  skipComponentsWithoutExample: true
 };

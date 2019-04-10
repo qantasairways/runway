@@ -1,12 +1,24 @@
-```js
-const ButtonContent = (
-  <div>
-    <div>Open</div>
-    <div>Popup</div>
-  </div>
-);
+Value not selected
 
-<PopupField buttonContent={ButtonContent}>
+```js
+<PopupField
+  placeHolder="To where?"
+  fieldLabel="To"
+  icon={<PinIcon color="#626262" />}
+>
   {({ closePopup }) => <Button onClick={closePopup} label="Close Popup" />}
-</PopupField>;
+</PopupField>
+```
+
+Value selected
+
+```js
+<PopupField
+  placeHolder="To where?"
+  fieldLabel="To"
+  largeValue="SYD"
+  smallValue="Sydney Kingsford Smith (SYD), Australia"
+>
+  {({ closePopup }) => <Button onClick={closePopup} label="Close Popup" />}
+</PopupField>
 ```

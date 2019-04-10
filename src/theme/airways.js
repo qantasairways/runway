@@ -1,4 +1,4 @@
-const airwaysColours = {
+export const airwaysColours = {
   qantasRed: '#ee0000',
   darkRed: '#ba0000',
   focusRed: '#870000',
@@ -8,16 +8,18 @@ const airwaysColours = {
   warningOrange: '#ed710b',
   bayBlue: '#8de2e0',
   grey: '#dadada',
-  dimGray: '#666666'
+  darkGrey: '#626262'
 };
 
-const airwaysFontFamily = {
+export const airwaysFontFamily = {
   main: '"Ciutadella", sans-serif',
   mainMedium: '"Ciutadella-Medium", sans-serif'
 };
 
-const layout = {
-  borderRadius: '4px'
+export const layout = {
+  borderRadius: '4px',
+  gutter: '16px',
+  iconSize: '32px'
 };
 
 export const colours = {
@@ -25,8 +27,8 @@ export const colours = {
   primaryDark: airwaysColours.darkRed,
   white: airwaysColours.white,
   transparent: 'transparent',
-  text: airwaysColours.charcoal,
-  darkGrey: airwaysColours.dimGray,
+  darkerGrey: airwaysColours.charcoal,
+  darkGrey: airwaysColours.darkGrey,
   lightGrey: airwaysColours.grey,
   highlights: airwaysColours.bayBlue,
   warnings: airwaysColours.warningOrange
@@ -34,26 +36,40 @@ export const colours = {
 
 export const fontFamily = {
   body: airwaysFontFamily.main,
+  bold: airwaysFontFamily.mainMedium,
   h1: airwaysFontFamily.main,
   h2: airwaysFontFamily.mainMedium,
   h3: airwaysFontFamily.mainMedium
 };
 
 export const fontSize = {
-  body: '1.125em',
-  button: '1em'
+  body: '1.125rem',
+  button: '1rem',
+  label: '1rem',
+  large: '2.25rem'
+};
+
+export const fontWeight = {
+  regular: 300
+};
+
+export const letterSpacing = {
+  small: '-0.0625rem'
 };
 
 export const buttons = {
   borderRadius: layout.borderRadius,
   clickOffset: '1px',
   width: '100%',
-  height: '50px'
+  height: '3.125rem',
+  heightLarge: '6rem'
 };
 
 export default {
+  layout,
   colours,
   fontFamily,
   fontSize,
+  fontWeight,
   buttons
 };
