@@ -97,7 +97,8 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              only:
+                - master
       - deploy:
           requires:
             - build
@@ -106,4 +107,5 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              only:
+                - master
