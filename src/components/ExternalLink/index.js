@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Media from 'react-media';
 
 import {
-  breakpoints,
   layout,
   colours,
   fontSize,
   fontFamily,
-  fontWeight
+  fontWeight,
+  mq
 } from '../../theme/airways';
 
 const SVGArrowRight = ({ color, ...rest }) => (
@@ -41,108 +40,99 @@ const align = {
   alignItems: 'center'
 };
 
-const ItemContainerMobile = ({ children }) => (
+const ItemContainer = ({ children }) => (
   <div
     css={{
       height: '72px',
       padding: `20px ${layout.gutter}`,
       backgroundColor: colours.lightGrey,
+      [mq.tablet]: {
+        height: '100%',
+        padding: '0px',
+        backgroundColor: colours.darkerGrey
+      },
       ...align
     }}
   >
     {children}
   </div>
 );
-ItemContainerMobile.propTypes = {
-  children: PropTypes.node.isRequired
+ItemContainer.propTypes = {
+  children: PropTypes.node
+};
+ItemContainer.defaultProps = {
+  children: undefined
 };
 
-const ItemContainerDesktop = ({ children }) => (
-  <div
+const Item = ({ children, size, onlyMobile, ...rest }) => (
+  <span
     css={{
-      backgroundColor: colours.darkerGrey,
-      ...align
+      ...(size && { flex: size }),
+      display: 'inline',
+      [mq.tablet]: {
+        display: onlyMobile ? 'none' : 'inline'
+      },
+      ...rest
     }}
   >
     {children}
-  </div>
-);
-ItemContainerDesktop.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-const Item = ({ children, size, ...rest }) => (
-  <span css={{ ...(size && { flex: size }), ...rest }}>{children}</span>
+  </span>
 );
 Item.propTypes = {
   children: PropTypes.node,
-  size: PropTypes.number
+  size: PropTypes.number,
+  onlyMobile: PropTypes.bool
+};
+Item.defaultProps = {
+  children: undefined,
+  onlyMobile: false,
+  size: null
 };
 
-const Spacer = () => <Item width="0.625rem" />;
-
-const Text = ({ children, color }) => {
-  return (
-    <span
-      css={{
-        textTransform: 'uppercase',
-        fontFamily: fontFamily.body,
-        fontWeight: fontWeight.bold,
-        fontSize: fontSize.body,
-        color
-      }}
-    >
-      {children}
-    </span>
-  );
+const Spacer = ({ onlyMobile }) => (
+  <Item width={layout.links.gutter} onlyMobile={onlyMobile} />
+);
+Spacer.propTypes = {
+  onlyMobile: PropTypes.bool
 };
+Spacer.defaultProps = {
+  onlyMobile: false
+};
+
+const Text = ({ children }) => (
+  <span
+    css={{
+      textTransform: 'uppercase',
+      fontFamily: fontFamily.body,
+      fontWeight: fontWeight.bold,
+      fontSize: fontSize.body,
+      color: [colours.darkGrey, colours.white]
+    }}
+  >
+    {children}
+  </span>
+);
 Text.propTypes = {
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired
 };
 
-const ExternalLink = ({ icon, url, text }) => {
-  return (
-    <a css={{ textDecoration: 'none' }} href={url}>
-      <Media query={`(max-width: ${breakpoints.mobile})`}>
-        {isMobile => {
-          if (isMobile) {
-            return (
-              <ItemContainerMobile>
-                <Item height={layout.iconSize} width={layout.iconSize}>
-                  {icon}
-                </Item>
-                <Spacer />
-                <Item size={1}>
-                  <Text color={colours.darkerGrey}>{text}</Text>
-                </Item>
-                <Spacer />
-                <Item height={layout.iconSize} width={layout.iconSize}>
-                  <SVGArrowRight
-                    color={colours.darkerGrey}
-                    height="100%"
-                    width="100%"
-                  />
-                </Item>
-              </ItemContainerMobile>
-            );
-          }
-          return (
-            <ItemContainerDesktop>
-              <Item height={layout.iconSize} width={layout.iconSize}>
-                {icon}
-              </Item>
-              <Spacer />
-              <Item>
-                <Text color={colours.white}>{text}</Text>
-              </Item>
-            </ItemContainerDesktop>
-          );
-        }}
-      </Media>
-    </a>
-  );
-};
+const ExternalLink = ({ icon, url, text }) => (
+  <a css={{ textDecoration: 'none' }} href={url}>
+    <ItemContainer>
+      <Item height={layout.iconSize} width={layout.iconSize}>
+        {icon}
+      </Item>
+      <Spacer />
+      <Item size={1}>
+        <Text>{text}</Text>
+      </Item>
+      <Spacer onlyMobile />
+      <Item onlyMobile height={layout.iconSize} width={layout.iconSize}>
+        <SVGArrowRight color={colours.darkerGrey} height="100%" width="100%" />
+      </Item>
+    </ItemContainer>
+  </a>
+);
 
 ExternalLink.propTypes = {
   icon: PropTypes.node.isRequired,

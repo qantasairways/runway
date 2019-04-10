@@ -20,7 +20,10 @@ const airwaysFontFamily = {
 export const layout = {
   borderRadius: '4px',
   gutter: '16px',
-  iconSize: '32px'
+  iconSize: '32px',
+  links: {
+    gutter: '10px'
+  }
 };
 
 export const colours = {
@@ -61,8 +64,8 @@ export const buttons = {
   height: '50px'
 };
 
-export const breakpoints = {
-  mobile: '480px'
+export const mq = {
+  tablet: '@media only screen and (min-width: 480px)'
 };
 
 export default {
