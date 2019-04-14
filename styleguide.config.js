@@ -43,6 +43,5 @@ module.exports = {
     }
   },
   version,
-  webpackConfig: createConfig([babel(), postcss()]),
-  skipComponentsWithoutExample: true
+  webpackConfig: createConfig([babel(), postcss()])
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ButtonValues from './ButtonValues';
+
 import {
   fontSize,
   colours,
@@ -8,13 +10,9 @@ import {
   letterSpacing
 } from '../../../theme/airways';
 
-function ButtonContent({
-  fieldLabel,
-  placeHolder,
-  largeValue,
-  smallValue,
-  icon
-}) {
+function ButtonContent({ fieldLabel, placeHolder, values, Icon }) {
+  const [firstValue, secondValue] = values;
+
   return (
     <div
       css={{
@@ -22,50 +20,29 @@ function ButtonContent({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'column',
         maxWidth: '100%'
       }}
     >
       <span
         css={{
+          label: 'runway-popup-field__label',
           color: 'white',
           textTransform: 'uppercase',
           position: 'absolute',
-          top: '8px',
-          left: '8px',
+          top: '5px',
+          left: '7px',
           fontSize: fontSize.label
         }}
       >
         {fieldLabel}
       </span>
-      {largeValue && (
-        <div
-          css={{
-            color: colours.white,
-            fontSize: fontSize.large,
-            letterSpacing: letterSpacing.small
-          }}
-        >
-          {largeValue}
-        </div>
+      {firstValue && (
+        <ButtonValues firstValue={firstValue} secondValue={secondValue} />
       )}
-      {smallValue && (
+      {!firstValue && (
         <div
           css={{
-            color: colours.white,
-            fontSize: fontSize.body,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            maxWidth: '100%'
-          }}
-        >
-          {smallValue}
-        </div>
-      )}
-      {!largeValue && !smallValue && (
-        <div
-          css={{
+            label: 'runway-popup-field__placeholder',
             color: colours.darkGrey,
             fontSize: fontSize.large,
             letterSpacing: letterSpacing.small
@@ -74,15 +51,17 @@ function ButtonContent({
           {placeHolder}
         </div>
       )}
-      {!largeValue && !smallValue && !!icon && (
-        <span
+      {!firstValue && !!Icon && (
+        <Icon
           css={{
+            label: 'runway-popup-field__icon',
             position: 'absolute',
-            right: '10px'
+            right: '10px',
+            fill: colours.darkGrey
           }}
-        >
-          {icon}
-        </span>
+          height="36"
+          width="36"
+        />
       )}
     </div>
   );
@@ -91,17 +70,20 @@ function ButtonContent({
 ButtonContent.propTypes = {
   fieldLabel: PropTypes.string,
   placeHolder: PropTypes.string,
-  largeValue: PropTypes.string,
-  smallValue: PropTypes.string,
-  icon: PropTypes.element
+  values: PropTypes.arrayOf(
+    PropTypes.shape({
+      large: PropTypes.string,
+      small: PropTypes.string
+    })
+  ),
+  Icon: PropTypes.func
 };
 
 ButtonContent.defaultProps = {
   fieldLabel: null,
   placeHolder: null,
-  largeValue: null,
-  smallValue: null,
-  icon: null
+  values: [],
+  Icon: null
 };
 
 export default ButtonContent;
