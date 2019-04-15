@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { generate } from 'shortid';
 
-function PinIcon({ height, width, className }) {
+function PinIcon({ height, width, className, color }) {
   const pathId = generate();
   const maskId = generate();
 
@@ -21,9 +21,10 @@ function PinIcon({ height, width, className }) {
         />
       </defs>
       <g fillRule="evenodd" transform="translate(5 2)">
-        <mask id={maskId} fill="#fff">
+        <mask id={maskId}>
           <use xlinkHref={`#${pathId}`} />
         </mask>
+        <use fill={color} xlinkHref={`#${pathId}`} />
         <g mask={`url(#${maskId})`}>
           <path d="M-5-2h24v24H-5z" />
         </g>
@@ -35,12 +36,14 @@ function PinIcon({ height, width, className }) {
 PinIcon.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  color: PropTypes.string
 };
 
 PinIcon.defaultProps = {
   height: '24',
   width: '24',
+  color: '#fff',
   className: ''
 };
 
