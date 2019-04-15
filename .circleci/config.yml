@@ -39,6 +39,14 @@ jobs:
       - persist_to_workspace:
           root: ~/runway
           paths: .
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/runway
+      - run:
+          name: Run linting
+          command: npm run lint
   test:
     <<: *defaults
     steps:
@@ -84,6 +92,9 @@ workflows:
             tags:
               only: /^v.*/
       - build:
+          requires:
+            - checkout
+      - lint:
           requires:
             - checkout
       - test:
