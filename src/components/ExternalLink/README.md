@@ -2,6 +2,6 @@
 <ExternalLink
   text="Where Do I Go"
   url="https://www.google.com.au"
-  icon={`mockIcon`}
+  renderIcon={color => <PinIcon color={color} />}
 />
 ```

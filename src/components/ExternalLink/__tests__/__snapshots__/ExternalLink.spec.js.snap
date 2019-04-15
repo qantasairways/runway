@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExternalLink renders correctly 1`] = `
+exports[`ExternalLink renders correctly when larger viewport 1`] = `
 .emotion-7 {
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -9,7 +9,7 @@ exports[`ExternalLink renders correctly 1`] = `
 .emotion-6 {
   height: 72px;
   padding: 20px 16px;
-  background-color: #dadada;
+  background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -74,10 +74,15 @@ exports[`ExternalLink renders correctly 1`] = `
 .emotion-2 {
   text-transform: uppercase;
   font-family: "Ciutadella",sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   font-size: 1.125rem;
-  color: #626262;
-  color: #fff;
+  color: #323232;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-2 {
+    color: #fff;
+  }
 }
 
 .emotion-4 {
@@ -104,7 +109,21 @@ exports[`ExternalLink renders correctly 1`] = `
 }
 
 <ExternalLink
-  icon="mockIcon"
+  renderIcon={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "#fff",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": <div />,
+        },
+      ],
+    }
+  }
   text="mockText"
   url="mockUrl"
 >
@@ -125,7 +144,265 @@ exports[`ExternalLink renders correctly 1`] = `
           <span
             className="emotion-0"
           >
-            mockIcon
+            <MediaQueryDetector
+              query="@media only screen and (min-width: 480px)"
+            >
+              <div />
+            </MediaQueryDetector>
+          </span>
+        </Item>
+        <Spacer
+          onlyMobile={false}
+        >
+          <Item
+            onlyMobile={false}
+            size={null}
+            width="10px"
+          >
+            <span
+              className="emotion-1"
+            />
+          </Item>
+        </Spacer>
+        <Item
+          onlyMobile={false}
+          size={1}
+        >
+          <span
+            className="emotion-3"
+          >
+            <Text>
+              <span
+                className="emotion-2"
+              >
+                mockText
+              </span>
+            </Text>
+          </span>
+        </Item>
+        <Spacer
+          onlyMobile={true}
+        >
+          <Item
+            onlyMobile={true}
+            size={null}
+            width="10px"
+          >
+            <span
+              className="emotion-4"
+            />
+          </Item>
+        </Spacer>
+        <Item
+          height="32px"
+          onlyMobile={true}
+          size={null}
+          width="32px"
+        >
+          <span
+            className="emotion-5"
+          >
+            <SVGArrowRight
+              color="#323232"
+              height="100%"
+              width="100%"
+            >
+              <svg
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+              >
+                <defs>
+                  <path
+                    d="M10.138 11.269l5.088-4.766.005-.004.769-.721L10.138.287a1.144 1.144 0 0 0-1.53.012.976.976 0 0 0-.013 1.433l3.23 3.024H1.09C.488 4.756 0 5.214 0 5.778 0 6.342.488 6.8 1.09 6.8h10.733L8.595 9.824a.976.976 0 0 0 .014 1.432c.42.394 1.1.4 1.529.013z"
+                    id="arrow-right_svg__a"
+                  />
+                </defs>
+                <g
+                  fill="none"
+                  fillRule="evenodd"
+                  transform="translate(4 6)"
+                >
+                  <mask
+                    fill="#fff"
+                    id="arrow-right_svg__b"
+                  >
+                    <use
+                      xlinkHref="#arrow-right_svg__a"
+                    />
+                  </mask>
+                  <use
+                    fill="#202020"
+                    xlinkHref="#arrow-right_svg__a"
+                  />
+                  <g
+                    fill="#323232"
+                    mask="url(#arrow-right_svg__b)"
+                  >
+                    <path
+                      d="M-4-6h24v24H-4z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </SVGArrowRight>
+          </span>
+        </Item>
+      </div>
+    </ItemContainer>
+  </a>
+</ExternalLink>
+`;
+
+exports[`ExternalLink renders correctly when smaller viewport 1`] = `
+.emotion-7 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-6 {
+  height: 72px;
+  padding: 20px 16px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-6 {
+    height: 100%;
+    padding: 0px;
+    background-color: #323232;
+  }
+}
+
+.emotion-0 {
+  display: inline;
+  height: 32px;
+  width: 32px;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-0 {
+    display: inline;
+  }
+}
+
+.emotion-1 {
+  display: inline;
+  width: 10px;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-1 {
+    display: inline;
+  }
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: inline;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-3 {
+    display: inline;
+  }
+}
+
+.emotion-2 {
+  text-transform: uppercase;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: #323232;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-2 {
+    color: #fff;
+  }
+}
+
+.emotion-4 {
+  display: inline;
+  width: 10px;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-4 {
+    display: none;
+  }
+}
+
+.emotion-5 {
+  display: inline;
+  height: 32px;
+  width: 32px;
+}
+
+@media only screen and (min-width:480px) {
+  .emotion-5 {
+    display: none;
+  }
+}
+
+<ExternalLink
+  renderIcon={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "#323232",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": <div />,
+        },
+      ],
+    }
+  }
+  text="mockText"
+  url="mockUrl"
+>
+  <a
+    className="emotion-7"
+    href="mockUrl"
+  >
+    <ItemContainer>
+      <div
+        className="emotion-6"
+      >
+        <Item
+          height="32px"
+          onlyMobile={false}
+          size={null}
+          width="32px"
+        >
+          <span
+            className="emotion-0"
+          >
+            <MediaQueryDetector
+              query="@media only screen and (min-width: 480px)"
+            >
+              <div />
+            </MediaQueryDetector>
           </span>
         </Item>
         <Spacer
