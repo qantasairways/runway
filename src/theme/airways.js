@@ -8,7 +8,8 @@ export const airwaysColours = {
   warningOrange: '#ed710b',
   bayBlue: '#8de2e0',
   grey: '#dadada',
-  darkGrey: '#626262'
+  darkGrey: '#626262',
+  lightGrey: '#f4f5f6'
 };
 
 export const airwaysFontFamily = {
@@ -19,7 +20,10 @@ export const airwaysFontFamily = {
 export const layout = {
   borderRadius: '4px',
   gutter: '16px',
-  iconSize: '32px'
+  iconSize: '32px',
+  links: {
+    gutter: '10px'
+  }
 };
 
 export const colours = {
@@ -30,6 +34,7 @@ export const colours = {
   darkerGrey: airwaysColours.charcoal,
   darkGrey: airwaysColours.darkGrey,
   lightGrey: airwaysColours.grey,
+  lighterGrey: airwaysColours.lightGrey,
   highlights: airwaysColours.bayBlue,
   warnings: airwaysColours.warningOrange
 };
@@ -42,15 +47,16 @@ export const fontFamily = {
   h3: airwaysFontFamily.mainMedium
 };
 
+export const fontWeight = {
+  regular: 300,
+  bold: 700
+};
+
 export const fontSize = {
   body: '1.125rem',
   button: '1rem',
   label: '1rem',
   large: '2.25rem'
-};
-
-export const fontWeight = {
-  regular: 300
 };
 
 export const letterSpacing = {
@@ -63,6 +69,10 @@ export const buttons = {
   width: '100%',
   height: '3.125rem',
   heightLarge: '6rem'
+};
+
+export const mq = {
+  tablet: '@media only screen and (min-width: 480px)'
 };
 
 export default {
