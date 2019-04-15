@@ -1,3 +1,10 @@
+## [0.11.2](https://github.com/qantasairways/runway/compare/v0.11.1...v0.11.2) (2019-04-15)
+
+
+### Bug Fixes
+
+* **github:** added more reviewers ([5fa80ac](https://github.com/qantasairways/runway/commit/5fa80ac))
+
 ## [0.11.1](https://github.com/qantasairways/runway/compare/v0.11.0...v0.11.1) (2019-04-15)
 
 
