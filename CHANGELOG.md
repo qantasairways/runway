@@ -1,3 +1,10 @@
+## [0.11.1](https://github.com/qantasairways/runway/compare/v0.11.0...v0.11.1) (2019-04-15)
+
+
+### Bug Fixes
+
+* **ci:** Added linting to ci ([94dfba4](https://github.com/qantasairways/runway/commit/94dfba4))
+
 # [0.11.0](https://github.com/qantasairways/runway/compare/v0.10.0...v0.11.0) (2019-04-15)
 
 
