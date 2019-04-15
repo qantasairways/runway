@@ -44,5 +44,21 @@ module.exports = {
   },
   version,
   webpackConfig: createConfig([babel(), postcss()]),
-  skipComponentsWithoutExample: true
+  skipComponentsWithoutExample: true,
+  template: {
+    head: {
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'http://www.qantas.com/etc/designs/qcom/site/main.min.6d306e1d045f4c8fdfaacc1cf7984b23.css'
+        }
+      ]
+    }
+  },
+  theme: {
+    fontFamily: {
+      base: '"Ciutadella",Helvetica,Arial,sans-serif'
+    }
+  }
 };

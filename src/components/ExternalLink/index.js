@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -45,7 +45,7 @@ const ItemContainer = ({ children }) => (
     css={{
       height: '72px',
       padding: `20px ${layout.gutter}`,
-      backgroundColor: colours.lightGrey,
+      backgroundColor: colours.white,
       [mq.tablet]: {
         height: '100%',
         padding: '0px',
@@ -104,9 +104,12 @@ const Text = ({ children }) => (
     css={{
       textTransform: 'uppercase',
       fontFamily: fontFamily.body,
-      fontWeight: fontWeight.bold,
+      fontWeight: fontWeight.regular,
       fontSize: fontSize.body,
-      color: [colours.darkGrey, colours.white]
+      color: colours.darkerGrey,
+      [mq.tablet]: {
+        color: colours.white
+      }
     }}
   >
     {children}
@@ -116,11 +119,45 @@ Text.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-const ExternalLink = ({ icon, url, text }) => (
+class MediaQueryDetector extends Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+    query: PropTypes.string.isRequired
+  };
+
+  static extract = query => query.replace('@media', '');
+
+  state = {
+    matches: window.matchMedia(MediaQueryDetector.extract(this.props.query))
+      .matches
+  };
+
+  update = evt => this.setState({ matches: evt.matches });
+
+  componentWillMount = () => {
+    const { query } = this.props;
+    this.mediaQueryList = window.matchMedia(MediaQueryDetector.extract(query));
+    this.mediaQueryList.addListener(this.update);
+  };
+
+  componentWillUnmount = () => this.mediaQueryList.removeListener(this.update);
+
+  render = () => {
+    const { children } = this.props;
+    const { matches } = this.state;
+    return children(matches);
+  };
+}
+
+const ExternalLink = ({ renderIcon, url, text }) => (
   <a css={{ textDecoration: 'none' }} href={url}>
     <ItemContainer>
       <Item height={layout.iconSize} width={layout.iconSize}>
-        {icon}
+        <MediaQueryDetector query={mq.tablet}>
+          {atLeastTablet =>
+            renderIcon(atLeastTablet ? colours.white : colours.darkerGrey)
+          }
+        </MediaQueryDetector>
       </Item>
       <Spacer />
       <Item size={1}>
@@ -135,7 +172,7 @@ const ExternalLink = ({ icon, url, text }) => (
 );
 
 ExternalLink.propTypes = {
-  icon: PropTypes.node.isRequired,
+  renderIcon: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };
