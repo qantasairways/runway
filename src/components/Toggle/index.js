@@ -116,7 +116,7 @@ class Toggle extends Component {
     return (
       <LocalStylesInjector
         containerClassName={containerClassName}
-        height={31}
+        height={30}
         checked={this.getCheckedState()}
       >
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
@@ -126,7 +126,7 @@ class Toggle extends Component {
         <Switch
           checked={this.getCheckedState()}
           onChange={this.handleChange}
-          handleDiameter={24.8}
+          handleDiameter={26}
           offColor={colours.darkerGrey}
           onColor={colours.highlights}
           offHandleColor={colours.white}
@@ -134,8 +134,8 @@ class Toggle extends Component {
           boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
           uncheckedIcon={false}
           checkedIcon={false}
-          height={31}
-          width={49}
+          height={30}
+          width={48}
           className="react-switch"
           id={id}
         />
