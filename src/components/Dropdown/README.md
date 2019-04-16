@@ -1,24 +1,11 @@
 ```js
 const itemsArray = [
   {
-    name: 'YouTube'
+    name: 'Return'
   },
   {
-    name: 'Instagram'
-  },
-  {
-    name: 'Facebook'
-  },
-  {
-    name: 'Linkedin'
-  },
-  {
-    name: 'Slack'
-  },
-  { name: 'India' },
-  { name: 'Indonesia' },
-  { name: 'United Kingdom' },
-  { name: 'USA' }
+    name: 'One way'
+  }
 ];
 
 <Dropdown

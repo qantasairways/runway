@@ -1,17 +1,28 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+import noop from '../../utils/noop';
 
 const pickIndex = (...arr) => arr.find(index => index !== -1);
 
 export default class SelectOnKeyPressContainer extends React.Component {
   state = { history: [] };
 
+  componentDidMount() {
+    document.addEventListener('keypress', this.keyPress, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.keyPress, true);
+  }
+
   itemString = item => {
     const { itemToString } = this.props;
+
     return itemToString ? itemToString(item) : String(item);
   };
 
   find = query =>
-    this.props.items.findIndex((item, index) => {
+    this.props.items.findIndex(item => {
       const lowercase = this.itemString(item)
         .trim()
         .toLowerCase();
@@ -60,15 +71,26 @@ export default class SelectOnKeyPressContainer extends React.Component {
     }
   };
 
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.keyPress, true);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', this.keyPress, true);
-  }
-
   render() {
     return this.props.children;
   }
 }
+
+SelectOnKeyPressContainer.propTypes = {
+  children: PropTypes.oneOf([PropTypes.element, PropTypes.node]).isRequired,
+  downshiftProps: PropTypes.shape({
+    isOpen: PropTypes.bool,
+    highlightedIndex: PropTypes.number,
+    setHighlightedIndex: PropTypes.func,
+    openMenu: PropTypes.func
+  }).isRequired,
+  focus: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
+  itemToString: PropTypes.func
+};
+
+SelectOnKeyPressContainer.defaultProps = {
+  focus: false,
+  items: [],
+  itemToString: noop
+};
