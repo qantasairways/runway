@@ -138,7 +138,16 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
