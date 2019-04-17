@@ -1,3 +1,10 @@
+# [0.12.0](https://github.com/qantasairways/runway/compare/v0.11.2...v0.12.0) (2019-04-17)
+
+
+### Features
+
+* **dropdown:** ([#16](https://github.com/qantasairways/runway/issues/16)) ([28e56fb](https://github.com/qantasairways/runway/commit/28e56fb)), closes [#24](https://github.com/qantasairways/runway/issues/24)
+
 ## [0.11.2](https://github.com/qantasairways/runway/compare/v0.11.1...v0.11.2) (2019-04-15)
 
 
