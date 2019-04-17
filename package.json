@@ -43,7 +43,8 @@
     "rc-input-number": "^4.3.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-transition-group": "^2.6.0"
+    "react-transition-group": "^2.6.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
