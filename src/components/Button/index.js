@@ -73,12 +73,14 @@ const Button = ({ className, label, variant, ...buttonProps }) => (
 
 Button.propTypes = {
   label: PropTypes.string,
-  variant: PropTypes.oneOf([BUTTON_VARIANT_HOLLOW, BUTTON_VARIANT_SOLID])
+  variant: PropTypes.oneOf([BUTTON_VARIANT_HOLLOW, BUTTON_VARIANT_SOLID]),
+  className: PropTypes.string
 };
 
 Button.defaultProps = {
   label: 'button',
-  variant: BUTTON_VARIANT_SOLID
+  variant: BUTTON_VARIANT_SOLID,
+  className: null
 };
 
 export default Button;

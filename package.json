@@ -1,6 +1,6 @@
 {
   "name": "@qantasairways/runway",
-  "version": "0.8.0",
+  "version": "0.12.0",
   "description": "Qantas Style Guide",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
@@ -44,7 +44,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-switch": "4.1.0",
-    "react-transition-group": "^2.6.0"
+    "react-transition-group": "^2.6.0",
+    "shortid": "^2.2.14"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Transition } from 'react-transition-group';
+import ButtonContent from './components/ButtonContent';
+import { fontWeight, colours, layout, fontFamily } from '../../theme/airways';
 
 class PopupField extends Component {
   state = {
@@ -21,25 +23,33 @@ class PopupField extends Component {
 
   handleClickOutside = event => {
     if (this.wrapper && !this.wrapper.contains(event.target)) {
-      this.togglePopup();
+      this.closePopup();
     }
   };
 
-  togglePopup = () => {
-    this.setState(({ open }) => ({
-      open: !open
-    }));
+  openPopup = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  closePopup = () => {
+    this.setState({
+      open: false
+    });
   };
 
   render() {
     const {
-      openAriaLabel,
       closeAriaLabel,
-      popupAriaLabel,
-      navigationAriaLabel,
       children,
+      className,
       onBlur,
-      buttonContent
+      fieldLabel,
+      placeHolder,
+      largeValue,
+      smallValue,
+      icon
     } = this.props;
 
     const { open } = this.state;
@@ -47,7 +57,7 @@ class PopupField extends Component {
     const content =
       typeof children === 'function'
         ? children({
-            closePopup: this.togglePopup
+            closePopup: this.closePopup
           })
         : children;
 
@@ -63,6 +73,11 @@ class PopupField extends Component {
       }
     };
 
+    const contentAriaLabel =
+      largeValue || smallValue
+        ? `${largeValue || ''} ${smallValue || ''}`
+        : placeHolder;
+
     return (
       <div
         ref={el => {
@@ -72,15 +87,32 @@ class PopupField extends Component {
         <button
           aria-haspopup="dialog"
           aria-expanded={open}
-          aria-label={`${open ? closeAriaLabel : openAriaLabel}`}
-          onClick={this.togglePopup}
+          aria-label={`${fieldLabel}. ${contentAriaLabel}.`}
+          className={className}
+          onClick={this.openPopup}
           onBlur={onBlur}
           ref={el => {
             this.fieldButton = el;
           }}
           type="button"
+          css={{
+            border: 0,
+            width: '100%',
+            cursor: 'pointer',
+            backgroundColor: colours.darkerGrey,
+            padding: `0 ${layout.gutter}`,
+            position: 'relative',
+            fontFamily: fontFamily.body,
+            fontWeight: fontWeight.bold
+          }}
         >
-          {buttonContent}
+          <ButtonContent
+            fieldLabel={fieldLabel}
+            placeHolder={placeHolder}
+            largeValue={largeValue}
+            smallValue={smallValue}
+            icon={icon}
+          />
         </button>
         <Transition
           in={open}
@@ -106,11 +138,10 @@ class PopupField extends Component {
                 ...transitionStyles[state]
               }}
               role="dialog"
-              aria-label={popupAriaLabel}
             >
               <button
-                aria-label={`${closeAriaLabel}. ${navigationAriaLabel}`}
-                onClick={this.togglePopup}
+                aria-label={closeAriaLabel}
+                onClick={this.closePopup}
                 type="button"
                 ref={el => {
                   this.closeButton = el;
@@ -128,25 +159,29 @@ class PopupField extends Component {
 }
 
 PopupField.propTypes = {
-  buttonContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
-  openAriaLabel: PropTypes.string,
   closeAriaLabel: PropTypes.string,
-  popupAriaLabel: PropTypes.string,
-  navigationAriaLabel: PropTypes.string,
   onClose: PropTypes.func,
   onBlur: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  className: PropTypes.string,
+  fieldLabel: PropTypes.string,
+  largeValue: PropTypes.string,
+  smallValue: PropTypes.string,
+  placeHolder: PropTypes.string,
+  icon: PropTypes.element
 };
 
 PopupField.defaultProps = {
-  openAriaLabel: 'Open dialog',
   closeAriaLabel: 'Close dialog',
-  popupAriaLabel: 'Dialog is open',
-  navigationAriaLabel: 'Tab to navigate',
   onClose: () => {},
   onBlur: () => {},
-  children: null
+  children: null,
+  className: null,
+  fieldLabel: null,
+  largeValue: null,
+  smallValue: null,
+  placeHolder: '',
+  icon: null
 };
 
 export default PopupField;

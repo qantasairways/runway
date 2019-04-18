@@ -1,3 +1,51 @@
+# [0.12.0](https://github.com/qantasairways/runway/compare/v0.11.2...v0.12.0) (2019-04-17)
+
+
+### Features
+
+* **dropdown:** ([#16](https://github.com/qantasairways/runway/issues/16)) ([28e56fb](https://github.com/qantasairways/runway/commit/28e56fb)), closes [#24](https://github.com/qantasairways/runway/issues/24)
+
+## [0.11.2](https://github.com/qantasairways/runway/compare/v0.11.1...v0.11.2) (2019-04-15)
+
+
+### Bug Fixes
+
+* **github:** added more reviewers ([5fa80ac](https://github.com/qantasairways/runway/commit/5fa80ac))
+
+## [0.11.1](https://github.com/qantasairways/runway/compare/v0.11.0...v0.11.1) (2019-04-15)
+
+
+### Bug Fixes
+
+* **ci:** Added linting to ci ([94dfba4](https://github.com/qantasairways/runway/commit/94dfba4))
+
+# [0.11.0](https://github.com/qantasairways/runway/compare/v0.10.0...v0.11.0) (2019-04-15)
+
+
+### Features
+
+* **external-links:** Implement ExternalLink component design with responsive behaviours ([2f264ea](https://github.com/qantasairways/runway/commit/2f264ea))
+
+# [0.10.0](https://github.com/qantasairways/runway/compare/v0.9.0...v0.10.0) (2019-04-10)
+
+
+### Features
+
+* **popupfield:** Add styling and examples for popup field, some fixes for a11y ([195e374](https://github.com/qantasairways/runway/commit/195e374))
+
+# [0.9.0](https://github.com/qantasairways/runway/compare/v0.8.0...v0.9.0) (2019-04-10)
+
+
+### Bug Fixes
+
+* **circleci:** removed deploy and publish on branches ([8950771](https://github.com/qantasairways/runway/commit/8950771))
+* **circleci:** update filters for deploy and publish ([ae6852f](https://github.com/qantasairways/runway/commit/ae6852f))
+
+
+### Features
+
+* **setup:** Added styleguide documents to the components, fixed test file names ([ffe98ee](https://github.com/qantasairways/runway/commit/ffe98ee))
+
 # [0.8.0](https://github.com/qantasairways/runway/compare/v0.7.3...v0.8.0) (2019-04-02)
 
 
