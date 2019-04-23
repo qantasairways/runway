@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/qantasairways/runway/compare/v0.13.0...v0.14.0) (2019-04-23)
+
+
+### Features
+
+* **toggle:** Refactor toggle to use/extend react-switch ([#20](https://github.com/qantasairways/runway/issues/20)) ([8161d33](https://github.com/qantasairways/runway/commit/8161d33))
+
 # [0.13.0](https://github.com/qantasairways/runway/compare/v0.12.0...v0.13.0) (2019-04-23)
 
 
