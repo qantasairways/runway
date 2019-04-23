@@ -47,9 +47,8 @@ class PopupField extends Component {
       onBlur,
       fieldLabel,
       placeHolder,
-      largeValue,
-      smallValue,
-      icon
+      values,
+      Icon
     } = this.props;
 
     const { open } = this.state;
@@ -73,11 +72,6 @@ class PopupField extends Component {
       }
     };
 
-    const contentAriaLabel =
-      largeValue || smallValue
-        ? `${largeValue || ''} ${smallValue || ''}`
-        : placeHolder;
-
     return (
       <div
         ref={el => {
@@ -87,7 +81,6 @@ class PopupField extends Component {
         <button
           aria-haspopup="dialog"
           aria-expanded={open}
-          aria-label={`${fieldLabel}. ${contentAriaLabel}.`}
           className={className}
           onClick={this.openPopup}
           onBlur={onBlur}
@@ -96,6 +89,7 @@ class PopupField extends Component {
           }}
           type="button"
           css={{
+            label: 'runway-popup-field__button',
             border: 0,
             width: '100%',
             cursor: 'pointer',
@@ -103,15 +97,14 @@ class PopupField extends Component {
             padding: `0 ${layout.gutter}`,
             position: 'relative',
             fontFamily: fontFamily.body,
-            fontWeight: fontWeight.bold
+            fontWeight: fontWeight.regular
           }}
         >
           <ButtonContent
             fieldLabel={fieldLabel}
             placeHolder={placeHolder}
-            largeValue={largeValue}
-            smallValue={smallValue}
-            icon={icon}
+            values={values}
+            Icon={Icon}
           />
         </button>
         <Transition
@@ -124,6 +117,7 @@ class PopupField extends Component {
           {state => (
             <div
               css={{
+                label: 'runway-popup-field__dialog',
                 background: 'white',
                 boxSizing: 'border-box',
                 height: '100%',
@@ -165,10 +159,14 @@ PopupField.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   className: PropTypes.string,
   fieldLabel: PropTypes.string,
-  largeValue: PropTypes.string,
-  smallValue: PropTypes.string,
   placeHolder: PropTypes.string,
-  icon: PropTypes.element
+  Icon: PropTypes.func,
+  values: PropTypes.arrayOf(
+    PropTypes.shape({
+      large: PropTypes.string,
+      small: PropTypes.string
+    })
+  )
 };
 
 PopupField.defaultProps = {
@@ -178,10 +176,9 @@ PopupField.defaultProps = {
   children: null,
   className: null,
   fieldLabel: null,
-  largeValue: null,
-  smallValue: null,
+  values: [],
   placeHolder: '',
-  icon: null
+  Icon: null
 };
 
 export default PopupField;

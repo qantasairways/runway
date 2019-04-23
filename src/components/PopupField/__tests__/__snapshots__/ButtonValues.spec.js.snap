@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonValues renders correctly with one large and small value 1`] = `
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-2 {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+  line-height: 2.65rem;
+}
+
+.emotion-1 {
+  color: #fff;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+<ButtonValues
+  firstValue={
+    Object {
+      "large": "MEL",
+      "small": "Melbourne, Australia",
+    }
+  }
+  secondValue={null}
+>
+  <div
+    className="emotion-3"
+  >
+    <ButtonValue
+      large="MEL"
+      small="Melbourne, Australia"
+    >
+      <div
+        className="emotion-2"
+      >
+        <div
+          className="emotion-0"
+        >
+          MEL
+        </div>
+        <div
+          className="emotion-1"
+        >
+          Melbourne, Australia
+        </div>
+      </div>
+    </ButtonValue>
+  </div>
+</ButtonValues>
+`;
+
+exports[`ButtonValues renders correctly with one large value 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-1 {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+  line-height: 2.65rem;
+}
+
+<ButtonValues
+  firstValue={
+    Object {
+      "large": "MEL",
+    }
+  }
+  secondValue={null}
+>
+  <div
+    className="emotion-2"
+  >
+    <ButtonValue
+      large="MEL"
+      small=""
+    >
+      <div
+        className="emotion-1"
+      >
+        <div
+          className="emotion-0"
+        >
+          MEL
+        </div>
+      </div>
+    </ButtonValue>
+  </div>
+</ButtonValues>
+`;
+
+exports[`ButtonValues renders correctly with one small value 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-1 {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+<ButtonValues
+  firstValue={
+    Object {
+      "small": "Melbourne, Australia",
+    }
+  }
+  secondValue={null}
+>
+  <div
+    className="emotion-2"
+  >
+    <ButtonValue
+      large=""
+      small="Melbourne, Australia"
+    >
+      <div
+        className="emotion-1"
+      >
+        <div
+          className="emotion-0"
+        >
+          Melbourne, Australia
+        </div>
+      </div>
+    </ButtonValue>
+  </div>
+</ButtonValues>
+`;
+
+exports[`ButtonValues renders correctly with two values 1`] = `
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-2 {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+  line-height: 2.65rem;
+}
+
+.emotion-1 {
+  color: #fff;
+  font-size: 1.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.emotion-3 {
+  color: white;
+  margin: 0 15px;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+<ButtonValues
+  firstValue={
+    Object {
+      "large": "MEL",
+      "small": "Melbourne, Australia",
+    }
+  }
+  secondValue={
+    Object {
+      "large": "SYD",
+      "small": "Sydney, Australia",
+    }
+  }
+>
+  <div
+    className="emotion-7"
+  >
+    <ButtonValue
+      large="MEL"
+      small="Melbourne, Australia"
+    >
+      <div
+        className="emotion-2"
+      >
+        <div
+          className="emotion-0"
+        >
+          MEL
+        </div>
+        <div
+          className="emotion-1"
+        >
+          Melbourne, Australia
+        </div>
+      </div>
+    </ButtonValue>
+    <div
+      className="emotion-3"
+    >
+      -
+    </div>
+    <ButtonValue
+      large="SYD"
+      small="Sydney, Australia"
+    >
+      <div
+        className="emotion-2"
+      >
+        <div
+          className="emotion-0"
+        >
+          SYD
+        </div>
+        <div
+          className="emotion-1"
+        >
+          Sydney, Australia
+        </div>
+      </div>
+    </ButtonValue>
+  </div>
+</ButtonValues>
+`;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import noop from '../../utils/noop';
+import noop from '../../../utils/noop';
 
 const pickIndex = (...arr) => arr.find(index => index !== -1);
 

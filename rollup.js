@@ -5,6 +5,7 @@ const path = require('path');
 const { lstatSync, readdirSync, appendFileSync } = require('fs');
 
 const COMPONENT_DIR = './src/components';
+const ICON_DIR = './src/icons';
 
 const isDirectory = source => lstatSync(source).isDirectory();
 const getComponents = source =>
@@ -12,7 +13,10 @@ const getComponents = source =>
     .map(name => path.join(source, name))
     .filter(isDirectory);
 
-const components = getComponents(COMPONENT_DIR);
+const components = [
+  ...getComponents(COMPONENT_DIR),
+  ...getComponents(ICON_DIR)
+];
 
 /**
  * Rollup
@@ -58,11 +62,14 @@ const inputOptions = entry => ({
       exclude: 'node_modules/**',
       runtimeHelpers: true
     }),
-    nodeResolve(),
+    nodeResolve({
+      browser: true
+    }),
     commonjs({
       include: 'node_modules/**',
       namedExports: {
-        'react-is': ['isForwardRef', 'isValidElementType']
+        'react-is': ['isForwardRef', 'isValidElementType'],
+        shortid: ['generate']
       }
     }),
     visualizer()
@@ -70,7 +77,7 @@ const inputOptions = entry => ({
 });
 
 const outputOptions = (name, type) => {
-  const folderName = name.replace('src\\components', ''); // windows hotfix
+  const folderName = name.replace(/(src\\\\components|src\\\\icons)/g, ''); // windows hotfix
   return {
     file: path.resolve(__dirname, `${OUTPUT_DIR}/${folderName}/index.js`),
     name: folderName,
@@ -87,6 +94,7 @@ function writeComponentToIndex(name) {
 async function build(entrySrc, name, type) {
   try {
     const bundle = await rollup.rollup(inputOptions(entrySrc, type));
+
     await bundle.write(outputOptions(name, type));
     writeComponentToIndex(name);
     console.log(chalk.green(` ✅  Successuly packaged ${name} 📦`));
