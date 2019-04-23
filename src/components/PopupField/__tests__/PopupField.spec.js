@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import PopupField from '..';
 
+import PinIcon from '../../../icons/PinIcon';
+
 function openPopup(component) {
   component.instance().setState({ open: true });
 }
@@ -24,10 +26,14 @@ describe('PopupField', () => {
           onBlur={e => e}
           className="class-name"
           fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          values={[
+            {
+              large: 'Large value',
+              small: 'small value'
+            }
+          ]}
           placeHolder="placeholder"
-          icon={<div />}
+          icon={PinIcon}
         />
       );
       openPopup(component);

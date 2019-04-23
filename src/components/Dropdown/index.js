@@ -9,7 +9,7 @@ import MenuItem from './components/MenuItem';
 import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
-import noop from '../utils/noop';
+import noop from '../../utils/noop';
 
 export function dropdownStyles() {
   return css({
