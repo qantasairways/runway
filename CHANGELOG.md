@@ -1,3 +1,10 @@
+## [0.14.1](https://github.com/qantasairways/runway/compare/v0.14.0...v0.14.1) (2019-04-23)
+
+
+### Bug Fixes
+
+* **toggle:** Move Toggle.spec to tests dir ([#32](https://github.com/qantasairways/runway/issues/32)) ([dc7b153](https://github.com/qantasairways/runway/commit/dc7b153))
+
 # [0.14.0](https://github.com/qantasairways/runway/compare/v0.13.0...v0.14.0) (2019-04-23)
 
 
