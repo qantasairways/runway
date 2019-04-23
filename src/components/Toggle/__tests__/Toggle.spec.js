@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Toggle from './index';
+import Toggle from '../index';
 
 describe('Toggle', () => {
   describe('Uncontrolled', () => {
@@ -11,6 +11,7 @@ describe('Toggle', () => {
           onChange={() => {}}
           label="mockLabel"
           containerClassName="mockContainerClassName"
+          checked={false}
         />
       );
       expect(toggle).toMatchSnapshot();
