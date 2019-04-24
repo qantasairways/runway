@@ -30,16 +30,16 @@ export function labelStyles() {
   return css({});
 }
 
-export function inputWrapperStyles() {
+export function inputWrapperStyles({ fullWidth }) {
   return css({
     label: 'runway-dropdown__input-wrapper',
-    position: 'relative',
     cursor: 'pointer',
-    display: 'inline-block'
+    display: 'inline-block',
+    position: fullWidth ? 'initial' : 'relative'
   });
 }
 
-export function inputStyles() {
+export function inputStyles({ leftAlign }) {
   return css({
     label: 'runway-dropdown__input',
     backgroundColor: 'transparent',
@@ -52,10 +52,10 @@ export function inputStyles() {
     fontStretch: 'inherit',
     letterSpacing: 'inherit',
     textTransform: 'uppercase',
-    textAlign: 'right',
     color: 'inherit',
     padding: 0,
     cursor: 'pointer',
+    textAlign: leftAlign ? 'left' : 'right',
     '::placeholder': {
       color: 'inherit'
     }
@@ -227,6 +227,8 @@ Render.propTypes = {
   focus: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  leftAlign: PropTypes.bool,
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
     getItemProps: PropTypes.func,
@@ -247,7 +249,9 @@ Render.defaultProps = {
   renderItem: noop,
   focus: false,
   label: '',
-  placeholder: ''
+  placeholder: '',
+  fullWidth: false,
+  leftAlign: false
 };
 
 export default class Dropdown extends React.Component {
