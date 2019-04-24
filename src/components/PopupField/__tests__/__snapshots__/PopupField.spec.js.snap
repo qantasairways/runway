@@ -2,18 +2,21 @@
 
 exports[`PopupField renders correctly with defaults 1`] = `
 .emotion-3 {
-  border: 0;
+  position: relative;
+  height: 6rem;
   width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
   cursor: pointer;
   background-color: #323232;
-  padding: 0 16px;
-  position: relative;
+  color: #fff;
   font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   font-weight: 300;
 }
 
 .emotion-2 {
-  height: 6rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26,15 +29,14 @@ exports[`PopupField renders correctly with defaults 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 100%;
 }
 
 .emotion-0 {
-  color: white;
-  text-transform: uppercase;
   position: absolute;
   top: 5px;
   left: 7px;
+  color: white;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -48,29 +50,37 @@ exports[`PopupField renders correctly with defaults 1`] = `
 }
 
 <PopupField
+  HeaderIcon={null}
   Icon={null}
-  className={null}
+  buttonLabel={null}
   closeAriaLabel="Close dialog"
-  fieldLabel={null}
+  dialogAriaLabel=""
+  headerLabel=""
+  largeButtonValue=""
   onBlur={[Function]}
   onClose={[Function]}
   placeHolder=""
-  values={Array []}
+  smallButtonValue=""
 >
   <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
+    <Button
+      Icon={null}
+      buttonLabel={null}
+      largeButtonValue=""
       onBlur={[Function]}
       onClick={[Function]}
-      type="button"
+      open={false}
+      placeHolder=""
+      setButtonRef={[Function]}
+      smallButtonValue=""
     >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-3"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
       >
         <div
           className="emotion-2"
@@ -82,8 +92,8 @@ exports[`PopupField renders correctly with defaults 1`] = `
             className="emotion-1"
           />
         </div>
-      </ButtonContent>
-    </button>
+      </button>
+    </Button>
     <Transition
       appear={false}
       enter={true}
@@ -105,18 +115,21 @@ exports[`PopupField renders correctly with defaults 1`] = `
 
 exports[`PopupField renders correctly with one child element 1`] = `
 .emotion-3 {
-  border: 0;
+  position: relative;
+  height: 6rem;
   width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
   cursor: pointer;
   background-color: #323232;
-  padding: 0 16px;
-  position: relative;
+  color: #fff;
   font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   font-weight: 300;
 }
 
 .emotion-2 {
-  height: 6rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -129,15 +142,14 @@ exports[`PopupField renders correctly with one child element 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 100%;
 }
 
 .emotion-0 {
-  color: white;
-  text-transform: uppercase;
   position: absolute;
   top: 5px;
   left: 7px;
+  color: white;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -151,29 +163,37 @@ exports[`PopupField renders correctly with one child element 1`] = `
 }
 
 <PopupField
+  HeaderIcon={null}
   Icon={null}
-  className={null}
+  buttonLabel={null}
   closeAriaLabel="Close dialog"
-  fieldLabel={null}
+  dialogAriaLabel=""
+  headerLabel=""
+  largeButtonValue=""
   onBlur={[Function]}
   onClose={[Function]}
   placeHolder=""
-  values={Array []}
+  smallButtonValue=""
 >
   <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
+    <Button
+      Icon={null}
+      buttonLabel={null}
+      largeButtonValue=""
       onBlur={[Function]}
       onClick={[Function]}
-      type="button"
+      open={false}
+      placeHolder=""
+      setButtonRef={[Function]}
+      smallButtonValue=""
     >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-3"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
       >
         <div
           className="emotion-2"
@@ -185,8 +205,8 @@ exports[`PopupField renders correctly with one child element 1`] = `
             className="emotion-1"
           />
         </div>
-      </ButtonContent>
-    </button>
+      </button>
+    </Button>
     <Transition
       appear={false}
       enter={true}
@@ -208,18 +228,21 @@ exports[`PopupField renders correctly with one child element 1`] = `
 
 exports[`PopupField renders correctly with one child function 1`] = `
 .emotion-3 {
-  border: 0;
+  position: relative;
+  height: 6rem;
   width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
   cursor: pointer;
   background-color: #323232;
-  padding: 0 16px;
-  position: relative;
+  color: #fff;
   font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   font-weight: 300;
 }
 
 .emotion-2 {
-  height: 6rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -232,15 +255,14 @@ exports[`PopupField renders correctly with one child function 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 100%;
 }
 
 .emotion-0 {
-  color: white;
-  text-transform: uppercase;
   position: absolute;
   top: 5px;
   left: 7px;
+  color: white;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -254,29 +276,37 @@ exports[`PopupField renders correctly with one child function 1`] = `
 }
 
 <PopupField
+  HeaderIcon={null}
   Icon={null}
-  className={null}
+  buttonLabel={null}
   closeAriaLabel="Close dialog"
-  fieldLabel={null}
+  dialogAriaLabel=""
+  headerLabel=""
+  largeButtonValue=""
   onBlur={[Function]}
   onClose={[Function]}
   placeHolder=""
-  values={Array []}
+  smallButtonValue=""
 >
   <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
+    <Button
+      Icon={null}
+      buttonLabel={null}
+      largeButtonValue=""
       onBlur={[Function]}
       onClick={[Function]}
-      type="button"
+      open={false}
+      placeHolder=""
+      setButtonRef={[Function]}
+      smallButtonValue=""
     >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-3"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
       >
         <div
           className="emotion-2"
@@ -288,8 +318,8 @@ exports[`PopupField renders correctly with one child function 1`] = `
             className="emotion-1"
           />
         </div>
-      </ButtonContent>
-    </button>
+      </button>
+    </Button>
     <Transition
       appear={false}
       enter={true}
@@ -311,18 +341,21 @@ exports[`PopupField renders correctly with one child function 1`] = `
 
 exports[`PopupField renders correctly with props 1`] = `
 .emotion-3 {
-  border: 0;
+  position: relative;
+  height: 6rem;
   width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
   cursor: pointer;
   background-color: #323232;
-  padding: 0 16px;
-  position: relative;
+  color: #fff;
   font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   font-weight: 300;
 }
 
 .emotion-2 {
-  height: 6rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -335,15 +368,14 @@ exports[`PopupField renders correctly with props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 100%;
 }
 
 .emotion-0 {
-  color: white;
-  text-transform: uppercase;
   position: absolute;
   top: 5px;
   left: 7px;
+  color: white;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -357,29 +389,37 @@ exports[`PopupField renders correctly with props 1`] = `
 }
 
 <PopupField
+  HeaderIcon={null}
   Icon={null}
-  className={null}
+  buttonLabel={null}
   closeAriaLabel="Close dialog"
-  fieldLabel={null}
+  dialogAriaLabel=""
+  headerLabel=""
+  largeButtonValue=""
   onBlur={[Function]}
   onClose={[Function]}
   placeHolder=""
-  values={Array []}
+  smallButtonValue=""
 >
   <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
+    <Button
+      Icon={null}
+      buttonLabel={null}
+      largeButtonValue=""
       onBlur={[Function]}
       onClick={[Function]}
-      type="button"
+      open={false}
+      placeHolder=""
+      setButtonRef={[Function]}
+      smallButtonValue=""
     >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-3"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
       >
         <div
           className="emotion-2"
@@ -391,8 +431,8 @@ exports[`PopupField renders correctly with props 1`] = `
             className="emotion-1"
           />
         </div>
-      </ButtonContent>
-    </button>
+      </button>
+    </Button>
     <Transition
       appear={false}
       enter={true}

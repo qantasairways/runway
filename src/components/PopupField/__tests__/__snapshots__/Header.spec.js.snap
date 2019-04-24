@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly with defaults 1`] = `
+.emotion-5 {
+  z-index: 1;
+}
+
+.emotion-4 {
+  font-family: "Ciutadella-Md",sans-serif;
+  background: #323232;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0 0 12px;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  justify-self: left;
+}
+
+.emotion-3 {
+  background: none;
+  height: 65px;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  width: 52px;
+  cursor: pointer;
+}
+
+.emotion-1 {
+  fill: white;
+}
+
+<Header
+  HeaderIcon={null}
+  closeAriaLabel=""
+  closePopup={[Function]}
+  headerLabel=""
+>
+  <div
+    className="emotion-5"
+  >
+    <div
+      className="emotion-4"
+    >
+      <span
+        className="emotion-0"
+      />
+      <button
+        aria-label=""
+        className="emotion-3"
+        onClick={[Function]}
+        type="button"
+      >
+        <CrossIcon
+          className="emotion-1"
+          height="32px"
+          width="32px"
+        >
+          <svg
+            className="emotion-1"
+            focusable="false"
+            height="32px"
+            viewBox="0 0 24 24"
+            width="32px"
+          >
+            <defs>
+              <path
+                d="M12.893.302a.996.996 0 0 0-1.41 0l-4.89 4.88-4.89-4.89a.996.996 0 1 0-1.41 1.41l4.89 4.89-4.89 4.89a.996.996 0 1 0 1.41 1.41l4.89-4.89 4.89 4.89a.996.996 0 1 0 1.41-1.41l-4.89-4.89 4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                id="shortid"
+              />
+            </defs>
+            <g
+              fillRule="evenodd"
+              transform="translate(5 5)"
+            >
+              <mask
+                id="shortid"
+              >
+                <use
+                  xlinkHref="#shortid"
+                />
+              </mask>
+              <use
+                fillRule="nonzero"
+                xlinkHref="#shortid"
+              />
+              <g
+                mask="url(#shortid)"
+              >
+                <path
+                  d="M-5-5h24v24H-5z"
+                />
+              </g>
+            </g>
+          </svg>
+        </CrossIcon>
+      </button>
+    </div>
+  </div>
+</Header>
+`;
+
+exports[`Header renders correctly with props provided 1`] = `
+.emotion-6 {
+  z-index: 1;
+}
+
+.emotion-5 {
+  font-family: "Ciutadella-Md",sans-serif;
+  background: #323232;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0 0 12px;
+}
+
+.emotion-1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  justify-self: left;
+}
+
+.emotion-4 {
+  background: none;
+  height: 65px;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  width: 52px;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  fill: white;
+}
+
+.emotion-0 {
+  fill: #fff;
+  margin-right: 8px;
+}
+
+<Header
+  HeaderIcon={[Function]}
+  closeAriaLabel="close"
+  closePopup={[Function]}
+  headerHeight={50}
+  headerLabel="header label"
+  renderHeaderChildren={[Function]}
+>
+  <div
+    className="emotion-6"
+  >
+    <div
+      className="emotion-5"
+    >
+      <DummyIcon
+        className="emotion-0"
+        height="32px"
+        width="32px"
+      >
+        <div>
+          ICON
+        </div>
+      </DummyIcon>
+      <span
+        className="emotion-1"
+      >
+        header label
+      </span>
+      <button
+        aria-label="close"
+        className="emotion-4"
+        onClick={[Function]}
+        type="button"
+      >
+        <CrossIcon
+          className="emotion-2"
+          height="32px"
+          width="32px"
+        >
+          <svg
+            className="emotion-2"
+            focusable="false"
+            height="32px"
+            viewBox="0 0 24 24"
+            width="32px"
+          >
+            <defs>
+              <path
+                d="M12.893.302a.996.996 0 0 0-1.41 0l-4.89 4.88-4.89-4.89a.996.996 0 1 0-1.41 1.41l4.89 4.89-4.89 4.89a.996.996 0 1 0 1.41 1.41l4.89-4.89 4.89 4.89a.996.996 0 1 0 1.41-1.41l-4.89-4.89 4.89-4.89c.38-.38.38-1.02 0-1.4z"
+                id="shortid"
+              />
+            </defs>
+            <g
+              fillRule="evenodd"
+              transform="translate(5 5)"
+            >
+              <mask
+                id="shortid"
+              >
+                <use
+                  xlinkHref="#shortid"
+                />
+              </mask>
+              <use
+                fillRule="nonzero"
+                xlinkHref="#shortid"
+              />
+              <g
+                mask="url(#shortid)"
+              >
+                <path
+                  d="M-5-5h24v24H-5z"
+                />
+              </g>
+            </g>
+          </svg>
+        </CrossIcon>
+      </button>
+    </div>
+  </div>
+</Header>
+`;

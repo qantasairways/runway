@@ -14,7 +14,7 @@ export const airwaysColours = {
 
 export const airwaysFontFamily = {
   main: '"Ciutadella", sans-serif',
-  mainMedium: '"Ciutadella-Medium", sans-serif'
+  mainMedium: '"Ciutadella-Md", sans-serif'
 };
 
 export const layout = {
@@ -67,8 +67,7 @@ export const buttons = {
   borderRadius: layout.borderRadius,
   clickOffset: '1px',
   width: '100%',
-  height: '3.125rem',
-  heightLarge: '6rem'
+  height: '3.125rem'
 };
 
 export const mq = {
