@@ -1,225 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupField renders correctly with defaults 1`] = `
-.emotion-3 {
-  border: 0;
-  width: 100%;
-  cursor: pointer;
-  background-color: #323232;
-  padding: 0 16px;
-  position: relative;
-  font-family: "Ciutadella",sans-serif;
-  font-weight: 300;
-}
-
-.emotion-2 {
-  height: 6rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  max-width: 100%;
-}
-
-.emotion-0 {
-  color: white;
-  text-transform: uppercase;
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  font-size: 1rem;
-}
-
-.emotion-1 {
-  color: #626262;
-  font-size: 2.25rem;
-  -webkit-letter-spacing: -0.0625rem;
-  -moz-letter-spacing: -0.0625rem;
-  -ms-letter-spacing: -0.0625rem;
-  letter-spacing: -0.0625rem;
-}
-
-<PopupField
-  Icon={null}
-  className={null}
-  closeAriaLabel="Close dialog"
-  fieldLabel={null}
-  onBlur={[Function]}
-  onClose={[Function]}
-  placeHolder=""
-  values={Array []}
->
-  <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
-      onBlur={[Function]}
-      onClick={[Function]}
-      type="button"
-    >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
-      >
-        <div
-          className="emotion-2"
-        >
-          <span
-            className="emotion-0"
-          />
-          <div
-            className="emotion-1"
-          />
-        </div>
-      </ButtonContent>
-    </button>
-    <Transition
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={false}
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </div>
-</PopupField>
+<div>
+  <Button
+    Icon={null}
+    buttonLabel={null}
+    largeButtonValue=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    open={false}
+    placeHolder=""
+    setButtonRef={[Function]}
+    smallButtonValue=""
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={false}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
 `;
 
 exports[`PopupField renders correctly with one child element 1`] = `
-.emotion-3 {
-  border: 0;
-  width: 100%;
-  cursor: pointer;
-  background-color: #323232;
-  padding: 0 16px;
-  position: relative;
-  font-family: "Ciutadella",sans-serif;
-  font-weight: 300;
-}
-
-.emotion-2 {
-  height: 6rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  max-width: 100%;
-}
-
-.emotion-0 {
-  color: white;
-  text-transform: uppercase;
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  font-size: 1rem;
-}
-
-.emotion-1 {
-  color: #626262;
-  font-size: 2.25rem;
-  -webkit-letter-spacing: -0.0625rem;
-  -moz-letter-spacing: -0.0625rem;
-  -ms-letter-spacing: -0.0625rem;
-  letter-spacing: -0.0625rem;
-}
-
-<PopupField
-  Icon={null}
-  className={null}
-  closeAriaLabel="Close dialog"
-  fieldLabel={null}
-  onBlur={[Function]}
-  onClose={[Function]}
-  placeHolder=""
-  values={Array []}
->
-  <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
-      onBlur={[Function]}
-      onClick={[Function]}
-      type="button"
-    >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
-      >
-        <div
-          className="emotion-2"
-        >
-          <span
-            className="emotion-0"
-          />
-          <div
-            className="emotion-1"
-          />
-        </div>
-      </ButtonContent>
-    </button>
-    <Transition
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={false}
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </div>
-</PopupField>
+<div>
+  <Button
+    Icon={null}
+    buttonLabel={null}
+    largeButtonValue=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    open={true}
+    placeHolder=""
+    setButtonRef={[Function]}
+    smallButtonValue=""
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
 `;
 
 exports[`PopupField renders correctly with one child function 1`] = `
 .emotion-3 {
-  border: 0;
+  position: relative;
+  height: 6rem;
   width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
   cursor: pointer;
   background-color: #323232;
-  padding: 0 16px;
-  position: relative;
+  color: #fff;
   font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   font-weight: 300;
 }
 
 .emotion-2 {
-  height: 6rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -232,15 +95,14 @@ exports[`PopupField renders correctly with one child function 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 100%;
 }
 
 .emotion-0 {
-  color: white;
-  text-transform: uppercase;
   position: absolute;
   top: 5px;
   left: 7px;
+  color: white;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -254,29 +116,37 @@ exports[`PopupField renders correctly with one child function 1`] = `
 }
 
 <PopupField
+  HeaderIcon={null}
   Icon={null}
-  className={null}
+  buttonLabel={null}
   closeAriaLabel="Close dialog"
-  fieldLabel={null}
+  dialogAriaLabel=""
+  headerLabel=""
+  largeButtonValue=""
   onBlur={[Function]}
   onClose={[Function]}
   placeHolder=""
-  values={Array []}
+  smallButtonValue=""
 >
   <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
+    <Button
+      Icon={null}
+      buttonLabel={null}
+      largeButtonValue=""
       onBlur={[Function]}
       onClick={[Function]}
-      type="button"
+      open={false}
+      placeHolder=""
+      setButtonRef={[Function]}
+      smallButtonValue=""
     >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-3"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
       >
         <div
           className="emotion-2"
@@ -288,8 +158,8 @@ exports[`PopupField renders correctly with one child function 1`] = `
             className="emotion-1"
           />
         </div>
-      </ButtonContent>
-    </button>
+      </button>
+    </Button>
     <Transition
       appear={false}
       enter={true}
@@ -310,104 +180,34 @@ exports[`PopupField renders correctly with one child function 1`] = `
 `;
 
 exports[`PopupField renders correctly with props 1`] = `
-.emotion-3 {
-  border: 0;
-  width: 100%;
-  cursor: pointer;
-  background-color: #323232;
-  padding: 0 16px;
-  position: relative;
-  font-family: "Ciutadella",sans-serif;
-  font-weight: 300;
-}
-
-.emotion-2 {
-  height: 6rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  max-width: 100%;
-}
-
-.emotion-0 {
-  color: white;
-  text-transform: uppercase;
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  font-size: 1rem;
-}
-
-.emotion-1 {
-  color: #626262;
-  font-size: 2.25rem;
-  -webkit-letter-spacing: -0.0625rem;
-  -moz-letter-spacing: -0.0625rem;
-  -ms-letter-spacing: -0.0625rem;
-  letter-spacing: -0.0625rem;
-}
-
-<PopupField
-  Icon={null}
-  className={null}
-  closeAriaLabel="Close dialog"
-  fieldLabel={null}
-  onBlur={[Function]}
-  onClose={[Function]}
-  placeHolder=""
-  values={Array []}
->
-  <div>
-    <button
-      aria-expanded={false}
-      aria-haspopup="dialog"
-      className="emotion-3 null"
-      onBlur={[Function]}
-      onClick={[Function]}
-      type="button"
-    >
-      <ButtonContent
-        Icon={null}
-        fieldLabel={null}
-        placeHolder=""
-        values={Array []}
-      >
-        <div
-          className="emotion-2"
-        >
-          <span
-            className="emotion-0"
-          />
-          <div
-            className="emotion-1"
-          />
-        </div>
-      </ButtonContent>
-    </button>
-    <Transition
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={false}
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </div>
-</PopupField>
+<div>
+  <Button
+    Icon={null}
+    buttonLabel={null}
+    largeButtonValue=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    open={false}
+    placeHolder=""
+    setButtonRef={[Function]}
+    smallButtonValue=""
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={false}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
 `;

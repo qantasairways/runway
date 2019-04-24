@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import PopupField from '..';
 
 import PinIcon from '../../../icons/PinIcon';
@@ -12,28 +12,27 @@ describe('PopupField', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = mount(<PopupField />);
+    component = shallow(<PopupField />);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with props', () => {
     beforeAll(() => {
-      component = mount(
+      component = shallow(
         <PopupField
           closeAriaLabel="Close Aria Label"
           onClose={e => e}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          values={[
-            {
-              large: 'Large value',
-              small: 'small value'
-            }
-          ]}
+          buttonLabel="Field Label"
+          renderButtonValue={() => 'button value'}
           placeHolder="placeholder"
-          icon={PinIcon}
+          Icon={PinIcon}
+          headerLabel="header label"
+          headerHeight={100}
+          HeaderIcon={PinIcon}
+          renderHeaderChildren={() => <div>HEADER CHILDREN</div>}
         />
       );
       openPopup(component);
@@ -43,7 +42,7 @@ describe('PopupField', () => {
   });
 
   it('renders correctly with one child element', () => {
-    component = mount(
+    component = shallow(
       <PopupField>
         <span>Child Element</span>
       </PopupField>
@@ -73,21 +72,27 @@ describe('PopupField', () => {
           onClose={e => e}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          buttonLabel="Field Label"
+          largeButtonValue="Large value"
+          smallButtonValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
-        />
+        >
+          {({ setFocusElementRef }) => (
+            <div>
+              <button type="button" ref={setFocusElementRef} />
+            </div>
+          )}
+        </PopupField>
       );
       openPopup(component);
-      jest.spyOn(component.instance().closeButton, 'focus');
+      jest.spyOn(component.instance().focusElement, 'focus');
       component.instance().onEntered();
     });
 
     afterEach(() => {
       document.addEventListener.mockReset();
-      component.instance().closeButton.focus.mockReset();
+      component.instance().focusElement.focus.mockReset();
     });
 
     it('adds click event listener', () => {
@@ -100,8 +105,8 @@ describe('PopupField', () => {
       );
     });
 
-    it('focuses the close button', () => {
-      expect(component.instance().closeButton.focus).toHaveBeenCalled();
+    it('focuses the element with ref this.focusElement', () => {
+      expect(component.instance().focusElement.focus).toHaveBeenCalled();
     });
   });
 
@@ -116,9 +121,9 @@ describe('PopupField', () => {
           onClose={mockOnClose}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          buttonLabel="Field Label"
+          largeButtonValue="Large value"
+          smallButtonValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
         />
@@ -160,9 +165,9 @@ describe('PopupField', () => {
           onClose={e => e}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          buttonLabel="Field Label"
+          largeButtonValue="Large value"
+          smallButtonValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
         />
@@ -200,9 +205,9 @@ describe('PopupField', () => {
           onClose={e => e}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          buttonLabel="Field Label"
+          largeButtonValue="Large value"
+          smallButtonValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
         />
@@ -224,9 +229,9 @@ describe('PopupField', () => {
           onClose={e => e}
           onBlur={e => e}
           className="class-name"
-          fieldLabel="Field Label"
-          largeValue="Large value"
-          smallValue="small vlaue"
+          buttonLabel="Field Label"
+          largeButtonValue="Large value"
+          smallButtonValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
         />
