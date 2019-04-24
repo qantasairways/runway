@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { Transition } from 'react-transition-group';
-import ButtonContent from './components/ButtonContent';
-import { fontWeight, colours, layout, fontFamily } from '../../theme/airways';
+
+import noop from '../../utils/noop';
+
+import Button, { ButtonContent } from './components/Button';
+import Header from './components/Header';
+
+const transitionStyles = {
+  entering: {
+    top: '100%'
+  },
+  entered: {
+    top: 0
+  },
+  exiting: {
+    top: '100%'
+  }
+};
 
 class PopupField extends Component {
   state = {
@@ -12,13 +26,19 @@ class PopupField extends Component {
 
   onEntered = () => {
     document.addEventListener('click', this.handleClickOutside);
-    this.closeButton.focus();
+
+    if (this.focusElement) {
+      this.focusElement.focus();
+    }
   };
 
   onExited = () => {
     document.removeEventListener('click', this.handleClickOutside);
     this.props.onClose();
-    this.fieldButton.focus();
+
+    if (this.fieldButton) {
+      this.fieldButton.focus();
+    }
   };
 
   handleClickOutside = event => {
@@ -39,16 +59,30 @@ class PopupField extends Component {
     });
   };
 
+  setFocusElementRef = el => {
+    this.focusElement = el;
+  };
+
+  setButtonRef = el => {
+    this.fieldButton = el;
+  };
+
   render() {
     const {
-      closeAriaLabel,
       children,
-      className,
       onBlur,
-      fieldLabel,
+      largeButtonValue,
+      smallButtonValue,
+      renderButtonValue,
+      buttonLabel,
+      closeAriaLabel,
+      dialogAriaLabel,
       placeHolder,
-      values,
-      Icon
+      Icon,
+      headerLabel,
+      headerHeight,
+      HeaderIcon,
+      renderHeaderChildren
     } = this.props;
 
     const { open } = this.state;
@@ -56,21 +90,10 @@ class PopupField extends Component {
     const content =
       typeof children === 'function'
         ? children({
-            closePopup: this.closePopup
+            closePopup: this.closePopup,
+            setFocusElementRef: this.setFocusElementRef
           })
         : children;
-
-    const transitionStyles = {
-      entering: {
-        transform: 'translateY(100vh)'
-      },
-      entered: {
-        transform: 'translateY(0vh)'
-      },
-      exiting: {
-        transform: 'translateY(100vh)'
-      }
-    };
 
     return (
       <div
@@ -78,35 +101,18 @@ class PopupField extends Component {
           this.wrapper = el;
         }}
       >
-        <button
-          aria-haspopup="dialog"
-          aria-expanded={open}
-          className={className}
+        <Button
           onClick={this.openPopup}
           onBlur={onBlur}
-          ref={el => {
-            this.fieldButton = el;
-          }}
-          type="button"
-          css={{
-            label: 'runway-popup-field__button',
-            border: 0,
-            width: '100%',
-            cursor: 'pointer',
-            backgroundColor: colours.darkerGrey,
-            padding: `0 ${layout.gutter}`,
-            position: 'relative',
-            fontFamily: fontFamily.body,
-            fontWeight: fontWeight.regular
-          }}
-        >
-          <ButtonContent
-            fieldLabel={fieldLabel}
-            placeHolder={placeHolder}
-            values={values}
-            Icon={Icon}
-          />
-        </button>
+          largeButtonValue={largeButtonValue}
+          smallButtonValue={smallButtonValue}
+          renderButtonValue={renderButtonValue}
+          setButtonRef={this.setButtonRef}
+          open={open}
+          buttonLabel={buttonLabel}
+          placeHolder={placeHolder}
+          Icon={Icon}
+        />
         <Transition
           in={open}
           onExited={this.onExited}
@@ -122,28 +128,29 @@ class PopupField extends Component {
                 boxSizing: 'border-box',
                 height: '100%',
                 left: 0,
-                padding: '15px',
                 position: 'fixed',
+                overflow: 'auto',
                 top: 0,
-                transform: 'translateY(0vh)',
-                transition: `transform 300ms ease-in-out`,
+                transition: `top 300ms ease-in-out`,
                 width: '100%',
                 zIndex: 1000,
+                display: 'flex',
+                flexDirection: 'column',
                 ...transitionStyles[state]
               }}
               role="dialog"
+              aria-label={dialogAriaLabel}
             >
-              <button
-                aria-label={closeAriaLabel}
-                onClick={this.closePopup}
-                type="button"
-                ref={el => {
-                  this.closeButton = el;
-                }}
-              >
-                {'<'}
-              </button>
-              <div>{content}</div>
+              <Header
+                setFocusElementRef={this.setFocusElementRef}
+                closePopup={this.closePopup}
+                headerLabel={headerLabel}
+                headerHeight={headerHeight}
+                HeaderIcon={HeaderIcon}
+                closeAriaLabel={closeAriaLabel}
+                renderHeaderChildren={renderHeaderChildren}
+              />
+              <div css={{ overflow: 'auto' }}>{content}</div>
             </div>
           )}
         </Transition>
@@ -153,32 +160,41 @@ class PopupField extends Component {
 }
 
 PopupField.propTypes = {
-  closeAriaLabel: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
   onClose: PropTypes.func,
   onBlur: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  className: PropTypes.string,
-  fieldLabel: PropTypes.string,
+  renderButtonValue: PropTypes.func,
+  largeButtonValue: PropTypes.string,
+  smallButtonValue: PropTypes.string,
+  buttonLabel: PropTypes.string,
+  closeAriaLabel: PropTypes.string,
+  dialogAriaLabel: PropTypes.string,
   placeHolder: PropTypes.string,
   Icon: PropTypes.func,
-  values: PropTypes.arrayOf(
-    PropTypes.shape({
-      large: PropTypes.string,
-      small: PropTypes.string
-    })
-  )
+  headerLabel: PropTypes.string,
+  headerHeight: PropTypes.number,
+  HeaderIcon: PropTypes.func,
+  renderHeaderChildren: PropTypes.func
 };
 
 PopupField.defaultProps = {
-  closeAriaLabel: 'Close dialog',
-  onClose: () => {},
-  onBlur: () => {},
   children: null,
-  className: null,
-  fieldLabel: null,
-  values: [],
+  onClose: noop,
+  onBlur: noop,
+  renderButtonValue: null,
+  largeButtonValue: '',
+  smallButtonValue: '',
+  buttonLabel: null,
+  closeAriaLabel: 'Close dialog',
+  dialogAriaLabel: '',
   placeHolder: '',
-  Icon: null
+  Icon: null,
+  headerLabel: '',
+  headerHeight: undefined,
+  HeaderIcon: null,
+  renderHeaderChildren: noop
 };
+
+export { ButtonContent };
 
 export default PopupField;
