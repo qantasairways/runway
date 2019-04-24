@@ -26,14 +26,13 @@ describe('PopupField', () => {
           onBlur={e => e}
           className="class-name"
           fieldLabel="Field Label"
-          values={[
-            {
-              large: 'Large value',
-              small: 'small value'
-            }
-          ]}
+          renderButtonValue={() => 'button value'}
           placeHolder="placeholder"
-          icon={PinIcon}
+          Icon={PinIcon}
+          headerLabel="header label"
+          headerHeight={100}
+          HeaderIcon={PinIcon}
+          renderHeaderChildren={() => <div>HEADER CHILDREN</div>}
         />
       );
       openPopup(component);
@@ -78,16 +77,22 @@ describe('PopupField', () => {
           smallValue="small vlaue"
           placeHolder="placeholder"
           icon={<div />}
-        />
+        >
+          {({ setFocusElementRef }) => (
+            <div>
+              <button type="button" ref={setFocusElementRef} />
+            </div>
+          )}
+        </PopupField>
       );
       openPopup(component);
-      jest.spyOn(component.instance().closeButton, 'focus');
+      jest.spyOn(component.instance().focusElement, 'focus');
       component.instance().onEntered();
     });
 
     afterEach(() => {
       document.addEventListener.mockReset();
-      component.instance().closeButton.focus.mockReset();
+      component.instance().focusElement.focus.mockReset();
     });
 
     it('adds click event listener', () => {
@@ -100,8 +105,8 @@ describe('PopupField', () => {
       );
     });
 
-    it('focuses the close button', () => {
-      expect(component.instance().closeButton.focus).toHaveBeenCalled();
+    it('focuses the element with ref this.focusElement', () => {
+      expect(component.instance().focusElement.focus).toHaveBeenCalled();
     });
   });
 

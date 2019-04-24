@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldButton renders correctly with buttonContent custom element 1`] = `
+.emotion-2 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-1 * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+<FieldButton
+  Icon={null}
+  fieldLabel="field label"
+  icon={[Function]}
+  onBlur={[Function]}
+  onClick={[Function]}
+  open={true}
+  placeHolder="placeholder"
+  renderButtonValue={[Function]}
+  setButtonRef={[Function]}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="dialog"
+    className="emotion-2"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
+    <div
+      className="emotion-1"
+    >
+      <span
+        className="emotion-0"
+      >
+        field label
+      </span>
+      <div>
+        BUTTON CONTENT
+      </div>
+    </div>
+  </button>
+</FieldButton>
+`;
+
+exports[`FieldButton renders correctly with defaults 1`] = `
+.emotion-3 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-2 * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
+<FieldButton
+  Icon={null}
+  fieldLabel=""
+  onBlur={[Function]}
+  onClick={[Function]}
+  open={false}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  setButtonRef={[Function]}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="dialog"
+    className="emotion-3"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
+    <div
+      className="emotion-2"
+    >
+      <span
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </button>
+</FieldButton>
+`;
+
+exports[`FieldButton renders correctly with props provided 1`] = `
+.emotion-3 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.emotion-2 * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
+<FieldButton
+  Icon={null}
+  fieldLabel="field label"
+  icon={[Function]}
+  onBlur={[Function]}
+  onClick={[Function]}
+  open={true}
+  placeHolder="placeholder"
+  renderButtonValue={[Function]}
+  renderButtonvalue={[Function]}
+  setButtonRef={[Function]}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="dialog"
+    className="emotion-3"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
+    <div
+      className="emotion-2"
+    >
+      <span
+        className="emotion-0"
+      >
+        field label
+      </span>
+      <div
+        className="emotion-1"
+      >
+        placeholder
+      </div>
+    </div>
+  </button>
+</FieldButton>
+`;
