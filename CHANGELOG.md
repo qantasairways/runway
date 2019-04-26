@@ -1,3 +1,10 @@
+## [0.14.2](https://github.com/qantasairways/runway/compare/v0.14.1...v0.14.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* **externallink:** Map font colours to correct media query rules, propagate dynamic icon styles by classname ([#28](https://github.com/qantasairways/runway/issues/28)) ([eea62ae](https://github.com/qantasairways/runway/commit/eea62ae))
+
 ## [0.14.1](https://github.com/qantasairways/runway/compare/v0.14.0...v0.14.1) (2019-04-23)
 
 
