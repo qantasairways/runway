@@ -1,4 +1,3 @@
-const path = require('path');
 const { createConfig, babel, postcss } = require('webpack-blocks');
 const { version } = require('./package');
 
