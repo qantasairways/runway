@@ -1,69 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupField renders correctly with defaults 1`] = `
-<div>
-  <Button
-    Icon={null}
-    buttonLabel={null}
-    largeButtonValue=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    open={false}
-    placeHolder=""
-    setButtonRef={[Function]}
-    smallButtonValue=""
-  />
-  <Transition
-    appear={false}
-    enter={true}
-    exit={true}
-    in={false}
-    mountOnEnter={false}
-    onEnter={[Function]}
-    onEntered={[Function]}
-    onEntering={[Function]}
-    onExit={[Function]}
-    onExited={[Function]}
-    onExiting={[Function]}
-    timeout={300}
-    unmountOnExit={true}
-  >
-    <Component />
-  </Transition>
-</div>
+<ButtonWithDialog
+  Icon={null}
+  buttonLabel={null}
+  closeAriaLabel="Close dialog"
+  contentPadding="0 16px"
+  dialogAriaLabel=""
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": 0,
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  onBlur={[Function]}
+  onClose={[Function]}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+/>
 `;
 
 exports[`PopupField renders correctly with one child element 1`] = `
-<div>
-  <Button
-    Icon={null}
-    buttonLabel={null}
-    largeButtonValue=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    open={true}
-    placeHolder=""
-    setButtonRef={[Function]}
-    smallButtonValue=""
-  />
-  <Transition
-    appear={false}
-    enter={true}
-    exit={true}
-    in={true}
-    mountOnEnter={false}
-    onEnter={[Function]}
-    onEntered={[Function]}
-    onEntering={[Function]}
-    onExit={[Function]}
-    onExited={[Function]}
-    onExiting={[Function]}
-    timeout={300}
-    unmountOnExit={true}
-  >
-    <Component />
-  </Transition>
-</div>
+<ButtonWithDialog
+  Icon={null}
+  buttonLabel={null}
+  closeAriaLabel="Close dialog"
+  contentPadding="0 16px"
+  dialogAriaLabel=""
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": 0,
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  onBlur={[Function]}
+  onClose={[Function]}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+>
+  <span>
+    Child Element
+  </span>
+</ButtonWithDialog>
 `;
 
 exports[`PopupField renders correctly with one child function 1`] = `
@@ -128,86 +156,173 @@ exports[`PopupField renders correctly with one child function 1`] = `
   placeHolder=""
   smallButtonValue=""
 >
-  <div>
-    <Button
-      Icon={null}
-      buttonLabel={null}
-      largeButtonValue=""
-      onBlur={[Function]}
-      onClick={[Function]}
-      open={false}
-      placeHolder=""
-      setButtonRef={[Function]}
-      smallButtonValue=""
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup="dialog"
-        className="emotion-3"
+  <ButtonWithDialog
+    Icon={null}
+    buttonLabel={null}
+    closeAriaLabel="Close dialog"
+    contentPadding="0 16px"
+    dialogAriaLabel=""
+    dialogStyles={
+      Object {
+        "background": "white",
+        "boxSizing": "border-box",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "label": "runway__dialog",
+        "left": 0,
+        "overflow": "auto",
+        "position": "fixed",
+        "top": 0,
+        "transition": "top 300ms ease-in-out",
+        "width": "100%",
+        "zIndex": 1000,
+      }
+    }
+    onBlur={[Function]}
+    onClose={[Function]}
+    placeHolder=""
+    renderButtonValue={[Function]}
+    renderHeader={[Function]}
+    transitionStyles={
+      Object {
+        "entered": Object {
+          "top": 0,
+        },
+        "entering": Object {
+          "top": "100%",
+        },
+        "exiting": Object {
+          "top": "100%",
+        },
+      }
+    }
+  >
+    <div>
+      <Button
+        Icon={null}
+        buttonLabel={null}
+        closeAriaLabel="Close dialog"
+        contentPadding="0 16px"
+        dialogStyles={
+          Object {
+            "background": "white",
+            "boxSizing": "border-box",
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "label": "runway__dialog",
+            "left": 0,
+            "overflow": "auto",
+            "position": "fixed",
+            "top": 0,
+            "transition": "top 300ms ease-in-out",
+            "width": "100%",
+            "zIndex": 1000,
+          }
+        }
         onBlur={[Function]}
         onClick={[Function]}
-        type="button"
+        onClose={[Function]}
+        open={false}
+        placeHolder=""
+        renderButtonValue={[Function]}
+        setButtonRef={[Function]}
+        transitionStyles={
+          Object {
+            "entered": Object {
+              "top": 0,
+            },
+            "entering": Object {
+              "top": "100%",
+            },
+            "exiting": Object {
+              "top": "100%",
+            },
+          }
+        }
       >
-        <div
-          className="emotion-2"
+        <button
+          aria-expanded={false}
+          aria-haspopup="dialog"
+          className="emotion-3"
+          onBlur={[Function]}
+          onClick={[Function]}
+          type="button"
         >
-          <span
-            className="emotion-0"
-          />
           <div
-            className="emotion-1"
-          />
-        </div>
-      </button>
-    </Button>
-    <Transition
-      appear={false}
-      enter={true}
-      exit={true}
-      in={false}
-      mountOnEnter={false}
-      onEnter={[Function]}
-      onEntered={[Function]}
-      onEntering={[Function]}
-      onExit={[Function]}
-      onExited={[Function]}
-      onExiting={[Function]}
-      timeout={300}
-      unmountOnExit={true}
-    />
-  </div>
+            className="emotion-2"
+          >
+            <span
+              className="emotion-0"
+            />
+            <div
+              className="emotion-1"
+            />
+          </div>
+        </button>
+      </Button>
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      />
+    </div>
+  </ButtonWithDialog>
 </PopupField>
 `;
 
 exports[`PopupField renders correctly with props 1`] = `
-<div>
-  <Button
-    Icon={null}
-    buttonLabel={null}
-    largeButtonValue=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    open={false}
-    placeHolder=""
-    setButtonRef={[Function]}
-    smallButtonValue=""
-  />
-  <Transition
-    appear={false}
-    enter={true}
-    exit={true}
-    in={false}
-    mountOnEnter={false}
-    onEnter={[Function]}
-    onEntered={[Function]}
-    onEntering={[Function]}
-    onExit={[Function]}
-    onExited={[Function]}
-    onExiting={[Function]}
-    timeout={300}
-    unmountOnExit={true}
-  >
-    <Component />
-  </Transition>
-</div>
+<ButtonWithDialog
+  Icon={null}
+  buttonLabel={null}
+  closeAriaLabel="Close dialog"
+  contentPadding="0 16px"
+  dialogAriaLabel=""
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": 0,
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  onBlur={[Function]}
+  onClose={[Function]}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+/>
 `;

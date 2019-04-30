@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayPicker renderButtonDates() renders correctly when start and end dates are selected 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  font-size: 2.25rem;
+  margin: 0 12px 20px 12px;
+}
+
+<div
+  className="emotion-1"
+>
+  <ButtonContent
+    largeButtonValue="21"
+    smallButtonValue="Apr, 2019"
+  />
+  <div
+    className="emotion-0"
+  >
+    -
+  </div>
+  <ButtonContent
+    largeButtonValue="01"
+    smallButtonValue="May, 2019"
+  />
+</div>
+`;
+
+exports[`DayPicker renderButtonDates() renders correctly when start date is selected 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+<div
+  className="emotion-0"
+>
+  <ButtonContent
+    largeButtonValue="21"
+    smallButtonValue="Apr, 2019"
+  />
+</div>
+`;
+
+exports[`DayPicker renderHeader() renders correctly 1`] = `
+.emotion-7 {
+  z-index: 1;
+}
+
+.emotion-3 {
+  font-family: "Ciutadella-Md",sans-serif;
+  background: #323232;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 0 0 12px;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  justify-self: left;
+}
+
+.emotion-2 {
+  background: none;
+  height: 48px;
+  padding: 0;
+  line-height: 0;
+  border: none;
+  width: 52px;
+  cursor: pointer;
+}
+
+.emotion-1 {
+  fill: white;
+}
+
+.emotion-6 {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-gap: 1px;
+  margin-top: 1px;
+  width: 100%;
+  padding: 8px 0;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  text-align: center;
+  background: #fafafa;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.04);
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+}
+
+.emotion-4::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  height: 15px;
+  border-left: 1px solid #eeeeee;
+}
+
+<div
+  className="emotion-7"
+>
+  <div
+    className="emotion-3"
+  >
+    <span
+      className="emotion-0"
+    >
+      header label
+    </span>
+    <button
+      aria-label="Close aria label"
+      className="emotion-2"
+      onClick={[Function]}
+      type="button"
+    >
+      <CrossIcon
+        className="emotion-1"
+        height="32px"
+        width="32px"
+      />
+    </button>
+  </div>
+  <div
+    className="emotion-6"
+  >
+    <div
+      className="emotion-4"
+      key="Mon"
+    >
+      Mon
+    </div>
+    <div
+      className="emotion-4"
+      key="Tue"
+    >
+      Tue
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DayPicker renders DayPicker with props provided 1`] = `
+<ButtonWithDialog
+  Icon={[Function]}
+  buttonLabel="Label"
+  closeAriaLabel="Close aria label"
+  contentPadding="0"
+  dialogAriaLabel="dialog aria label"
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": 0,
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  onBlur={[Function]}
+  onClose={[Function]}
+  placeHolder="Placeholder"
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+>
+  <Component />
+</ButtonWithDialog>
+`;
+
+exports[`DayPicker renders correctly with defaults 1`] = `
+<ButtonWithDialog
+  Icon={[Function]}
+  buttonLabel=""
+  closeAriaLabel=""
+  contentPadding="0"
+  dialogAriaLabel=""
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": 0,
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  onBlur={[Function]}
+  onClose={[Function]}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+>
+  <Component />
+</ButtonWithDialog>
+`;

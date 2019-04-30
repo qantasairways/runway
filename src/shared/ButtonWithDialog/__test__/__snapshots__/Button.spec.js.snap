@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders correctly with buttonContent custom element 1`] = `
-.emotion-3 {
+.emotion-2 {
   position: relative;
   height: 6rem;
   width: 100%;
@@ -16,7 +16,7 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   font-weight: 300;
 }
 
-.emotion-2 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -40,35 +40,24 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   font-size: 1rem;
 }
 
-.emotion-1 {
-  color: #626262;
-  font-size: 2.25rem;
-  -webkit-letter-spacing: -0.0625rem;
-  -moz-letter-spacing: -0.0625rem;
-  -ms-letter-spacing: -0.0625rem;
-  letter-spacing: -0.0625rem;
-}
-
 <button
   aria-expanded={true}
   aria-haspopup="dialog"
-  className="emotion-3"
+  className="emotion-2"
   onBlur={[Function]}
   onClick={[Function]}
   type="button"
 >
   <div
-    className="emotion-2"
+    className="emotion-1"
   >
     <span
       className="emotion-0"
     >
       field label
     </span>
-    <div
-      className="emotion-1"
-    >
-      placeholder
+    <div>
+      BUTTON CONTENT
     </div>
   </div>
 </button>

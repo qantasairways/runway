@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Day renders correctly for disabled date 1`] = `
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+}
+
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+<div
+  aria-label=", "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+</div>
+`;
+
+exports[`Day renders correctly for end date 1`] = `
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+  padding-top: 36px;
+  z-index: 1;
+  border: 2px solid #bff4f2;
+  box-shadow: 0 0 0 1px #bff4f2;
+}
+
+<div
+  aria-label=", Selected for return"
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+  <SelectionLabel
+    Icon={[Function]}
+    isStartDate={false}
+    label="Return"
+  />
+</div>
+`;
+
+exports[`Day renders correctly for outside date 1`] = `
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+  cursor: initial;
+  color: #dadada;
+  background: none;
+}
+
+<div
+  aria-label=", "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+</div>
+`;
+
+exports[`Day renders correctly for selected date 1`] = `
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+  background-color: #e8f7f7;
+}
+
+<div
+  aria-label=", "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+</div>
+`;
+
+exports[`Day renders correctly for start date 1`] = `
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+  padding-top: 36px;
+  z-index: 1;
+  border: 2px solid #bff4f2;
+  box-shadow: 0 0 0 1px #bff4f2;
+}
+
+<div
+  aria-label="Selected for departure, "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+  <SelectionLabel
+    Icon={[Function]}
+    isStartDate={true}
+    label="Depart"
+  />
+</div>
+`;
+
+exports[`Day renders correctly with defaults 1`] = `
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+}
+
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+<div
+  aria-label=", "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+</div>
+`;
+
+exports[`Day renders correctly with props provided 1`] = `
+.emotion-1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  padding-top: 38px;
+  box-sizing: border-box;
+  height: 94px;
+  color: #323232;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eaeaea;
+}
+
+.emotion-0 {
+  height: 1.125rem;
+  padding: 0 4px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  border-radius: 4px;
+  background-color: initial;
+}
+
+<div
+  aria-label=", "
+  className="emotion-1"
+>
+  <div
+    className="emotion-0"
+  >
+    20
+  </div>
+</div>
+`;
+
+exports[`SelectionLabel renders correctly with defaults 1`] = `""`;
+
+exports[`SelectionLabel renders correctly with props provided 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  left: initial;
+  right: -1px;
+  top: -3px;
+  height: 14px;
+  box-sizing: border-box;
+  padding: 3px 3px 0 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1;
+  background: #bff4f2;
+}
+
+.emotion-1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: initial;
+  left: -5px;
+  border: solid transparent;
+  border-right: solid #bff4f2;
+  border-left: solid transparent;
+  border-width: 7px 5px 7px 0;
+}
+
+.emotion-0 {
+  margin-bottom: 2px;
+  fill: #323232;
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+<div
+  className="emotion-1"
+>
+  <span>
+    Depart
+  </span>
+  <DummyIcon
+    className="emotion-0"
+    height="10"
+    width="10"
+  />
+</div>
+`;
