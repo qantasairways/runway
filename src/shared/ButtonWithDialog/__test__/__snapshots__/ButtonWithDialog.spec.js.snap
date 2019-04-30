@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonWithDialog renders correctly with defaults 1`] = `
+<div>
+  <Button
+    Icon={null}
+    buttonLabel=""
+    closeAriaLabel=""
+    contentPadding="0 16px"
+    dialogStyles={Object {}}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onClose={[Function]}
+    open={false}
+    placeHolder=""
+    renderButtonValue={[Function]}
+    setButtonRef={[Function]}
+    transitionStyles={
+      Object {
+        "entered": Object {},
+        "entering": Object {},
+        "exiting": Object {},
+      }
+    }
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={false}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
+`;
+
+exports[`ButtonWithDialog renders correctly with one child element 1`] = `
+<div>
+  <Button
+    Icon={null}
+    buttonLabel=""
+    closeAriaLabel=""
+    contentPadding="0 16px"
+    dialogStyles={Object {}}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onClose={[Function]}
+    open={true}
+    placeHolder=""
+    renderButtonValue={[Function]}
+    setButtonRef={[Function]}
+    transitionStyles={
+      Object {
+        "entered": Object {},
+        "entering": Object {},
+        "exiting": Object {},
+      }
+    }
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
+`;
+
+exports[`ButtonWithDialog renders correctly with one child function 1`] = `
+.emotion-2 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 16px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+<ButtonWithDialog
+  closeAriaLabel=""
+  contentPadding="0 16px"
+  dialogAriaLabel=""
+  dialogStyles={Object {}}
+  onBlur={[Function]}
+  onClose={[Function]}
+  renderButtonValue={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {},
+      "entering": Object {},
+      "exiting": Object {},
+    }
+  }
+>
+  <div>
+    <Button
+      Icon={null}
+      buttonLabel=""
+      closeAriaLabel=""
+      contentPadding="0 16px"
+      dialogStyles={Object {}}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onClose={[Function]}
+      open={false}
+      placeHolder=""
+      renderButtonValue={[Function]}
+      setButtonRef={[Function]}
+      transitionStyles={
+        Object {
+          "entered": Object {},
+          "entering": Object {},
+          "exiting": Object {},
+        }
+      }
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-2"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="emotion-1"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div>
+            button content
+          </div>
+        </div>
+      </button>
+    </Button>
+    <Transition
+      appear={false}
+      enter={true}
+      exit={true}
+      in={false}
+      mountOnEnter={false}
+      onEnter={[Function]}
+      onEntered={[Function]}
+      onEntering={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onExiting={[Function]}
+      timeout={300}
+      unmountOnExit={true}
+    />
+  </div>
+</ButtonWithDialog>
+`;
+
+exports[`ButtonWithDialog renders correctly with props 1`] = `
+<div>
+  <Button
+    Icon={null}
+    buttonLabel=""
+    closeAriaLabel=""
+    contentPadding="0 16px"
+    dialogStyles={Object {}}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onClose={[Function]}
+    open={false}
+    placeHolder=""
+    renderButtonValue={[Function]}
+    setButtonRef={[Function]}
+    transitionStyles={
+      Object {
+        "entered": Object {},
+        "entering": Object {},
+        "exiting": Object {},
+      }
+    }
+  />
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={false}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={true}
+  >
+    <Component />
+  </Transition>
+</div>
+`;

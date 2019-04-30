@@ -1,157 +1,69 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Transition } from 'react-transition-group';
 
 import noop from '../../utils/noop';
-import { layout } from '../../theme/airways';
 
-import Button, { ButtonContent } from './components/Button';
+import ButtonWithDialog, {
+  transitionStylesSlideUp,
+  dialogStylesFullScreen,
+  ButtonContent
+} from '../../shared/ButtonWithDialog';
+
 import Header from './components/Header';
 
-const transitionStyles = {
-  entering: {
-    top: '100%'
-  },
-  entered: {
-    top: 0
-  },
-  exiting: {
-    top: '100%'
-  }
-};
-
 class PopupField extends Component {
-  state = {
-    open: false
+  renderButtonValue = () => {
+    const { largeButtonValue, smallButtonValue } = this.props;
+
+    return largeButtonValue || smallButtonValue ? (
+      <ButtonContent
+        largeButtonValue={largeButtonValue}
+        smallButtonValue={smallButtonValue}
+      />
+    ) : null;
   };
 
-  onEntered = () => {
-    document.addEventListener('click', this.handleClickOutside);
+  renderHeader = ({ closeDialog }) => {
+    const { closeAriaLabel, headerLabel, HeaderIcon } = this.props;
 
-    if (this.focusElement) {
-      this.focusElement.focus();
-    }
-  };
-
-  onExited = () => {
-    document.removeEventListener('click', this.handleClickOutside);
-    this.props.onClose();
-
-    if (this.fieldButton) {
-      this.fieldButton.focus();
-    }
-  };
-
-  handleClickOutside = event => {
-    if (this.wrapper && !this.wrapper.contains(event.target)) {
-      this.closePopup();
-    }
-  };
-
-  openPopup = () => {
-    this.setState({
-      open: true
-    });
-  };
-
-  closePopup = () => {
-    this.setState({
-      open: false
-    });
-  };
-
-  setFocusElementRef = el => {
-    this.focusElement = el;
-  };
-
-  setButtonRef = el => {
-    this.fieldButton = el;
+    return (
+      <Header
+        closeDialog={closeDialog}
+        headerLabel={headerLabel}
+        HeaderIcon={HeaderIcon}
+        closeAriaLabel={closeAriaLabel}
+      />
+    );
   };
 
   render() {
     const {
       children,
       onBlur,
-      largeButtonValue,
-      smallButtonValue,
+      onClose,
       buttonLabel,
       closeAriaLabel,
       dialogAriaLabel,
       placeHolder,
-      Icon,
-      headerLabel,
-      HeaderIcon
+      Icon
     } = this.props;
 
-    const { open } = this.state;
-
-    const content =
-      typeof children === 'function'
-        ? children({
-            closePopup: this.closePopup,
-            setFocusElementRef: this.setFocusElementRef
-          })
-        : children;
-
     return (
-      <div
-        ref={el => {
-          this.wrapper = el;
-        }}
+      <ButtonWithDialog
+        onBlur={onBlur}
+        onClose={onClose}
+        buttonLabel={buttonLabel}
+        placeHolder={placeHolder}
+        closeAriaLabel={closeAriaLabel}
+        dialogAriaLabel={dialogAriaLabel}
+        Icon={Icon}
+        renderHeader={this.renderHeader}
+        renderButtonValue={this.renderButtonValue}
+        dialogStyles={dialogStylesFullScreen}
+        transitionStyles={transitionStylesSlideUp}
       >
-        <Button
-          onClick={this.openPopup}
-          onBlur={onBlur}
-          largeButtonValue={largeButtonValue}
-          smallButtonValue={smallButtonValue}
-          setButtonRef={this.setButtonRef}
-          open={open}
-          buttonLabel={buttonLabel}
-          placeHolder={placeHolder}
-          Icon={Icon}
-        />
-        <Transition
-          in={open}
-          onExited={this.onExited}
-          onEntered={this.onEntered}
-          timeout={300}
-          unmountOnExit
-        >
-          {state => (
-            <div
-              css={{
-                label: 'runway-popup-field__dialog',
-                background: 'white',
-                boxSizing: 'border-box',
-                height: '100%',
-                left: 0,
-                position: 'fixed',
-                overflow: 'auto',
-                top: 0,
-                transition: `top 300ms ease-in-out`,
-                width: '100%',
-                zIndex: 1000,
-                display: 'flex',
-                flexDirection: 'column',
-                ...transitionStyles[state]
-              }}
-              role="dialog"
-              aria-label={dialogAriaLabel}
-            >
-              <Header
-                setFocusElementRef={this.setFocusElementRef}
-                closePopup={this.closePopup}
-                headerLabel={headerLabel}
-                HeaderIcon={HeaderIcon}
-                closeAriaLabel={closeAriaLabel}
-              />
-              <div css={{ overflow: 'auto', padding: `0 ${layout.gutter}` }}>
-                {content}
-              </div>
-            </div>
-          )}
-        </Transition>
-      </div>
+        {children}
+      </ButtonWithDialog>
     );
   }
 }
@@ -197,7 +109,5 @@ PopupField.defaultProps = {
   headerLabel: '',
   HeaderIcon: null
 };
-
-export { ButtonContent };
 
 export default PopupField;
