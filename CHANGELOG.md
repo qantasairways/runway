@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/qantasairways/runway/compare/v0.15.0...v0.16.0) (2019-05-06)
+
+
+### Features
+
+* **daypicker:** Initial implementation of controlled daypicker component. Abstracted shared parts of popupfield into shared folder ([#35](https://github.com/qantasairways/runway/issues/35)) ([88c5f33](https://github.com/qantasairways/runway/commit/88c5f33))
+
 # [0.15.0](https://github.com/qantasairways/runway/compare/v0.14.2...v0.15.0) (2019-04-29)
 
 
