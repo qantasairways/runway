@@ -7,9 +7,12 @@ export const airwaysColours = {
   white: '#fff',
   warningOrange: '#ed710b',
   bayBlue: '#8de2e0',
+  lightBayBlue: '#bff4f2',
+  lighterBayBlue: '#e8f7f7',
   grey: '#dadada',
   darkGrey: '#626262',
-  lightGrey: '#f4f5f6'
+  lightGrey: '#f4f5f6',
+  disabledGrey: '#fafafa'
 };
 
 export const airwaysFontFamily = {
@@ -33,9 +36,12 @@ export const colours = {
   transparent: 'transparent',
   darkerGrey: airwaysColours.charcoal,
   darkGrey: airwaysColours.darkGrey,
-  lightGrey: airwaysColours.grey,
-  lighterGrey: airwaysColours.lightGrey,
+  grey: airwaysColours.grey,
+  lightGrey: airwaysColours.lightGrey,
+  disabledGrey: airwaysColours.disabledGrey,
   highlights: airwaysColours.bayBlue,
+  hightlightsLight: airwaysColours.lightBayBlue,
+  hightlightsLighter: airwaysColours.lighterBayBlue,
   warnings: airwaysColours.warningOrange
 };
 
@@ -56,7 +62,8 @@ export const fontSize = {
   body: '1.125rem',
   button: '1rem',
   label: '1rem',
-  large: '2.25rem'
+  large: '2.25rem',
+  small: '0.625rem'
 };
 
 export const letterSpacing = {

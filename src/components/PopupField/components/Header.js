@@ -7,7 +7,7 @@ import CrossIcon from '../../../icons/CrossIcon';
 
 const ICON_SIZE = '32px';
 
-function Header({ closePopup, closeAriaLabel, headerLabel, HeaderIcon }) {
+function Header({ closeDialog, closeAriaLabel, headerLabel, HeaderIcon }) {
   return (
     <div css={{ zIndex: 1 }}>
       <div
@@ -38,7 +38,7 @@ function Header({ closePopup, closeAriaLabel, headerLabel, HeaderIcon }) {
         </span>
         <button
           aria-label={closeAriaLabel}
-          onClick={closePopup}
+          onClick={closeDialog}
           type="button"
           css={{
             background: 'none',
@@ -62,7 +62,7 @@ function Header({ closePopup, closeAriaLabel, headerLabel, HeaderIcon }) {
 }
 
 Header.propTypes = {
-  closePopup: PropTypes.func.isRequired,
+  closeDialog: PropTypes.func.isRequired,
   closeAriaLabel: PropTypes.string,
   headerLabel: PropTypes.string,
   HeaderIcon: PropTypes.func

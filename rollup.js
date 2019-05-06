@@ -69,7 +69,8 @@ const inputOptions = entry => ({
       include: 'node_modules/**',
       namedExports: {
         'react-is': ['isForwardRef', 'isValidElementType'],
-        shortid: ['generate']
+        shortid: ['generate'],
+        'react-day-picker': ['DayPicker']
       }
     }),
     visualizer()

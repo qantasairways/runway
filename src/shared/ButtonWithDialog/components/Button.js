@@ -38,7 +38,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
     >
       <div
         css={{
-          label: 'runway-popup-field__value--large',
+          label: 'runway-dialog-button__value--large',
           fontSize: fontSize.large,
           letterSpacing: letterSpacing.small,
           lineHeight: '2.65rem'
@@ -48,7 +48,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
       </div>
       <div
         css={{
-          label: 'runway-popup-field__value--small',
+          label: 'runway-dialog-button__value--small',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap'
@@ -71,8 +71,7 @@ ButtonContent.defaultProps = {
 };
 
 function Button({
-  largeButtonValue,
-  smallButtonValue,
+  renderButtonValue,
   onClick,
   onBlur,
   setButtonRef,
@@ -81,7 +80,7 @@ function Button({
   placeHolder,
   Icon
 }) {
-  const buttonHasValue = !!largeButtonValue || !!smallButtonValue;
+  const buttonValue = renderButtonValue();
 
   return (
     <button
@@ -113,13 +112,8 @@ function Button({
         >
           {buttonLabel}
         </span>
-        {buttonHasValue && (
-          <ButtonContent
-            largeButtonValue={largeButtonValue}
-            smallButtonValue={smallButtonValue}
-          />
-        )}
-        {!buttonHasValue && (
+        {buttonValue}
+        {!buttonValue && (
           <div
             css={{
               label: 'runway-popup-field__placeholder',
@@ -131,7 +125,7 @@ function Button({
             {placeHolder}
           </div>
         )}
-        {!buttonHasValue && !!Icon && (
+        {!buttonValue && !!Icon && (
           <Icon
             css={{
               label: 'runway-popup-field__icon',
@@ -149,9 +143,8 @@ function Button({
 }
 
 Button.propTypes = {
-  largeButtonValue: PropTypes.string,
-  smallButtonValue: PropTypes.string,
   onClick: PropTypes.func.isRequired,
+  renderButtonValue: PropTypes.func,
   onBlur: PropTypes.func,
   setButtonRef: PropTypes.func.isRequired,
   open: PropTypes.bool,
@@ -161,9 +154,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  largeButtonValue: '',
-  smallButtonValue: '',
   onBlur: noop,
+  renderButtonValue: () => null,
   open: false,
   buttonLabel: '',
   placeHolder: '',
