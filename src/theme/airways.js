@@ -78,7 +78,10 @@ export const buttons = {
 };
 
 export const mq = {
-  tablet: '@media only screen and (min-width: 480px)'
+  medium: '@media only screen and (min-width: 768px)',
+  large: '@media only screen and (min-width: 960px)',
+  extraLarge: '@media only screen and (min-width: 1200px)',
+  small: '@media only screen and (max-width: 320px)'
 };
 
 export default {

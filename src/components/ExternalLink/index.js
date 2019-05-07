@@ -67,7 +67,7 @@ const ItemContainer = ({ children }) => (
       height: '72px',
       padding: `20px ${layout.gutter}`,
       backgroundColor: colours.white,
-      [mq.tablet]: {
+      [mq.medium]: {
         height: '100%',
         padding: '0px',
         backgroundColor: colours.darkerGrey
@@ -91,7 +91,7 @@ const Item = ({ children, size, onlyMobile, ...rest }) => (
     css={{
       ...(size && { flex: size }),
       display: 'inline',
-      [mq.tablet]: {
+      [mq.medium]: {
         display: onlyMobile ? 'none' : 'inline'
       },
       ...rest
@@ -129,7 +129,7 @@ const Text = ({ children }) => (
       fontWeight: fontWeight.regular,
       fontSize: fontSize.body,
       color: colours.darkerGrey,
-      [mq.tablet]: {
+      [mq.medium]: {
         color: colours.white
       }
     }}
@@ -175,7 +175,7 @@ const ExternalLink = ({ renderIcon, url, text }) => (
   <a css={{ textDecoration: 'none' }} href={url}>
     <ItemContainer>
       <Item height={layout.iconSize} width={layout.iconSize}>
-        <MediaQueryDetector query={mq.tablet}>
+        <MediaQueryDetector query={mq.medium}>
           {atLeastTablet =>
             renderIcon(
               atLeastTablet

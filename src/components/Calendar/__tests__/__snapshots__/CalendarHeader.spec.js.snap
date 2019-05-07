@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarHeader renders with defaults 1`] = `
+.emotion-6 {
+  position: relative;
+  width: 100%;
+  background-color: #323232;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  padding: 0 15px;
+  border: solid 5px #8de2e0;
+  border-right: 0px;
+  background-color: #fff;
+  color: #323232;
+  box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.emotion-3:focus {
+  outline: none;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-3 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.emotion-3:hover {
+  background-color: #fff;
+}
+
+.emotion-3::after {
+  content: '';
+  z-index: 5;
+  position: absolute;
+  right: -14px;
+  border-top: 32px solid transparent;
+  border-left: 14px solid white;
+  border-bottom: 32px solid transparent;
+  border-right: 0px;
+  top: -5px;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3::after {
+    right: -17px;
+    border-left: 19px solid white;
+    border-top: 42px solid transparent;
+    border-bottom: 42px solid transparent;
+    top: -7px;
+  }
+}
+
+.emotion-0 {
+  font-family: "Ciutadella",sans-serif;
+  font-size: 18px;
+  line-height: 1.11;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.emotion-1 {
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+  position: absolute;
+  right: -5px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    width: 40px;
+    height: 40px;
+    right: -3px;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .emotion-1 {
+    width: 28px;
+    height: 28px;
+    right: -7px;
+  }
+}
+
+.emotion-2 {
+  z-index: 10;
+  position: absolute;
+  right: -49px;
+  top: -5px;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 83px;
+    right: -53px;
+    top: -5px;
+  }
+}
+
+.emotion-5 {
+  color: #fff;
+  border: none;
+  border-left: none;
+  background-color: #323232;
+  text-align: right;
+  float: right;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0 15px;
+  position: relative;
+  cursor: pointer;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.emotion-5:focus {
+  outline: none;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-5 {
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-5 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.emotion-5:hover {
+  background-color: #3c3c3c;
+}
+
+<div>
+  <div
+    className="emotion-6"
+  >
+    <button
+      className="emotion-3"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="emotion-0"
+      >
+        depart?
+      </span>
+      <PlaneIcon
+        className="emotion-1"
+        height="24"
+        width="24"
+      />
+      <Triangle
+        className="emotion-2"
+      />
+    </button>
+    <button
+      className="emotion-5"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="emotion-0"
+      >
+        return?
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`CalendarHeader renders with props provided 1`] = `
+.emotion-6 {
+  position: relative;
+  width: 100%;
+  background-color: #323232;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  padding: 0 15px;
+  border: solid 5px #323232;
+  border-right: 0px;
+  background-color: #323232;
+  color: #fff;
+  box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.emotion-3:focus {
+  outline: none;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-3 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.emotion-3:hover {
+  background-color: #3c3c3c;
+}
+
+.emotion-3::after {
+  content: '';
+  z-index: 5;
+  position: absolute;
+  right: 0px;
+  border-top: 32px solid transparent;
+  border-left: 0px;
+  border-bottom: 32px solid transparent;
+  border-right: 19px solid white;
+  top: -5px;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3::after {
+    right: -1px;
+    border-left: 0px;
+    border-top: 42px solid transparent;
+    border-bottom: 42px solid transparent;
+    top: -7px;
+  }
+}
+
+.emotion-0 {
+  font-family: "Ciutadella",sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.emotion-1 {
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+  position: absolute;
+  right: -26px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    width: 40px;
+    height: 40px;
+    right: -34px;
+  }
+}
+
+@media only screen and (max-width:320px) {
+  .emotion-1 {
+    width: 28px;
+    height: 28px;
+    right: -20px;
+  }
+}
+
+.emotion-2 {
+  z-index: 10;
+  position: absolute;
+  right: -11px;
+  top: -7px;
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 83px;
+    right: -6px;
+    top: -8px;
+  }
+}
+
+.emotion-5 {
+  color: #323232;
+  border: solid 5px #8de2e0;
+  border-left: none;
+  background-color: #fff;
+  text-align: right;
+  float: right;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 0 15px;
+  position: relative;
+  cursor: pointer;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.emotion-5:focus {
+  outline: none;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-5 {
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-5 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.emotion-5:hover {
+  background-color: #fff;
+}
+
+<div>
+  <div
+    className="emotion-6"
+  >
+    <button
+      className="emotion-3"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="emotion-0"
+      >
+        <span>
+          <b>
+            departing on
+             
+          </b>
+        </span>
+        <span>
+          6th June
+        </span>
+      </div>
+      <PlaneIcon
+        className="emotion-1"
+        height="24"
+        width="24"
+      />
+      <Triangle
+        className="emotion-2"
+      />
+    </button>
+    <button
+      className="emotion-5"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="emotion-0"
+      >
+        <span>
+          <b>
+            returning on
+          </b>
+        </span>
+        <span>
+           
+          10th October
+        </span>
+      </div>
+    </button>
+  </div>
+</div>
+`;
