@@ -36,7 +36,7 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 1rem;
 }
 
@@ -99,7 +99,7 @@ exports[`Button renders correctly with defaults 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 1rem;
 }
 
@@ -169,7 +169,7 @@ exports[`Button renders correctly with props provided 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 1rem;
 }
 

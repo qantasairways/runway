@@ -42,7 +42,7 @@ function labelStyles() {
     fontWeight: '',
     lineHeight: 1.75,
     color: '#323232',
-    textTransform: 'uppercase'
+    textTransform: 'none'
   };
 }
 

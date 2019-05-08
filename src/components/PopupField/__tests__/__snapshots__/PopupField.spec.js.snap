@@ -130,7 +130,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 1rem;
 }
 
