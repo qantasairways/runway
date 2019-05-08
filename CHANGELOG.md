@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/qantasairways/runway/compare/v0.16.0...v0.17.0) (2019-05-08)
+
+
+### Features
+
+* **typeahead:** Added styles for typeahead ([#36](https://github.com/qantasairways/runway/issues/36)) ([a621edc](https://github.com/qantasairways/runway/commit/a621edc))
+
 # [0.16.0](https://github.com/qantasairways/runway/compare/v0.15.0...v0.16.0) (2019-05-06)
 
 
