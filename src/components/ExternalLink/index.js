@@ -124,7 +124,7 @@ Spacer.defaultProps = {
 const Text = ({ children }) => (
   <span
     css={{
-      textTransform: 'uppercase',
+      textTransform: 'none',
       fontFamily: fontFamily.body,
       fontWeight: fontWeight.regular,
       fontSize: fontSize.body,

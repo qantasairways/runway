@@ -16,7 +16,7 @@ exports[`Button should render correctly in "debug" mode 1`] = `
   -moz-letter-spacing: 0.1em;
   -ms-letter-spacing: 0.1em;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
+  text-transform: none;
   cursor: pointer;
 }
 

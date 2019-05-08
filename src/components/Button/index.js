@@ -19,7 +19,7 @@ const baseStyles = css({
   fontWeight: 700,
   lineHeight: 1.56,
   letterSpacing: '0.1em',
-  textTransform: 'uppercase',
+  textTransform: 'none',
   cursor: 'pointer',
   [CSS_SELECTOR_ACTIVE]: {
     transform: `translate(${buttons.clickOffset}, ${buttons.clickOffset})`

@@ -84,7 +84,7 @@ exports[`ExternalLink renders correctly when larger viewport 1`] = `
 }
 
 .emotion-2 {
-  text-transform: uppercase;
+  text-transform: none;
   font-family: "Ciutadella",sans-serif;
   font-weight: 300;
   font-size: 1.125rem;
@@ -350,7 +350,7 @@ exports[`ExternalLink renders correctly when smaller viewport 1`] = `
 }
 
 .emotion-2 {
-  text-transform: uppercase;
+  text-transform: none;
   font-family: "Ciutadella",sans-serif;
   font-weight: 300;
   font-size: 1.125rem;

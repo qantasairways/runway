@@ -51,7 +51,7 @@ export function inputStyles({ leftAlign }) {
     fontWeight: 'inherit',
     fontStretch: 'inherit',
     letterSpacing: 'inherit',
-    textTransform: 'uppercase',
+    textTransform: 'none',
     color: 'inherit',
     padding: 0,
     cursor: 'pointer',

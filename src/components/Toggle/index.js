@@ -63,7 +63,7 @@ LocalStylesInjector.propTypes = {
 const LabelText = ({ children }) => (
   <span
     css={{
-      textTransform: 'uppercase',
+      textTransform: 'none',
       color: colours.white,
       fontSize: fontSize.label
     }}
