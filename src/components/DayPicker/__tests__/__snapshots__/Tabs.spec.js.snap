@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CalendarHeader renders with defaults 1`] = `
-.emotion-6 {
+exports[`Tabs renders with defaults 1`] = `
+.emotion-5 {
   position: relative;
   width: 100%;
   background-color: #323232;
@@ -11,7 +11,18 @@ exports[`CalendarHeader renders with defaults 1`] = `
   display: flex;
 }
 
-.emotion-3 {
+.emotion-2 {
+  position: relative;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0 15px;
   border: solid 5px #8de2e0;
   border-right: 0px;
@@ -23,32 +34,20 @@ exports[`CalendarHeader renders with defaults 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   text-align: left;
-  position: relative;
-  cursor: pointer;
-  width: 50%;
-  height: 64px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.emotion-3:focus {
+.emotion-2:focus {
   outline: none;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-2 {
     height: 80px;
   }
 }
 
 @media only screen and (min-width:960px) {
-  .emotion-3 {
+  .emotion-2 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -56,11 +55,7 @@ exports[`CalendarHeader renders with defaults 1`] = `
   }
 }
 
-.emotion-3:hover {
-  background-color: #fff;
-}
-
-.emotion-3::after {
+.emotion-2::after {
   content: '';
   z-index: 5;
   position: absolute;
@@ -73,12 +68,21 @@ exports[`CalendarHeader renders with defaults 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3::after {
+  .emotion-2::after {
     right: -17px;
     border-left: 19px solid #fff;
     border-top: 42px solid transparent;
     border-bottom: 42px solid transparent;
     top: -7px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
   }
 }
 
@@ -94,11 +98,17 @@ exports[`CalendarHeader renders with defaults 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
 }
 
 @media only screen and (min-width:768px) {
   .emotion-0 {
     font-size: 1.625rem;
+    max-width: 500px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
@@ -111,33 +121,6 @@ exports[`CalendarHeader renders with defaults 1`] = `
 }
 
 .emotion-1 {
-  width: 28px;
-  height: 28px;
-  z-index: 10;
-  position: absolute;
-  right: -7px;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-
-@media only screen and (min-width:321px) {
-  .emotion-1 {
-    width: 32px;
-    height: 32px;
-    right: -7px;
-  }
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-1 {
-    width: 40px;
-    height: 40px;
-    right: -3px;
-  }
-}
-
-.emotion-2 {
   z-index: 10;
   position: absolute;
   right: -49px;
@@ -148,14 +131,25 @@ exports[`CalendarHeader renders with defaults 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-2 {
+  .emotion-1 {
     height: 83px;
     right: -53px;
     top: -5px;
   }
 }
 
-.emotion-5 {
+.emotion-4 {
+  position: relative;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #fff;
   border: none;
   border-left: none;
@@ -167,32 +161,20 @@ exports[`CalendarHeader renders with defaults 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0 15px;
-  position: relative;
-  cursor: pointer;
-  width: 50%;
-  height: 64px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.emotion-5:focus {
+.emotion-4:focus {
   outline: none;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-5 {
+  .emotion-4 {
     height: 80px;
   }
 }
 
 @media only screen and (min-width:960px) {
-  .emotion-5 {
+  .emotion-4 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -200,16 +182,21 @@ exports[`CalendarHeader renders with defaults 1`] = `
   }
 }
 
-.emotion-5:hover {
-  background-color: #3c3c3c;
+@media only screen and (min-width:768px) {
+  .emotion-4 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
 }
 
 <div>
   <div
-    className="emotion-6"
+    className="emotion-5"
   >
     <button
-      className="emotion-3"
+      className="emotion-2"
       onClick={[Function]}
       type="button"
     >
@@ -218,17 +205,12 @@ exports[`CalendarHeader renders with defaults 1`] = `
       >
         depart?
       </span>
-      <PlaneIcon
-        className="emotion-1"
-        height="24"
-        width="24"
-      />
       <Triangle
-        className="emotion-2"
+        className="emotion-1"
       />
     </button>
     <button
-      className="emotion-5"
+      className="emotion-4"
       onClick={[Function]}
       type="button"
     >
@@ -242,7 +224,7 @@ exports[`CalendarHeader renders with defaults 1`] = `
 </div>
 `;
 
-exports[`CalendarHeader renders with props provided 1`] = `
+exports[`Tabs renders with props provided 1`] = `
 .emotion-6 {
   position: relative;
   width: 100%;
@@ -254,6 +236,17 @@ exports[`CalendarHeader renders with props provided 1`] = `
 }
 
 .emotion-3 {
+  position: relative;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0 15px;
   border: solid 5px #323232;
   border-right: 0px;
@@ -265,18 +258,6 @@ exports[`CalendarHeader renders with props provided 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   text-align: left;
-  position: relative;
-  cursor: pointer;
-  width: 50%;
-  height: 64px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .emotion-3:focus {
@@ -296,10 +277,6 @@ exports[`CalendarHeader renders with props provided 1`] = `
     -ms-flex-pack: center;
     justify-content: center;
   }
-}
-
-.emotion-3:hover {
-  background-color: #3c3c3c;
 }
 
 .emotion-3::after {
@@ -324,6 +301,15 @@ exports[`CalendarHeader renders with props provided 1`] = `
   }
 }
 
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
 .emotion-0 {
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
@@ -336,11 +322,17 @@ exports[`CalendarHeader renders with props provided 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
 }
 
 @media only screen and (min-width:768px) {
   .emotion-0 {
     font-size: 1.625rem;
+    max-width: 500px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
@@ -398,6 +390,17 @@ exports[`CalendarHeader renders with props provided 1`] = `
 }
 
 .emotion-5 {
+  position: relative;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #323232;
   border: solid 5px #8de2e0;
   border-left: none;
@@ -409,18 +412,6 @@ exports[`CalendarHeader renders with props provided 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0 15px;
-  position: relative;
-  cursor: pointer;
-  width: 50%;
-  height: 64px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .emotion-5:focus {
@@ -442,8 +433,13 @@ exports[`CalendarHeader renders with props provided 1`] = `
   }
 }
 
-.emotion-5:hover {
-  background-color: #fff;
+@media only screen and (min-width:768px) {
+  .emotion-5 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
 }
 
 <div>
@@ -468,10 +464,8 @@ exports[`CalendarHeader renders with props provided 1`] = `
           6th June
         </span>
       </div>
-      <PlaneIcon
+      <CalendarIcon
         className="emotion-1"
-        height="24"
-        width="24"
       />
       <Triangle
         className="emotion-2"
@@ -488,10 +482,10 @@ exports[`CalendarHeader renders with props provided 1`] = `
         <span>
           <b>
             returning on
+             
           </b>
         </span>
         <span>
-           
           10th October
         </span>
       </div>

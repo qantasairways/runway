@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Header from '../components/Header';
 
+const start = new Date(2019, 3, 21, 0, 0, 0, 0);
+const end = new Date(2019, 3, 24, 0, 0, 0, 0);
+const CalendarIcon = () => <div>Calendar Icon</div>;
+
 describe('Header', () => {
   let component;
 
@@ -27,6 +31,15 @@ describe('Header', () => {
         closeDialog={() => {}}
         rowStyles={{}}
         dayLabels={['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']}
+        startDate={start}
+        endDate={end}
+        isSelectingStartDate={false}
+        isSingleDate
+        startSelectedLabel="depart"
+        endSelectedLabel="return"
+        startPlaceholder="depart when?"
+        endPlaceholder="return when?"
+        Icon={CalendarIcon}
       />
     );
 

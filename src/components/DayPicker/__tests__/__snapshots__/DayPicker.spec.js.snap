@@ -1,68 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DayPicker renderButtonDates() renders correctly when start and end dates are selected 1`] = `
-.emotion-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-.emotion-0 {
-  font-size: 2.25rem;
-  margin: 0 12px 20px 12px;
-}
-
-<div
-  className="emotion-1"
->
-  <ButtonContent
-    largeButtonValue="21"
-    smallButtonValue="Apr, 2019"
-  />
-  <div
-    className="emotion-0"
-  >
-    -
-  </div>
-  <ButtonContent
-    largeButtonValue="01"
-    smallButtonValue="May, 2019"
-  />
-</div>
-`;
-
-exports[`DayPicker renderButtonDates() renders correctly when start date is selected 1`] = `
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-<div
-  className="emotion-0"
->
-  <ButtonContent
-    largeButtonValue="21"
-    smallButtonValue="Apr, 2019"
-  />
-</div>
-`;
-
 exports[`DayPicker renderHeader() renders correctly 1`] = `
-.emotion-7 {
+.emotion-10 {
   z-index: 1;
 }
 
-.emotion-3 {
+.emotion-5 {
   font-family: "Ciutadella-Md",sans-serif;
   background: #323232;
   color: #fff;
+}
+
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -75,46 +24,87 @@ exports[`DayPicker renderHeader() renders correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 0 0 0 12px;
 }
 
 .emotion-0 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  justify-self: left;
+  display: none;
+  width: 126px;
 }
 
-.emotion-2 {
-  background: none;
-  height: 48px;
-  padding: 0;
-  line-height: 0;
-  border: none;
-  width: 52px;
-  cursor: pointer;
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 .emotion-1 {
+  font-size: 1.125rem;
+  line-height: 0;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    padding-right: 71px;
+    font-size: 1.375rem;
+  }
+}
+
+.emotion-3 {
+  height: 48px;
+  width: 48px;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    height: 55px;
+    width: 55px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-3 {
+    text-align: right;
+  }
+}
+
+.emotion-2 {
   fill: white;
 }
 
-.emotion-6 {
+.emotion-9 {
+  background: #fafafa;
+}
+
+.emotion-8 {
   display: grid;
   grid-template-columns: repeat(7,1fr);
   grid-gap: 1px;
-  margin-top: 1px;
+  max-width: 1000px;
+  margin: 1px auto 0 auto;
   width: 100%;
-  padding: 8px 0;
+  height: 30px;
   font-family: "Ciutadella",sans-serif;
   font-size: 0.875rem;
   line-height: 0.875rem;
   text-align: center;
-  background: #fafafa;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.08),0 0 1px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4 {
+@media only screen and (min-width:768px) {
+  .emotion-8 {
+    height: 40px;
+  }
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -130,7 +120,7 @@ exports[`DayPicker renderHeader() renders correctly 1`] = `
   position: relative;
 }
 
-.emotion-4::after {
+.emotion-6::after {
   content: "";
   position: absolute;
   right: -1px;
@@ -138,44 +128,71 @@ exports[`DayPicker renderHeader() renders correctly 1`] = `
   border-left: 1px solid #eeeeee;
 }
 
+.emotion-6 undefined {
+  font-size: 1.125rem;
+}
+
 <div
-  className="emotion-7"
+  className="emotion-10"
 >
   <div
-    className="emotion-3"
+    className="emotion-5"
   >
-    <span
-      className="emotion-0"
+    <div
+      className="emotion-4"
     >
-      header label
-    </span>
-    <button
-      aria-label="Close aria label"
-      className="emotion-2"
-      onClick={[Function]}
-      type="button"
-    >
-      <CrossIcon
-        className="emotion-1"
-        height="32px"
-        width="32px"
+      <QantasLogo
+        className="emotion-0"
       />
-    </button>
+      <span
+        className="emotion-1"
+      >
+        header label
+      </span>
+      <button
+        aria-label="Close aria label"
+        className="emotion-3"
+        onClick={[Function]}
+        type="button"
+      >
+        <CrossIcon
+          className="emotion-2"
+          height="32px"
+          width="32px"
+        />
+      </button>
+    </div>
   </div>
+  <Tabs
+    Icon={[Function]}
+    endDate="Wed May 01 2019"
+    endPlaceholder="return when?"
+    endSelectedLabel="Return MEL"
+    isDateRange={true}
+    isSelectingStartDate={true}
+    onTabClick={[Function]}
+    startDate="Sun Apr 21 2019"
+    startPlaceholder="depart when?"
+    startSelectedLabel="Depart SYD"
+  />
   <div
-    className="emotion-6"
+    className="emotion-9"
   >
     <div
-      className="emotion-4"
-      key="Mon"
+      className="emotion-8"
     >
-      Mon
-    </div>
-    <div
-      className="emotion-4"
-      key="Tue"
-    >
-      Tue
+      <div
+        className="emotion-6"
+        key="Mon"
+      >
+        Mon
+      </div>
+      <div
+        className="emotion-6"
+        key="Tue"
+      >
+        Tue
+      </div>
     </div>
   </div>
 </div>
@@ -186,6 +203,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
   Icon={[Function]}
   buttonLabel="Label"
   closeAriaLabel="Close aria label"
+  closeOnBlur={false}
   contentPadding="0"
   dialogAriaLabel="dialog aria label"
   dialogStyles={
@@ -199,7 +217,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
       "left": 0,
       "overflow": "auto",
       "position": "fixed",
-      "top": 0,
+      "top": "100%",
       "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
@@ -207,6 +225,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
   }
   onBlur={[Function]}
   onClose={[Function]}
+  onOpen={[Function]}
   placeHolder="Placeholder"
   renderButtonValue={[Function]}
   renderHeader={[Function]}
@@ -231,10 +250,11 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
 exports[`DayPicker renders correctly with defaults 1`] = `
 <ButtonWithDialog
   Icon={[Function]}
-  buttonLabel=""
-  closeAriaLabel=""
+  buttonLabel="When"
+  closeAriaLabel="Close dialog"
+  closeOnBlur={false}
   contentPadding="0"
-  dialogAriaLabel=""
+  dialogAriaLabel="Select dates"
   dialogStyles={
     Object {
       "background": "white",
@@ -246,7 +266,7 @@ exports[`DayPicker renders correctly with defaults 1`] = `
       "left": 0,
       "overflow": "auto",
       "position": "fixed",
-      "top": 0,
+      "top": "100%",
       "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
@@ -254,7 +274,8 @@ exports[`DayPicker renders correctly with defaults 1`] = `
   }
   onBlur={[Function]}
   onClose={[Function]}
-  placeHolder=""
+  onOpen={[Function]}
+  placeHolder="When?"
   renderButtonValue={[Function]}
   renderHeader={[Function]}
   transitionStyles={
