@@ -42,6 +42,8 @@ class ButtonWithDialog extends Component {
 
   onEntered = () => {
     document.addEventListener('click', this.handleClickOutside);
+    this.props.onOpen();
+
     if (this.focusElement) {
       this.focusElement.focus();
     }
@@ -139,6 +141,7 @@ class ButtonWithDialog extends Component {
           onEntered={this.onEntered}
           timeout={300}
           unmountOnExit
+          mountOnEnter
         >
           {state => (
             <div
@@ -164,6 +167,7 @@ class ButtonWithDialog extends Component {
 ButtonWithDialog.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   renderButtonValue: PropTypes.func.isRequired,
+  onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onBlur: PropTypes.func,
   renderHeader: PropTypes.func,
@@ -181,6 +185,7 @@ ButtonWithDialog.propTypes = {
 ButtonWithDialog.defaultProps = {
   children: null,
   onClose: noop,
+  onOpen: noop,
   onBlur: noop,
   renderHeader: noop,
   closeAriaLabel: '',

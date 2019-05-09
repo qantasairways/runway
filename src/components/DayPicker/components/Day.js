@@ -1,12 +1,22 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import { colours, fontSize, layout } from '../../../theme/airways';
+import { CSS_SELECTOR_HOVER, CSS_SELECTOR_FOCUS } from '../../../constants/css';
+import { KEY_CODE_SPACE, KEY_CODE_ENTER } from '../../../constants/keyCodes';
+import { colours, fontSize, layout, mq } from '../../../theme/airways';
 
+import {
+  getShouldSelectAsStartDate,
+  getEndDateFromStartDate
+} from '../helpers';
+
+import DayLabel from './DayLabel';
 import PlaneIcon from '../../../icons/PlaneIcon';
 
-const selectedStyles = {
+const rangeStyles = {
   label: 'runway-calendar__day--highlighted',
   backgroundColor: colours.hightlightsLighter
 };
@@ -26,7 +36,20 @@ const disabledStyles = {
   background: 'none'
 };
 
-function dayStyles({ selected, disabled, outside, start, end }) {
+const activeStyles = {
+  [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_FOCUS}`]: {
+    zIndex: 2,
+    boxShadow:
+      '-2px 3px 4px 0 rgba(0, 0, 0, 0.08), 2px -3px 4px 0 rgba(0, 0, 0, 0.04)'
+  },
+  [CSS_SELECTOR_HOVER]: {
+    'div[class$="runway-calendar__hover-label"]': {
+      display: 'flex'
+    }
+  }
+};
+
+function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
   return css(
     {
       label: 'runway-calendar__day',
@@ -40,15 +63,21 @@ function dayStyles({ selected, disabled, outside, start, end }) {
       height: '94px',
       color: colours.darkerGrey,
       background: colours.white,
-      boxShadow: '0 0 0 1px #eaeaea'
+      boxShadow: isOutside ? 'none' : '0 0 0 1px #eaeaea',
+      outline: 'none',
+      [mq.medium]: {
+        paddingTop: '35px',
+        height: '90px'
+      }
     },
-    selected && !start && !end && selectedStyles,
-    (start || end) && startEndStyles,
-    (disabled || outside) && disabledStyles
+    !isDisabled && !isOutside && activeStyles,
+    isInRange && !isStart && !isEnd && rangeStyles,
+    (isStart || isEnd) && startEndStyles,
+    (isDisabled || isOutside) && disabledStyles
   );
 }
 
-function dateStyles({ today }) {
+function dateStyles({ isToday, isDisabled }) {
   return css({
     label: 'runway-calendar__date',
     height: fontSize.body,
@@ -56,139 +85,292 @@ function dateStyles({ today }) {
     fontSize: fontSize.body,
     lineHeight: 1.1,
     borderRadius: layout.borderRadius,
-    backgroundColor: today ? colours.hightlightsLight : 'initial'
-  });
-}
-
-function selectionLabelStyles({ isStartDate }) {
-  return css({
-    display: 'flex',
-    flexDirection: isStartDate ? 'row' : 'row-reverse',
-    alignItems: 'center',
-    position: 'absolute',
-    left: isStartDate ? '-1px' : 'initial',
-    right: isStartDate ? 'initial' : '-1px',
-    top: '-3px',
-    height: '14px',
-    boxSizing: 'border-box',
-    padding: isStartDate ? '3px 0 0 3px' : '3px 3px 0 0',
-    fontSize: fontSize.small,
-    fontWeight: 600,
-    lineHeight: 1,
-    background: colours.hightlightsLight,
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      right: isStartDate ? '-5px' : 'initial',
-      left: isStartDate ? 'initial' : '-5px',
-      border: 'solid transparent',
-      borderRight: isStartDate
-        ? 'solid transparent'
-        : `solid ${colours.hightlightsLight}`,
-      borderLeft: isStartDate
-        ? `solid ${colours.hightlightsLight}`
-        : 'solid transparent',
-      borderWidth: isStartDate ? '7px 0 7px 5px' : '7px 5px 7px 0'
+    backgroundColor: isToday ? colours.hightlightsLight : 'initial',
+    color: isToday && isDisabled ? colours.darkGrey : 'inherit',
+    [mq.medium]: {
+      fontSize: fontSize.labelLarge,
+      lineHeight: 1
     }
   });
 }
 
-export function SelectionLabel({ isStartDate, label, Icon }) {
-  return label ? (
-    <div css={selectionLabelStyles({ isStartDate })}>
-      <span>{label}</span>
-      {Icon && (
-        <Icon
-          className={css({
-            marginBottom: '2px',
-            fill: colours.darkerGrey,
-            transform: isStartDate ? 'none' : 'scaleX(-1)'
-          })}
-          height="10"
-          width="10"
-        />
-      )}
-    </div>
-  ) : null;
+function getAriaLabel({
+  dayOfMonth,
+  month,
+  year,
+  isStart,
+  isEnd,
+  isSelectingStartDate,
+  startLabel,
+  endLabel,
+  startSelectedLabel,
+  endSelectedLabel,
+  startAriaLabel,
+  endAriaLabel
+}) {
+  let label = '';
+
+  if (isStart) {
+    label += `${startLabel} ${startSelectedLabel}. `;
+  }
+
+  if (isEnd) {
+    label += `${endLabel} ${endSelectedLabel}. `;
+  }
+
+  label += `${dayOfMonth} ${month} ${year}. `;
+
+  if (isSelectingStartDate) {
+    label += startAriaLabel;
+  } else {
+    label += endAriaLabel;
+  }
+
+  return label;
 }
-
-SelectionLabel.propTypes = {
-  isStartDate: PropTypes.bool,
-  label: PropTypes.string,
-  Icon: PropTypes.func
-};
-
-SelectionLabel.defaultProps = {
-  isStartDate: true,
-  label: '',
-  Icon: null
-};
 
 class Day extends Component {
-  setFocusElementRef(el, modifiers) {
-    const { setFocusElementRef } = this.props;
+  state = {
+    hover: false
+  };
 
-    if (el && el.parentElement && modifiers.focusElement) {
-      setFocusElementRef(el.parentElement);
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      nextState.hover !== this.state.hover ||
+      nextProps.isEnd !== this.props.isEnd ||
+      nextProps.isStart !== this.props.isStart ||
+      nextProps.isInRange !== this.props.isInRange
+    ) {
+      return true;
     }
+    return false;
   }
+
+  handleDayClick = () => {
+    const {
+      startDate,
+      endDate,
+      isDateRange,
+      isDisabled,
+      isSelectingStartDate,
+      onDayClick,
+      date
+    } = this.props;
+
+    if (!isDisabled) {
+      const selectAsStartDate = getShouldSelectAsStartDate(
+        isSelectingStartDate,
+        date,
+        startDate
+      );
+
+      const newStartDate = selectAsStartDate ? date : startDate;
+      const newEndDate = !selectAsStartDate
+        ? date
+        : getEndDateFromStartDate(date, endDate);
+      const newIsSelectingStartDate = !isDateRange || !selectAsStartDate;
+
+      onDayClick(newStartDate, newEndDate, newIsSelectingStartDate);
+    }
+
+    this.setState({ hover: false });
+  };
+
+  handleMouseOver = () => {
+    this.setState({
+      hover: true
+    });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({
+      hover: false
+    });
+  };
+
+  handleKeyDown = event => {
+    const { keyCode } = event;
+    if (!keyCode) return;
+
+    const { timestamp, onDayNavigate } = this.props;
+
+    if (keyCode === KEY_CODE_SPACE || keyCode === KEY_CODE_ENTER) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.handleDayClick();
+      return;
+    }
+
+    if (timestamp) {
+      onDayNavigate(timestamp, keyCode);
+    }
+  };
+
+  renderHoverLabel = () => {
+    const {
+      date,
+      startDate,
+      isStart,
+      isEnd,
+      isDisabled,
+      isSelectingStartDate,
+      startLabel,
+      endLabel,
+      Icon
+    } = this.props;
+
+    if (
+      isDisabled ||
+      (isSelectingStartDate && isStart) ||
+      (!isSelectingStartDate && isEnd)
+    ) {
+      return null;
+    }
+
+    const isSelected = isStart || isEnd;
+
+    if (getShouldSelectAsStartDate(isSelectingStartDate, date, startDate)) {
+      return (
+        <DayLabel isSelected={isSelected} label={startLabel} Icon={Icon} />
+      );
+    }
+
+    if (!isEnd) {
+      return (
+        <DayLabel
+          leftAligned={false}
+          isSelected={isSelected}
+          label={endLabel}
+          Icon={Icon}
+        />
+      );
+    }
+
+    return null;
+  };
 
   render() {
     const {
-      day,
-      modifiers,
+      date,
+      timestamp,
+      month,
+      year,
+      isStart,
+      isEnd,
+      isOutside,
+      isInRange,
+      isDisabled,
+      isToday,
+      isFirstDayOfMonth,
+      isSelectingStartDate,
+      isDesktopDevice,
       startLabel,
       endLabel,
       startAriaLabel,
       endAriaLabel,
+      startSelectedLabel,
+      endSelectedLabel,
       Icon
     } = this.props;
-    const date = day.getDate();
-    const dayStartAriaLabel = modifiers.start ? startAriaLabel : '';
-    const dayEndAriaLabel = modifiers.end ? endAriaLabel : '';
 
-    return (
+    const dayOfMonth = date && date.getDate();
+
+    return isOutside ? (
+      <div role="gridcell" css={dayStyles({ isOutside })} />
+    ) : (
       <div
-        css={dayStyles(modifiers)}
-        ref={el => this.setFocusElementRef(el, modifiers)}
-        aria-label={`${dayStartAriaLabel}, ${dayEndAriaLabel}`}
+        role="gridcell"
+        tabIndex={isStart || isFirstDayOfMonth ? 0 : -1}
+        css={dayStyles({ isStart, isEnd, isInRange, isDisabled, isOutside })}
+        className={isDisabled ? '' : `d${timestamp}`}
+        aria-label={getAriaLabel({
+          dayOfMonth,
+          month,
+          year,
+          isStart,
+          isEnd,
+          isSelectingStartDate,
+          startLabel,
+          endLabel,
+          startSelectedLabel,
+          endSelectedLabel,
+          startAriaLabel,
+          endAriaLabel
+        })}
+        onMouseOver={this.handleMouseOver}
+        onMouseLeave={this.handleMouseLeave}
+        onFocus={this.handleMouseOver}
+        onBlur={this.handleMouseLeave}
+        onClick={this.handleDayClick}
+        onKeyDown={this.handleKeyDown}
       >
-        <div css={dateStyles(modifiers)}>{date}</div>
-        {modifiers.start && (
-          <SelectionLabel isStartDate label={startLabel} Icon={Icon} />
+        <div css={dateStyles({ isToday, isDisabled })}>{dayOfMonth}</div>
+        {isStart && (
+          <DayLabel isSelected label={startSelectedLabel} Icon={Icon} />
         )}
-        {modifiers.end && (
-          <SelectionLabel isStartDate={false} label={endLabel} Icon={Icon} />
+        {isEnd && (
+          <DayLabel
+            leftAligned={false}
+            bottomAligned={!!isStart}
+            isSelected
+            label={endSelectedLabel}
+            Icon={Icon}
+          />
         )}
+        {isDesktopDevice && this.state.hover && this.renderHoverLabel()}
       </div>
     );
   }
 }
 
 Day.propTypes = {
-  setFocusElementRef: PropTypes.func.isRequired,
-  day: PropTypes.instanceOf(Date).isRequired,
-  modifiers: PropTypes.shape({
-    start: PropTypes.bool,
-    end: PropTypes.bool,
-    selected: PropTypes.bool,
-    disabled: PropTypes.bool,
-    outside: PropTypes.bool
-  }).isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+  timestamp: PropTypes.instanceOf(Date).isRequired,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  month: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  onDayClick: PropTypes.func.isRequired,
+  onDayNavigate: PropTypes.func.isRequired,
+  isStart: PropTypes.bool,
+  isEnd: PropTypes.bool,
+  isInRange: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isOutside: PropTypes.bool,
+  isToday: PropTypes.bool,
+  isFirstDayOfMonth: PropTypes.bool,
+  isDateRange: PropTypes.bool,
+  isSelectingStartDate: PropTypes.bool,
+  startSelectedLabel: PropTypes.string,
+  endSelectedLabel: PropTypes.string,
   startLabel: PropTypes.string,
   endLabel: PropTypes.string,
   startAriaLabel: PropTypes.string,
   endAriaLabel: PropTypes.string,
-  Icon: PropTypes.func
+  Icon: PropTypes.func,
+  isDesktopDevice: PropTypes.bool
 };
 
 Day.defaultProps = {
+  startDate: null,
+  endDate: null,
+  isStart: false,
+  isEnd: false,
+  isInRange: false,
+  isDisabled: false,
+  isOutside: false,
+  isToday: false,
+  isFirstDayOfMonth: false,
+  isDateRange: true,
+  isSelectingStartDate: true,
+  startSelectedLabel: '',
+  endSelectedLabel: '',
   startLabel: '',
   endLabel: '',
   startAriaLabel: '',
   endAriaLabel: '',
-  Icon: PlaneIcon
+  Icon: PlaneIcon,
+  isDesktopDevice: false
 };
 
 export default Day;

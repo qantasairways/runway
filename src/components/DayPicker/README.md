@@ -1,43 +1,26 @@
 ```js
-const startDate = new Date();
-const endDate = new Date(
-  startDate.getFullYear(),
-  startDate.getMonth(),
-  startDate.getDate() + 7
-);
-const disabledAfter = new Date(
-  startDate.getFullYear(),
-  startDate.getMonth(),
-  startDate.getDate() + 60
-);
+const disabledBefore = new Date();
 
-<DayPicker
-  start={startDate}
-  end={endDate}
-  disabledBefore={startDate}
-  disabledAfter={disabledAfter}
-  firstDayOfWeek={1}
-  monthsToShow={3}
-  buttonLabel="When"
-  placeHolder="When?"
-  headerLabel="Select Dates"
-  startLabel="SYD"
-  endLabel="MEL"
-  Icon={PlaneIcon}
-  dayLabels={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
-  monthLabels={[
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]}
-/>;
+<StatefulManager initial>
+  {({ value, updater }) => (
+    <DayPicker
+      startDate={value.startDate}
+      endDate={value.endDate}
+      disabledBefore={disabledBefore}
+      disabledAfter={
+        new Date(
+          disabledBefore.getFullYear(),
+          disabledBefore.getMonth(),
+          disabledBefore.getDate() + 60
+        )
+      }
+      firstDayOfWeek={1}
+      monthsToShow={3}
+      startSelectedLabel="SYD"
+      endSelectedLabel="MEL"
+      Icon={PlaneIcon}
+      onDayClick={(startDate, endDate) => updater({ startDate, endDate })}
+    />
+  )}
+</StatefulManager>;
 ```

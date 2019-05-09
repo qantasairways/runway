@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CalendarHeader from '../components/CalendarHeader';
+import Tabs from '../components/Tabs';
 
-describe('CalendarHeader', () => {
+const CalendarIcon = () => <div>Calendar Icon</div>;
+
+describe('Tabs', () => {
   it('renders with defaults', () => {
     const calendar = shallow(
-      <CalendarHeader
+      <Tabs
         startPlaceholder="depart?"
         endPlaceholder="return?"
         startSelectedLabel="departing on"
@@ -18,7 +20,7 @@ describe('CalendarHeader', () => {
 
   it('renders with props provided', () => {
     const calendar = shallow(
-      <CalendarHeader
+      <Tabs
         startPlaceholder="depart?"
         endPlaceholder="return?"
         startSelectedLabel="departing on"
@@ -26,6 +28,7 @@ describe('CalendarHeader', () => {
         isSelectingStartDate={false}
         startDate="6th June"
         endDate="10th October"
+        Icon={CalendarIcon}
       />
     );
 

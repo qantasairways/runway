@@ -1,7 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
-import Planeicon from '../../../icons/PlaneIcon';
 import Triangle from '../../../icons/Triangle';
 import {
   colours,
@@ -118,7 +117,7 @@ export function textStyles({ isPlaceholder }) {
   });
 }
 
-export function planeSvgStyles({ isSelectingStartDate }) {
+export function iconStyles({ isSelectingStartDate }) {
   return css({
     width: '28px',
     height: '28px',
@@ -154,7 +153,7 @@ export function TriangleSvgStyles({ isSelectingStartDate }) {
   });
 }
 
-const CalendarHeader = ({
+const Tabs = ({
   isSelectingStartDate,
   startSelectedLabel,
   endSelectedLabel,
@@ -163,7 +162,8 @@ const CalendarHeader = ({
   startDate,
   endDate,
   onTabClick,
-  isOneWay
+  isDateRange,
+  Icon
 }) => {
   const renderStartTabContent = () => {
     if (startDate) {
@@ -210,10 +210,10 @@ const CalendarHeader = ({
           css={startTabStyles({ isSelectingStartDate })}
         >
           {renderStartTabContent()}
-          <Planeicon css={planeSvgStyles({ isSelectingStartDate })} />
+          {Icon && <Icon css={iconStyles({ isSelectingStartDate })} />}
           <Triangle css={TriangleSvgStyles({ isSelectingStartDate })} />
         </button>
-        {!isOneWay && (
+        {isDateRange && (
           <button
             onClick={() => onTabClick({ isSelectingStartDate: false })}
             type="button"
@@ -227,24 +227,26 @@ const CalendarHeader = ({
   );
 };
 
-CalendarHeader.propTypes = {
+Tabs.propTypes = {
   isSelectingStartDate: PropTypes.bool,
-  isOneWay: PropTypes.bool,
+  isDateRange: PropTypes.bool,
   startPlaceholder: PropTypes.string.isRequired,
   endPlaceholder: PropTypes.string.isRequired,
   startSelectedLabel: PropTypes.string.isRequired,
   endSelectedLabel: PropTypes.string.isRequired,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  onTabClick: PropTypes.func
+  onTabClick: PropTypes.func,
+  Icon: PropTypes.func
 };
 
-CalendarHeader.defaultProps = {
+Tabs.defaultProps = {
   isSelectingStartDate: true,
-  isOneWay: false,
+  isDateRange: true,
   startDate: null,
   endDate: null,
-  onTabClick: () => {}
+  onTabClick: () => {},
+  Icon: null
 };
 
-export default CalendarHeader;
+export default Tabs;
