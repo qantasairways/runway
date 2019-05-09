@@ -7,7 +7,7 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   width: 100%;
   max-width: 100%;
   border: 0;
-  padding: 0 16px;
+  padding: 0 15px;
   cursor: pointer;
   background-color: #323232;
   color: #fff;
@@ -70,7 +70,7 @@ exports[`Button renders correctly with defaults 1`] = `
   width: 100%;
   max-width: 100%;
   border: 0;
-  padding: 0 16px;
+  padding: 0 15px;
   cursor: pointer;
   background-color: #323232;
   color: #fff;
@@ -140,7 +140,7 @@ exports[`Button renders correctly with props provided 1`] = `
   width: 100%;
   max-width: 100%;
   border: 0;
-  padding: 0 16px;
+  padding: 0 15px;
   cursor: pointer;
   background-color: #323232;
   color: #fff;

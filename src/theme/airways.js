@@ -22,7 +22,7 @@ export const airwaysFontFamily = {
 
 export const layout = {
   borderRadius: '4px',
-  gutter: '16px',
+  gutter: '15px',
   iconSize: '32px',
   links: {
     gutter: '10px'
@@ -63,6 +63,7 @@ export const fontSize = {
   button: '1rem',
   label: '1rem',
   large: '2.25rem',
+  medium: '1.625rem',
   small: '0.625rem'
 };
 
@@ -78,7 +79,10 @@ export const buttons = {
 };
 
 export const mq = {
-  tablet: '@media only screen and (min-width: 480px)'
+  medium: '@media only screen and (min-width: 768px)',
+  large: '@media only screen and (min-width: 960px)',
+  extraLarge: '@media only screen and (min-width: 1200px)',
+  small: '@media only screen and (min-width: 321px)'
 };
 
 export default {
