@@ -5,7 +5,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
-  contentPadding="0 16px"
+  contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
     Object {
@@ -50,7 +50,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
-  contentPadding="0 16px"
+  contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
     Object {
@@ -101,7 +101,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
   width: 100%;
   max-width: 100%;
   border: 0;
-  padding: 0 16px;
+  padding: 0 15px;
   cursor: pointer;
   background-color: #323232;
   color: #fff;
@@ -160,7 +160,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
     Icon={null}
     buttonLabel={null}
     closeAriaLabel="Close dialog"
-    contentPadding="0 16px"
+    contentPadding="0 15px"
     dialogAriaLabel=""
     dialogStyles={
       Object {
@@ -203,7 +203,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
-        contentPadding="0 16px"
+        contentPadding="0 15px"
         dialogStyles={
           Object {
             "background": "white",
@@ -287,7 +287,7 @@ exports[`PopupField renders correctly with props 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
-  contentPadding="0 16px"
+  contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
     Object {
