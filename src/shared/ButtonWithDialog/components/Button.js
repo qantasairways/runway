@@ -106,7 +106,7 @@ function Button({
             top: '5px',
             left: '7px',
             color: 'white',
-            textTransform: 'uppercase',
+            textTransform: 'none',
             fontSize: fontSize.label
           }}
         >
