@@ -1,3 +1,10 @@
+# [0.19.0](https://github.com/qantasairways/runway/compare/v0.18.0...v0.19.0) (2019-05-14)
+
+
+### Features
+
+* **daypicker:** Replaced library with components and logic from scratch because of performance issues. Added windowing. Updates for desktop design. Moved the tabs into the header. ([#39](https://github.com/qantasairways/runway/issues/39)) ([772eb90](https://github.com/qantasairways/runway/commit/772eb90))
+
 # [0.18.0](https://github.com/qantasairways/runway/compare/v0.17.0...v0.18.0) (2019-05-14)
 
 
