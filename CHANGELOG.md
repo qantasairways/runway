@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/qantasairways/runway/compare/v0.19.0...v0.20.0) (2019-05-14)
+
+
+### Features
+
+* **styling:** Some minor styling fixes ([#42](https://github.com/qantasairways/runway/issues/42)) ([aa1cb03](https://github.com/qantasairways/runway/commit/aa1cb03))
+
 # [0.19.0](https://github.com/qantasairways/runway/compare/v0.18.0...v0.19.0) (2019-05-14)
 
 
