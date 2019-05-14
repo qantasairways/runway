@@ -1,3 +1,10 @@
+# [0.18.0](https://github.com/qantasairways/runway/compare/v0.17.0...v0.18.0) (2019-05-14)
+
+
+### Features
+
+* **dropdown:** dropdown design for trip type and travel class, fix the press active on touch screen devices ([#40](https://github.com/qantasairways/runway/issues/40)) ([1e1a192](https://github.com/qantasairways/runway/commit/1e1a192))
+
 # [0.17.0](https://github.com/qantasairways/runway/compare/v0.16.0...v0.17.0) (2019-05-08)
 
 
