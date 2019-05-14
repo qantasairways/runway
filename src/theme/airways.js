@@ -24,6 +24,7 @@ export const layout = {
   borderRadius: '4px',
   gutter: '15px',
   iconSize: '32px',
+  containerMaxWidth: '1000px',
   links: {
     gutter: '10px'
   }
@@ -62,6 +63,7 @@ export const fontSize = {
   body: '1.125rem',
   button: '1rem',
   label: '1rem',
+  labelLarge: '1.375rem',
   large: '2.25rem',
   medium: '1.625rem',
   small: '0.625rem'
@@ -78,11 +80,17 @@ export const buttons = {
   height: '3.125rem'
 };
 
+export const breakpoints = {
+  medium: '(min-width: 768px)',
+  large: '(min-width: 960px)',
+  extraLarge: '(min-width: 1200px)'
+};
+
 export const mq = {
-  medium: '@media only screen and (min-width: 768px)',
-  large: '@media only screen and (min-width: 960px)',
-  extraLarge: '@media only screen and (min-width: 1200px)',
-  small: '@media only screen and (min-width: 321px)'
+  small: '@media only screen and (min-width: 321px)',
+  medium: `@media only screen and ${breakpoints.medium}`,
+  large: `@media only screen and ${breakpoints.large}`,
+  extraLarge: `@media only screen and ${breakpoints.extraLarge}`
 };
 
 export default {

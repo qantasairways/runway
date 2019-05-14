@@ -1,8 +1,26 @@
+/* eslint-disable react/no-unused-prop-types */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { VariableSizeList as List } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+
+import Month from './components/Month';
 
 import noop from '../../utils/noop';
-import { fontSize } from '../../theme/airways';
+import { fontSize, layout, breakpoints } from '../../theme/airways';
+import {
+  getDateWithoutTime,
+  getTwoDigitDate,
+  getMonthAndYear,
+  getMonthsArray,
+  getDateArray,
+  getInitialDateToFocus,
+  getDateToNavigate,
+  getItemSize,
+  focusDayCell,
+  DAY_CELL_BORDER_WIDTH
+} from './helpers';
 
 import ButtonWithDialog, {
   ButtonContent,
@@ -10,14 +28,14 @@ import ButtonWithDialog, {
   dialogStylesFullScreen
 } from '../../shared/ButtonWithDialog';
 import IconCalendar from '../../icons/CalendarIcon';
-import Calendar from './components/Calendar';
 import Header from './components/Header';
 
 const rowStyles = {
   display: 'grid',
   gridTemplateColumns: 'repeat(7, 1fr)',
-  gridGap: '1px',
-  marginTop: '1px'
+  gridGap: `${DAY_CELL_BORDER_WIDTH}px`,
+  maxWidth: layout.containerMaxWidth,
+  margin: '1px auto 0 auto'
 };
 
 const dividerStyles = {
@@ -25,36 +43,103 @@ const dividerStyles = {
   margin: '0 12px 20px 12px'
 };
 
-const getTwoDigitDate = date => `0${date.getDate()}`.slice(-2);
-
-const getMonthAndYear = (date, monthLabels) =>
-  `${monthLabels[date.getMonth()]}, ${date.getFullYear()}`;
-
 class DayPicker extends Component {
+  constructor(props) {
+    super(props);
+
+    const { disabledAfter, monthsToShow } = props;
+    const today = new Date().setHours(0, 0, 0, 0);
+
+    this.state = {
+      today,
+      disabledAfter: getDateWithoutTime(disabledAfter),
+      months: getMonthsArray(today, monthsToShow),
+      isSelectingStartDate: true
+    };
+  }
+
+  static getDerivedStateFromProps({ startDate, endDate, disabledBefore }) {
+    return {
+      startDate: getDateWithoutTime(startDate),
+      endDate: getDateWithoutTime(endDate),
+      disabledBefore: getDateWithoutTime(disabledBefore)
+    };
+  }
+
+  onOpen = () => {
+    const { today, startDate, disabledBefore } = this.state;
+    const { date, month } = getInitialDateToFocus(
+      today,
+      startDate,
+      disabledBefore
+    );
+
+    this.scrollToMonth(month);
+    focusDayCell(date);
+  };
+
+  onDayClick = (startDate, endDate, isSelectingStartDate) => {
+    this.setState({
+      isSelectingStartDate
+    });
+    this.props.onDayClick(startDate, endDate);
+  };
+
+  onDayNavigate = (timestamp, keyCode) => {
+    const dateToNavigate = getDateToNavigate(timestamp, keyCode);
+    focusDayCell(dateToNavigate);
+  };
+
+  scrollToMonth = index => {
+    if (this.scrollList) {
+      this.scrollList.scrollToItem(index, 'start');
+    }
+  };
+
   renderHeader = ({ closeDialog }) => {
     const {
       firstDayOfWeek,
+      isDateRange,
+      startSelectedLabel,
+      endSelectedLabel,
+      startLabel,
+      endLabel,
+      startPlaceholder,
+      endPlaceholder,
       headerLabel,
       dayLabels,
-      closeAriaLabel
+      closeAriaLabel,
+      Icon
     } = this.props;
+
+    const { startDate, endDate, isSelectingStartDate } = this.state;
 
     return (
       <Header
         closeDialog={closeDialog}
+        startDate={startDate}
+        endDate={endDate}
         firstDayOfWeek={firstDayOfWeek}
+        isDateRange={isDateRange}
+        isSelectingStartDate={isSelectingStartDate}
+        startSelectedLabel={`${startLabel || ''} ${startSelectedLabel || ''}`}
+        endSelectedLabel={`${endLabel || ''} ${endSelectedLabel || ''}`}
+        startPlaceholder={startPlaceholder}
+        endPlaceholder={endPlaceholder}
         headerLabel={headerLabel}
         dayLabels={dayLabels}
         closeAriaLabel={closeAriaLabel}
         rowStyles={rowStyles}
+        Icon={Icon}
       />
     );
   };
 
   renderButtonDates = () => {
-    const { start, end, monthLabels } = this.props;
+    const { monthLabels } = this.props;
+    const { startDate, endDate } = this.state;
 
-    return start ? (
+    return startDate ? (
       <div
         css={{
           display: 'flex',
@@ -63,41 +148,95 @@ class DayPicker extends Component {
         }}
       >
         <ButtonContent
-          largeButtonValue={getTwoDigitDate(start)}
-          smallButtonValue={getMonthAndYear(start, monthLabels)}
+          largeButtonValue={getTwoDigitDate(startDate)}
+          smallButtonValue={getMonthAndYear(startDate, monthLabels)}
         />
-        {end && <div css={dividerStyles}>-</div>}
-        {end && (
+        {endDate && <div css={dividerStyles}>-</div>}
+        {endDate && (
           <ButtonContent
-            largeButtonValue={getTwoDigitDate(end)}
-            smallButtonValue={getMonthAndYear(end, monthLabels)}
+            largeButtonValue={getTwoDigitDate(endDate)}
+            smallButtonValue={getMonthAndYear(endDate, monthLabels)}
           />
         )}
       </div>
     ) : null;
   };
 
-  render() {
+  renderMonth = ({ index, style }, isDesktopDevice) => {
     const {
-      start,
-      end,
-      hiddenBefore,
-      disabledBefore,
-      disabledAfter,
-      onDayClick,
+      isDateRange,
       firstDayOfWeek,
-      monthsToShow,
-      buttonLabel,
-      placeHolder,
+      startSelectedLabel,
+      endSelectedLabel,
       startLabel,
       endLabel,
       startAriaLabel,
       endAriaLabel,
       monthLabels,
-      closeAriaLabel,
-      dialogAriaLabel,
       Icon
     } = this.props;
+
+    const {
+      months,
+      today,
+      startDate,
+      endDate,
+      disabledBefore,
+      disabledAfter,
+      isSelectingStartDate
+    } = this.state;
+
+    const month = months[index];
+
+    const dates = getDateArray({
+      month,
+      monthIndex: index,
+      today,
+      firstDayOfWeek,
+      startDate,
+      endDate,
+      disabledBefore,
+      disabledAfter
+    });
+
+    return (
+      <Month
+        key={month}
+        month={month}
+        days={dates}
+        style={style}
+        startDate={startDate}
+        endDate={endDate}
+        isDateRange={isDateRange}
+        isSelectingStartDate={isSelectingStartDate}
+        onDayClick={this.onDayClick}
+        onDayNavigate={this.onDayNavigate}
+        startSelectedLabel={startSelectedLabel}
+        endSelectedLabel={endSelectedLabel}
+        startLabel={startLabel}
+        endLabel={endLabel}
+        startAriaLabel={startAriaLabel}
+        endAriaLabel={endAriaLabel}
+        monthLabels={monthLabels}
+        Icon={Icon}
+        rowStyles={rowStyles}
+        isDesktopDevice={isDesktopDevice}
+        today={today}
+      />
+    );
+  };
+
+  render() {
+    const {
+      monthsToShow,
+      buttonLabel,
+      placeHolder,
+      closeAriaLabel,
+      dialogAriaLabel,
+      firstDayOfWeek
+    } = this.props;
+
+    const { months } = this.state;
 
     return (
       <ButtonWithDialog
@@ -106,33 +245,44 @@ class DayPicker extends Component {
         closeAriaLabel={closeAriaLabel}
         dialogAriaLabel={dialogAriaLabel}
         Icon={IconCalendar}
+        onOpen={this.onOpen}
+        onClose={this.onClose}
+        closeOnBlur={false}
         renderHeader={this.renderHeader}
         renderButtonValue={this.renderButtonDates}
         dialogStyles={dialogStylesFullScreen}
         transitionStyles={transitionStylesSlideUp}
         contentPadding="0"
       >
-        {({ closeDialog, setFocusElementRef }) => (
-          <div css={{ overflow: 'auto' }}>
-            <Calendar
-              closeDialog={closeDialog}
-              setFocusElementRef={setFocusElementRef}
-              start={start}
-              end={end}
-              hiddenBefore={hiddenBefore}
-              disabledBefore={disabledBefore}
-              disabledAfter={disabledAfter}
-              onDayClick={onDayClick}
-              firstDayOfWeek={firstDayOfWeek}
-              monthsToShow={monthsToShow}
-              startLabel={startLabel}
-              endLabel={endLabel}
-              startAriaLabel={startAriaLabel}
-              endAriaLabel={endAriaLabel}
-              monthLabels={monthLabels}
-              Icon={Icon}
-              rowStyles={rowStyles}
-            />
+        {() => (
+          <div role="grid" style={{ height: window.innerHeight }}>
+            <AutoSizer>
+              {({ height, width }) => {
+                const isDesktopDevice =
+                  window.matchMedia &&
+                  window.matchMedia(breakpoints.medium).matches;
+                return (
+                  <List
+                    ref={el => {
+                      this.scrollList = el;
+                    }}
+                    height={height}
+                    itemCount={monthsToShow}
+                    itemSize={index =>
+                      getItemSize(
+                        index,
+                        months,
+                        firstDayOfWeek,
+                        isDesktopDevice
+                      )
+                    }
+                    width={width}
+                  >
+                    {row => this.renderMonth(row, isDesktopDevice)}
+                  </List>
+                );
+              }}
+            </AutoSizer>
           </div>
         )}
       </ButtonWithDialog>
@@ -142,11 +292,9 @@ class DayPicker extends Component {
 
 DayPicker.propTypes = {
   /** Start date if selected */
-  start: PropTypes.instanceOf(Date),
+  startDate: PropTypes.instanceOf(Date),
   /** End date if selected */
-  end: PropTypes.instanceOf(Date),
-  /** Hide all days before this date */
-  hiddenBefore: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
   /** Disable all days before this date */
   disabledBefore: PropTypes.instanceOf(Date),
   /** Disable all days after this date */
@@ -154,10 +302,11 @@ DayPicker.propTypes = {
   /**
    * Triggered when any day is clicked
    *
-   * @param {Date} day The date that was clicked
-   * @param {Object} modifiers Modifiers of the day - { disabled, outside, today, start, end, selected }
-   * @param {SyntheticEvent} event The react `SyntheticEvent`
+   * @param {Date} startDate New start date value
+   * @param {Bool} endDate New end date value if isDateRange prop is true
    */ onDayClick: PropTypes.func,
+  /** Flag showing whether to select a date range. If set to false a single date will be selected */
+  isDateRange: PropTypes.bool,
   /** Index of they day of week to display first */
   firstDayOfWeek: PropTypes.number,
   /** Number of months to display */
@@ -169,9 +318,17 @@ DayPicker.propTypes = {
   /** Label for the top bar in the header */
   headerLabel: PropTypes.string,
   /** Label for the highlighted day when start date is selected */
-  startLabel: PropTypes.string,
+  startSelectedLabel: PropTypes.string,
   /** Label for the highlighted day when end date is selected */
+  endSelectedLabel: PropTypes.string,
+  /** Label for on hover or focus of each day when the user is selecting the start date. This label will also display in the header. */
+  startLabel: PropTypes.string,
+  /** Label for on hover or focus of each day when the user is selecting the end date. This label will also display in the header. */
   endLabel: PropTypes.string,
+  /** Placeholder in the header when no start date is selected */
+  startPlaceholder: PropTypes.string,
+  /** Placeholder in the header when no end date is selected */
+  endPlaceholder: PropTypes.string,
   /** Aria label for the highlighted day when start date is selected */
   startAriaLabel: PropTypes.string,
   /** Aria label for the highlighted day when end date is selected */
@@ -189,25 +346,42 @@ DayPicker.propTypes = {
 };
 
 DayPicker.defaultProps = {
-  start: null,
-  end: null,
-  hiddenBefore: null,
+  startDate: null,
+  endDate: null,
   disabledBefore: null,
   disabledAfter: null,
+  isDateRange: true,
   onDayClick: noop,
   firstDayOfWeek: 0,
   monthsToShow: 12,
-  buttonLabel: '',
-  placeHolder: '',
-  headerLabel: '',
-  startLabel: '',
-  endLabel: '',
-  startAriaLabel: '',
-  endAriaLabel: '',
-  monthLabels: [],
-  dayLabels: [],
-  closeAriaLabel: '',
-  dialogAriaLabel: '',
+  buttonLabel: 'When',
+  placeHolder: 'When?',
+  headerLabel: 'Select Dates',
+  startSelectedLabel: 'Selected as start date',
+  endSelectedLabel: 'Selected as end date',
+  startLabel: 'Starting',
+  endLabel: 'Ending',
+  startPlaceholder: 'Starting When?',
+  endPlaceholder: 'Ending When?',
+  startAriaLabel: 'Select as start date',
+  endAriaLabel: 'Select as end date',
+  monthLabels: [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ],
+  dayLabels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  closeAriaLabel: 'Close dialog',
+  dialogAriaLabel: 'Select dates',
   Icon: null
 };
 

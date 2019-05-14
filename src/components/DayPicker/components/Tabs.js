@@ -1,7 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
-import Planeicon from '../../../icons/PlaneIcon';
 import Triangle from '../../../icons/Triangle';
 import {
   colours,
@@ -13,8 +12,8 @@ import {
 } from '../../../theme/airways';
 import {
   CSS_PSEUDO_AFTER,
-  CSS_SELECTOR_FOCUS,
-  CSS_SELECTOR_HOVER
+  CSS_SELECTOR_FOCUS
+  // CSS_SELECTOR_HOVER
 } from '../../../constants/css';
 
 export function calendarHeatherCntStyle() {
@@ -28,7 +27,7 @@ export function calendarHeatherCntStyle() {
 
 const tabStyles = {
   position: 'relative',
-  cursor: 'pointer',
+  // cursor: 'pointer',
   width: '50%',
   height: '64px',
   display: 'flex',
@@ -45,7 +44,7 @@ const tabStyles = {
 };
 
 export function endTabStyle({ isSelectingStartDate }) {
-  return css({
+  return css(tabStyles, {
     label: 'runway-calendar-header_endTab_style',
     color: isSelectingStartDate ? colours.white : colours.darkerGrey,
     border: isSelectingStartDate ? 'none' : `solid 5px ${colours.highlights}`,
@@ -55,15 +54,17 @@ export function endTabStyle({ isSelectingStartDate }) {
     float: 'right',
     justifyContent: 'flex-end',
     padding: `0 ${layout.gutter}`,
-    ...tabStyles,
-    [CSS_SELECTOR_HOVER]: {
-      backgroundColor: isSelectingStartDate ? '#3c3c3c' : colours.white
+    // [CSS_SELECTOR_HOVER]: {
+    //   backgroundColor: isSelectingStartDate ? '#3c3c3c' : colours.white
+    // },
+    [mq.medium]: {
+      justifyContent: 'flex-start'
     }
   });
 }
 
 export function startTabStyles({ isSelectingStartDate }) {
-  return css({
+  return css(tabStyles, {
     label: 'runway-calendar-header_startTab_style',
     padding: `0 ${layout.gutter}`,
     border: isSelectingStartDate
@@ -75,10 +76,9 @@ export function startTabStyles({ isSelectingStartDate }) {
     boxSizing: 'border-box',
     justifyContent: 'space-between',
     textAlign: 'left',
-    ...tabStyles,
-    [CSS_SELECTOR_HOVER]: {
-      backgroundColor: isSelectingStartDate ? colours.white : '#3c3c3c'
-    },
+    // [CSS_SELECTOR_HOVER]: {
+    //   backgroundColor: isSelectingStartDate ? colours.white : '#3c3c3c'
+    // },
     [CSS_PSEUDO_AFTER]: {
       content: "''",
       zIndex: '5',
@@ -96,6 +96,9 @@ export function startTabStyles({ isSelectingStartDate }) {
         borderBottom: `42px solid ${colours.transparent}`,
         top: '-7px'
       }
+    },
+    [mq.medium]: {
+      justifyContent: 'flex-end'
     }
   });
 }
@@ -109,8 +112,11 @@ export function textStyles({ isPlaceholder }) {
     fontWeight: fontWeight.regular,
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
     [mq.medium]: {
-      fontSize: fontSize.medium
+      fontSize: fontSize.medium,
+      maxWidth: '500px',
+      justifyContent: 'center'
     },
     [mq.large]: {
       flexDirection: 'row'
@@ -118,7 +124,7 @@ export function textStyles({ isPlaceholder }) {
   });
 }
 
-export function planeSvgStyles({ isSelectingStartDate }) {
+export function iconStyles({ isSelectingStartDate }) {
   return css({
     width: '28px',
     height: '28px',
@@ -154,7 +160,28 @@ export function TriangleSvgStyles({ isSelectingStartDate }) {
   });
 }
 
-const CalendarHeader = ({
+const renderTabContent = (date, label, placeholder, isSelected) => {
+  if (date) {
+    return (
+      <div css={textStyles({ isSelected, isPlaceholder: false })}>
+        <span>
+          <b>
+            {label}
+            &nbsp;
+          </b>
+        </span>
+        <span>{date}</span>
+      </div>
+    );
+  }
+  return (
+    <span css={textStyles({ isSelected, isPlaceholder: true })}>
+      {placeholder}
+    </span>
+  );
+};
+
+const Tabs = ({
   isSelectingStartDate,
   startSelectedLabel,
   endSelectedLabel,
@@ -163,88 +190,63 @@ const CalendarHeader = ({
   startDate,
   endDate,
   onTabClick,
-  isOneWay
-}) => {
-  const renderStartTabContent = () => {
-    if (startDate) {
-      return (
-        <div css={textStyles({ isPlaceholder: false })}>
-          <span>
-            <b>
-              {startSelectedLabel}
-              &nbsp;
-            </b>
-          </span>
-          <span>{startDate}</span>
-        </div>
-      );
-    }
-    return (
-      <span css={textStyles({ isPlaceholder: true })}>{startPlaceholder}</span>
-    );
-  };
-  const renderEndTabContent = () => {
-    if (endDate) {
-      return (
-        <div css={textStyles({ isPlaceholder: false })}>
-          <span>
-            <b>{endSelectedLabel}</b>
-          </span>
-          <span>
-            &nbsp;
-            {endDate}
-          </span>
-        </div>
-      );
-    }
-    return (
-      <span css={textStyles({ isPlaceholder: true })}>{endPlaceholder}</span>
-    );
-  };
-  return (
-    <div>
-      <div css={calendarHeatherCntStyle()}>
-        <button
-          onClick={() => onTabClick({ isSelectingStartDate: true })}
-          type="button"
-          css={startTabStyles({ isSelectingStartDate })}
-        >
-          {renderStartTabContent()}
-          <Planeicon css={planeSvgStyles({ isSelectingStartDate })} />
-          <Triangle css={TriangleSvgStyles({ isSelectingStartDate })} />
-        </button>
-        {!isOneWay && (
-          <button
-            onClick={() => onTabClick({ isSelectingStartDate: false })}
-            type="button"
-            css={endTabStyle({ isSelectingStartDate })}
-          >
-            {renderEndTabContent()}
-          </button>
+  isDateRange,
+  Icon
+}) => (
+  <div>
+    <div css={calendarHeatherCntStyle()}>
+      <button
+        onClick={() => onTabClick({ isSelectingStartDate: true })}
+        type="button"
+        css={startTabStyles({ isSelectingStartDate })}
+      >
+        {renderTabContent(
+          startDate,
+          startSelectedLabel,
+          startPlaceholder,
+          isSelectingStartDate
         )}
-      </div>
+        {Icon && <Icon css={iconStyles({ isSelectingStartDate })} />}
+        <Triangle css={TriangleSvgStyles({ isSelectingStartDate })} />
+      </button>
+      {isDateRange && (
+        <button
+          onClick={() => onTabClick({ isSelectingStartDate: false })}
+          type="button"
+          css={endTabStyle({ isSelectingStartDate })}
+        >
+          {renderTabContent(
+            endDate,
+            endSelectedLabel,
+            endPlaceholder,
+            !isSelectingStartDate
+          )}
+        </button>
+      )}
     </div>
-  );
-};
+  </div>
+);
 
-CalendarHeader.propTypes = {
+Tabs.propTypes = {
   isSelectingStartDate: PropTypes.bool,
-  isOneWay: PropTypes.bool,
+  isDateRange: PropTypes.bool,
   startPlaceholder: PropTypes.string.isRequired,
   endPlaceholder: PropTypes.string.isRequired,
   startSelectedLabel: PropTypes.string.isRequired,
   endSelectedLabel: PropTypes.string.isRequired,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  onTabClick: PropTypes.func
+  onTabClick: PropTypes.func,
+  Icon: PropTypes.func
 };
 
-CalendarHeader.defaultProps = {
+Tabs.defaultProps = {
   isSelectingStartDate: true,
-  isOneWay: false,
+  isDateRange: true,
   startDate: null,
   endDate: null,
-  onTabClick: () => {}
+  onTabClick: () => {},
+  Icon: null
 };
 
-export default CalendarHeader;
+export default Tabs;

@@ -1,21 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 
-import { colours, fontFamily } from '../../../theme/airways';
+import {
+  colours,
+  fontFamily,
+  fontSize,
+  mq,
+  layout
+} from '../../../theme/airways';
 
+import Tabs from './Tabs';
+import QantasLogo from '../../../icons/QantasLogo';
 import CrossIcon from '../../../icons/CrossIcon';
 
 const ICON_SIZE = '32px';
 
 const weekdayStyles = {
   width: '100%',
-  padding: '8px 0',
+  height: '30px',
   fontFamily: fontFamily.body,
   fontSize: '0.875rem',
   lineHeight: '0.875rem',
   textAlign: 'center',
-  background: colours.disabledGrey,
-  boxShadow: '0 1px 1px 0 rgba(0, 0, 0, 0.08), 0 0 1px 0 rgba(0, 0, 0, 0.04)'
+  boxShadow: '0 1px 1px 0 rgba(0, 0, 0, 0.08), 0 0 1px 0 rgba(0, 0, 0, 0.04)',
+  [mq.medium]: {
+    height: '40px'
+  }
 };
 
 function orderLabels(firstDayOfWeek, dayLabels) {
@@ -26,11 +37,20 @@ function orderLabels(firstDayOfWeek, dayLabels) {
 
 function Header({
   closeDialog,
+  startDate,
+  endDate,
   firstDayOfWeek,
+  isSelectingStartDate,
+  isDateRange,
   closeAriaLabel,
   headerLabel,
   dayLabels,
-  rowStyles
+  startSelectedLabel,
+  endSelectedLabel,
+  startPlaceholder,
+  endPlaceholder,
+  rowStyles,
+  Icon
 }) {
   const orderedLabels = orderLabels(firstDayOfWeek, dayLabels);
 
@@ -40,63 +60,110 @@ function Header({
         css={{
           fontFamily: fontFamily.bold,
           background: colours.darkerGrey,
-          color: colours.white,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 0 0 12px'
+          color: colours.white
         }}
       >
-        <span
+        <div
           css={{
-            flex: 1,
-            justifySelf: 'left'
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            maxWidth: layout.containerMaxWidth,
+            margin: '0 auto',
+            padding: '0 0 0 12px'
           }}
         >
-          {headerLabel}
-        </span>
-        <button
-          aria-label={closeAriaLabel}
-          onClick={closeDialog}
-          type="button"
-          css={{
-            background: 'none',
-            height: '48px',
-            padding: 0,
-            lineHeight: 0,
-            border: 'none',
-            width: '52px',
-            cursor: 'pointer'
-          }}
-        >
-          <CrossIcon
-            css={{ fill: 'white' }}
-            height={ICON_SIZE}
-            width={ICON_SIZE}
+          <QantasLogo
+            className={css({
+              display: 'none',
+              width: '126px',
+              [mq.medium]: {
+                display: 'block'
+              }
+            })}
           />
-        </button>
-      </div>
-      <div css={{ ...rowStyles, ...weekdayStyles }}>
-        {orderedLabels.map(day => (
-          <div
-            key={day}
+          <span
             css={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                right: '-1px',
-                height: '15px',
-                borderLeft: '1px solid #eeeeee'
+              fontSize: fontSize.body,
+              lineHeight: 0,
+              [mq.medium]: {
+                paddingRight: '71px',
+                fontSize: fontSize.labelLarge
               }
             }}
           >
-            {day}
-          </div>
-        ))}
+            {headerLabel}
+          </span>
+          <button
+            aria-label={closeAriaLabel}
+            onClick={closeDialog}
+            type="button"
+            css={{
+              height: '48px',
+              width: '48px',
+              padding: 0,
+              lineHeight: 0,
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              [mq.medium]: {
+                height: '55px',
+                width: '55px'
+              },
+              [mq.large]: {
+                textAlign: 'right'
+              }
+            }}
+          >
+            <CrossIcon
+              css={{ fill: 'white' }}
+              height={ICON_SIZE}
+              width={ICON_SIZE}
+            />
+          </button>
+        </div>
+      </div>
+      <Tabs
+        isSelectingStartDate={isSelectingStartDate}
+        startPlaceholder={startPlaceholder}
+        endPlaceholder={endPlaceholder}
+        startSelectedLabel={startSelectedLabel}
+        endSelectedLabel={endSelectedLabel}
+        startDate={startDate && startDate.toDateString()}
+        endDate={endDate && endDate.toDateString()}
+        isDateRange={isDateRange}
+        Icon={Icon}
+      />
+      <div
+        css={{
+          background: colours.disabledGrey
+        }}
+      >
+        <div css={{ ...rowStyles, ...weekdayStyles }}>
+          {orderedLabels.map(day => (
+            <div
+              key={day}
+              css={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  right: '-1px',
+                  height: '15px',
+                  borderLeft: '1px solid #eeeeee'
+                },
+                [mq.xLarge]: {
+                  fontSize: fontSize.body
+                }
+              }}
+            >
+              {day}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -104,16 +171,34 @@ function Header({
 
 Header.propTypes = {
   closeDialog: PropTypes.func.isRequired,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  isSelectingStartDate: PropTypes.bool,
+  isDateRange: PropTypes.bool,
   firstDayOfWeek: PropTypes.number.isRequired,
   closeAriaLabel: PropTypes.string,
   headerLabel: PropTypes.string,
+  startSelectedLabel: PropTypes.string,
+  endSelectedLabel: PropTypes.string,
+  startPlaceholder: PropTypes.string,
+  endPlaceholder: PropTypes.string,
   dayLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-  rowStyles: PropTypes.shape().isRequired
+  rowStyles: PropTypes.shape().isRequired,
+  Icon: PropTypes.func
 };
 
 Header.defaultProps = {
+  startDate: null,
+  endDate: null,
+  isSelectingStartDate: true,
+  isDateRange: false,
+  startSelectedLabel: '',
+  endSelectedLabel: '',
+  startPlaceholder: '',
+  endPlaceholder: '',
   closeAriaLabel: '',
-  headerLabel: ''
+  headerLabel: '',
+  Icon: null
 };
 
 export default Header;

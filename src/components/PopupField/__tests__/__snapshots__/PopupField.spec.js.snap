@@ -5,6 +5,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
+  closeOnBlur={true}
   contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
@@ -18,7 +19,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
       "left": 0,
       "overflow": "auto",
       "position": "fixed",
-      "top": 0,
+      "top": "100%",
       "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
@@ -26,6 +27,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
   }
   onBlur={[Function]}
   onClose={[Function]}
+  onOpen={[Function]}
   placeHolder=""
   renderButtonValue={[Function]}
   renderHeader={[Function]}
@@ -50,6 +52,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
+  closeOnBlur={true}
   contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
@@ -63,7 +66,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
       "left": 0,
       "overflow": "auto",
       "position": "fixed",
-      "top": 0,
+      "top": "100%",
       "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
@@ -71,6 +74,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
   }
   onBlur={[Function]}
   onClose={[Function]}
+  onOpen={[Function]}
   placeHolder=""
   renderButtonValue={[Function]}
   renderHeader={[Function]}
@@ -160,6 +164,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
     Icon={null}
     buttonLabel={null}
     closeAriaLabel="Close dialog"
+    closeOnBlur={true}
     contentPadding="0 15px"
     dialogAriaLabel=""
     dialogStyles={
@@ -173,7 +178,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         "left": 0,
         "overflow": "auto",
         "position": "fixed",
-        "top": 0,
+        "top": "100%",
         "transition": "top 300ms ease-in-out",
         "width": "100%",
         "zIndex": 1000,
@@ -181,6 +186,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
     }
     onBlur={[Function]}
     onClose={[Function]}
+    onOpen={[Function]}
     placeHolder=""
     renderButtonValue={[Function]}
     renderHeader={[Function]}
@@ -203,6 +209,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
+        closeOnBlur={true}
         contentPadding="0 15px"
         dialogStyles={
           Object {
@@ -215,7 +222,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
             "left": 0,
             "overflow": "auto",
             "position": "fixed",
-            "top": 0,
+            "top": "100%",
             "transition": "top 300ms ease-in-out",
             "width": "100%",
             "zIndex": 1000,
@@ -224,6 +231,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         onBlur={[Function]}
         onClick={[Function]}
         onClose={[Function]}
+        onOpen={[Function]}
         open={false}
         placeHolder=""
         renderButtonValue={[Function]}
@@ -267,7 +275,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         enter={true}
         exit={true}
         in={false}
-        mountOnEnter={false}
+        mountOnEnter={true}
         onEnter={[Function]}
         onEntered={[Function]}
         onEntering={[Function]}
@@ -287,6 +295,7 @@ exports[`PopupField renders correctly with props 1`] = `
   Icon={null}
   buttonLabel={null}
   closeAriaLabel="Close dialog"
+  closeOnBlur={true}
   contentPadding="0 15px"
   dialogAriaLabel=""
   dialogStyles={
@@ -300,7 +309,7 @@ exports[`PopupField renders correctly with props 1`] = `
       "left": 0,
       "overflow": "auto",
       "position": "fixed",
-      "top": 0,
+      "top": "100%",
       "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
@@ -308,6 +317,7 @@ exports[`PopupField renders correctly with props 1`] = `
   }
   onBlur={[Function]}
   onClose={[Function]}
+  onOpen={[Function]}
   placeHolder=""
   renderButtonValue={[Function]}
   renderHeader={[Function]}

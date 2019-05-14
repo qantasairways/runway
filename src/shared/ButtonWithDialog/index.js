@@ -27,7 +27,7 @@ export const dialogStylesFullScreen = {
   left: 0,
   position: 'fixed',
   overflow: 'auto',
-  top: 0,
+  top: '100%',
   transition: `top 300ms ease-in-out`,
   width: '100%',
   zIndex: 1000,
@@ -41,15 +41,23 @@ class ButtonWithDialog extends Component {
   };
 
   onEntered = () => {
-    document.addEventListener('click', this.handleClickOutside);
+    this.props.onOpen();
+
+    if (this.props.closeOnBlur) {
+      document.addEventListener('click', this.handleClickOutside);
+    }
+
     if (this.focusElement) {
       this.focusElement.focus();
     }
   };
 
   onExited = () => {
-    document.removeEventListener('click', this.handleClickOutside);
     this.props.onClose();
+
+    if (this.props.closeOnBlur) {
+      document.removeEventListener('click', this.handleClickOutside);
+    }
 
     if (this.fieldButton) {
       this.fieldButton.focus();
@@ -139,6 +147,7 @@ class ButtonWithDialog extends Component {
           onEntered={this.onEntered}
           timeout={300}
           unmountOnExit
+          mountOnEnter
         >
           {state => (
             <div
@@ -164,8 +173,10 @@ class ButtonWithDialog extends Component {
 ButtonWithDialog.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
   renderButtonValue: PropTypes.func.isRequired,
+  onOpen: PropTypes.func,
   onClose: PropTypes.func,
   onBlur: PropTypes.func,
+  closeOnBlur: PropTypes.bool,
   renderHeader: PropTypes.func,
   closeAriaLabel: PropTypes.string,
   dialogAriaLabel: PropTypes.string,
@@ -181,7 +192,9 @@ ButtonWithDialog.propTypes = {
 ButtonWithDialog.defaultProps = {
   children: null,
   onClose: noop,
+  onOpen: noop,
   onBlur: noop,
+  closeOnBlur: true,
   renderHeader: noop,
   closeAriaLabel: '',
   dialogAriaLabel: '',
