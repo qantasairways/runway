@@ -9,15 +9,19 @@ const itemsArray = [
     name: 'One way'
   }
 ];
+const SelectedItem = itemsArray.find((value, index) => index === 0);
 
-<div style={{ position: 'relative' }}>
-  <Dropdown items={itemsArray} placeholder="Trip Type" />
+<div>
+  <Dropdown
+    items={itemsArray}
+    placeholder="Return"
+    isButtonStyle={false}
+    initialSelectedItem={SelectedItem}
+  />
 </div>;
 ```
 
-### Full Width Left Aligned
-
-_Note: Full width variation requires a parent with relative position_
+### Left Aligned Button Style
 
 ```js
 const itemsArray = [
@@ -34,13 +38,15 @@ const itemsArray = [
     name: 'First'
   }
 ];
+const SelectedItem = itemsArray.find((value, index) => index === 0);
 
-<div style={{ position: 'relative' }}>
+<div>
   <Dropdown
     items={itemsArray}
-    placeholder="Return"
-    fullWidth={true}
+    placeholder="Economy"
     leftAlign={true}
+    isButtonStyle={true}
+    initialSelectedItem={SelectedItem}
   />
 </div>;
 ```

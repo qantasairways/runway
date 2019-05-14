@@ -16,11 +16,10 @@ export function menuStyles({ isOpen }) {
     position: 'absolute',
     zIndex: '5',
     margin: 0,
-    transform: 'translateX(-50%)',
     top: '0',
-    left: '50%',
+    left: '0',
     width: '100%',
-    padding: 0
+    padding: '10px'
   });
 }
 

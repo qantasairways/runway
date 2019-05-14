@@ -10,8 +10,9 @@ import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
+import { colours, layout } from '../../theme/airways';
 
-export function dropdownStyles() {
+export function dropdownStyles({ isButtonStyle }) {
   return css({
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
@@ -21,8 +22,11 @@ export function dropdownStyles() {
     fontStretch: 'normal',
     lineHeight: 1.56,
     letterSpacing: 'normal',
-    background: 'black',
-    color: '#ffffff'
+    background: colours.darkerGrey,
+    height: isButtonStyle ? '65px' : '30px',
+    borderColor: colours.darkeGrey,
+    color: '#ffffff',
+    position: 'relative'
   });
 }
 
@@ -30,12 +34,19 @@ export function labelStyles() {
   return css({});
 }
 
-export function inputWrapperStyles({ fullWidth }) {
+export function inputWrapperStyles({ isButtonStyle }) {
   return css({
     label: 'runway-dropdown__input-wrapper',
     cursor: 'pointer',
-    display: 'inline-block',
-    position: fullWidth ? 'initial' : 'relative'
+    display: 'flex',
+    position: 'absolute',
+    right: '0',
+    top: '0',
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: isButtonStyle ? 'space-between' : 'flex-end',
+    padding: isButtonStyle ? `0 ${layout.gutter}` : '0'
   });
 }
 
@@ -227,7 +238,6 @@ Render.propTypes = {
   focus: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  fullWidth: PropTypes.bool,
   leftAlign: PropTypes.bool,
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
@@ -250,7 +260,6 @@ Render.defaultProps = {
   focus: false,
   label: '',
   placeholder: '',
-  fullWidth: false,
   leftAlign: false
 };
 
@@ -311,6 +320,7 @@ function renderDefaultItem(item, index, props) {
 Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
   renderItem: PropTypes.func,
+  isButtonStyle: PropTypes.bool,
   focus: PropTypes.bool,
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
@@ -319,6 +329,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   items: [],
+  isButtonStyle: 'true',
   renderItem: renderDefaultItem,
   focus: false,
   downShiftProps: {
