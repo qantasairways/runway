@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Switch from 'react-switch';
-import { colours, fontSize } from '../../theme/airways';
+import { colours, fontSize, fontFamily } from '../../theme/airways';
 
 const SELECTORS = {
   REACT_SWITCH: {
@@ -65,7 +65,8 @@ const LabelText = ({ children }) => (
     css={{
       textTransform: 'none',
       color: colours.white,
-      fontSize: fontSize.label
+      fontSize: fontSize.label,
+      fontFamily: fontFamily.body
     }}
   >
     {children}

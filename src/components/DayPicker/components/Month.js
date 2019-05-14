@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 import { CSS_SELECTOR_LASTCHILD } from '../../../constants/css';
-import { mq, fontSize, fontFamily, colours } from '../../../theme/airways';
+import { mq, fontFamily, colours } from '../../../theme/airways';
 
 import Day from './Day';
 import {
@@ -29,6 +29,7 @@ class Month extends PureComponent {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        fontSize: '1.375rem',
         height: `${MONTH_CAPTION_HEIGHT_MOBILE}px`,
         [mq.medium]: {
           height: `${MONTH_CAPTION_HEIGHT_DESKTOP}px`
@@ -38,7 +39,6 @@ class Month extends PureComponent {
       <span
         css={{
           fontFamily: fontFamily.bold,
-          fontSize: '1.375rem',
           marginRight: '5px'
         }}
       >
@@ -46,7 +46,6 @@ class Month extends PureComponent {
       </span>
       <span
         css={{
-          fontSize: fontSize.body,
           fontFamily: fontFamily.body
         }}
       >

@@ -15,13 +15,13 @@ const SelectedItem = itemsArray.find((value, index) => index === 0);
   <Dropdown
     items={itemsArray}
     placeholder="Return"
-    isButtonStyle={false}
+    withPadding={false}
     initialSelectedItem={SelectedItem}
   />
 </div>;
 ```
 
-### Left Aligned Button Style
+### Left Aligned With Padding
 
 ```js
 const itemsArray = [
@@ -45,7 +45,7 @@ const SelectedItem = itemsArray.find((value, index) => index === 0);
     items={itemsArray}
     placeholder="Economy"
     leftAlign={true}
-    isButtonStyle={true}
+    withPadding={true}
     initialSelectedItem={SelectedItem}
   />
 </div>;

@@ -8,20 +8,10 @@
 ```
 
 ```js
-<Toggle
-  label="Controlled"
-  id="toggle-2"
-  checked={true}
-  onChange={() => {}}
-  containerClassName="toggle-container-name-2"
-/>
-```
-
-```js
 <StatefulManager initial>
   {({ value, updater }) => (
     <Toggle
-      label="Controlled (Test)"
+      label="Controlled"
       id="toggle-3"
       checked={value}
       onChange={() => updater(!value)}

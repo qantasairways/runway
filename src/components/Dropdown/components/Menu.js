@@ -19,6 +19,7 @@ export function menuStyles({ isOpen }) {
     top: '0',
     left: '0',
     width: '100%',
+    boxSizing: 'border-box',
     padding: '10px'
   });
 }
