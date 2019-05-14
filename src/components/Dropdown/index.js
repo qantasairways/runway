@@ -12,7 +12,7 @@ import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
 import { colours, layout } from '../../theme/airways';
 
-export function dropdownStyles({ isButtonStyle }) {
+export function dropdownStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
@@ -23,30 +23,24 @@ export function dropdownStyles({ isButtonStyle }) {
     lineHeight: 1.56,
     letterSpacing: 'normal',
     background: colours.darkerGrey,
-    height: isButtonStyle ? '65px' : '30px',
+    height: withPadding ? '65px' : '30px',
     borderColor: colours.darkeGrey,
     color: '#ffffff',
     position: 'relative'
   });
 }
 
-export function labelStyles() {
-  return css({});
-}
-
-export function inputWrapperStyles({ isButtonStyle }) {
+export function inputWrapperStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown__input-wrapper',
     cursor: 'pointer',
     display: 'flex',
-    position: 'absolute',
-    right: '0',
-    top: '0',
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: isButtonStyle ? 'space-between' : 'flex-end',
-    padding: isButtonStyle ? `0 ${layout.gutter}` : '0'
+    justifyContent: withPadding ? 'space-between' : 'flex-end',
+    boxSizing: 'border-box',
+    padding: withPadding ? `0 ${layout.gutter}` : '0'
   });
 }
 
@@ -204,10 +198,8 @@ function Render(props) {
   });
 
   return (
-    <div>
-      <label css={labelStyles(props)} {...getLabelProps()}>
-        {label}
-      </label>
+    <div css={{ width: '100%', height: '100%' }}>
+      <label {...getLabelProps()}>{label}</label>
       <span css={inputWrapperStyles(props)}>
         <input
           {...inputProps}
@@ -320,7 +312,7 @@ function renderDefaultItem(item, index, props) {
 Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
   renderItem: PropTypes.func,
-  isButtonStyle: PropTypes.bool,
+  withPadding: PropTypes.bool,
   focus: PropTypes.bool,
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
@@ -329,7 +321,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   items: [],
-  isButtonStyle: 'true',
+  withPadding: true,
   renderItem: renderDefaultItem,
   focus: false,
   downShiftProps: {

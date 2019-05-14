@@ -12,6 +12,7 @@ export function menuStyles() {
     fontWeight: 400,
     backgroundColor: 'none',
     color: '#323232',
+    boxSizing: 'border-box',
     padding: '10px',
     height: '50px',
     [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_ACTIVE}`]: {
