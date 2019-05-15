@@ -1,3 +1,10 @@
+## [0.20.1](https://github.com/qantasairways/runway/compare/v0.20.0...v0.20.1) (2019-05-15)
+
+
+### Bug Fixes
+
+* **dropdown:** some styling fixes ([#43](https://github.com/qantasairways/runway/issues/43)) ([dea2711](https://github.com/qantasairways/runway/commit/dea2711))
+
 # [0.20.0](https://github.com/qantasairways/runway/compare/v0.19.0...v0.20.0) (2019-05-14)
 
 
