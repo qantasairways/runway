@@ -6,7 +6,8 @@ exports[`Header renders correctly with defaults 1`] = `
 }
 
 .emotion-3 {
-  font-family: "Ciutadella-Md",sans-serif;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   background: #323232;
   color: #fff;
   display: -webkit-box;
@@ -21,7 +22,7 @@ exports[`Header renders correctly with defaults 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 15px;
 }
 
 .emotion-0 {
@@ -76,7 +77,8 @@ exports[`Header renders correctly with props provided 1`] = `
 }
 
 .emotion-4 {
-  font-family: "Ciutadella-Md",sans-serif;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
   background: #323232;
   color: #fff;
   display: -webkit-box;
@@ -91,7 +93,7 @@ exports[`Header renders correctly with props provided 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 15px;
 }
 
 .emotion-1 {

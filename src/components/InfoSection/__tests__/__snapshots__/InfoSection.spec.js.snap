@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoSection renders correctly with props 1`] = `
+.emotion-2 {
+  height: 100px;
+  width: 200px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-right: 10px;
+}
+
+.emotion-0 {
+  fill: #323232;
+  -webkit-flex: 0 0 21px;
+  -ms-flex: 0 0 21px;
+  flex: 0 0 21px;
+  margin-right: 11px;
+  position: relative;
+  top: 3px;
+}
+
+.emotion-1 {
+  color: #323232;
+  line-height: 1.21;
+  font-size: 14px;
+  font-family: Ciutadella;
+}
+
+<div
+  className="emotion-2"
+>
+  <InfoIcon
+    className="emotion-0"
+    height="21px"
+    width="21px"
+  />
+  <span
+    className="emotion-1"
+  >
+    mock content
+  </span>
+</div>
+`;

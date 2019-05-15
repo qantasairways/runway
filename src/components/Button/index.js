@@ -63,9 +63,19 @@ const styleMap = {
   [BUTTON_VARIANT_HOLLOW]: hollowStyles
 };
 
-const Button = ({ className, label, variant, ...buttonProps }) => (
+const Button = ({
+  className,
+  label,
+  variant,
+  cssOverrides,
+  ...buttonProps
+}) => (
   <div className={className}>
-    <button type="button" {...buttonProps} css={styleMap[variant]}>
+    <button
+      type="button"
+      {...buttonProps}
+      css={[styleMap[variant], ...cssOverrides]}
+    >
       {label}
     </button>
   </div>
@@ -74,13 +84,15 @@ const Button = ({ className, label, variant, ...buttonProps }) => (
 Button.propTypes = {
   label: PropTypes.string,
   variant: PropTypes.oneOf([BUTTON_VARIANT_HOLLOW, BUTTON_VARIANT_SOLID]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  cssOverrides: PropTypes.arrayOf(PropTypes.object)
 };
 
 Button.defaultProps = {
   label: 'button',
   variant: BUTTON_VARIANT_SOLID,
-  className: null
+  className: null,
+  cssOverrides: []
 };
 
 export default Button;

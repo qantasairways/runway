@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly with defaults 1`] = `
+.emotion-5 {
+  z-index: 1;
+}
+
+.emotion-4 {
+  padding: 15px;
+  border-top: 1px solid #eeeeee;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: 300;
+  background: #fff;
+  color: #323232;
+  padding-right: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  justify-self: left;
+  padding-right: 15px;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.emotion-0 {
+  color: #323232;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-4"
+  >
+    <span
+      className="emotion-3"
+      id="mockId"
+      tabIndex={0}
+      title="mock primaryLabelAriaTitle"
+    >
+      <div
+        className="emotion-2"
+      >
+        <div
+          className="emotion-0"
+          key="0"
+        >
+          mock label one
+        </div>
+        <div
+          className="emotion-0"
+          key="1"
+        >
+          mock label two
+        </div>
+      </div>
+    </span>
+    <Button
+      aria-label="mock closeAriaLabel"
+      className="runway-footer__button"
+      cssOverrides={
+        Array [
+          Object {
+            "fontFamily": "Ciutadella",
+            "fontSize": "16px",
+            "fontWeight": 300,
+            "letterSpacing": "1.5px",
+            "lineHeight": "1.5",
+            "textAlign": "center",
+          },
+        ]
+      }
+      label="mock actionText"
+      onClick={[Function]}
+      variant="solid"
+    />
+  </div>
+</div>
+`;
+
+exports[`Footer renders correctly with props 1`] = `
+.emotion-6 {
+  z-index: 1;
+}
+
+.emotion-5 {
+  padding: 15px;
+  border-top: 1px solid #eeeeee;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: 300;
+  background: #fff;
+  color: #323232;
+  padding-right: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  justify-self: left;
+  padding-right: 15px;
+  overflow: hidden;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.emotion-1 {
+  color: #323232;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-0 {
+  padding: 15px;
+  border-top: 1px solid #eeeeee;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+<div
+  className="emotion-6"
+>
+  <div
+    className="emotion-0"
+  >
+    mock preFooter node
+  </div>
+  <div
+    className="emotion-5"
+  >
+    <span
+      className="emotion-4"
+      id="mockId"
+      tabIndex={0}
+      title="mock primaryLabelAriaTitle"
+    >
+      <div
+        className="emotion-3"
+      >
+        <div
+          className="emotion-1"
+          key="0"
+        >
+          mock label one
+        </div>
+        <div
+          className="emotion-1"
+          key="1"
+        >
+          mock label two
+        </div>
+      </div>
+    </span>
+    <Button
+      aria-label="mock closeAriaLabel"
+      className="runway-footer__button"
+      cssOverrides={
+        Array [
+          Object {
+            "fontFamily": "Ciutadella",
+            "fontSize": "16px",
+            "fontWeight": 300,
+            "letterSpacing": "1.5px",
+            "lineHeight": "1.5",
+            "textAlign": "center",
+          },
+        ]
+      }
+      label="mock actionText"
+      onClick={[Function]}
+      variant="solid"
+    />
+  </div>
+</div>
+`;
