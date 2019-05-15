@@ -39,12 +39,11 @@ export function inputWrapperStyles({ withPadding }) {
     height: '100%',
     alignItems: 'center',
     justifyContent: withPadding ? 'space-between' : 'flex-end',
-    boxSizing: 'border-box',
-    padding: withPadding ? `0 ${layout.gutter}` : '0'
+    boxSizing: 'border-box'
   });
 }
 
-export function inputStyles({ leftAlign }) {
+export function inputStyles({ leftAlign, withPadding }) {
   return css({
     label: 'runway-dropdown__input',
     backgroundColor: 'transparent',
@@ -58,8 +57,10 @@ export function inputStyles({ leftAlign }) {
     letterSpacing: 'inherit',
     textTransform: 'none',
     color: 'inherit',
-    padding: 0,
+    padding: withPadding ? `0 0 0 ${layout.gutter}` : 0,
     cursor: 'pointer',
+    width: '100%',
+    height: '100%',
     textAlign: leftAlign ? 'left' : 'right',
     '::placeholder': {
       color: 'inherit'
@@ -67,12 +68,15 @@ export function inputStyles({ leftAlign }) {
   });
 }
 
-export function inputSvgStyles() {
+export function inputSvgStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown__input-svg',
     width: '24px',
+    height: '100%',
     fill: '#FFFFFF',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    padding: withPadding ? `0 ${layout.gutter} 0 0` : 0,
+    boxSizing: 'content-box'
   });
 }
 
@@ -99,10 +103,6 @@ export function itemSvgStyles() {
     width: '24px',
     fill: '#323232'
   });
-}
-
-export function itemLabelStyles() {
-  return css({});
 }
 
 function defaultItemToString(item) {
@@ -304,7 +304,7 @@ function renderDefaultItem(item, index, props) {
       <span css={itemSvgContainerStyles(props)}>
         <TickIcon css={itemSvgStyles(props)} />
       </span>
-      <span css={itemLabelStyles(props)}>{item.name}</span>
+      <span>{item.name}</span>
     </span>
   );
 }
@@ -321,7 +321,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   items: [],
-  withPadding: true,
+  withPadding: false,
   renderItem: renderDefaultItem,
   focus: false,
   downShiftProps: {
