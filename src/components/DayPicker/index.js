@@ -18,8 +18,10 @@ import {
   getInitialDateToFocus,
   getDateToNavigate,
   getItemSize,
+  getFirstEnabledMonthDate,
   focusDayCell,
-  DAY_CELL_BORDER_WIDTH
+  DAY_CELL_BORDER_WIDTH,
+  getLastEnabledMonthDate
 } from './helpers';
 
 import ButtonWithDialog, {
@@ -188,7 +190,7 @@ class DayPicker extends Component {
 
     const month = months[index];
 
-    const dates = getDateArray({
+    let dates = getDateArray({
       month,
       monthIndex: index,
       today,
@@ -198,6 +200,11 @@ class DayPicker extends Component {
       disabledBefore,
       disabledAfter
     });
+
+    const { transformDatesData } = this.props;
+    if (transformDatesData) {
+      dates = transformDatesData(dates);
+    }
 
     return (
       <Month
@@ -224,6 +231,44 @@ class DayPicker extends Component {
         today={today}
       />
     );
+  };
+
+  setupOnMonthsShownSubscription = () => {
+    const {
+      configOnMonthsShownSubscription,
+      disabledBefore,
+      disabledAfter
+    } = this.props;
+    if (configOnMonthsShownSubscription) {
+      const { onlyEnableds, onMonthsShown } = configOnMonthsShownSubscription;
+      if (onMonthsShown) {
+        return ({ visibleStartIndex, visibleStopIndex }) => {
+          const startMonthRawDate = this.state.months[visibleStartIndex];
+          const endMonthRawDate = this.state.months[visibleStopIndex];
+          if (onlyEnableds) {
+            const firstValidMonthDate = getFirstEnabledMonthDate({
+              monthDate: startMonthRawDate,
+              disabledBefore,
+              disabledAfter
+            });
+            const lastValidMonthDate = getLastEnabledMonthDate({
+              monthDate: endMonthRawDate,
+              disabledAfter
+            });
+            onMonthsShown({
+              startMonthDate: firstValidMonthDate,
+              endMonthDate: lastValidMonthDate
+            });
+            return;
+          }
+          onMonthsShown({
+            startMonthDate: startMonthRawDate,
+            endMonthDate: endMonthRawDate
+          });
+        };
+      }
+    }
+    return noop;
   };
 
   render() {
@@ -277,6 +322,7 @@ class DayPicker extends Component {
                       )
                     }
                     width={width}
+                    onItemsRendered={this.setupOnMonthsShownSubscription()}
                   >
                     {row => this.renderMonth(row, isDesktopDevice)}
                   </List>
@@ -342,7 +388,23 @@ DayPicker.propTypes = {
   /** Aria label for the dialog once opened */
   dialogAriaLabel: PropTypes.string,
   /** Icon to display in header and in the label of highlighted days */
-  Icon: PropTypes.func
+  Icon: PropTypes.func,
+  /** Custom transform function that will be applied over dates data arrays.
+   * If provided, must return an array, which will be used to replace the existing
+   * dates data array. Note, these transforms are practically applied over month-based sets of
+   * dates data arrays, the consumer should not expect to have access to entire dates data list.
+   */
+  transformDatesData: PropTypes.func,
+  /**
+   * Object that sets up onMonthsShown event subscription. Must at least include
+   * `onMonthsShown` callback which will be dispatched when visible months on screen is updated.
+   * `onMonthsShown` will receive parameters `startMonthDate`, `endMonthDate`. Object also accepts
+   *  enabledsOnly boolean, if true will only return visible start and end month dates that are enabled
+   */
+  configOnMonthsShownSubscription: PropTypes.shape({
+    onMonthsShown: PropTypes.func.isRequired,
+    enabledsOnly: PropTypes.bool
+  })
 };
 
 DayPicker.defaultProps = {
@@ -382,7 +444,9 @@ DayPicker.defaultProps = {
   dayLabels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   closeAriaLabel: 'Close dialog',
   dialogAriaLabel: 'Select dates',
-  Icon: null
+  Icon: null,
+  transformDatesData: null,
+  configOnMonthsShownSubscription: null
 };
 
 export default DayPicker;
