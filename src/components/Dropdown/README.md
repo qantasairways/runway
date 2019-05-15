@@ -15,7 +15,6 @@ const SelectedItem = itemsArray.find((value, index) => index === 0);
   <Dropdown
     items={itemsArray}
     placeholder="Return"
-    withPadding={false}
     initialSelectedItem={SelectedItem}
   />
 </div>;
@@ -44,8 +43,8 @@ const SelectedItem = itemsArray.find((value, index) => index === 0);
   <Dropdown
     items={itemsArray}
     placeholder="Economy"
-    leftAlign={true}
-    withPadding={true}
+    leftAlign
+    withPadding
     initialSelectedItem={SelectedItem}
   />
 </div>;
