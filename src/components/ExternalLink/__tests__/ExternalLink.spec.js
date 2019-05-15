@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ExternalLink, { SELECTORS } from '../index';
-import { toCx } from '../../../utils/classname';
+import { toCx } from '../../../utils/css';
 
 describe('ExternalLink', () => {
   const setMatchMedia = matches => {

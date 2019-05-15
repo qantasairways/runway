@@ -72,6 +72,7 @@ ButtonContent.defaultProps = {
 
 function Button({
   renderButtonValue,
+  iconLabelButtonValue,
   onClick,
   onBlur,
   setButtonRef,
@@ -81,6 +82,49 @@ function Button({
   Icon
 }) {
   const buttonValue = renderButtonValue();
+
+  const renderIconLabelPair = () => (
+    <div
+      css={{
+        width: `calc(100% - ${layout.iconSize})`,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }}
+    >
+      <span
+        css={{
+          label: 'runway-popup-field__label',
+          flex: '1',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          textAlign: 'left'
+        }}
+      >
+        {iconLabelButtonValue.label}
+      </span>
+      <span
+        css={{
+          position: 'absolute',
+          right: '10px',
+          width: layout.iconSize,
+          height: layout.iconSize
+        }}
+      >
+        <iconLabelButtonValue.icon
+          css={{
+            label: 'runway-popup-field__icon',
+            right: '10px',
+            fill: colours.white
+          }}
+          height="100%"
+          width="100%"
+        />
+      </span>
+    </div>
+  );
 
   return (
     <button
@@ -92,52 +136,62 @@ function Button({
       ref={setButtonRef}
       css={buttonStyles}
     >
-      <div
-        css={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <span
+      {iconLabelButtonValue ? (
+        renderIconLabelPair()
+      ) : (
+        <div
           css={{
             label: 'runway-popup-field__label',
-            position: 'absolute',
             top: '5px',
             left: '7px',
             color: 'white',
             textTransform: 'none',
-            fontSize: fontSize.label
+            fontSize: fontSize.label,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
-          {buttonLabel}
-        </span>
-        {buttonValue}
-        {!buttonValue && (
-          <div
+          <span
             css={{
-              label: 'runway-popup-field__placeholder',
-              color: colours.darkGrey,
-              fontSize: fontSize.large,
-              letterSpacing: letterSpacing.small
+              label: 'runway-popup-field__label',
+              position: 'absolute',
+              top: '5px',
+              left: '7px',
+              color: 'white',
+              textTransform: 'uppercase',
+              fontSize: fontSize.label
             }}
           >
-            {placeHolder}
-          </div>
-        )}
-        {!buttonValue && !!Icon && (
-          <Icon
-            css={{
-              label: 'runway-popup-field__icon',
-              position: 'absolute',
-              right: '10px',
-              fill: colours.darkGrey
-            }}
-            height="36"
-            width="36"
-          />
-        )}
-      </div>
+            {buttonLabel}
+          </span>
+          {buttonValue}
+          {!buttonValue && (
+            <div
+              css={{
+                label: 'runway-popup-field__placeholder',
+                color: colours.darkGrey,
+                fontSize: fontSize.large,
+                letterSpacing: letterSpacing.small
+              }}
+            >
+              {placeHolder}
+            </div>
+          )}
+          {!buttonValue && !!Icon && (
+            <Icon
+              css={{
+                label: 'runway-popup-field__icon',
+                position: 'absolute',
+                right: '10px',
+                fill: colours.darkGrey
+              }}
+              height={layout.iconSize}
+              width={layout.iconSize}
+            />
+          )}
+        </div>
+      )}
     </button>
   );
 }
@@ -150,7 +204,11 @@ Button.propTypes = {
   open: PropTypes.bool,
   buttonLabel: PropTypes.string,
   placeHolder: PropTypes.string,
-  Icon: PropTypes.func
+  Icon: PropTypes.func,
+  iconLabelButtonValue: PropTypes.shape({
+    label: PropTypes.string,
+    icon: PropTypes.any
+  })
 };
 
 Button.defaultProps = {
@@ -159,7 +217,8 @@ Button.defaultProps = {
   open: false,
   buttonLabel: '',
   placeHolder: '',
-  Icon: null
+  Icon: null,
+  iconLabelButtonValue: null
 };
 
 export default Button;

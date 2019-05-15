@@ -3,9 +3,17 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 
 import noop from '../../utils/noop';
-import { layout } from '../../theme/airways';
+import { layout, mq } from '../../theme/airways';
 
+import Dialog from './components/Dialog';
 import Button, { ButtonContent } from './components/Button';
+import MediaQueryDetector from '../../components/MediaQueryDetector';
+
+const getRootContainerStyles = hasDialogDimensions => ({
+  ...(hasDialogDimensions && {
+    position: 'relative'
+  })
+});
 
 export const transitionStylesSlideUp = {
   entering: {
@@ -34,7 +42,6 @@ export const dialogStylesFullScreen = {
   display: 'flex',
   flexDirection: 'column'
 };
-
 class ButtonWithDialog extends Component {
   state = {
     open: false
@@ -96,6 +103,12 @@ class ButtonWithDialog extends Component {
       setFocusElementRef: this.focusElementRef
     });
 
+  renderFooter = () =>
+    this.props.renderFooter({
+      closeDialog: this.closeDialog,
+      setFocusElementRef: this.focusElementRef
+    });
+
   renderButton = () => {
     const { open } = this.state;
     const {
@@ -115,13 +128,19 @@ class ButtonWithDialog extends Component {
     );
   };
 
+  collectRef = el => {
+    this.wrapper = el;
+  };
+
   render() {
     const {
       children,
       dialogAriaLabel,
       dialogStyles,
       transitionStyles,
-      contentPadding
+      contentPadding,
+      hasDialogDimensions,
+      lockBgScroll
     } = this.props;
 
     const { open } = this.state;
@@ -136,35 +155,41 @@ class ButtonWithDialog extends Component {
 
     return (
       <div
-        ref={el => {
-          this.wrapper = el;
-        }}
+        css={getRootContainerStyles({ hasDialogDimensions })}
+        ref={this.collectRef}
       >
         {this.renderButton()}
-        <Transition
-          in={open}
-          onExited={this.onExited}
-          onEntered={this.onEntered}
-          timeout={300}
-          unmountOnExit
-          mountOnEnter
-        >
-          {state => (
-            <div
-              aria-label={dialogAriaLabel}
-              role="dialog"
-              css={{
-                ...dialogStyles,
-                ...transitionStyles[state]
-              }}
-            >
-              {this.renderHeader()}
-              <div css={{ overflow: 'auto', padding: contentPadding }}>
-                {content}
-              </div>
-            </div>
-          )}
-        </Transition>
+        <MediaQueryDetector query={mq.medium}>
+          {atLeastTablet => {
+            const disableAnimations = !atLeastTablet;
+            return (
+              <Transition
+                in={open}
+                enter={disableAnimations}
+                exit={disableAnimations}
+                onExited={this.onExited}
+                onEntered={this.onEntered}
+                timeout={300}
+                unmountOnExit
+                mountOnEnter
+              >
+                {transitionState => (
+                  <Dialog
+                    lockBgScroll={lockBgScroll}
+                    renderHeader={this.renderHeader}
+                    renderFooter={this.renderFooter}
+                    contentPadding={contentPadding}
+                    transitionStyles={transitionStyles}
+                    dialogStyles={dialogStyles}
+                    dialogAriaLabel={dialogAriaLabel}
+                    content={content}
+                    transitionState={transitionState}
+                  />
+                )}
+              </Transition>
+            );
+          }}
+        </MediaQueryDetector>
       </div>
     );
   }
@@ -177,16 +202,19 @@ ButtonWithDialog.propTypes = {
   onClose: PropTypes.func,
   onBlur: PropTypes.func,
   closeOnBlur: PropTypes.bool,
-  renderHeader: PropTypes.func,
   closeAriaLabel: PropTypes.string,
   dialogAriaLabel: PropTypes.string,
+  renderHeader: PropTypes.func,
+  renderFooter: PropTypes.func,
   dialogStyles: PropTypes.shape().isRequired,
   transitionStyles: PropTypes.shape({
     entering: PropTypes.shape.isRequired,
     entered: PropTypes.shape.isRequired,
     exiting: PropTypes.shape.isRequired
   }).isRequired,
-  contentPadding: PropTypes.string
+  contentPadding: PropTypes.string,
+  lockBgScroll: PropTypes.bool,
+  hasDialogDimensions: PropTypes.bool
 };
 
 ButtonWithDialog.defaultProps = {
@@ -194,11 +222,14 @@ ButtonWithDialog.defaultProps = {
   onClose: noop,
   onOpen: noop,
   onBlur: noop,
+  closeAriaLabel: '',
   closeOnBlur: true,
   renderHeader: noop,
-  closeAriaLabel: '',
+  renderFooter: noop,
   dialogAriaLabel: '',
-  contentPadding: `0 ${layout.gutter}`
+  contentPadding: `0 ${layout.gutter}`,
+  lockBgScroll: false,
+  hasDialogDimensions: false
 };
 
 export { ButtonContent };

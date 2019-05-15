@@ -9,9 +9,11 @@ export const airwaysColours = {
   bayBlue: '#8de2e0',
   lightBayBlue: '#bff4f2',
   lighterBayBlue: '#e8f7f7',
-  grey: '#dadada',
   darkGrey: '#626262',
+  mediumDarkGrey: '#888888',
+  grey: '#dadada',
   lightGrey: '#f4f5f6',
+  lighterGrey: '#eeeeee',
   disabledGrey: '#fafafa'
 };
 
@@ -37,8 +39,10 @@ export const colours = {
   transparent: 'transparent',
   darkerGrey: airwaysColours.charcoal,
   darkGrey: airwaysColours.darkGrey,
+  mediumDarkGrey: airwaysColours.mediumDarkGrey,
   grey: airwaysColours.grey,
   lightGrey: airwaysColours.lightGrey,
+  lighterGrey: airwaysColours.lighterGrey,
   disabledGrey: airwaysColours.disabledGrey,
   highlights: airwaysColours.bayBlue,
   hightlightsLight: airwaysColours.lightBayBlue,

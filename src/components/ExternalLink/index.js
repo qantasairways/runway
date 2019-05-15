@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { toCx } from '../../utils/classname';
+import { toCx } from '../../utils/css';
+
+import MediaQueryDetector from '../MediaQueryDetector';
 
 import {
   layout,
@@ -140,36 +142,6 @@ const Text = ({ children }) => (
 Text.propTypes = {
   children: PropTypes.node.isRequired
 };
-
-class MediaQueryDetector extends Component {
-  static propTypes = {
-    children: PropTypes.func.isRequired,
-    query: PropTypes.string.isRequired
-  };
-
-  static extract = query => query.replace('@media', '');
-
-  state = {
-    matches: window.matchMedia(MediaQueryDetector.extract(this.props.query))
-      .matches
-  };
-
-  update = evt => this.setState({ matches: evt.matches });
-
-  componentWillMount = () => {
-    const { query } = this.props;
-    this.mediaQueryList = window.matchMedia(MediaQueryDetector.extract(query));
-    this.mediaQueryList.addListener(this.update);
-  };
-
-  componentWillUnmount = () => this.mediaQueryList.removeListener(this.update);
-
-  render = () => {
-    const { children } = this.props;
-    const { matches } = this.state;
-    return children(matches);
-  };
-}
 
 const ExternalLink = ({ renderIcon, url, text }) => (
   <a css={{ textDecoration: 'none' }} href={url}>

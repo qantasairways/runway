@@ -1,65 +1,62 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import PopupField from '..';
+import { mount } from 'enzyme';
+import PopupField from '../index';
 
-import PinIcon from '../../../icons/PinIcon';
-
-function openDialog(component) {
-  component.instance().setState({ open: true });
-}
+window.matchMedia = jest.fn().mockImplementation(query => ({
+  matches: true,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn()
+}));
 
 describe('PopupField', () => {
-  let component;
-
   it('renders correctly with defaults', () => {
-    component = shallow(<PopupField />);
-
+    const component = mount(<PopupField />);
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with props', () => {
-    beforeAll(() => {
-      component = shallow(
-        <PopupField
-          closeAriaLabel="Close Aria Label"
-          dialogAriaLabel="Dialog Aria Label"
-          onClose={e => e}
-          onBlur={e => e}
-          buttonLabel="Field Label"
-          largeButtonValue="large value"
-          smallButtonValue="small value"
-          placeHolder="placeholder"
-          Icon={PinIcon}
-          headerLabel="header label"
-          headerHeight={100}
-          HeaderIcon={PinIcon}
-        />
-      );
-      openDialog(component);
-    });
-
+    const component = mount(
+      <PopupField
+        placeHolder="Where to?"
+        buttonLabel="Where"
+        Icon="mockIcon"
+        HeaderIcon="mockIcon"
+        headerLabel="Passengers"
+        disableHeader={false}
+        disableFooter={false}
+        dialogDimensions={{ height: '522px', width: '375px' }}
+        iconLabelButtonValue={{
+          icon: 'mockIcon',
+          label: '12 Passengers'
+        }}
+        footerLabelsPrimary={['1 Adult, 1 Children', '4 Youths, 3 Infants']}
+        footerLabelPrimaryAriaTitle="Passengers Summary prior to Confirmation"
+        footerActionText="Confirm"
+        onFooterAction={close => close()}
+        preFooter="mockPreFooter"
+      />
+    );
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with one child element', () => {
-    component = shallow(
+    const component = mount(
       <PopupField>
         <span>Child Element</span>
       </PopupField>
     );
-    openDialog(component);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with one child function', () => {
-    component = mount(
+    const component = mount(
       <PopupField>
         {({ closeDialog }) => <button type="button" onClick={closeDialog} />}
       </PopupField>
     );
-    openDialog(component);
-
     expect(component).toMatchSnapshot();
   });
 });

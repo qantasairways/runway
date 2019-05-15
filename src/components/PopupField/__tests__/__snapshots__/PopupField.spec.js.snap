@@ -1,104 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PopupField renders correctly with defaults 1`] = `
-<ButtonWithDialog
-  Icon={null}
-  buttonLabel={null}
-  closeAriaLabel="Close dialog"
-  closeOnBlur={true}
-  contentPadding="0 15px"
-  dialogAriaLabel=""
-  dialogStyles={
-    Object {
-      "background": "white",
-      "boxSizing": "border-box",
-      "display": "flex",
-      "flexDirection": "column",
-      "height": "100%",
-      "label": "runway__dialog",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "top": "100%",
-      "transition": "top 300ms ease-in-out",
-      "width": "100%",
-      "zIndex": 1000,
-    }
-  }
-  onBlur={[Function]}
-  onClose={[Function]}
-  onOpen={[Function]}
-  placeHolder=""
-  renderButtonValue={[Function]}
-  renderHeader={[Function]}
-  transitionStyles={
-    Object {
-      "entered": Object {
-        "top": 0,
-      },
-      "entering": Object {
-        "top": "100%",
-      },
-      "exiting": Object {
-        "top": "100%",
-      },
-    }
-  }
-/>
-`;
+.emotion-4 {
+  position: relative;
+}
 
-exports[`PopupField renders correctly with one child element 1`] = `
-<ButtonWithDialog
-  Icon={null}
-  buttonLabel={null}
-  closeAriaLabel="Close dialog"
-  closeOnBlur={true}
-  contentPadding="0 15px"
-  dialogAriaLabel=""
-  dialogStyles={
-    Object {
-      "background": "white",
-      "boxSizing": "border-box",
-      "display": "flex",
-      "flexDirection": "column",
-      "height": "100%",
-      "label": "runway__dialog",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "top": "100%",
-      "transition": "top 300ms ease-in-out",
-      "width": "100%",
-      "zIndex": 1000,
-    }
-  }
-  onBlur={[Function]}
-  onClose={[Function]}
-  onOpen={[Function]}
-  placeHolder=""
-  renderButtonValue={[Function]}
-  renderHeader={[Function]}
-  transitionStyles={
-    Object {
-      "entered": Object {
-        "top": 0,
-      },
-      "entering": Object {
-        "top": "100%",
-      },
-      "exiting": Object {
-        "top": "100%",
-      },
-    }
-  }
->
-  <span>
-    Child Element
-  </span>
-</ButtonWithDialog>
-`;
-
-exports[`PopupField renders correctly with one child function 1`] = `
 .emotion-3 {
   position: relative;
   height: 6rem;
@@ -115,6 +21,11 @@ exports[`PopupField renders correctly with one child function 1`] = `
 }
 
 .emotion-2 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -134,7 +45,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: none;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -147,76 +58,47 @@ exports[`PopupField renders correctly with one child function 1`] = `
   letter-spacing: -0.0625rem;
 }
 
-<PopupField
-  HeaderIcon={null}
-  Icon={null}
-  buttonLabel={null}
-  closeAriaLabel="Close dialog"
-  dialogAriaLabel=""
-  headerLabel=""
-  largeButtonValue=""
-  onBlur={[Function]}
-  onClose={[Function]}
-  placeHolder=""
-  smallButtonValue=""
->
-  <ButtonWithDialog
-    Icon={null}
-    buttonLabel={null}
-    closeAriaLabel="Close dialog"
-    closeOnBlur={true}
-    contentPadding="0 15px"
-    dialogAriaLabel=""
-    dialogStyles={
-      Object {
-        "background": "white",
-        "boxSizing": "border-box",
-        "display": "flex",
-        "flexDirection": "column",
-        "height": "100%",
-        "label": "runway__dialog",
-        "left": 0,
-        "overflow": "auto",
-        "position": "fixed",
-        "top": "100%",
-        "transition": "top 300ms ease-in-out",
-        "width": "100%",
-        "zIndex": 1000,
-      }
-    }
-    onBlur={[Function]}
-    onClose={[Function]}
-    onOpen={[Function]}
-    placeHolder=""
-    renderButtonValue={[Function]}
-    renderHeader={[Function]}
-    transitionStyles={
-      Object {
-        "entered": Object {
-          "top": 0,
-        },
-        "entering": Object {
-          "top": "100%",
-        },
-        "exiting": Object {
-          "top": "100%",
-        },
-      }
-    }
+<Component>
+  <MediaQueryDetector
+    query="@media only screen and (min-width: 768px)"
   >
-    <div>
-      <Button
+    <PopupField
+      HeaderIcon={null}
+      Icon={null}
+      buttonLabel={null}
+      closeAriaLabel="Close dialog"
+      dialogAriaLabel=""
+      dialogDimensions={null}
+      disableFooter={true}
+      disableHeader={false}
+      footerActionText={null}
+      footerLabelPrimaryAriaTitle={null}
+      footerLabelsPrimary={Array []}
+      headerLabel=""
+      iconLabelButtonValue={null}
+      largeButtonValue=""
+      matchesQuery={true}
+      onBlur={[Function]}
+      onClose={[Function]}
+      onFooterAction={[Function]}
+      placeHolder=""
+      preFooter={null}
+      smallButtonValue=""
+    >
+      <ButtonWithDialog
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
         closeOnBlur={true}
-        contentPadding="0 15px"
+        contentPadding="15px"
+        dialogAriaLabel=""
         dialogStyles={
           Object {
             "background": "white",
             "boxSizing": "border-box",
             "display": "flex",
             "flexDirection": "column",
+            "fontFamily": "\\"Ciutadella\\", sans-serif",
             "height": "100%",
             "label": "runway__dialog",
             "left": 0,
@@ -228,14 +110,16 @@ exports[`PopupField renders correctly with one child function 1`] = `
             "zIndex": 1000,
           }
         }
+        hasDialogDimensions={null}
+        iconLabelButtonValue={null}
+        lockBgScroll={false}
         onBlur={[Function]}
-        onClick={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
-        open={false}
         placeHolder=""
         renderButtonValue={[Function]}
-        setButtonRef={[Function]}
+        renderFooter={[Function]}
+        renderHeader={[Function]}
         transitionStyles={
           Object {
             "entered": Object {
@@ -250,89 +134,878 @@ exports[`PopupField renders correctly with one child function 1`] = `
           }
         }
       >
-        <button
-          aria-expanded={false}
-          aria-haspopup="dialog"
-          className="emotion-3"
-          onBlur={[Function]}
-          onClick={[Function]}
-          type="button"
+        <div
+          className="emotion-4"
         >
-          <div
-            className="emotion-2"
+          <Button
+            Icon={null}
+            buttonLabel={null}
+            closeAriaLabel="Close dialog"
+            closeOnBlur={true}
+            contentPadding="15px"
+            dialogStyles={
+              Object {
+                "background": "white",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "flexDirection": "column",
+                "fontFamily": "\\"Ciutadella\\", sans-serif",
+                "height": "100%",
+                "label": "runway__dialog",
+                "left": 0,
+                "overflow": "auto",
+                "position": "fixed",
+                "top": "100%",
+                "transition": "top 300ms ease-in-out",
+                "width": "100%",
+                "zIndex": 1000,
+              }
+            }
+            hasDialogDimensions={null}
+            iconLabelButtonValue={null}
+            lockBgScroll={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onClose={[Function]}
+            onOpen={[Function]}
+            open={false}
+            placeHolder=""
+            renderButtonValue={[Function]}
+            renderFooter={[Function]}
+            setButtonRef={[Function]}
+            transitionStyles={
+              Object {
+                "entered": Object {
+                  "top": 0,
+                },
+                "entering": Object {
+                  "top": "100%",
+                },
+                "exiting": Object {
+                  "top": "100%",
+                },
+              }
+            }
           >
-            <span
-              className="emotion-0"
+            <button
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="emotion-3"
+              onBlur={[Function]}
+              onClick={[Function]}
+              type="button"
+            >
+              <div
+                className="emotion-2"
+              >
+                <span
+                  className="emotion-0"
+                />
+                <div
+                  className="emotion-1"
+                />
+              </div>
+            </button>
+          </Button>
+          <MediaQueryDetector
+            query="@media only screen and (min-width: 768px)"
+          >
+            <Transition
+              appear={false}
+              enter={false}
+              exit={false}
+              in={false}
+              mountOnEnter={true}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={300}
+              unmountOnExit={true}
             />
-            <div
-              className="emotion-1"
+          </MediaQueryDetector>
+        </div>
+      </ButtonWithDialog>
+    </PopupField>
+  </MediaQueryDetector>
+</Component>
+`;
+
+exports[`PopupField renders correctly with one child element 1`] = `
+.emotion-4 {
+  position: relative;
+}
+
+.emotion-3 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-2 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
+<Component>
+  <MediaQueryDetector
+    query="@media only screen and (min-width: 768px)"
+  >
+    <PopupField
+      HeaderIcon={null}
+      Icon={null}
+      buttonLabel={null}
+      closeAriaLabel="Close dialog"
+      dialogAriaLabel=""
+      dialogDimensions={null}
+      disableFooter={true}
+      disableHeader={false}
+      footerActionText={null}
+      footerLabelPrimaryAriaTitle={null}
+      footerLabelsPrimary={Array []}
+      headerLabel=""
+      iconLabelButtonValue={null}
+      largeButtonValue=""
+      matchesQuery={true}
+      onBlur={[Function]}
+      onClose={[Function]}
+      onFooterAction={[Function]}
+      placeHolder=""
+      preFooter={null}
+      smallButtonValue=""
+    >
+      <ButtonWithDialog
+        Icon={null}
+        buttonLabel={null}
+        closeAriaLabel="Close dialog"
+        closeOnBlur={true}
+        contentPadding="15px"
+        dialogAriaLabel=""
+        dialogStyles={
+          Object {
+            "background": "white",
+            "boxSizing": "border-box",
+            "display": "flex",
+            "flexDirection": "column",
+            "fontFamily": "\\"Ciutadella\\", sans-serif",
+            "height": "100%",
+            "label": "runway__dialog",
+            "left": 0,
+            "overflow": "auto",
+            "position": "fixed",
+            "top": "100%",
+            "transition": "top 300ms ease-in-out",
+            "width": "100%",
+            "zIndex": 1000,
+          }
+        }
+        hasDialogDimensions={null}
+        iconLabelButtonValue={null}
+        lockBgScroll={false}
+        onBlur={[Function]}
+        onClose={[Function]}
+        onOpen={[Function]}
+        placeHolder=""
+        renderButtonValue={[Function]}
+        renderFooter={[Function]}
+        renderHeader={[Function]}
+        transitionStyles={
+          Object {
+            "entered": Object {
+              "top": 0,
+            },
+            "entering": Object {
+              "top": "100%",
+            },
+            "exiting": Object {
+              "top": "100%",
+            },
+          }
+        }
+      >
+        <div
+          className="emotion-4"
+        >
+          <Button
+            Icon={null}
+            buttonLabel={null}
+            closeAriaLabel="Close dialog"
+            closeOnBlur={true}
+            contentPadding="15px"
+            dialogStyles={
+              Object {
+                "background": "white",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "flexDirection": "column",
+                "fontFamily": "\\"Ciutadella\\", sans-serif",
+                "height": "100%",
+                "label": "runway__dialog",
+                "left": 0,
+                "overflow": "auto",
+                "position": "fixed",
+                "top": "100%",
+                "transition": "top 300ms ease-in-out",
+                "width": "100%",
+                "zIndex": 1000,
+              }
+            }
+            hasDialogDimensions={null}
+            iconLabelButtonValue={null}
+            lockBgScroll={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onClose={[Function]}
+            onOpen={[Function]}
+            open={false}
+            placeHolder=""
+            renderButtonValue={[Function]}
+            renderFooter={[Function]}
+            setButtonRef={[Function]}
+            transitionStyles={
+              Object {
+                "entered": Object {
+                  "top": 0,
+                },
+                "entering": Object {
+                  "top": "100%",
+                },
+                "exiting": Object {
+                  "top": "100%",
+                },
+              }
+            }
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="emotion-3"
+              onBlur={[Function]}
+              onClick={[Function]}
+              type="button"
+            >
+              <div
+                className="emotion-2"
+              >
+                <span
+                  className="emotion-0"
+                />
+                <div
+                  className="emotion-1"
+                />
+              </div>
+            </button>
+          </Button>
+          <MediaQueryDetector
+            query="@media only screen and (min-width: 768px)"
+          >
+            <Transition
+              appear={false}
+              enter={false}
+              exit={false}
+              in={false}
+              mountOnEnter={true}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={300}
+              unmountOnExit={true}
             />
-          </div>
-        </button>
-      </Button>
-      <Transition
-        appear={false}
-        enter={true}
-        exit={true}
-        in={false}
-        mountOnEnter={true}
-        onEnter={[Function]}
-        onEntered={[Function]}
-        onEntering={[Function]}
-        onExit={[Function]}
-        onExited={[Function]}
-        onExiting={[Function]}
-        timeout={300}
-        unmountOnExit={true}
-      />
-    </div>
-  </ButtonWithDialog>
-</PopupField>
+          </MediaQueryDetector>
+        </div>
+      </ButtonWithDialog>
+    </PopupField>
+  </MediaQueryDetector>
+</Component>
+`;
+
+exports[`PopupField renders correctly with one child function 1`] = `
+.emotion-4 {
+  position: relative;
+}
+
+.emotion-3 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-2 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.emotion-1 {
+  color: #626262;
+  font-size: 2.25rem;
+  -webkit-letter-spacing: -0.0625rem;
+  -moz-letter-spacing: -0.0625rem;
+  -ms-letter-spacing: -0.0625rem;
+  letter-spacing: -0.0625rem;
+}
+
+<Component>
+  <MediaQueryDetector
+    query="@media only screen and (min-width: 768px)"
+  >
+    <PopupField
+      HeaderIcon={null}
+      Icon={null}
+      buttonLabel={null}
+      closeAriaLabel="Close dialog"
+      dialogAriaLabel=""
+      dialogDimensions={null}
+      disableFooter={true}
+      disableHeader={false}
+      footerActionText={null}
+      footerLabelPrimaryAriaTitle={null}
+      footerLabelsPrimary={Array []}
+      headerLabel=""
+      iconLabelButtonValue={null}
+      largeButtonValue=""
+      matchesQuery={true}
+      onBlur={[Function]}
+      onClose={[Function]}
+      onFooterAction={[Function]}
+      placeHolder=""
+      preFooter={null}
+      smallButtonValue=""
+    >
+      <ButtonWithDialog
+        Icon={null}
+        buttonLabel={null}
+        closeAriaLabel="Close dialog"
+        closeOnBlur={true}
+        contentPadding="15px"
+        dialogAriaLabel=""
+        dialogStyles={
+          Object {
+            "background": "white",
+            "boxSizing": "border-box",
+            "display": "flex",
+            "flexDirection": "column",
+            "fontFamily": "\\"Ciutadella\\", sans-serif",
+            "height": "100%",
+            "label": "runway__dialog",
+            "left": 0,
+            "overflow": "auto",
+            "position": "fixed",
+            "top": "100%",
+            "transition": "top 300ms ease-in-out",
+            "width": "100%",
+            "zIndex": 1000,
+          }
+        }
+        hasDialogDimensions={null}
+        iconLabelButtonValue={null}
+        lockBgScroll={false}
+        onBlur={[Function]}
+        onClose={[Function]}
+        onOpen={[Function]}
+        placeHolder=""
+        renderButtonValue={[Function]}
+        renderFooter={[Function]}
+        renderHeader={[Function]}
+        transitionStyles={
+          Object {
+            "entered": Object {
+              "top": 0,
+            },
+            "entering": Object {
+              "top": "100%",
+            },
+            "exiting": Object {
+              "top": "100%",
+            },
+          }
+        }
+      >
+        <div
+          className="emotion-4"
+        >
+          <Button
+            Icon={null}
+            buttonLabel={null}
+            closeAriaLabel="Close dialog"
+            closeOnBlur={true}
+            contentPadding="15px"
+            dialogStyles={
+              Object {
+                "background": "white",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "flexDirection": "column",
+                "fontFamily": "\\"Ciutadella\\", sans-serif",
+                "height": "100%",
+                "label": "runway__dialog",
+                "left": 0,
+                "overflow": "auto",
+                "position": "fixed",
+                "top": "100%",
+                "transition": "top 300ms ease-in-out",
+                "width": "100%",
+                "zIndex": 1000,
+              }
+            }
+            hasDialogDimensions={null}
+            iconLabelButtonValue={null}
+            lockBgScroll={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onClose={[Function]}
+            onOpen={[Function]}
+            open={false}
+            placeHolder=""
+            renderButtonValue={[Function]}
+            renderFooter={[Function]}
+            setButtonRef={[Function]}
+            transitionStyles={
+              Object {
+                "entered": Object {
+                  "top": 0,
+                },
+                "entering": Object {
+                  "top": "100%",
+                },
+                "exiting": Object {
+                  "top": "100%",
+                },
+              }
+            }
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="emotion-3"
+              onBlur={[Function]}
+              onClick={[Function]}
+              type="button"
+            >
+              <div
+                className="emotion-2"
+              >
+                <span
+                  className="emotion-0"
+                />
+                <div
+                  className="emotion-1"
+                />
+              </div>
+            </button>
+          </Button>
+          <MediaQueryDetector
+            query="@media only screen and (min-width: 768px)"
+          >
+            <Transition
+              appear={false}
+              enter={false}
+              exit={false}
+              in={false}
+              mountOnEnter={true}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={300}
+              unmountOnExit={true}
+            />
+          </MediaQueryDetector>
+        </div>
+      </ButtonWithDialog>
+    </PopupField>
+  </MediaQueryDetector>
+</Component>
 `;
 
 exports[`PopupField renders correctly with props 1`] = `
-<ButtonWithDialog
-  Icon={null}
-  buttonLabel={null}
-  closeAriaLabel="Close dialog"
-  closeOnBlur={true}
-  contentPadding="0 15px"
-  dialogAriaLabel=""
-  dialogStyles={
+.emotion-5 {
+  position: relative;
+}
+
+.emotion-4 {
+  position: relative;
+  height: 6rem;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.emotion-3 {
+  width: calc(100% - 32px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.emotion-2 {
+  position: absolute;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.emotion-1 {
+  right: 10px;
+  fill: #fff;
+}
+
+<Component
+  HeaderIcon="mockIcon"
+  Icon="mockIcon"
+  buttonLabel="Where"
+  dialogDimensions={
     Object {
-      "background": "white",
-      "boxSizing": "border-box",
-      "display": "flex",
-      "flexDirection": "column",
-      "height": "100%",
-      "label": "runway__dialog",
-      "left": 0,
-      "overflow": "auto",
-      "position": "fixed",
-      "top": "100%",
-      "transition": "top 300ms ease-in-out",
-      "width": "100%",
-      "zIndex": 1000,
+      "height": "522px",
+      "width": "375px",
     }
   }
-  onBlur={[Function]}
-  onClose={[Function]}
-  onOpen={[Function]}
-  placeHolder=""
-  renderButtonValue={[Function]}
-  renderHeader={[Function]}
-  transitionStyles={
+  disableFooter={false}
+  disableHeader={false}
+  footerActionText="Confirm"
+  footerLabelPrimaryAriaTitle="Passengers Summary prior to Confirmation"
+  footerLabelsPrimary={
+    Array [
+      "1 Adult, 1 Children",
+      "4 Youths, 3 Infants",
+    ]
+  }
+  headerLabel="Passengers"
+  iconLabelButtonValue={
     Object {
-      "entered": Object {
-        "top": 0,
-      },
-      "entering": Object {
-        "top": "100%",
-      },
-      "exiting": Object {
-        "top": "100%",
-      },
+      "icon": "mockIcon",
+      "label": "12 Passengers",
     }
   }
-/>
+  onFooterAction={[Function]}
+  placeHolder="Where to?"
+  preFooter="mockPreFooter"
+>
+  <MediaQueryDetector
+    query="@media only screen and (min-width: 768px)"
+  >
+    <PopupField
+      HeaderIcon="mockIcon"
+      Icon="mockIcon"
+      buttonLabel="Where"
+      closeAriaLabel="Close dialog"
+      dialogAriaLabel=""
+      dialogDimensions={
+        Object {
+          "height": "522px",
+          "width": "375px",
+        }
+      }
+      disableFooter={false}
+      disableHeader={false}
+      footerActionText="Confirm"
+      footerLabelPrimaryAriaTitle="Passengers Summary prior to Confirmation"
+      footerLabelsPrimary={
+        Array [
+          "1 Adult, 1 Children",
+          "4 Youths, 3 Infants",
+        ]
+      }
+      headerLabel="Passengers"
+      iconLabelButtonValue={
+        Object {
+          "icon": "mockIcon",
+          "label": "12 Passengers",
+        }
+      }
+      largeButtonValue=""
+      matchesQuery={true}
+      onBlur={[Function]}
+      onClose={[Function]}
+      onFooterAction={[Function]}
+      placeHolder="Where to?"
+      preFooter="mockPreFooter"
+      smallButtonValue=""
+    >
+      <ButtonWithDialog
+        Icon="mockIcon"
+        buttonLabel="Where"
+        closeAriaLabel="Close dialog"
+        closeOnBlur={true}
+        contentPadding="15px"
+        dialogAriaLabel=""
+        dialogStyles={
+          Object {
+            "@media only screen and (min-width: 768px)": Object {
+              "height": "auto",
+              "minHeight": "522px",
+              "position": "absolute",
+              "width": "375px",
+            },
+            "background": "white",
+            "boxSizing": "border-box",
+            "display": "flex",
+            "flexDirection": "column",
+            "fontFamily": "\\"Ciutadella\\", sans-serif",
+            "height": "100%",
+            "label": "runway__dialog",
+            "left": 0,
+            "overflow": "auto",
+            "position": "fixed",
+            "top": "100%",
+            "transition": "top 300ms ease-in-out",
+            "width": "100%",
+            "zIndex": 1000,
+          }
+        }
+        hasDialogDimensions="375px"
+        iconLabelButtonValue={
+          Object {
+            "icon": "mockIcon",
+            "label": "12 Passengers",
+          }
+        }
+        lockBgScroll={false}
+        onBlur={[Function]}
+        onClose={[Function]}
+        onOpen={[Function]}
+        placeHolder="Where to?"
+        renderButtonValue={[Function]}
+        renderFooter={[Function]}
+        renderHeader={[Function]}
+        transitionStyles={
+          Object {
+            "entered": Object {
+              "top": 0,
+            },
+            "entering": Object {
+              "top": "100%",
+            },
+            "exiting": Object {
+              "top": "100%",
+            },
+          }
+        }
+      >
+        <div
+          className="emotion-5"
+        >
+          <Button
+            Icon="mockIcon"
+            buttonLabel="Where"
+            closeAriaLabel="Close dialog"
+            closeOnBlur={true}
+            contentPadding="15px"
+            dialogStyles={
+              Object {
+                "@media only screen and (min-width: 768px)": Object {
+                  "height": "auto",
+                  "minHeight": "522px",
+                  "position": "absolute",
+                  "width": "375px",
+                },
+                "background": "white",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "flexDirection": "column",
+                "fontFamily": "\\"Ciutadella\\", sans-serif",
+                "height": "100%",
+                "label": "runway__dialog",
+                "left": 0,
+                "overflow": "auto",
+                "position": "fixed",
+                "top": "100%",
+                "transition": "top 300ms ease-in-out",
+                "width": "100%",
+                "zIndex": 1000,
+              }
+            }
+            hasDialogDimensions="375px"
+            iconLabelButtonValue={
+              Object {
+                "icon": "mockIcon",
+                "label": "12 Passengers",
+              }
+            }
+            lockBgScroll={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onClose={[Function]}
+            onOpen={[Function]}
+            open={false}
+            placeHolder="Where to?"
+            renderButtonValue={[Function]}
+            renderFooter={[Function]}
+            setButtonRef={[Function]}
+            transitionStyles={
+              Object {
+                "entered": Object {
+                  "top": 0,
+                },
+                "entering": Object {
+                  "top": "100%",
+                },
+                "exiting": Object {
+                  "top": "100%",
+                },
+              }
+            }
+          >
+            <button
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="emotion-4"
+              onBlur={[Function]}
+              onClick={[Function]}
+              type="button"
+            >
+              <div
+                className="emotion-3"
+              >
+                <span
+                  className="emotion-0"
+                >
+                  12 Passengers
+                </span>
+                <span
+                  className="emotion-2"
+                >
+                  <mockIcon
+                    className="emotion-1"
+                    height="100%"
+                    width="100%"
+                  />
+                </span>
+              </div>
+            </button>
+          </Button>
+          <MediaQueryDetector
+            query="@media only screen and (min-width: 768px)"
+          >
+            <Transition
+              appear={false}
+              enter={false}
+              exit={false}
+              in={false}
+              mountOnEnter={true}
+              onEnter={[Function]}
+              onEntered={[Function]}
+              onEntering={[Function]}
+              onExit={[Function]}
+              onExited={[Function]}
+              onExiting={[Function]}
+              timeout={300}
+              unmountOnExit={true}
+            />
+          </MediaQueryDetector>
+        </div>
+      </ButtonWithDialog>
+    </PopupField>
+  </MediaQueryDetector>
+</Component>
 `;

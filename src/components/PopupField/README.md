@@ -1,3 +1,33 @@
+## PopupField
+
+```js
+<div style={{ display: 'flex', flexDirection: 'row' }}>
+  <div style={{ flex: 1 }}>
+    <PopupField
+      placeHolder="Where to?"
+      buttonLabel="Where"
+      Icon={PersonIcon}
+      HeaderIcon={PersonIcon}
+      headerLabel="Passengers"
+      disableHeader={false}
+      disableFooter={false}
+      dialogDimensions={{ height: '522px', width: '375px' }}
+      iconLabelButtonValue={{
+        icon: PersonIcon,
+        label: '12 Passengers'
+      }}
+      footerLabelsPrimary={['1 Adult, 1 Children', '4 Youths, 3 Infants']}
+      footerLabelPrimaryAriaTitle="Passengers Summary prior to Confirmation"
+      footerActionText="Confirm"
+      onFooterAction={close => close()}
+      preFooter={<InfoSection width="100%" content={'preFooter content'} />}
+    >
+      <div>PopupField inner content</div>
+    </PopupField>
+  </div>
+</div>
+```
+
 ### Value not selected
 
 Optional placeholder and icon will be displayed if provided

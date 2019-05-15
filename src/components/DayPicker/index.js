@@ -241,6 +241,7 @@ class DayPicker extends Component {
     return (
       <ButtonWithDialog
         buttonLabel={buttonLabel}
+        lockBgScroll
         placeHolder={placeHolder}
         closeAriaLabel={closeAriaLabel}
         dialogAriaLabel={dialogAriaLabel}

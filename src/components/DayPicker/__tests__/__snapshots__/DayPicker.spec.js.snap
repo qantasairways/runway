@@ -223,11 +223,14 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
       "zIndex": 1000,
     }
   }
+  hasDialogDimensions={false}
+  lockBgScroll={true}
   onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
   placeHolder="Placeholder"
   renderButtonValue={[Function]}
+  renderFooter={[Function]}
   renderHeader={[Function]}
   transitionStyles={
     Object {
@@ -272,11 +275,14 @@ exports[`DayPicker renders correctly with defaults 1`] = `
       "zIndex": 1000,
     }
   }
+  hasDialogDimensions={false}
+  lockBgScroll={true}
   onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
   placeHolder="When?"
   renderButtonValue={[Function]}
+  renderFooter={[Function]}
   renderHeader={[Function]}
   transitionStyles={
     Object {
