@@ -13,11 +13,8 @@ const InfoIcon = ({ className, width, height }) => {
       viewBox="0 0 15 20"
       focusable="false"
     >
-      <g stroke="none" stroke-width="1">
-        <g
-          transform="translate(-969.000000, -184.000000)"
-          class="svg__tooltip-info__fill"
-        >
+      <g stroke="none" strokeWidth="1">
+        <g transform="translate(-969.000000, -184.000000)">
           <g transform="translate(515.000000, 126.000000)">
             <g transform="translate(0.000000, 57.000000)">
               <path

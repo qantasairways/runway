@@ -8,8 +8,7 @@ exports[`Footer renders correctly with defaults 1`] = `
 .emotion-4 {
   padding: 15px;
   border-top: 1px solid #eeeeee;
-  font-family: "Ciutadella",sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   background: #fff;
   color: #323232;
   padding-right: 15px;
@@ -49,7 +48,6 @@ exports[`Footer renders correctly with defaults 1`] = `
 
 .emotion-0 {
   color: #323232;
-  font-family: "Ciutadella",sans-serif;
   font-size: 18px;
   white-space: nowrap;
   overflow: hidden;
@@ -93,7 +91,7 @@ exports[`Footer renders correctly with defaults 1`] = `
           Object {
             "fontFamily": "Ciutadella",
             "fontSize": "16px",
-            "fontWeight": 300,
+            "fontWeight": 400,
             "letterSpacing": "1.5px",
             "lineHeight": "1.5",
             "textAlign": "center",
@@ -116,8 +114,7 @@ exports[`Footer renders correctly with props 1`] = `
 .emotion-5 {
   padding: 15px;
   border-top: 1px solid #eeeeee;
-  font-family: "Ciutadella",sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   background: #fff;
   color: #323232;
   padding-right: 15px;
@@ -157,7 +154,6 @@ exports[`Footer renders correctly with props 1`] = `
 
 .emotion-1 {
   color: #323232;
-  font-family: "Ciutadella",sans-serif;
   font-size: 18px;
   white-space: nowrap;
   overflow: hidden;
@@ -213,7 +209,7 @@ exports[`Footer renders correctly with props 1`] = `
           Object {
             "fontFamily": "Ciutadella",
             "fontSize": "16px",
-            "fontWeight": 300,
+            "fontWeight": 400,
             "letterSpacing": "1.5px",
             "lineHeight": "1.5",
             "textAlign": "center",

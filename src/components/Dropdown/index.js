@@ -17,7 +17,7 @@ export function dropdownStyles({ withPadding }) {
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
     fontSize: '18px',
-    fontWeight: 500,
+    fontWeight: 400,
     fontStyle: 'normal',
     fontStretch: 'normal',
     lineHeight: 1.56,

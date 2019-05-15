@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { colours, fontFamily, fontSize } from '../../../theme/airways';
+import { colours, fontWeight, fontSize } from '../../../theme/airways';
 
 import CrossIcon from '../../../icons/CrossIcon';
 
@@ -12,8 +12,8 @@ function Header({ closeDialog, closeAriaLabel, headerLabel, HeaderIcon }) {
     <div css={{ zIndex: 1 }}>
       <div
         css={{
-          fontFamily: fontFamily.body,
           fontSize: fontSize.body,
+          fontWeight: fontWeight.bold,
           background: colours.darkerGrey,
           color: colours.white,
           display: 'flex',

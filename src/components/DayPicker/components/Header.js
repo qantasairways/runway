@@ -4,7 +4,7 @@ import { css } from 'emotion';
 
 import {
   colours,
-  fontFamily,
+  fontWeight,
   fontSize,
   mq,
   layout
@@ -19,7 +19,6 @@ const ICON_SIZE = '32px';
 const weekdayStyles = {
   width: '100%',
   height: '30px',
-  fontFamily: fontFamily.body,
   fontSize: '0.875rem',
   lineHeight: '0.875rem',
   textAlign: 'center',
@@ -58,7 +57,7 @@ function Header({
     <div css={{ zIndex: 1 }}>
       <div
         css={{
-          fontFamily: fontFamily.bold,
+          fontWeight: fontWeight.bold,
           background: colours.darkerGrey,
           color: colours.white
         }}

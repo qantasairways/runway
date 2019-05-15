@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import PopupField from '../index';
+import PopupFieldWrapped from '../index';
 
 window.matchMedia = jest.fn().mockImplementation(query => ({
   matches: true,
@@ -12,13 +12,13 @@ window.matchMedia = jest.fn().mockImplementation(query => ({
 
 describe('PopupField', () => {
   it('renders correctly with defaults', () => {
-    const component = mount(<PopupField />);
+    const component = mount(<PopupFieldWrapped />);
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with props', () => {
     const component = mount(
-      <PopupField
+      <PopupFieldWrapped
         placeHolder="Where to?"
         buttonLabel="Where"
         Icon="mockIcon"
@@ -43,9 +43,9 @@ describe('PopupField', () => {
 
   it('renders correctly with one child element', () => {
     const component = mount(
-      <PopupField>
+      <PopupFieldWrapped>
         <span>Child Element</span>
-      </PopupField>
+      </PopupFieldWrapped>
     );
 
     expect(component).toMatchSnapshot();
@@ -53,9 +53,9 @@ describe('PopupField', () => {
 
   it('renders correctly with one child function', () => {
     const component = mount(
-      <PopupField>
+      <PopupFieldWrapped>
         {({ closeDialog }) => <button type="button" onClick={closeDialog} />}
-      </PopupField>
+      </PopupFieldWrapped>
     );
     expect(component).toMatchSnapshot();
   });

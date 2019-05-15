@@ -13,7 +13,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { withMediaQueryDetector } from '../MediaQueryDetector';
 
-class PopupField extends Component {
+export class PopupField extends Component {
   renderButtonValue = () => {
     const { largeButtonValue, smallButtonValue } = this.props;
 
@@ -62,8 +62,10 @@ class PopupField extends Component {
 
   hasDialogDimensions = () => {
     const { dialogDimensions } = this.props;
-    return (
-      dialogDimensions && dialogDimensions.height && dialogDimensions.width
+    return !!(
+      dialogDimensions &&
+      dialogDimensions.height &&
+      dialogDimensions.width
     );
   };
 
@@ -95,13 +97,11 @@ class PopupField extends Component {
       Icon,
       iconLabelButtonValue,
       disableHeader,
-      disableFooter,
-      matchesQuery: isAtLeastTablet
+      disableFooter
     } = this.props;
     return (
       <ButtonWithDialog
         contentPadding={layout.gutter}
-        lockBgScroll={!isAtLeastTablet}
         onBlur={onBlur}
         onClose={onClose}
         buttonLabel={buttonLabel}
@@ -172,9 +172,7 @@ PopupField.propTypes = {
   /* Triggered on clicking footerAction button */
   onFooterAction: PropTypes.func,
   /* Custom content that renders just above footer */
-  preFooter: PropTypes.node,
-  /* Flag intended to indicate if is on desktop device */
-  matchesQuery: PropTypes.bool.isRequired
+  preFooter: PropTypes.node
 };
 
 PopupField.defaultProps = {

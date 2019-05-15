@@ -75,7 +75,12 @@ const inputOptions = entry => ({
         'react-is': ['isForwardRef', 'isValidElementType'],
         shortid: ['generate'],
         'react-day-picker': ['DayPicker'],
-        'highlight-words-core': ['findAll']
+        'highlight-words-core': ['findAll'],
+        'body-scroll-lock': [
+          'disableBodyScroll',
+          'enableBodyScroll',
+          'clearAllBodyScrollLocks'
+        ]
       }
     }),
     visualizer()

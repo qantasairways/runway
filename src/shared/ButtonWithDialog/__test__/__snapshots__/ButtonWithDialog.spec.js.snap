@@ -17,7 +17,6 @@ exports[`ButtonWithDialog renders correctly with defaults 1`] = `
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}
-    lockBgScroll={false}
     onBlur={[Function]}
     onClick={[Function]}
     onClose={[Function]}
@@ -60,7 +59,6 @@ exports[`ButtonWithDialog renders correctly with one child element 1`] = `
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}
-    lockBgScroll={false}
     onBlur={[Function]}
     onClick={[Function]}
     onClose={[Function]}
@@ -103,7 +101,7 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-1 {
@@ -142,7 +140,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
   dialogAriaLabel=""
   dialogStyles={Object {}}
   hasDialogDimensions={false}
-  lockBgScroll={false}
   onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
@@ -169,7 +166,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
       dialogStyles={Object {}}
       hasDialogDimensions={false}
       iconLabelButtonValue={null}
-      lockBgScroll={false}
       onBlur={[Function]}
       onClick={[Function]}
       onClose={[Function]}
@@ -247,7 +243,6 @@ exports[`ButtonWithDialog renders correctly with props 1`] = `
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}
-    lockBgScroll={false}
     onBlur={[Function]}
     onClick={[Function]}
     onClose={[Function]}

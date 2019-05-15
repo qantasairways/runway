@@ -17,7 +17,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-2 {
@@ -110,9 +110,8 @@ exports[`PopupField renders correctly with defaults 1`] = `
             "zIndex": 1000,
           }
         }
-        hasDialogDimensions={null}
+        hasDialogDimensions={false}
         iconLabelButtonValue={null}
-        lockBgScroll={false}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -161,9 +160,8 @@ exports[`PopupField renders correctly with defaults 1`] = `
                 "zIndex": 1000,
               }
             }
-            hasDialogDimensions={null}
+            hasDialogDimensions={false}
             iconLabelButtonValue={null}
-            lockBgScroll={false}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -212,8 +210,8 @@ exports[`PopupField renders correctly with defaults 1`] = `
           >
             <Transition
               appear={false}
-              enter={false}
-              exit={false}
+              enter={true}
+              exit={true}
               in={false}
               mountOnEnter={true}
               onEnter={[Function]}
@@ -250,7 +248,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-2 {
@@ -343,9 +341,8 @@ exports[`PopupField renders correctly with one child element 1`] = `
             "zIndex": 1000,
           }
         }
-        hasDialogDimensions={null}
+        hasDialogDimensions={false}
         iconLabelButtonValue={null}
-        lockBgScroll={false}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -394,9 +391,8 @@ exports[`PopupField renders correctly with one child element 1`] = `
                 "zIndex": 1000,
               }
             }
-            hasDialogDimensions={null}
+            hasDialogDimensions={false}
             iconLabelButtonValue={null}
-            lockBgScroll={false}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -445,8 +441,8 @@ exports[`PopupField renders correctly with one child element 1`] = `
           >
             <Transition
               appear={false}
-              enter={false}
-              exit={false}
+              enter={true}
+              exit={true}
               in={false}
               mountOnEnter={true}
               onEnter={[Function]}
@@ -483,7 +479,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-2 {
@@ -576,9 +572,8 @@ exports[`PopupField renders correctly with one child function 1`] = `
             "zIndex": 1000,
           }
         }
-        hasDialogDimensions={null}
+        hasDialogDimensions={false}
         iconLabelButtonValue={null}
-        lockBgScroll={false}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -627,9 +622,8 @@ exports[`PopupField renders correctly with one child function 1`] = `
                 "zIndex": 1000,
               }
             }
-            hasDialogDimensions={null}
+            hasDialogDimensions={false}
             iconLabelButtonValue={null}
-            lockBgScroll={false}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -678,8 +672,8 @@ exports[`PopupField renders correctly with one child function 1`] = `
           >
             <Transition
               appear={false}
-              enter={false}
-              exit={false}
+              enter={true}
+              exit={true}
               in={false}
               mountOnEnter={true}
               onEnter={[Function]}
@@ -716,7 +710,7 @@ exports[`PopupField renders correctly with props 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-3 {
@@ -863,14 +857,13 @@ exports[`PopupField renders correctly with props 1`] = `
             "zIndex": 1000,
           }
         }
-        hasDialogDimensions="375px"
+        hasDialogDimensions={true}
         iconLabelButtonValue={
           Object {
             "icon": "mockIcon",
             "label": "12 Passengers",
           }
         }
-        lockBgScroll={false}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -925,14 +918,13 @@ exports[`PopupField renders correctly with props 1`] = `
                 "zIndex": 1000,
               }
             }
-            hasDialogDimensions="375px"
+            hasDialogDimensions={true}
             iconLabelButtonValue={
               Object {
                 "icon": "mockIcon",
                 "label": "12 Passengers",
               }
             }
-            lockBgScroll={false}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}

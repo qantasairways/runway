@@ -127,7 +127,7 @@ const Text = ({ children }) => (
   <span
     css={{
       textTransform: 'none',
-      fontFamily: fontFamily.body,
+      fontFamily: fontFamily.main,
       fontWeight: fontWeight.regular,
       fontSize: fontSize.body,
       color: colours.darkerGrey,

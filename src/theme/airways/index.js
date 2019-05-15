@@ -1,9 +1,6 @@
 import airwaysColours from './colours.json';
 
-export const airwaysFontFamily = {
-  main: '"Ciutadella", sans-serif',
-  mainMedium: '"Ciutadella-Md", sans-serif'
-};
+export const airwaysFontFamily = '"Ciutadella", sans-serif';
 
 export const layout = {
   borderRadius: '4px',
@@ -34,15 +31,11 @@ export const colours = {
 };
 
 export const fontFamily = {
-  body: airwaysFontFamily.main,
-  bold: airwaysFontFamily.mainMedium,
-  h1: airwaysFontFamily.main,
-  h2: airwaysFontFamily.mainMedium,
-  h3: airwaysFontFamily.mainMedium
+  main: airwaysFontFamily
 };
 
 export const fontWeight = {
-  regular: 300,
+  regular: 400,
   bold: 700
 };
 
