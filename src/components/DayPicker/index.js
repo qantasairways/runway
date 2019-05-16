@@ -289,10 +289,34 @@ class DayPicker extends Component {
       firstDayOfWeek,
       startDate,
       endDate,
-      isDateRange
+      isDateRange,
+      footerButtonLabel,
+      preFooterInfo,
+      bottomFootersummaryLabel,
+      hasPrice,
+      endDateData
     } = this.props;
 
     const { months, showFooters } = this.state;
+    const setPreFooter = () => {
+      if (showFooters) {
+        if (!isDateRange) {
+          // one ways
+          return true;
+        }
+        // return
+        if (hasPrice && startDate) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    const setShowBottomFooters = () => {
+      const result =
+        showFooters && (!!(startDate && !isDateRange) || !!endDate);
+      return result;
+    };
     return (
       <ButtonWithDialog
         buttonLabel={buttonLabel}
@@ -340,12 +364,19 @@ class DayPicker extends Component {
               }}
             </AutoSizer>
             <Footer
-              showPreFooter={false}
-              showBottomFooter={
-                showFooters && (!!(startDate && !isDateRange) || !!endDate)
-              }
-              actionText="Confirm"
+              /** Show pre footer if the dialog is open and the start date not selected or is oneway and hasPrice is true */
+              showPreFooter={setPreFooter()}
+              /** Show Bottom footer if Dialog is true && (startDate get selected and isDateRange is false(one way) || endDate is null) */
+              showBottomFooter={setShowBottomFooters()}
+              actionText={footerButtonLabel}
               onActionButtonClick={closeDialog}
+              preFooterInfo={
+                !isDateRange || (hasPrice && startDate) ? preFooterInfo : null
+              }
+              bottomFootersummaryLabel={
+                hasPrice ? bottomFootersummaryLabel : null
+              }
+              endDateData={endDateData}
             />
           </div>
         )}
@@ -422,6 +453,26 @@ DayPicker.propTypes = {
   configOnMonthsShownSubscription: PropTypes.shape({
     onMonthsShown: PropTypes.func.isRequired,
     enabledsOnly: PropTypes.bool
+  }),
+  /** Label for button */
+  footerButtonLabel: PropTypes.string,
+  /** Flag preFooter info in case price included. In one way it's up when land to the calenadar and in return needs to select the start date  */
+  preFooterInfo: PropTypes.string,
+  /** In one way it's up when the date has been selected and in return when end date has been selected */
+  bottomFootersummaryLabel: PropTypes.string,
+  /** Falg showing the price whether added price to the calnendar */
+  hasPrice: PropTypes.bool,
+  /** Data get from the date to show on the button footer label for price and points */
+  endDateData: PropTypes.shape({
+    price: PropTypes.shape({
+      value: PropTypes.number,
+      taxValue: PropTypes.number,
+      points: PropTypes.number,
+      isClassic: PropTypes.bool,
+      isLowestPrice: PropTypes.bool
+    }),
+    currencyCode: '',
+    currencySymbol: ''
   })
 };
 
@@ -464,7 +515,12 @@ DayPicker.defaultProps = {
   dialogAriaLabel: 'Select dates',
   Icon: null,
   transformDatesData: null,
-  configOnMonthsShownSubscription: null
+  configOnMonthsShownSubscription: null,
+  footerButtonLabel: 'Confirm',
+  preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
+  bottomFootersummaryLabel: 'From',
+  hasPrice: false,
+  endDateData: null
 };
 
 export default DayPicker;
