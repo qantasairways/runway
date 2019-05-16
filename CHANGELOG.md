@@ -1,3 +1,10 @@
+# [0.21.0](https://github.com/qantasairways/runway/compare/v0.20.1...v0.21.0) (2019-05-16)
+
+
+### Features
+
+* **theme:** Refactored colours into a separate JSON file so that we can import that file directly in other projects. ([#21](https://github.com/qantasairways/runway/issues/21)) ([813f632](https://github.com/qantasairways/runway/commit/813f632))
+
 ## [0.20.1](https://github.com/qantasairways/runway/compare/v0.20.0...v0.20.1) (2019-05-15)
 
 
