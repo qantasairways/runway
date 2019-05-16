@@ -1,41 +1,108 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'lodash.debounce';
 
 import InfoIcon from '../../icons/InfoIcon';
 import { colours } from '../../theme/airways';
 
-const iconSize = '21px';
+const iconSize = '16.8px';
 
-const getContainerStyles = ({ height, width }) => ({
+const getContainerStyles = ({ isMultiLine, height, width }) => ({
   height,
   width,
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'flex-start',
-  marginRight: '10px'
+  alignItems: 'center',
+  marginRight: '10px',
+  ...(isMultiLine && {
+    position: 'relative'
+  })
 });
 
-const iconStyles = {
+const getIconStyles = ({ isMultiLine }) => ({
   fill: colours.darkerGrey,
-  flex: `0 0 ${iconSize}`,
-  marginRight: '11px',
-  position: 'relative',
-  top: '3px'
-};
+  marginRight: isMultiLine ? '0px' : '11px'
+});
 
-const contentStyles = {
+const getIconContainerStyles = ({ isMultiLine, lines }) => ({
+  display: 'flex',
+  ...(isMultiLine && {
+    position: 'absolute',
+    top: lines > 2 ? '2px' : '1px',
+    left: '0'
+  })
+});
+
+const getContentStyles = ({ isMultiLine }) => ({
   color: colours.darkerGrey,
   lineHeight: '1.21',
   fontSize: '14px',
-  fontFamily: 'Ciutadella'
-};
+  fontFamily: 'Ciutadella',
+  ...(isMultiLine && { marginLeft: '27.8px' })
+});
 
-const InfoSection = ({ content, height, width }) => (
-  <div css={getContainerStyles({ height, width })}>
-    <InfoIcon css={iconStyles} height={iconSize} width={iconSize} />
-    <span css={contentStyles}>{content}</span>
-  </div>
-);
+class InfoSection extends React.Component {
+  state = { lines: 1 };
+
+  setContentRef = el => {
+    this.contentNode = el;
+  };
+
+  componentDidMount = () => {
+    this.updateLineCount();
+    this.debouncedUpdateLineCount = debounce(() => {
+      this.updateLineCount();
+    }, 200);
+    window.addEventListener('resize', this.debouncedUpdateLineCount);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.debouncedUpdateLineCount);
+  };
+
+  isMultiLine = () => this.state.lines > 1;
+
+  updateLineCount = () => {
+    const el = this.contentNode;
+    if (el) {
+      const elHeight = el.offsetHeight;
+      const contentStyles = getContentStyles({
+        isMultiLine: this.isMultiLine()
+      });
+      const lineHeight =
+        Number(contentStyles.lineHeight) *
+        Number(contentStyles.fontSize.replace('px', ''));
+      const lines = elHeight / lineHeight + 1;
+      this.setState({ lines: parseInt(lines, 10) });
+    }
+  };
+
+  render = () => {
+    const { content, height, width } = this.props;
+    const isMultiLine = this.isMultiLine();
+    return (
+      <div css={getContainerStyles({ height, width, isMultiLine })}>
+        <span
+          css={getIconContainerStyles({ isMultiLine, lines: this.state.lines })}
+        >
+          <InfoIcon
+            css={getIconStyles({ isMultiLine })}
+            height={iconSize}
+            width={iconSize}
+          />
+        </span>
+        <span
+          // eslint-disable-next-line no-return-assign
+          ref={this.setContentRef}
+          className="runway-info-section__text-content"
+          css={getContentStyles({ isMultiLine })}
+        >
+          {content}
+        </span>
+      </div>
+    );
+  };
+}
 
 InfoSection.propTypes = {
   content: PropTypes.node.isRequired,

@@ -12,7 +12,7 @@ function CrossIcon({ height, width, className }) {
       height={height}
       className={className}
       focusable="false"
-      viewBox="0 0 24 24"
+      viewBox="-0.5 -0.5 24 24"
     >
       <defs>
         <path

@@ -66,7 +66,10 @@ const actionButtonStyles = {
   fontWeight: fontWeight.regular,
   lineHeight: '1.5',
   letterSpacing: '1.5px',
-  textAlign: 'center'
+  textAlign: 'center',
+  height: '48px',
+  width: '100px',
+  padding: '0px 0px 0px 1px'
 };
 
 const primaryLabelOuterContainerStyles = {
