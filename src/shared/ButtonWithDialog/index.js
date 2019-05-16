@@ -71,6 +71,10 @@ class ButtonWithDialog extends Component {
     });
   };
 
+  onExit = () => {
+    this.props.onBeforeClose();
+  };
+
   onExited = () => {
     this.props.onClose();
     addQComZIndex(null);
@@ -179,6 +183,7 @@ class ButtonWithDialog extends Component {
                 in={open}
                 enter={isFullScreen}
                 exit={isFullScreen}
+                onExit={this.onExit}
                 onExited={this.onExited}
                 onEntered={this.onEntered}
                 timeout={300}
@@ -212,6 +217,7 @@ ButtonWithDialog.propTypes = {
   renderButtonValue: PropTypes.func.isRequired,
   onOpen: PropTypes.func,
   onClose: PropTypes.func,
+  onBeforeClose: PropTypes.func,
   onBlur: PropTypes.func,
   closeOnBlur: PropTypes.bool,
   closeAriaLabel: PropTypes.string,
@@ -231,6 +237,7 @@ ButtonWithDialog.propTypes = {
 ButtonWithDialog.defaultProps = {
   children: null,
   onClose: noop,
+  onBeforeClose: noop,
   onOpen: noop,
   onBlur: noop,
   closeAriaLabel: '',

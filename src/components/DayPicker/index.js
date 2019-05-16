@@ -6,6 +6,7 @@ import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
 import Month from './components/Month';
+import Footer from './components/Footer';
 
 import noop from '../../utils/noop';
 import { fontSize, layout, breakpoints } from '../../theme/airways';
@@ -57,7 +58,8 @@ class DayPicker extends Component {
       today,
       disabledAfter: getDateWithoutTime(disabledAfter),
       months: getMonthsArray(today, monthsToShow),
-      isSelectingStartDate: true
+      isSelectingStartDate: true,
+      showFooters: false
     };
   }
 
@@ -89,6 +91,11 @@ class DayPicker extends Component {
 
     this.scrollToMonth(month);
     focusDayCell(date);
+    this.setState({ showFooters: true });
+  };
+
+  onBeforeClose = () => {
+    this.setState({ showFooters: false });
   };
 
   onDayClick = (startDate, endDate, isSelectingStartDate) => {
@@ -290,11 +297,13 @@ class DayPicker extends Component {
       placeHolder,
       closeAriaLabel,
       dialogAriaLabel,
-      firstDayOfWeek
+      firstDayOfWeek,
+      startDate,
+      endDate,
+      isDateRange
     } = this.props;
 
-    const { months } = this.state;
-
+    const { months, showFooters } = this.state;
     return (
       <ButtonWithDialog
         buttonLabel={buttonLabel}
@@ -303,7 +312,7 @@ class DayPicker extends Component {
         dialogAriaLabel={dialogAriaLabel}
         Icon={IconCalendar}
         onOpen={this.onOpen}
-        onClose={this.onClose}
+        onBeforeClose={this.onBeforeClose}
         closeOnBlur={false}
         renderHeader={this.renderHeader}
         renderButtonValue={this.renderButtonDates}
@@ -311,7 +320,7 @@ class DayPicker extends Component {
         transitionStyles={transitionStylesSlideUp}
         contentPadding="0"
       >
-        {() => (
+        {({ closeDialog }) => (
           <div style={{ height: window.innerHeight }}>
             <AutoSizer>
               {({ height, width }) => {
@@ -341,6 +350,14 @@ class DayPicker extends Component {
                 );
               }}
             </AutoSizer>
+            <Footer
+              showPreFooter={false}
+              showBottomFooter={
+                showFooters && (!!(startDate && !isDateRange) || !!endDate)
+              }
+              actionText="Confirm"
+              onActionButtonClick={closeDialog}
+            />
           </div>
         )}
       </ButtonWithDialog>

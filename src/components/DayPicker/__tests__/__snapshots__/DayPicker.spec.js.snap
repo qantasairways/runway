@@ -223,6 +223,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
     }
   }
   hasDialogDimensions={false}
+  onBeforeClose={[Function]}
   onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
@@ -275,6 +276,7 @@ exports[`DayPicker renders correctly with defaults 1`] = `
     }
   }
   hasDialogDimensions={false}
+  onBeforeClose={[Function]}
   onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}

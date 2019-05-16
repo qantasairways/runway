@@ -110,6 +110,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
         }
         hasDialogDimensions={false}
         iconLabelButtonValue={null}
+        onBeforeClose={[Function]}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -160,6 +161,7 @@ exports[`PopupField renders correctly with defaults 1`] = `
             }
             hasDialogDimensions={false}
             iconLabelButtonValue={null}
+            onBeforeClose={[Function]}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -339,6 +341,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
         }
         hasDialogDimensions={false}
         iconLabelButtonValue={null}
+        onBeforeClose={[Function]}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -389,6 +392,7 @@ exports[`PopupField renders correctly with one child element 1`] = `
             }
             hasDialogDimensions={false}
             iconLabelButtonValue={null}
+            onBeforeClose={[Function]}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -568,6 +572,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
         }
         hasDialogDimensions={false}
         iconLabelButtonValue={null}
+        onBeforeClose={[Function]}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -618,6 +623,7 @@ exports[`PopupField renders correctly with one child function 1`] = `
             }
             hasDialogDimensions={false}
             iconLabelButtonValue={null}
+            onBeforeClose={[Function]}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
@@ -860,6 +866,7 @@ exports[`PopupField renders correctly with props 1`] = `
             "label": "12 Passengers",
           }
         }
+        onBeforeClose={[Function]}
         onBlur={[Function]}
         onClose={[Function]}
         onOpen={[Function]}
@@ -923,6 +930,7 @@ exports[`PopupField renders correctly with props 1`] = `
                 "label": "12 Passengers",
               }
             }
+            onBeforeClose={[Function]}
             onBlur={[Function]}
             onClick={[Function]}
             onClose={[Function]}
