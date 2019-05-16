@@ -6,7 +6,6 @@ import noop from '../../../utils/noop';
 import {
   fontSize,
   colours,
-  letterSpacing,
   layout,
   fontFamily,
   fontWeight
@@ -40,7 +39,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
         css={{
           label: 'runway-dialog-button__value--large',
           fontSize: fontSize.large,
-          letterSpacing: letterSpacing.small,
+          letterSpacing: '-0.0625rem',
           lineHeight: '2.65rem'
         }}
       >
@@ -172,7 +171,7 @@ function Button({
                 label: 'runway-popup-field__placeholder',
                 color: colours.darkGrey,
                 fontSize: fontSize.large,
-                letterSpacing: letterSpacing.small
+                letterSpacing: '-0.0625rem'
               }}
             >
               {placeHolder}

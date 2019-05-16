@@ -1,26 +1,7 @@
-/**
- * Components
- */
 const path = require('path');
 const { lstatSync, readdirSync, appendFileSync } = require('fs');
-
-const COMPONENT_DIR = './src/components';
-const ICON_DIR = './src/icons';
-
-const isDirectory = source => lstatSync(source).isDirectory();
-const getComponents = source =>
-  readdirSync(source)
-    .map(name => path.join(source, name))
-    .filter(isDirectory);
-
-const components = [
-  ...getComponents(COMPONENT_DIR),
-  ...getComponents(ICON_DIR)
-];
-
-/**
- * Rollup
- */
+const ncp = require('ncp').ncp;
+const chalk = require('chalk');
 const babel = require('rollup-plugin-babel');
 const json = require('rollup-plugin-json');
 const rollup = require('rollup');
@@ -28,13 +9,11 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const visualizer = require('rollup-plugin-visualizer');
 
+const COMPONENT_DIR = './src/components';
+const ICON_DIR = './src/icons';
+const THEME_DIR = './src/theme';
 const OUTPUT_JS_TYPE = 'esm';
 const OUTPUT_DIR = './lib';
-
-/**
- * CLI
- */
-const chalk = require('chalk');
 
 console.log(
   chalk.red.bgWhite(
@@ -44,7 +23,22 @@ console.log(
 );
 
 /**
- * Build
+ * Components
+ */
+const getComponents = source =>
+  readdirSync(source)
+    .map(name => path.join(source, name))
+    .filter(source => lstatSync(source).isDirectory());
+
+const components = [
+  ...getComponents(COMPONENT_DIR),
+  ...getComponents(ICON_DIR)
+];
+
+const themes = [...getComponents(THEME_DIR)];
+
+/**
+ * Build Modules
  */
 const externals = ['react', 'react-dom', 'prop-types', 'emotion'];
 const makeExternalPredicate = externalsArr => {
@@ -129,4 +123,30 @@ async function generateModules() {
   }
 }
 
+/**
+ * Copy Themes
+ */
+const jsonExtRegExp = /^[A-Za-z0-9\-\/]*(\.json)/;
+
+const filterFunc = src => {
+  if (lstatSync(src).isDirectory()) {
+    return true;
+  }
+  return jsonExtRegExp.test(src);
+};
+
+function copyThemes() {
+  ncp(
+    path.resolve(__dirname, THEME_DIR),
+    path.resolve(__dirname, `${OUTPUT_DIR}/theme`),
+    { filter: filterFunc },
+    function(error) {
+      if (error) {
+        console.log(chalk.red(` ☠️  Failed to copy theme files`), error);
+      }
+    }
+  );
+}
+
 generateModules();
+copyThemes();

@@ -1,16 +1,5 @@
 import airwaysColours from './colours.json';
-
-export const airwaysFontFamily = '"Ciutadella", sans-serif';
-
-export const layout = {
-  borderRadius: '4px',
-  gutter: '15px',
-  iconSize: '32px',
-  containerMaxWidth: '1000px',
-  links: {
-    gutter: '10px'
-  }
-};
+import { breakpoints } from './layout.json';
 
 export const colours = {
   primary: airwaysColours.qantasRed,
@@ -30,42 +19,6 @@ export const colours = {
   warnings: airwaysColours.warningOrange
 };
 
-export const fontFamily = {
-  main: airwaysFontFamily
-};
-
-export const fontWeight = {
-  regular: 400,
-  bold: 700
-};
-
-export const fontSize = {
-  body: '1.125rem',
-  button: '1rem',
-  label: '1rem',
-  labelLarge: '1.375rem',
-  large: '2.25rem',
-  medium: '1.625rem',
-  small: '0.625rem'
-};
-
-export const letterSpacing = {
-  small: '-0.0625rem'
-};
-
-export const buttons = {
-  borderRadius: layout.borderRadius,
-  clickOffset: '1px',
-  width: '100%',
-  height: '3.125rem'
-};
-
-export const breakpoints = {
-  medium: '(min-width: 768px)',
-  large: '(min-width: 960px)',
-  extraLarge: '(min-width: 1200px)'
-};
-
 export const mq = {
   small: '@media only screen and (min-width: 321px)',
   medium: `@media only screen and ${breakpoints.medium}`,
@@ -73,11 +26,5 @@ export const mq = {
   extraLarge: `@media only screen and ${breakpoints.extraLarge}`
 };
 
-export default {
-  layout,
-  colours,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  buttons
-};
+export { fontFamily, fontWeight, fontSize } from './font.json';
+export { layout, buttons, links, breakpoints } from './layout.json';

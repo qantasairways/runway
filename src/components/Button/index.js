@@ -3,7 +3,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CSS_SELECTOR_ACTIVE, CSS_SELECTOR_HOVER } from '../../constants/css';
-import { fontFamily, fontSize, colours, buttons } from '../../theme/airways';
+import {
+  fontFamily,
+  fontSize,
+  colours,
+  layout,
+  buttons
+} from '../../theme/airways';
 
 export const BUTTON_VARIANT_SOLID = 'solid';
 export const BUTTON_VARIANT_HOLLOW = 'hollow';
@@ -13,7 +19,7 @@ const baseStyles = css({
   fontSize: fontSize.button,
   width: buttons.width,
   height: buttons.height,
-  borderRadius: buttons.borderRadius,
+  borderRadius: layout.borderRadius,
   borderWidth: 0,
   padding: '14px 24px 15px',
   fontWeight: 700,

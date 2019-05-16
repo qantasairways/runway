@@ -6,6 +6,7 @@ import MediaQueryDetector from '../MediaQueryDetector';
 
 import {
   layout,
+  links,
   colours,
   fontSize,
   fontFamily,
@@ -114,7 +115,7 @@ Item.defaultProps = {
 };
 
 const Spacer = ({ onlyMobile }) => (
-  <Item width={layout.links.gutter} onlyMobile={onlyMobile} />
+  <Item width={links.gutter} onlyMobile={onlyMobile} />
 );
 Spacer.propTypes = {
   onlyMobile: PropTypes.bool
