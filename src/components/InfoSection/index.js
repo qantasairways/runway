@@ -4,23 +4,20 @@ import PropTypes from 'prop-types';
 import InfoIcon from '../../icons/InfoIcon';
 import { colours } from '../../theme/airways';
 
-const iconSize = '21px';
+const iconSize = '16.8px';
 
 const getContainerStyles = ({ height, width }) => ({
   height,
   width,
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   marginRight: '10px'
 });
 
 const iconStyles = {
   fill: colours.darkerGrey,
-  flex: `0 0 ${iconSize}`,
-  marginRight: '11px',
-  position: 'relative',
-  top: '3px'
+  marginRight: '11px'
 };
 
 const contentStyles = {
