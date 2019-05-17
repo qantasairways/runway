@@ -11,7 +11,8 @@ import {
   addDays,
   differenceInCalendarMonths,
   isFirstDayOfMonth,
-  differenceInWeeks
+  differenceInWeeks,
+  startOfDay
 } from 'date-fns';
 import {
   KEY_CODE_RIGHT,
@@ -25,6 +26,18 @@ export const DAY_CELL_HEIGHT_MOBILE = 94;
 export const DAY_CELL_BORDER_WIDTH = 1;
 export const MONTH_CAPTION_HEIGHT_DESKTOP = 78;
 export const DAY_CELL_HEIGHT_DESKTOP = 90;
+
+export const isDayBefore = (firstDate, secondDate) => {
+  const first = startOfDay(firstDate);
+  const second = startOfDay(secondDate);
+  return isBefore(first, second);
+};
+
+export const isDayAfter = (firstDate, secondDate) => {
+  const first = startOfDay(firstDate);
+  const second = startOfDay(secondDate);
+  return isAfter(first, second);
+};
 
 export const getDateWithoutTime = date =>
   date ? new Date(new Date(date).setHours(0, 0, 0, 0)) : null;
@@ -64,7 +77,6 @@ export function getDateArray({
   const startOfAvailableWeek = startOfWeek(firstAvailableDay, {
     weekStartsOn: firstDayOfWeek
   });
-
   while (current <= endDay) {
     if (
       !isSameMonth(current, initialDay) ||
@@ -92,7 +104,6 @@ export function getDateArray({
             : false
       });
     }
-
     current.setDate(current.getDate() + 1);
   }
   return arr;
@@ -157,3 +168,28 @@ export function focusDayCell(timestamp) {
     if (elementToFocus) elementToFocus.focus();
   }
 }
+
+export const getFirstEnabledMonthDate = ({
+  monthDate,
+  disabledBefore,
+  disabledAfter
+}) => {
+  const firstDayOfMonth = startOfMonth(monthDate);
+  let validDate = firstDayOfMonth;
+  if (disabledBefore && isDayBefore(validDate, disabledBefore)) {
+    validDate = disabledBefore;
+  }
+  if (disabledAfter && isDayAfter(validDate, disabledAfter)) {
+    validDate = disabledAfter;
+  }
+  return validDate;
+};
+
+export const getLastEnabledMonthDate = ({ monthDate, disabledAfter }) => {
+  const lastDayOfMonth = endOfMonth(monthDate);
+  let validDate = lastDayOfMonth;
+  if (disabledAfter && isDayAfter(validDate, disabledAfter)) {
+    validDate = disabledAfter;
+  }
+  return validDate;
+};
