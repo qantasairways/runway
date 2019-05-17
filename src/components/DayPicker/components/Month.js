@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 import { CSS_SELECTOR_LASTCHILD } from '../../../constants/css';
-import { mq, fontFamily, colours } from '../../../theme/airways';
+import { mq, fontWeight, colours } from '../../../theme/airways';
 
 import Day from './Day';
 import {
@@ -13,7 +13,6 @@ import {
 
 const monthStyles = {
   paddingTop: '2px',
-  fontFamily: fontFamily.body,
   textAlign: 'center',
   background: colours.disabledGrey,
   pointerEvents: 'auto',
@@ -38,19 +37,13 @@ class Month extends PureComponent {
     >
       <span
         css={{
-          fontFamily: fontFamily.bold,
+          fontWeight: fontWeight.bold,
           marginRight: '5px'
         }}
       >
         {monthLabel}
       </span>
-      <span
-        css={{
-          fontFamily: fontFamily.body
-        }}
-      >
-        {year}
-      </span>
+      <span>{year}</span>
     </div>
   );
 
@@ -103,6 +96,7 @@ class Month extends PureComponent {
               onDayNavigate={onDayNavigate}
               startDate={startDate}
               endDate={endDate}
+              setFocusedDay={this.props.setFocusedDay}
               {...day}
             />
           ))}

@@ -6,8 +6,8 @@ exports[`Header renders correctly with defaults 1`] = `
 }
 
 .emotion-3 {
-  font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
+  font-weight: 700;
   background: #323232;
   color: #fff;
   display: -webkit-box;
@@ -77,8 +77,8 @@ exports[`Header renders correctly with props provided 1`] = `
 }
 
 .emotion-4 {
-  font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
+  font-weight: 700;
   background: #323232;
   color: #fff;
   display: -webkit-box;

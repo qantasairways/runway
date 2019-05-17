@@ -46,10 +46,11 @@ exports[`Day renders correctly for disabled date 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -70,7 +71,7 @@ exports[`Day renders correctly for disabled date 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -125,10 +126,11 @@ exports[`Day renders correctly for end date 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -149,7 +151,7 @@ exports[`Day renders correctly for end date 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -204,10 +206,11 @@ exports[`Day renders correctly for outside date 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -228,7 +231,7 @@ exports[`Day renders correctly for outside date 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -283,10 +286,11 @@ exports[`Day renders correctly for selected date 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -307,7 +311,7 @@ exports[`Day renders correctly for selected date 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -362,10 +366,11 @@ exports[`Day renders correctly for start date 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -386,7 +391,7 @@ exports[`Day renders correctly for start date 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -441,10 +446,11 @@ exports[`Day renders correctly with defaults 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -465,7 +471,7 @@ exports[`Day renders correctly with defaults 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div
@@ -520,10 +526,11 @@ exports[`Day renders correctly with props provided 1`] = `
 
 .emotion-0 {
   height: 1.125rem;
-  padding: 0 4px;
+  padding: 3px 4px 4px;
   font-size: 1.125rem;
   line-height: 1.1;
   border-radius: 4px;
+  box-sizing: content-box;
   background-color: initial;
   color: inherit;
 }
@@ -544,7 +551,7 @@ exports[`Day renders correctly with props provided 1`] = `
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
-  role="gridcell"
+  role="button"
   tabIndex={-1}
 >
   <div

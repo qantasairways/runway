@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 
 import noop from '../../utils/noop';
-import { layout, mq } from '../../theme/airways';
+import { layout, mq, fontFamily } from '../../theme/airways';
 
 import Dialog from './components/Dialog';
 import Button, { ButtonContent } from './components/Button';
@@ -14,6 +14,13 @@ const getRootContainerStyles = hasDialogDimensions => ({
     position: 'relative'
   })
 });
+
+function addQComZIndex(zIndex) {
+  const main = document.querySelector('main');
+  if (main) {
+    main.style.zIndex = zIndex;
+  }
+}
 
 export const transitionStylesSlideUp = {
   entering: {
@@ -29,6 +36,7 @@ export const transitionStylesSlideUp = {
 
 export const dialogStylesFullScreen = {
   label: 'runway__dialog',
+  fontFamily: fontFamily.main,
   background: 'white',
   boxSizing: 'border-box',
   height: '100%',
@@ -49,6 +57,7 @@ class ButtonWithDialog extends Component {
 
   onEntered = () => {
     this.props.onOpen();
+    addQComZIndex('initial');
 
     if (this.props.closeOnBlur) {
       document.addEventListener('click', this.handleClickOutside);
@@ -61,6 +70,7 @@ class ButtonWithDialog extends Component {
 
   onExited = () => {
     this.props.onClose();
+    addQComZIndex(null);
 
     if (this.props.closeOnBlur) {
       document.removeEventListener('click', this.handleClickOutside);
@@ -139,8 +149,7 @@ class ButtonWithDialog extends Component {
       dialogStyles,
       transitionStyles,
       contentPadding,
-      hasDialogDimensions,
-      lockBgScroll
+      hasDialogDimensions
     } = this.props;
 
     const { open } = this.state;
@@ -161,12 +170,12 @@ class ButtonWithDialog extends Component {
         {this.renderButton()}
         <MediaQueryDetector query={mq.medium}>
           {atLeastTablet => {
-            const disableAnimations = !atLeastTablet;
+            const isFullScreen = !hasDialogDimensions || !atLeastTablet;
             return (
               <Transition
                 in={open}
-                enter={disableAnimations}
-                exit={disableAnimations}
+                enter={isFullScreen}
+                exit={isFullScreen}
                 onExited={this.onExited}
                 onEntered={this.onEntered}
                 timeout={300}
@@ -175,7 +184,7 @@ class ButtonWithDialog extends Component {
               >
                 {transitionState => (
                   <Dialog
-                    lockBgScroll={lockBgScroll}
+                    lockBgScroll={isFullScreen}
                     renderHeader={this.renderHeader}
                     renderFooter={this.renderFooter}
                     contentPadding={contentPadding}
@@ -213,7 +222,6 @@ ButtonWithDialog.propTypes = {
     exiting: PropTypes.shape.isRequired
   }).isRequired,
   contentPadding: PropTypes.string,
-  lockBgScroll: PropTypes.bool,
   hasDialogDimensions: PropTypes.bool
 };
 
@@ -228,7 +236,6 @@ ButtonWithDialog.defaultProps = {
   renderFooter: noop,
   dialogAriaLabel: '',
   contentPadding: `0 ${layout.gutter}`,
-  lockBgScroll: false,
   hasDialogDimensions: false
 };
 

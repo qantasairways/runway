@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import { colours, fontFamily, mq } from '../../../theme/airways';
+import { colours, fontWeight, mq } from '../../../theme/airways';
 
 function DayLabelStyles({ leftAligned, bottomAligned, isSelected }) {
   const verticalOffset = isSelected ? '-3px' : 0;
@@ -23,7 +23,7 @@ function DayLabelStyles({ leftAligned, bottomAligned, isSelected }) {
     paddingRight: leftAligned ? 0 : '2px',
     paddingLeft: leftAligned ? '2px' : '0',
     fontSize: '0.625rem',
-    fontFamily: fontFamily.bold,
+    fontWeight: fontWeight.bold,
     lineHeight: 0,
     background: colours.hightlightsLight,
     '&::after': {

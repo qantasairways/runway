@@ -25,20 +25,37 @@ class Dialog extends Component {
     const { lockBgScroll } = this.props;
 
     if (lockBgScroll) {
-      this.targetElement = document.getElementById(
-        this.dialogContentContainerId
-      );
-      disableBodyScroll(this.targetElement);
+      this.lockBgScroll();
+    }
+  }
+
+  componentDidUpdate(props) {
+    if (!!props.lockBgScroll && !this.props.lockBgScroll) {
+      this.unlockBgScroll();
+      return;
+    }
+
+    if (!props.lockBgScroll && !!this.props.lockBgScroll) {
+      this.lockBgScroll();
     }
   }
 
   componentWillUnmount() {
     const { lockBgScroll } = this.props;
     if (lockBgScroll) {
-      enableBodyScroll(this.targetElement);
-      clearAllBodyScrollLocks();
+      this.unlockBgScroll();
     }
   }
+
+  lockBgScroll = () => {
+    this.targetElement = document.getElementById(this.dialogContentContainerId);
+    disableBodyScroll(this.targetElement);
+  };
+
+  unlockBgScroll = () => {
+    enableBodyScroll(this.targetElement);
+    clearAllBodyScrollLocks();
+  };
 
   render = () => {
     const {

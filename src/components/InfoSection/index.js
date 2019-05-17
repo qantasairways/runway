@@ -39,8 +39,13 @@ const InfoSection = ({ content, height, width }) => (
 
 InfoSection.propTypes = {
   content: PropTypes.node.isRequired,
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired
+  height: PropTypes.string,
+  width: PropTypes.string
+};
+
+InfoSection.defaultProps = {
+  height: 'auto',
+  width: '100%;'
 };
 
 export default InfoSection;

@@ -23,7 +23,7 @@ const buttonStyles = {
   cursor: 'pointer',
   backgroundColor: colours.darkerGrey,
   color: colours.white,
-  fontFamily: fontFamily.body,
+  fontFamily: fontFamily.main,
   fontSize: fontSize.body,
   fontWeight: fontWeight.regular
 };

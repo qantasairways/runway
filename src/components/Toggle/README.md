@@ -1,5 +1,6 @@
 ```js
 <Toggle
+  checked={false}
   label="Uncontrolled"
   id="toggle-1"
   onChange={value => console.log(value)}

@@ -66,7 +66,7 @@ const LabelText = ({ children }) => (
       textTransform: 'none',
       color: colours.white,
       fontSize: fontSize.label,
-      fontFamily: fontFamily.body
+      fontFamily: fontFamily.main
     }}
   >
     {children}
