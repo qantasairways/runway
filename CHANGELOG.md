@@ -1,3 +1,10 @@
+## [0.21.1](https://github.com/qantasairways/runway/compare/v0.21.0...v0.21.1) (2019-05-17)
+
+
+### Bug Fixes
+
+* **daypicker:** Fix some a11y and styling issues with daypicker. Some general cleanup of styleguide ([#45](https://github.com/qantasairways/runway/issues/45)) ([c132262](https://github.com/qantasairways/runway/commit/c132262))
+
 # [0.21.0](https://github.com/qantasairways/runway/compare/v0.20.1...v0.21.0) (2019-05-16)
 
 
