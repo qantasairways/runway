@@ -12,6 +12,7 @@ exports[`Tabs renders with defaults 1`] = `
 }
 
 .emotion-2 {
+  font-family: "Ciutadella",sans-serif;
   position: relative;
   width: 50%;
   height: 64px;
@@ -87,10 +88,9 @@ exports[`Tabs renders with defaults 1`] = `
 }
 
 .emotion-0 {
-  font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
   line-height: 1.11;
-  font-weight: 300;
+  font-weight: 400;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -139,6 +139,7 @@ exports[`Tabs renders with defaults 1`] = `
 }
 
 .emotion-4 {
+  font-family: "Ciutadella",sans-serif;
   position: relative;
   width: 50%;
   height: 64px;
@@ -236,6 +237,7 @@ exports[`Tabs renders with props provided 1`] = `
 }
 
 .emotion-3 {
+  font-family: "Ciutadella",sans-serif;
   position: relative;
   width: 50%;
   height: 64px;
@@ -311,10 +313,9 @@ exports[`Tabs renders with props provided 1`] = `
 }
 
 .emotion-0 {
-  font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
   line-height: 1.25;
-  font-weight: 300;
+  font-weight: 400;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -390,6 +391,7 @@ exports[`Tabs renders with props provided 1`] = `
 }
 
 .emotion-5 {
+  font-family: "Ciutadella",sans-serif;
   position: relative;
   width: 50%;
   height: 64px;

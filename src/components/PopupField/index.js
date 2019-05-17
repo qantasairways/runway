@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import noop from '../../utils/noop';
+import { mq, layout, fontFamily } from '../../theme/airways';
 
 import ButtonWithDialog, {
   transitionStylesSlideUp,
   dialogStylesFullScreen,
   ButtonContent
 } from '../../shared/ButtonWithDialog';
-
 import Header from './components/Header';
+import Footer from './components/Footer';
+import { withMediaQueryDetector } from '../MediaQueryDetector';
 
-class PopupField extends Component {
+export class PopupField extends Component {
   renderButtonValue = () => {
     const { largeButtonValue, smallButtonValue } = this.props;
 
@@ -36,6 +38,53 @@ class PopupField extends Component {
     );
   };
 
+  renderFooter = ({ closeDialog }) => {
+    const {
+      closeAriaLabel,
+      footerLabelsPrimary,
+      footerLabelPrimaryAriaTitle,
+      footerActionText,
+      onFooterAction,
+      preFooter
+    } = this.props;
+
+    return (
+      <Footer
+        primaryLabels={footerLabelsPrimary}
+        primaryLabelAriaTitle={footerLabelPrimaryAriaTitle}
+        actionText={footerActionText}
+        onAction={() => onFooterAction(closeDialog)}
+        closeAriaLabel={closeAriaLabel}
+        preFooter={preFooter}
+      />
+    );
+  };
+
+  hasDialogDimensions = () => {
+    const { dialogDimensions } = this.props;
+    return !!(
+      dialogDimensions &&
+      dialogDimensions.height &&
+      dialogDimensions.width
+    );
+  };
+
+  getDialogStyles = () => {
+    const { dialogDimensions } = this.props;
+    return {
+      fontFamily: fontFamily.body,
+      ...dialogStylesFullScreen,
+      ...(this.hasDialogDimensions() && {
+        [mq.medium]: {
+          position: 'absolute',
+          height: 'auto',
+          minHeight: dialogDimensions.height,
+          width: dialogDimensions.width
+        }
+      })
+    };
+  };
+
   render() {
     const {
       children,
@@ -45,11 +94,14 @@ class PopupField extends Component {
       closeAriaLabel,
       dialogAriaLabel,
       placeHolder,
-      Icon
+      Icon,
+      iconLabelButtonValue,
+      disableHeader,
+      disableFooter
     } = this.props;
-
     return (
       <ButtonWithDialog
+        contentPadding={layout.gutter}
         onBlur={onBlur}
         onClose={onClose}
         buttonLabel={buttonLabel}
@@ -57,9 +109,12 @@ class PopupField extends Component {
         closeAriaLabel={closeAriaLabel}
         dialogAriaLabel={dialogAriaLabel}
         Icon={Icon}
-        renderHeader={this.renderHeader}
+        renderHeader={disableHeader ? noop : this.renderHeader}
+        renderFooter={disableFooter ? noop : this.renderFooter}
         renderButtonValue={this.renderButtonValue}
-        dialogStyles={dialogStylesFullScreen}
+        iconLabelButtonValue={iconLabelButtonValue}
+        dialogStyles={this.getDialogStyles()}
+        hasDialogDimensions={this.hasDialogDimensions()}
         transitionStyles={transitionStylesSlideUp}
       >
         {children}
@@ -85,6 +140,11 @@ PopupField.propTypes = {
   closeAriaLabel: PropTypes.string,
   /** Aria label for the dialog once opened */
   dialogAriaLabel: PropTypes.string,
+  /** Custom dimensions to apply to dialog when viewing on a non-mobile device */
+  dialogDimensions: PropTypes.shape({
+    height: PropTypes.string,
+    width: PropTypes.string
+  }),
   /** Placeholder to be displayed if no large or small values are provided */
   placeHolder: PropTypes.string,
   /** Icon displayed in the field button */
@@ -92,7 +152,27 @@ PopupField.propTypes = {
   /** Label displayed in the dialog header */
   headerLabel: PropTypes.string,
   /** Icon displayed in the dialog header */
-  HeaderIcon: PropTypes.func
+  HeaderIcon: PropTypes.func,
+  /** Custom Label and Icon for the field button. When provided, this signals to
+   * PopupField to render special icon/label pairing layout for the button */
+  iconLabelButtonValue: PropTypes.shape({
+    icon: PropTypes.any,
+    label: PropTypes.string
+  }),
+  /* Disables rendering dialog header */
+  disableHeader: PropTypes.bool,
+  /* Disables rendering dialog header */
+  disableFooter: PropTypes.bool,
+  /* Strings rendered to individual lines alongside the footerAction button */
+  footerLabelsPrimary: PropTypes.arrayOf(PropTypes.string),
+  /* Title attribute passed to footer primaryLabels container */
+  footerLabelPrimaryAriaTitle: PropTypes.string,
+  /* Text that appears inside footerAction button */
+  footerActionText: PropTypes.string,
+  /* Triggered on clicking footerAction button */
+  onFooterAction: PropTypes.func,
+  /* Custom content that renders just above footer */
+  preFooter: PropTypes.node
 };
 
 PopupField.defaultProps = {
@@ -107,7 +187,16 @@ PopupField.defaultProps = {
   placeHolder: '',
   Icon: null,
   headerLabel: '',
-  HeaderIcon: null
+  HeaderIcon: null,
+  dialogDimensions: null,
+  iconLabelButtonValue: null,
+  disableHeader: false,
+  disableFooter: true,
+  footerLabelsPrimary: [],
+  footerLabelPrimaryAriaTitle: null,
+  footerActionText: null,
+  onFooterAction: () => {},
+  preFooter: null
 };
 
-export default PopupField;
+export default withMediaQueryDetector(PopupField, mq.medium);

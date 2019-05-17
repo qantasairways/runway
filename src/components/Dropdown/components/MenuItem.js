@@ -6,12 +6,13 @@ import {
   CSS_SELECTOR_ACTIVE
 } from '../../../constants/css';
 
-export function menuStyles() {
+export function menuStyles({ highlighted }) {
   return css({
     label: 'runway-dropdown__menu-item',
     fontWeight: 400,
-    backgroundColor: 'none',
+    backgroundColor: highlighted ? colours.lightGrey : 'none',
     color: '#323232',
+    boxSizing: 'border-box',
     padding: '10px',
     height: '50px',
     [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_ACTIVE}`]: {

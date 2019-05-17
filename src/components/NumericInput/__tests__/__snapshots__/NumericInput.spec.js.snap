@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumericInput renders correctly with defaults 1`] = `
+.emotion-1 {
+  height: 28px;
+  line-height: 1.75;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  font-size: 16px;
+  font-family: Ciutadella;
+  color: #323232;
+}
+
+.emotion-0 input::-webkit-outer-spin-button,
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0px;
+}
+
+.emotion-0 input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 .rc-input-number {
+  margin: 0px;
+  padding: 0px;
+  line-height: 26px;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #dadada;
+  border-radius: 0px;
+  position: relative;
+  width: 100%;
+  height: 55px;
+}
+
+.emotion-0 .rc-input-number-focused {
+  border-color: #8de2e0;
+}
+
+.emotion-0 .rc-input-number-handler {
+  text-align: center;
+  line-height: 12px;
+  height: 12px;
+  overflow: hidden;
+  display: block;
+  touch-action: none;
+}
+
+.emotion-0 .rc-input-number-handler-up {
+  position: absolute;
+  right: 0px;
+  width: calc(30px + 22px);
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-handler-down {
+  position: absolute;
+  left: 0px;
+  width: calc(30px + 22px);
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-input {
+  text-align: center;
+  outline: 0px;
+  -moz-appearance: textfield;
+  line-height: 26px;
+  height: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 0px;
+  padding: 0px;
+  width: 99%;
+  border-radius: 0px;
+  display: block;
+  font-size: 22px;
+  color: #323232;
+  font-family: Ciutadella;
+}
+
+.emotion-0 .rc-input-number-input-wrap {
+  overflow: hidden;
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+  fill: #dadada;
+}
+
+.emotion-2 {
+  position: absolute !important;
+  display: block;
+  visibility: visible;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0px;
+  padding: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+}
+
+<Fragment>
+  <label
+    className="emotion-1"
+  >
+    <div
+      className="emotion-0"
+    >
+      <InputNumber
+        autoComplete="off"
+        downHandler={
+          <MinusIcon
+            className="runway-numeric-input__decrement_icon"
+            height="100%"
+            width="30px"
+          />
+        }
+        focusOnUpDown={true}
+        min={-9007199254740991}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        parser={[Function]}
+        prefixCls="rc-input-number"
+        required={false}
+        step={1}
+        style={Object {}}
+        type="number"
+        upHandler={
+          <PlusIcon
+            className="runway-numeric-input__increment_icon"
+            height="100%"
+            width="30px"
+          />
+        }
+        useTouch={false}
+      />
+    </div>
+  </label>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+  >
+    <div
+      className="emotion-2"
+    >
+      Current value is 
+      .
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`NumericInput renders correctly with props 1`] = `
+.emotion-1 {
+  height: 28px;
+  line-height: 1.75;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  font-size: 16px;
+  font-family: Ciutadella;
+  color: #323232;
+}
+
+.emotion-2 {
+  position: absolute !important;
+  display: block;
+  visibility: visible;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0px;
+  padding: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+}
+
+.emotion-0 input::-webkit-outer-spin-button,
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0px;
+}
+
+.emotion-0 input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 .rc-input-number {
+  margin: 0px;
+  padding: 0px;
+  line-height: 26px;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid #dadada;
+  border-radius: 0px;
+  position: relative;
+  width: 100%;
+  height: 55px;
+  border-color: #ed710b;
+}
+
+.emotion-0 .rc-input-number-focused {
+  border-color: #ed710b;
+}
+
+.emotion-0 .rc-input-number-handler {
+  text-align: center;
+  line-height: 12px;
+  height: 12px;
+  overflow: hidden;
+  display: block;
+  touch-action: none;
+}
+
+.emotion-0 .rc-input-number-handler-up {
+  position: absolute;
+  right: 0px;
+  width: calc(30px + 22px);
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-handler-down {
+  position: absolute;
+  left: 0px;
+  width: calc(30px + 22px);
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-input {
+  text-align: center;
+  outline: 0px;
+  -moz-appearance: textfield;
+  line-height: 26px;
+  height: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 0px;
+  padding: 0px;
+  width: 99%;
+  border-radius: 0px;
+  display: block;
+  font-size: 22px;
+  color: #323232;
+  font-family: Ciutadella;
+}
+
+.emotion-0 .rc-input-number-input-wrap {
+  overflow: hidden;
+  height: 100%;
+}
+
+.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+  fill: #eeeeee;
+}
+
+.emotion-3 {
+  margin-top: 15px;
+  padding: 13px 15px;
+  background-color: #fcebcd;
+  font-family: Ciutadella;
+  font-size: 14px;
+  position: relative;
+}
+
+.emotion-3 a {
+  color: #323232;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-3:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  border: 0.531em solid transparent;
+  border-bottom-color: #fcebcd;
+  border-top: 0px;
+  margin-left: -45%;
+  margin-top: -0.531em;
+}
+
+<Fragment>
+  <label
+    className="emotion-1"
+  >
+    <div
+      className="emotion-0"
+    >
+      <InputNumber
+        autoComplete="off"
+        downHandler={
+          <MinusIcon
+            className="runway-numeric-input__decrement_icon"
+            height="100%"
+            width="30px"
+          />
+        }
+        focusOnUpDown={true}
+        min={-9007199254740991}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        parser={[Function]}
+        prefixCls="rc-input-number"
+        required={false}
+        step={1}
+        style={Object {}}
+        type="number"
+        upHandler={
+          <PlusIcon
+            className="runway-numeric-input__increment_icon"
+            height="100%"
+            width="30px"
+          />
+        }
+        useTouch={false}
+      />
+    </div>
+  </label>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+  >
+    <div
+      className="emotion-2"
+    >
+      Current value is 
+      .
+    </div>
+    <div
+      className="emotion-3"
+    >
+      mock message
+    </div>
+  </div>
+</Fragment>
+`;

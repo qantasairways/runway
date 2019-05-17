@@ -83,10 +83,11 @@ function dateStyles({ isToday, isDisabled }) {
   return css({
     label: 'runway-calendar__date',
     height: fontSize.body,
-    padding: '0 4px',
+    padding: '3px 4px 4px',
     fontSize: fontSize.body,
     lineHeight: 1.1,
     borderRadius: layout.borderRadius,
+    boxSizing: 'content-box',
     backgroundColor: isToday ? colours.hightlightsLight : 'initial',
     color: isToday && isDisabled ? colours.darkGrey : 'inherit',
     [mq.medium]: {
@@ -190,6 +191,13 @@ class Day extends Component {
     });
   };
 
+  handleFocus = () => {
+    this.props.setFocusedDay(this.props.timestamp);
+    this.setState({
+      hover: true
+    });
+  };
+
   handleKeyDown = event => {
     const { keyCode } = event;
     if (!keyCode) return;
@@ -278,10 +286,10 @@ class Day extends Component {
     const dayOfMonth = date && date.getDate();
 
     return isOutside ? (
-      <div role="gridcell" />
+      <div key={timestamp} />
     ) : (
       <div
-        role="gridcell"
+        role="button"
         tabIndex={isStart || isFirstDayOfMonth ? 0 : -1}
         css={dayStyles({ isStart, isEnd, isInRange, isDisabled, isOutside })}
         className={isDisabled ? '' : `d${timestamp}`}
@@ -301,7 +309,7 @@ class Day extends Component {
         })}
         onMouseOver={this.handleMouseOver}
         onMouseLeave={this.handleMouseLeave}
-        onFocus={this.handleMouseOver}
+        onFocus={this.handleFocus}
         onBlur={this.handleMouseLeave}
         onClick={this.handleDayClick}
         onKeyDown={this.handleKeyDown}
@@ -332,6 +340,7 @@ Day.propTypes = {
   endDate: PropTypes.instanceOf(Date),
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
+  setFocusedDay: PropTypes.func.isRequired,
   onDayClick: PropTypes.func.isRequired,
   onDayNavigate: PropTypes.func.isRequired,
   isStart: PropTypes.bool,

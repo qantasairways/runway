@@ -1,14 +1,14 @@
 import React from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
-import Triangle from '../../../icons/Triangle';
+import Triangle from './TriangleSvg';
 import {
   colours,
   mq,
-  fontFamily,
   layout,
   fontSize,
-  fontWeight
+  fontWeight,
+  fontFamily
 } from '../../../theme/airways';
 import {
   CSS_PSEUDO_AFTER,
@@ -26,6 +26,7 @@ export function calendarHeatherCntStyle() {
 }
 
 const tabStyles = {
+  fontFamily: fontFamily.main,
   position: 'relative',
   // cursor: 'pointer',
   width: '50%',
@@ -106,7 +107,6 @@ export function startTabStyles({ isSelectingStartDate }) {
 export function textStyles({ isPlaceholder }) {
   return css({
     label: 'runway-calendar-header_text_style',
-    fontFamily: fontFamily.body,
     fontSize: fontSize.body,
     lineHeight: isPlaceholder ? 1.11 : 1.25,
     fontWeight: fontWeight.regular,

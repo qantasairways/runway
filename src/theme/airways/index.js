@@ -1,24 +1,6 @@
-export const airwaysColours = {
-  qantasRed: '#ee0000',
-  darkRed: '#ba0000',
-  focusRed: '#870000',
-  transparentGrey: 'rgba(0,0,0,0.1',
-  charcoal: '#323232',
-  white: '#fff',
-  warningOrange: '#ed710b',
-  bayBlue: '#8de2e0',
-  lightBayBlue: '#bff4f2',
-  lighterBayBlue: '#e8f7f7',
-  grey: '#dadada',
-  darkGrey: '#626262',
-  lightGrey: '#f4f5f6',
-  disabledGrey: '#fafafa'
-};
+import airwaysColours from './colours.json';
 
-export const airwaysFontFamily = {
-  main: '"Ciutadella", sans-serif',
-  mainMedium: '"Ciutadella-Md", sans-serif'
-};
+export const airwaysFontFamily = '"Ciutadella", sans-serif';
 
 export const layout = {
   borderRadius: '4px',
@@ -37,8 +19,10 @@ export const colours = {
   transparent: 'transparent',
   darkerGrey: airwaysColours.charcoal,
   darkGrey: airwaysColours.darkGrey,
+  mediumDarkGrey: airwaysColours.mediumDarkGrey,
   grey: airwaysColours.grey,
   lightGrey: airwaysColours.lightGrey,
+  lighterGrey: airwaysColours.lighterGrey,
   disabledGrey: airwaysColours.disabledGrey,
   highlights: airwaysColours.bayBlue,
   hightlightsLight: airwaysColours.lightBayBlue,
@@ -47,15 +31,11 @@ export const colours = {
 };
 
 export const fontFamily = {
-  body: airwaysFontFamily.main,
-  bold: airwaysFontFamily.mainMedium,
-  h1: airwaysFontFamily.main,
-  h2: airwaysFontFamily.mainMedium,
-  h3: airwaysFontFamily.mainMedium
+  main: airwaysFontFamily
 };
 
 export const fontWeight = {
-  regular: 300,
+  regular: 400,
   bold: 700
 };
 

@@ -13,10 +13,15 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-1 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,7 +41,7 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: none;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -76,10 +81,15 @@ exports[`Button renders correctly with defaults 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-2 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,7 +109,7 @@ exports[`Button renders correctly with defaults 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: none;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -146,10 +156,15 @@ exports[`Button renders correctly with props provided 1`] = `
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .emotion-2 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -169,7 +184,7 @@ exports[`Button renders correctly with props provided 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: none;
+  text-transform: uppercase;
   font-size: 1rem;
 }
 

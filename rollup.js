@@ -22,6 +22,7 @@ const components = [
  * Rollup
  */
 const babel = require('rollup-plugin-babel');
+const json = require('rollup-plugin-json');
 const rollup = require('rollup');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -65,13 +66,21 @@ const inputOptions = entry => ({
     nodeResolve({
       browser: true
     }),
+    json({
+      exclude: 'node_modules/**'
+    }),
     commonjs({
       include: 'node_modules/**',
       namedExports: {
         'react-is': ['isForwardRef', 'isValidElementType'],
         shortid: ['generate'],
         'react-day-picker': ['DayPicker'],
-        'highlight-words-core': ['findAll']
+        'highlight-words-core': ['findAll'],
+        'body-scroll-lock': [
+          'disableBodyScroll',
+          'enableBodyScroll',
+          'clearAllBodyScrollLocks'
+        ]
       }
     }),
     visualizer()

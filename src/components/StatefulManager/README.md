@@ -1,5 +1,1 @@
-```js
-<StatefulManager initial={{ some: 'initialValue' }}>
-  {() => <div />}
-</StatefulManager>
-```
+_Used for styleguide documentation only_

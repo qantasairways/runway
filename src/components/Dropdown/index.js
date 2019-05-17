@@ -12,45 +12,38 @@ import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
 import { colours, layout } from '../../theme/airways';
 
-export function dropdownStyles({ isButtonStyle }) {
+export function dropdownStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
     fontSize: '18px',
-    fontWeight: 500,
+    fontWeight: 400,
     fontStyle: 'normal',
     fontStretch: 'normal',
     lineHeight: 1.56,
     letterSpacing: 'normal',
     background: colours.darkerGrey,
-    height: isButtonStyle ? '65px' : '30px',
+    height: withPadding ? '65px' : '30px',
     borderColor: colours.darkeGrey,
     color: '#ffffff',
     position: 'relative'
   });
 }
 
-export function labelStyles() {
-  return css({});
-}
-
-export function inputWrapperStyles({ isButtonStyle }) {
+export function inputWrapperStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown__input-wrapper',
     cursor: 'pointer',
     display: 'flex',
-    position: 'absolute',
-    right: '0',
-    top: '0',
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: isButtonStyle ? 'space-between' : 'flex-end',
-    padding: isButtonStyle ? `0 ${layout.gutter}` : '0'
+    justifyContent: withPadding ? 'space-between' : 'flex-end',
+    boxSizing: 'border-box'
   });
 }
 
-export function inputStyles({ leftAlign }) {
+export function inputStyles({ leftAlign, withPadding }) {
   return css({
     label: 'runway-dropdown__input',
     backgroundColor: 'transparent',
@@ -64,8 +57,10 @@ export function inputStyles({ leftAlign }) {
     letterSpacing: 'inherit',
     textTransform: 'none',
     color: 'inherit',
-    padding: 0,
+    padding: withPadding ? `0 0 0 ${layout.gutter}` : 0,
     cursor: 'pointer',
+    width: '100%',
+    height: '100%',
     textAlign: leftAlign ? 'left' : 'right',
     '::placeholder': {
       color: 'inherit'
@@ -73,12 +68,15 @@ export function inputStyles({ leftAlign }) {
   });
 }
 
-export function inputSvgStyles() {
+export function inputSvgStyles({ withPadding }) {
   return css({
     label: 'runway-dropdown__input-svg',
     width: '24px',
+    height: '100%',
     fill: '#FFFFFF',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    padding: withPadding ? `0 ${layout.gutter} 0 0` : 0,
+    boxSizing: 'content-box'
   });
 }
 
@@ -105,10 +103,6 @@ export function itemSvgStyles() {
     width: '24px',
     fill: '#323232'
   });
-}
-
-export function itemLabelStyles() {
-  return css({});
 }
 
 function defaultItemToString(item) {
@@ -204,10 +198,8 @@ function Render(props) {
   });
 
   return (
-    <div>
-      <label css={labelStyles(props)} {...getLabelProps()}>
-        {label}
-      </label>
+    <div css={{ width: '100%', height: '100%' }}>
+      <label {...getLabelProps()}>{label}</label>
       <span css={inputWrapperStyles(props)}>
         <input
           {...inputProps}
@@ -312,7 +304,7 @@ function renderDefaultItem(item, index, props) {
       <span css={itemSvgContainerStyles(props)}>
         <TickIcon css={itemSvgStyles(props)} />
       </span>
-      <span css={itemLabelStyles(props)}>{item.name}</span>
+      <span>{item.name}</span>
     </span>
   );
 }
@@ -320,7 +312,7 @@ function renderDefaultItem(item, index, props) {
 Dropdown.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
   renderItem: PropTypes.func,
-  isButtonStyle: PropTypes.bool,
+  withPadding: PropTypes.bool,
   focus: PropTypes.bool,
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
@@ -329,7 +321,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   items: [],
-  isButtonStyle: 'true',
+  withPadding: false,
   renderItem: renderDefaultItem,
   focus: false,
   downShiftProps: {
