@@ -18,7 +18,8 @@ function typeaheadStyles() {
 function labelInputContainerStyles() {
   return {
     width: '100%',
-    padding: '0 10px'
+    padding: '0 10px',
+    boxSizing: 'border-box'
   };
 }
 function inputStyles() {
@@ -101,6 +102,12 @@ class Typeahead extends Component {
     };
   }
 
+  componentDidMount() {
+    if (typeof this.props.setRef === 'function' && this.inputRef) {
+      this.props.setRef(this.inputRef);
+    }
+  }
+
   onInputValueChange = (value, stateAndHelpers) => {
     const { fetchListOnInput } = this.props;
     if (
@@ -170,6 +177,10 @@ class Typeahead extends Component {
         })}
       </ul>
     );
+  };
+
+  setInputRef = el => {
+    this.inputRef = el;
   };
 
   render() {
@@ -250,7 +261,8 @@ class Typeahead extends Component {
                         placeholder: ''
                       });
                       onBlur();
-                    }
+                    },
+                    ref: this.setInputRef
                   })}
                 />
               </div>
@@ -294,6 +306,7 @@ Typeahead.propTypes = {
   stateReducer: PropTypes.func,
   valid: PropTypes.bool,
   selectItemCollector: PropTypes.func,
+  setRef: PropTypes.func,
   maxLength: PropTypes.number
 };
 
@@ -311,7 +324,8 @@ Typeahead.defaultProps = {
   onBlur: noop,
   onFocus: noop,
   onChange: noop,
-  onInputValueChange: noop,
+  onInputValueChange: null,
+  setRef: noop,
   message: '',
   minChars: 0,
   placeholder: '',

@@ -159,7 +159,6 @@ function Button({
               top: '5px',
               left: '7px',
               color: 'white',
-              textTransform: 'uppercase',
               fontSize: fontSize.label
             }}
           >
