@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/qantasairways/runway/compare/v0.21.1...v0.22.0) (2019-05-17)
+
+
+### Features
+
+* **daypicker:** Enable event subscriptions to updates of months visibly shown, enable custom date data transforms on generated month dates data ([#44](https://github.com/qantasairways/runway/issues/44)) ([7f281ad](https://github.com/qantasairways/runway/commit/7f281ad))
+
 ## [0.21.1](https://github.com/qantasairways/runway/compare/v0.21.0...v0.21.1) (2019-05-17)
 
 
