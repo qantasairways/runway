@@ -100,6 +100,7 @@ describe('ButtonWithDialog', () => {
       openDialog(component);
       jest.spyOn(component.instance().focusElement, 'focus');
       component.instance().onEntered();
+      jest.useFakeTimers();
     });
 
     afterEach(() => {
@@ -118,6 +119,7 @@ describe('ButtonWithDialog', () => {
     });
 
     it('focuses the element with ref this.focusElement', () => {
+      jest.runAllTimers();
       expect(component.instance().focusElement.focus).toHaveBeenCalled();
     });
   });

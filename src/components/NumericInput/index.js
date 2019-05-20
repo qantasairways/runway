@@ -197,6 +197,10 @@ class NumericInput extends Component {
     clickables.forEach(el => {
       el.addEventListener('click', this.preventDefault);
     });
+
+    if (typeof this.props.setRef === 'function' && this.inputRef) {
+      this.props.setRef(this.inputRef);
+    }
   };
 
   overloadedOnChange = value => {
@@ -216,6 +220,10 @@ class NumericInput extends Component {
   preventDefault = e => {
     e.preventDefault();
     e.stopPropagation();
+  };
+
+  setInputRef = el => {
+    this.inputRef = el;
   };
 
   render = () => {
@@ -255,6 +263,7 @@ class NumericInput extends Component {
               onChange={this.overloadedOnChange}
               upHandler={up}
               downHandler={down}
+              ref={this.setInputRef}
             />
           </div>
         </label>
@@ -274,12 +283,14 @@ class NumericInput extends Component {
 NumericInput.propTypes = {
   ...InputNumber.propTypes,
   isInvalid: PropTypes.bool,
-  isInvalidMessage: PropTypes.string
+  isInvalidMessage: PropTypes.string,
+  setRef: PropTypes.func
 };
 
 NumericInput.defaultProps = {
   isInvalid: false,
-  isInvalidMessage: null
+  isInvalidMessage: null,
+  setRef: null
 };
 
 export default NumericInput;

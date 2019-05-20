@@ -45,7 +45,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -70,7 +69,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
       dialogAriaLabel=""
       dialogDimensions={null}
       disableFooter={true}
-      disableHeader={false}
       footerActionText={null}
       footerLabelPrimaryAriaTitle={null}
       footerLabelsPrimary={Array []}
@@ -276,7 +274,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -301,7 +298,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
       dialogAriaLabel=""
       dialogDimensions={null}
       disableFooter={true}
-      disableHeader={false}
       footerActionText={null}
       footerLabelPrimaryAriaTitle={null}
       footerLabelsPrimary={Array []}
@@ -507,7 +503,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
   top: 5px;
   left: 7px;
   color: white;
-  text-transform: uppercase;
   font-size: 1rem;
 }
 
@@ -532,7 +527,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
       dialogAriaLabel=""
       dialogDimensions={null}
       disableFooter={true}
-      disableHeader={false}
       footerActionText={null}
       footerLabelPrimaryAriaTitle={null}
       footerLabelsPrimary={Array []}
@@ -836,6 +830,8 @@ exports[`PopupField renders correctly with props 1`] = `
         dialogStyles={
           Object {
             "@media only screen and (min-width: 768px)": Object {
+              "borderRadius": "2px",
+              "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)",
               "height": "auto",
               "minHeight": "522px",
               "position": "absolute",
@@ -897,6 +893,8 @@ exports[`PopupField renders correctly with props 1`] = `
             dialogStyles={
               Object {
                 "@media only screen and (min-width: 768px)": Object {
+                  "borderRadius": "2px",
+                  "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)",
                   "height": "auto",
                   "minHeight": "522px",
                   "position": "absolute",

@@ -79,7 +79,10 @@ export class PopupField extends Component {
           position: 'absolute',
           height: 'auto',
           minHeight: dialogDimensions.height,
-          width: dialogDimensions.width
+          width: dialogDimensions.width,
+          boxShadow:
+            '0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)',
+          borderRadius: '2px'
         }
       })
     };
@@ -96,7 +99,6 @@ export class PopupField extends Component {
       placeHolder,
       Icon,
       iconLabelButtonValue,
-      disableHeader,
       disableFooter
     } = this.props;
     return (
@@ -109,7 +111,7 @@ export class PopupField extends Component {
         closeAriaLabel={closeAriaLabel}
         dialogAriaLabel={dialogAriaLabel}
         Icon={Icon}
-        renderHeader={disableHeader ? noop : this.renderHeader}
+        renderHeader={this.renderHeader}
         renderFooter={disableFooter ? noop : this.renderFooter}
         renderButtonValue={this.renderButtonValue}
         iconLabelButtonValue={iconLabelButtonValue}
@@ -160,8 +162,6 @@ PopupField.propTypes = {
     label: PropTypes.string
   }),
   /* Disables rendering dialog header */
-  disableHeader: PropTypes.bool,
-  /* Disables rendering dialog header */
   disableFooter: PropTypes.bool,
   /* Strings rendered to individual lines alongside the footerAction button */
   footerLabelsPrimary: PropTypes.arrayOf(PropTypes.string),
@@ -190,7 +190,6 @@ PopupField.defaultProps = {
   HeaderIcon: null,
   dialogDimensions: null,
   iconLabelButtonValue: null,
-  disableHeader: false,
   disableFooter: true,
   footerLabelsPrimary: [],
   footerLabelPrimaryAriaTitle: null,

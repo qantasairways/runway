@@ -9,7 +9,6 @@
       Icon={PersonIcon}
       HeaderIcon={PersonIcon}
       headerLabel="Passengers"
-      disableHeader={false}
       disableFooter={false}
       dialogDimensions={{ height: '522px', width: '375px' }}
       iconLabelButtonValue={{

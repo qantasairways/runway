@@ -50,6 +50,7 @@ export const dialogStylesFullScreen = {
   display: 'flex',
   flexDirection: 'column'
 };
+
 class ButtonWithDialog extends Component {
   state = {
     open: false
@@ -63,9 +64,11 @@ class ButtonWithDialog extends Component {
       document.addEventListener('click', this.handleClickOutside);
     }
 
-    if (this.focusElement) {
-      this.focusElement.focus();
-    }
+    setTimeout(() => {
+      if (this.focusElement) {
+        this.focusElement.focus();
+      }
+    });
   };
 
   onExited = () => {
@@ -185,7 +188,7 @@ class ButtonWithDialog extends Component {
                 {transitionState => (
                   <Dialog
                     lockBgScroll={isFullScreen}
-                    renderHeader={this.renderHeader}
+                    renderHeader={isFullScreen ? this.renderHeader : noop}
                     renderFooter={this.renderFooter}
                     contentPadding={contentPadding}
                     transitionStyles={transitionStyles}
