@@ -7,12 +7,13 @@ const onMonthsShown = ({ startMonthDate, endMonthDate }) => {
   console.log('startMonthDate', startMonthDate);
   console.log('endMonthDate', endMonthDate);
   console.groupEnd('onMonthsShown');
-}
+};
 
-const transformDatesData = (monthDatesData) => monthDatesData.map(dateData => ({
-  ...dateData,
-  isGoodDay: dateData.date > tday
-}));
+const transformDatesData = monthDatesData =>
+  monthDatesData.map(dateData => ({
+    ...dateData,
+    isGoodDay: dateData.date > today
+  }));
 
 <StatefulManager initial>
   {({ value, updater }) => (

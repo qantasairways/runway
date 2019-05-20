@@ -15,6 +15,8 @@ import {
   DAY_CELL_HEIGHT_MOBILE
 } from '../helpers';
 
+import Price from './Price';
+
 import DayLabel from './DayLabel';
 import PlaneIcon from '../../../icons/PlaneIcon';
 
@@ -25,10 +27,13 @@ const rangeStyles = {
 
 const startEndStyles = {
   label: 'runway-calendar__day--selected',
-  paddingTop: '36px',
+  paddingTop: '34px',
   zIndex: 1,
   border: `2px solid ${colours.hightlightsLight}`,
-  boxShadow: `0 0 0 1px ${colours.hightlightsLight}`
+  boxShadow: `0 0 0 1px ${colours.hightlightsLight}`,
+  [mq.medium]: {
+    paddingTop: '31px'
+  }
 };
 
 const disabledStyles = {
@@ -60,7 +65,7 @@ function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
       alignItems: 'center',
       flexDirection: 'column',
       position: 'relative',
-      paddingTop: '38px',
+      paddingTop: '36px',
       boxSizing: 'border-box',
       height: `${DAY_CELL_HEIGHT_MOBILE}px`,
       color: colours.darkerGrey,
@@ -68,7 +73,7 @@ function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
       boxShadow: isOutside ? 'none' : '0 0 0 1px #eaeaea',
       outline: 'none',
       [mq.medium]: {
-        paddingTop: '35px',
+        paddingTop: '33px',
         height: `${DAY_CELL_HEIGHT_DESKTOP}px`
       }
     },
@@ -83,7 +88,7 @@ function dateStyles({ isToday, isDisabled }) {
   return css({
     label: 'runway-calendar__date',
     height: fontSize.body,
-    padding: '3px 4px 4px',
+    padding: '2px 4px',
     fontSize: fontSize.body,
     lineHeight: 1.1,
     borderRadius: layout.borderRadius,
@@ -92,7 +97,7 @@ function dateStyles({ isToday, isDisabled }) {
     color: isToday && isDisabled ? colours.darkGrey : 'inherit',
     [mq.medium]: {
       fontSize: fontSize.labelLarge,
-      lineHeight: 1
+      lineHeight: 0.95
     }
   });
 }
@@ -142,7 +147,8 @@ class Day extends Component {
       nextState.hover !== this.state.hover ||
       nextProps.isEnd !== this.props.isEnd ||
       nextProps.isStart !== this.props.isStart ||
-      nextProps.isInRange !== this.props.isInRange
+      nextProps.isInRange !== this.props.isInRange ||
+      nextProps.isLoadingPrice !== this.props.isLoadingPrice
     ) {
       return true;
     }
@@ -193,9 +199,6 @@ class Day extends Component {
 
   handleFocus = () => {
     this.props.setFocusedDay(this.props.timestamp);
-    this.setState({
-      hover: true
-    });
   };
 
   handleKeyDown = event => {
@@ -280,7 +283,10 @@ class Day extends Component {
       endAriaLabel,
       startSelectedLabel,
       endSelectedLabel,
-      Icon
+      Icon,
+      isLoadingPrice,
+      price,
+      currencySymbol
     } = this.props;
 
     const dayOfMonth = date && date.getDate();
@@ -315,6 +321,14 @@ class Day extends Component {
         onKeyDown={this.handleKeyDown}
       >
         <div css={dateStyles({ isToday, isDisabled })}>{dayOfMonth}</div>
+        {price && (
+          <Price
+            {...price}
+            currencySymbol={currencySymbol}
+            isDesktopDevice={isDesktopDevice}
+            isLoadingPrice={isLoadingPrice}
+          />
+        )}
         {isStart && (
           <DayLabel isSelected label={startSelectedLabel} Icon={Icon} />
         )}
@@ -359,7 +373,17 @@ Day.propTypes = {
   startAriaLabel: PropTypes.string,
   endAriaLabel: PropTypes.string,
   Icon: PropTypes.func,
-  isDesktopDevice: PropTypes.bool
+  isDesktopDevice: PropTypes.bool,
+  isLoadingPrice: PropTypes.bool,
+  currencyCode: PropTypes.string,
+  currencySymbol: PropTypes.string,
+  price: PropTypes.shape({
+    value: PropTypes.number,
+    taxValue: PropTypes.number,
+    points: PropTypes.number,
+    isClassic: PropTypes.bool,
+    isLowestPrice: PropTypes.bool
+  })
 };
 
 Day.defaultProps = {
@@ -381,7 +405,11 @@ Day.defaultProps = {
   startAriaLabel: '',
   endAriaLabel: '',
   Icon: PlaneIcon,
-  isDesktopDevice: false
+  isDesktopDevice: false,
+  currencyCode: '',
+  currencySymbol: '',
+  isLoadingPrice: false,
+  price: null
 };
 
 export default Day;
