@@ -193,3 +193,19 @@ export const getLastEnabledMonthDate = ({ monthDate, disabledAfter }) => {
   }
   return validDate;
 };
+
+export function abbrNum(price) {
+  if (price >= 1000000) {
+    return `${Math.ceil(price / 1000000)}m`;
+  }
+
+  if (price >= 1000) {
+    return `${Math.ceil(price / 1000)}k`;
+  }
+
+  return Math.ceil(price);
+}
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}

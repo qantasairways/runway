@@ -24,9 +24,9 @@ exports[`Header renders correctly with defaults 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1030px;
   margin: 0 auto;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 15px;
 }
 
 .emotion-0 {
@@ -66,12 +66,6 @@ exports[`Header renders correctly with defaults 1`] = `
   .emotion-3 {
     height: 55px;
     width: 55px;
-  }
-}
-
-@media only screen and (min-width:960px) {
-  .emotion-3 {
-    text-align: right;
   }
 }
 
@@ -120,6 +114,10 @@ exports[`Header renders correctly with defaults 1`] = `
   right: -1px;
   height: 15px;
   border-left: 1px solid #eeeeee;
+}
+
+.emotion-6::after:last-child {
+  border-left: none;
 }
 
 .emotion-6 undefined {
@@ -244,9 +242,9 @@ exports[`Header renders correctly with props provided 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1030px;
   margin: 0 auto;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 15px;
 }
 
 .emotion-0 {
@@ -286,12 +284,6 @@ exports[`Header renders correctly with props provided 1`] = `
   .emotion-3 {
     height: 55px;
     width: 55px;
-  }
-}
-
-@media only screen and (min-width:960px) {
-  .emotion-3 {
-    text-align: right;
   }
 }
 
@@ -340,6 +332,10 @@ exports[`Header renders correctly with props provided 1`] = `
   right: -1px;
   height: 15px;
   border-left: 1px solid #eeeeee;
+}
+
+.emotion-6::after:last-child {
+  border-left: none;
 }
 
 .emotion-6 undefined {
