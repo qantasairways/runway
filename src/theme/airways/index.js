@@ -7,6 +7,7 @@ export const layout = {
   gutter: '15px',
   iconSize: '32px',
   containerMaxWidth: '1000px',
+  paddingContainerMaxWidth: '1030px',
   links: {
     gutter: '10px'
   }
