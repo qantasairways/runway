@@ -37,7 +37,8 @@ const rowStyles = {
   gridTemplateColumns: 'repeat(7, 1fr)',
   gridGap: `${DAY_CELL_BORDER_WIDTH}px`,
   maxWidth: layout.containerMaxWidth,
-  margin: '1px auto 0 auto'
+  margin: '1px auto 0 auto',
+  padding: '0 1px'
 };
 
 const dividerStyles = {
