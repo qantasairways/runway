@@ -1,3 +1,10 @@
+# [0.24.0](https://github.com/qantasairways/runway/compare/v0.23.0...v0.24.0) (2019-05-21)
+
+
+### Features
+
+* **daypicker:** Add markup and styles to display price information ([#49](https://github.com/qantasairways/runway/issues/49)) ([c7ccd33](https://github.com/qantasairways/runway/commit/c7ccd33))
+
 # [0.23.0](https://github.com/qantasairways/runway/compare/v0.22.0...v0.23.0) (2019-05-20)
 
 
