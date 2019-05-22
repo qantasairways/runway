@@ -67,9 +67,9 @@ function Header({
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            maxWidth: layout.containerMaxWidth,
+            maxWidth: layout.paddingContainerMaxWidth,
             margin: '0 auto',
-            padding: '0 0 0 12px'
+            padding: `0 0 0 ${layout.gutter}`
           }}
         >
           <QantasLogo
@@ -108,9 +108,6 @@ function Header({
               [mq.medium]: {
                 height: '55px',
                 width: '55px'
-              },
-              [mq.large]: {
-                textAlign: 'right'
               }
             }}
           >
@@ -152,7 +149,10 @@ function Header({
                   position: 'absolute',
                   right: '-1px',
                   height: '15px',
-                  borderLeft: '1px solid #eeeeee'
+                  borderLeft: '1px solid #eeeeee',
+                  '&:last-child': {
+                    borderLeft: 'none'
+                  }
                 },
                 [mq.xLarge]: {
                   fontSize: fontSize.body
