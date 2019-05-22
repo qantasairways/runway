@@ -1,467 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toggle handleToggle() component is controlled renders correctly 1`] = `
-.emotion-2 {
-  padding-bottom: 35px;
-  position: relative;
-}
+exports[`Toggle Controlled should render checked="false" correctly 1`] = `
+<LocalStylesInjector
+  checked={false}
+  containerClassName="mockContainerClassName"
+  height={30}
+>
+  <label
+    htmlFor="mockId-3"
+  >
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={false}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={26}
+    height={30}
+    id="mockId-3"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={48}
+  />
+</LocalStylesInjector>
+`;
 
-.emotion-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-0:focus + span {
-  box-shadow: 0px 0px 1px 2px #dadada;
-  outline: none;
-}
-
-.emotion-1 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #8de2e0;
-  border-radius: 15px;
-  bottom: 0;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  max-width: 62px;
-  position: absolute;
-  -webkit-transition: background-color 150ms linear;
-  transition: background-color 150ms linear;
-  width: 100%;
-}
-
-.emotion-1::after {
-  content: " ";
-  background: white;
-  border-radius: 50%;
-  height: 24px;
-  left: calc(100% - 27px);
-  position: absolute;
-  top: 3px;
-  -webkit-transition: left 150ms ease-out;
-  transition: left 150ms ease-out;
-  width: 24px;
-}
-
-<Toggle
-  ariaLabel="Press space to toggle"
+exports[`Toggle Controlled should render checked="true" correctly 1`] = `
+<LocalStylesInjector
   checked={true}
-  defaultChecked={true}
-  id="toggle1"
-  label="Toggle:"
-  onBlur={[Function]}
-  onChange={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
-    }
-  }
+  containerClassName="mockContainerClassName"
+  height={30}
 >
-  <div
-    className="emotion-2"
+  <label
+    htmlFor="mockId-2"
   >
-    <label
-      htmlFor="toggle1"
-    >
-      Toggle:
-      <input
-        checked={true}
-        className="emotion-0"
-        id="toggle1"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="emotion-1"
-      />
-    </label>
-  </div>
-</Toggle>
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={true}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={26}
+    height={30}
+    id="mockId-2"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={48}
+  />
+</LocalStylesInjector>
 `;
 
-exports[`Toggle handleToggle() component is uncontrolled renders correctly 1`] = `
-.emotion-2 {
-  padding-bottom: 35px;
-  position: relative;
-}
-
-.emotion-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-0:focus + span {
-  box-shadow: 0px 0px 1px 2px #dadada;
-  outline: none;
-}
-
-.emotion-1 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #dadada;
-  border-radius: 15px;
-  bottom: 0;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  max-width: 62px;
-  position: absolute;
-  -webkit-transition: background-color 150ms linear;
-  transition: background-color 150ms linear;
-  width: 100%;
-}
-
-.emotion-1::after {
-  content: " ";
-  background: white;
-  border-radius: 50%;
-  height: 24px;
-  left: 3px;
-  position: absolute;
-  top: 3px;
-  -webkit-transition: left 150ms ease-out;
-  transition: left 150ms ease-out;
-  width: 24px;
-}
-
-<Toggle
-  ariaLabel="Press space to toggle"
-  defaultChecked={false}
-  id="toggle1"
-  label="Toggle:"
-  onBlur={[Function]}
-  onChange={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
-    }
-  }
+exports[`Toggle Uncontrolled should render correctly 1`] = `
+<LocalStylesInjector
+  checked={false}
+  containerClassName="mockContainerClassName"
+  height={30}
 >
-  <div
-    className="emotion-2"
+  <label
+    htmlFor="mockId-1"
   >
-    <label
-      htmlFor="toggle1"
-    >
-      Toggle:
-      <input
-        checked={false}
-        className="emotion-0"
-        id="toggle1"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="emotion-1"
-      />
-    </label>
-  </div>
-</Toggle>
-`;
-
-exports[`Toggle renders correctly when controlled \`checked\` prop updates 1`] = `
-.emotion-2 {
-  padding-bottom: 35px;
-  position: relative;
-}
-
-.emotion-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-0:focus + span {
-  box-shadow: 0px 0px 1px 2px #dadada;
-  outline: none;
-}
-
-.emotion-1 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #8de2e0;
-  border-radius: 15px;
-  bottom: 0;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  max-width: 62px;
-  position: absolute;
-  -webkit-transition: background-color 150ms linear;
-  transition: background-color 150ms linear;
-  width: 100%;
-}
-
-.emotion-1::after {
-  content: " ";
-  background: white;
-  border-radius: 50%;
-  height: 24px;
-  left: calc(100% - 27px);
-  position: absolute;
-  top: 3px;
-  -webkit-transition: left 150ms ease-out;
-  transition: left 150ms ease-out;
-  width: 24px;
-}
-
-<Toggle
-  ariaLabel="Press space to toggle"
-  checked={true}
-  defaultChecked={true}
-  id="toggle1"
-  label="Toggle:"
-  onBlur={[Function]}
-  onChange={[Function]}
->
-  <div
-    className="emotion-2"
-  >
-    <label
-      htmlFor="toggle1"
-    >
-      Toggle:
-      <input
-        checked={true}
-        className="emotion-0"
-        id="toggle1"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="emotion-1"
-      />
-    </label>
-  </div>
-</Toggle>
-`;
-
-exports[`Toggle renders correctly with defaultChecked prop 1`] = `
-.emotion-2 {
-  padding-bottom: 35px;
-  position: relative;
-}
-
-.emotion-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-0:focus + span {
-  box-shadow: 0px 0px 1px 2px #dadada;
-  outline: none;
-}
-
-.emotion-1 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #8de2e0;
-  border-radius: 15px;
-  bottom: 0;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  max-width: 62px;
-  position: absolute;
-  -webkit-transition: background-color 150ms linear;
-  transition: background-color 150ms linear;
-  width: 100%;
-}
-
-.emotion-1::after {
-  content: " ";
-  background: white;
-  border-radius: 50%;
-  height: 24px;
-  left: calc(100% - 27px);
-  position: absolute;
-  top: 3px;
-  -webkit-transition: left 150ms ease-out;
-  transition: left 150ms ease-out;
-  width: 24px;
-}
-
-<Toggle
-  ariaLabel="Press space to toggle"
-  defaultChecked={true}
-  id="toggle1"
-  label="Toggle:"
-  onBlur={[Function]}
-  onChange={[Function]}
->
-  <div
-    className="emotion-2"
-  >
-    <label
-      htmlFor="toggle1"
-    >
-      Toggle:
-      <input
-        checked={true}
-        className="emotion-0"
-        id="toggle1"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="emotion-1"
-      />
-    </label>
-  </div>
-</Toggle>
-`;
-
-exports[`Toggle renders correctly with defaults 1`] = `
-.emotion-2 {
-  padding-bottom: 35px;
-  position: relative;
-}
-
-.emotion-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-0:focus + span {
-  box-shadow: 0px 0px 1px 2px #dadada;
-  outline: none;
-}
-
-.emotion-1 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #dadada;
-  border-radius: 15px;
-  bottom: 0;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  max-width: 62px;
-  position: absolute;
-  -webkit-transition: background-color 150ms linear;
-  transition: background-color 150ms linear;
-  width: 100%;
-}
-
-.emotion-1::after {
-  content: " ";
-  background: white;
-  border-radius: 50%;
-  height: 24px;
-  left: 3px;
-  position: absolute;
-  top: 3px;
-  -webkit-transition: left 150ms ease-out;
-  transition: left 150ms ease-out;
-  width: 24px;
-}
-
-<Toggle
-  ariaLabel="Press space to toggle"
-  defaultChecked={false}
-  id="toggle1"
-  label="Toggle:"
-  onBlur={[Function]}
-  onChange={[Function]}
->
-  <div
-    className="emotion-2"
-  >
-    <label
-      htmlFor="toggle1"
-    >
-      Toggle:
-      <input
-        checked={false}
-        className="emotion-0"
-        id="toggle1"
-        onBlur={[Function]}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="emotion-1"
-      />
-    </label>
-  </div>
-</Toggle>
+    <LabelText>
+      mockLabel
+    </LabelText>
+  </label>
+  <ReactSwitch
+    activeBoxShadow="0 0 2px 3px #3bf"
+    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+    checked={false}
+    checkedIcon={false}
+    className="react-switch"
+    disabled={false}
+    handleDiameter={26}
+    height={30}
+    id="mockId-1"
+    offColor="#323232"
+    offHandleColor="#fff"
+    onChange={[Function]}
+    onColor="#8de2e0"
+    onHandleColor="#fff"
+    uncheckedIcon={false}
+    width={48}
+  />
+</LocalStylesInjector>
 `;

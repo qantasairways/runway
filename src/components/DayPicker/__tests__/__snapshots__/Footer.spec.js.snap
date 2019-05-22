@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders with props provided 1`] = `
+<ButtonWithDialog
+  Icon={[Function]}
+  buttonLabel="When"
+  closeAriaLabel="Close dialog"
+  closeOnBlur={false}
+  contentPadding="0"
+  dialogAriaLabel="Select dates"
+  dialogStyles={
+    Object {
+      "background": "white",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "column",
+      "fontFamily": "\\"Ciutadella\\", sans-serif",
+      "height": "100%",
+      "label": "runway__dialog",
+      "left": 0,
+      "overflow": "auto",
+      "position": "fixed",
+      "top": "100%",
+      "transition": "top 300ms ease-in-out",
+      "width": "100%",
+      "zIndex": 1000,
+    }
+  }
+  hasDialogDimensions={false}
+  onBeforeClose={[Function]}
+  onBlur={[Function]}
+  onClose={[Function]}
+  onOpen={[Function]}
+  placeHolder="When?"
+  renderButtonValue={[Function]}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {
+        "top": 0,
+      },
+      "entering": Object {
+        "top": "100%",
+      },
+      "exiting": Object {
+        "top": "100%",
+      },
+    }
+  }
+>
+  <Component />
+</ButtonWithDialog>
+`;

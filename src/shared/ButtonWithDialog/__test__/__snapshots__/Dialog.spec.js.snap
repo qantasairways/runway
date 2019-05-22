@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog renders correctly with defaults 1`] = `
+.emotion-0 {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  aria-label="mock aria label"
+  className="emotion-1"
+  role="dialog"
+>
+  <div>
+    mockHeader
+  </div>
+  <div
+    className="emotion-0"
+    id="mockId"
+  >
+    mock content
+  </div>
+  <div>
+    mockHeader
+  </div>
+</div>
+`;
+
+exports[`Dialog renders correctly with props provided 1`] = `
+.emotion-0 {
+  padding: mock content padding;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div
+  aria-label="mock aria label"
+  className="emotion-1"
+  role="dialog"
+>
+  <div>
+    mockHeader
+  </div>
+  <div
+    className="emotion-0"
+    id="mockId"
+  >
+    mock content
+  </div>
+  <div>
+    mockHeader
+  </div>
+</div>
+`;

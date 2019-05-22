@@ -1,45 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
-<ul>
+<ul
+  className="css-evdl91"
+>
   <li
-    className="css-1l18fj6"
+    className="css-g84m4x"
   >
-    orange
+    o
+    <strong
+      className="css-35ezg3"
+    >
+      ra
+    </strong>
+    nge
   </li>
   <li
-    className="css-1l18fj6"
+    className="css-g84m4x"
   >
-    grape
+    g
+    <strong
+      className="css-35ezg3"
+    >
+      ra
+    </strong>
+    pe
   </li>
 </ul>
 `;
 
 exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
-<ul>
+<ul
+  className="css-evdl91"
+>
   <li
-    className="css-1l18fj6"
+    className="css-g84m4x"
   >
-    orange
+    o
+    <strong
+      className="css-35ezg3"
+    >
+      ra
+    </strong>
+    nge
   </li>
   <li
-    className="css-1l18fj6"
+    className="css-g84m4x"
   >
-    grape
+    g
+    <strong
+      className="css-35ezg3"
+    >
+      ra
+    </strong>
+    pe
   </li>
 </ul>
 `;
 
 exports[`Typeahead renders correctly when fetching 1`] = `
+.emotion-2 {
+  line-height: 1.53;
+}
+
 .emotion-1 {
   width: 100%;
-  max-width: 500px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .emotion-0 {
-  padding: 5px;
+  border: solid 2px #8de2e0;
+  font-family: Ciutadella;
+  font-size: 22px;
   box-sizing: border-box;
   width: 100%;
+  padding: 14px 10px 10px 10px;
 }
 
 .emotion-0:focus {
@@ -47,7 +83,7 @@ exports[`Typeahead renders correctly when fetching 1`] = `
 }
 
 <Typeahead
-  className={null}
+  badgeToString={[Function]}
   defaultHighlightedIndex={[Function]}
   defaultIsOpen={[Function]}
   disabled={false}
@@ -81,6 +117,10 @@ exports[`Typeahead renders correctly when fetching 1`] = `
   menuId={[Function]}
   message=""
   minChars={0}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onInputValueChange={null}
   onOuterClick={[Function]}
   onSelect={[Function]}
   onStateChange={[Function]}
@@ -89,6 +129,7 @@ exports[`Typeahead renders correctly when fetching 1`] = `
   scrollIntoView={[Function]}
   selectedItem={[Function]}
   selectedItemChanged={[Function]}
+  setRef={[Function]}
   suppressRefError={[Function]}
   valid={true}
 >
@@ -116,10 +157,11 @@ exports[`Typeahead renders correctly when fetching 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-3-label"
       aria-owns={null}
+      className="emotion-2"
       role="combobox"
     >
       <div
-        className="emotion-1 null"
+        className="emotion-1"
       >
         <input
           aria-activedescendant={null}
@@ -133,35 +175,38 @@ exports[`Typeahead renders correctly when fetching 1`] = `
           maxLength={100}
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           value=""
         />
-        <ul
-          aria-labelledby="downshift-3-label"
-          id="downshift-3-menu"
-          role="listbox"
-        >
-          <span>
-            Loading...
-          </span>
-        </ul>
       </div>
+      <span>
+        Loading...
+      </span>
     </div>
   </Downshift>
 </Typeahead>
 `;
 
 exports[`Typeahead renders correctly with defaults 1`] = `
+.emotion-2 {
+  line-height: 1.53;
+}
+
 .emotion-1 {
   width: 100%;
-  max-width: 500px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .emotion-0 {
-  padding: 5px;
+  border: solid 2px #8de2e0;
+  font-family: Ciutadella;
+  font-size: 22px;
   box-sizing: border-box;
   width: 100%;
+  padding: 14px 10px 10px 10px;
 }
 
 .emotion-0:focus {
@@ -169,7 +214,7 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 }
 
 <Typeahead
-  className={null}
+  badgeToString={[Function]}
   defaultHighlightedIndex={[Function]}
   defaultIsOpen={[Function]}
   disabled={false}
@@ -195,6 +240,10 @@ exports[`Typeahead renders correctly with defaults 1`] = `
   menuId={[Function]}
   message=""
   minChars={0}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onInputValueChange={null}
   onOuterClick={[Function]}
   onSelect={[Function]}
   onStateChange={[Function]}
@@ -203,6 +252,7 @@ exports[`Typeahead renders correctly with defaults 1`] = `
   scrollIntoView={[Function]}
   selectedItem={[Function]}
   selectedItemChanged={[Function]}
+  setRef={[Function]}
   suppressRefError={[Function]}
   valid={true}
 >
@@ -230,10 +280,11 @@ exports[`Typeahead renders correctly with defaults 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-0-label"
       aria-owns={null}
+      className="emotion-2"
       role="combobox"
     >
       <div
-        className="emotion-1 null"
+        className="emotion-1"
       >
         <input
           aria-activedescendant={null}
@@ -247,14 +298,10 @@ exports[`Typeahead renders correctly with defaults 1`] = `
           maxLength={100}
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           value=""
-        />
-        <ul
-          aria-labelledby="downshift-0-label"
-          id="downshift-0-menu"
-          role="listbox"
         />
       </div>
     </div>
@@ -263,15 +310,23 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 `;
 
 exports[`Typeahead renders correctly with error state 1`] = `
+.emotion-2 {
+  line-height: 1.53;
+}
+
 .emotion-1 {
   width: 100%;
-  max-width: 500px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .emotion-0 {
-  padding: 5px;
+  border: solid 2px #8de2e0;
+  font-family: Ciutadella;
+  font-size: 22px;
   box-sizing: border-box;
   width: 100%;
+  padding: 14px 10px 10px 10px;
 }
 
 .emotion-0:focus {
@@ -279,7 +334,7 @@ exports[`Typeahead renders correctly with error state 1`] = `
 }
 
 <Typeahead
-  className={null}
+  badgeToString={[Function]}
   defaultHighlightedIndex={[Function]}
   defaultIsOpen={[Function]}
   disabled={false}
@@ -313,6 +368,10 @@ exports[`Typeahead renders correctly with error state 1`] = `
   menuId={[Function]}
   message="Something went wrong"
   minChars={0}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onInputValueChange={null}
   onOuterClick={[Function]}
   onSelect={[Function]}
   onStateChange={[Function]}
@@ -321,6 +380,7 @@ exports[`Typeahead renders correctly with error state 1`] = `
   scrollIntoView={[Function]}
   selectedItem={[Function]}
   selectedItemChanged={[Function]}
+  setRef={[Function]}
   suppressRefError={[Function]}
   valid={false}
 >
@@ -348,10 +408,11 @@ exports[`Typeahead renders correctly with error state 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-2-label"
       aria-owns={null}
+      className="emotion-2"
       role="combobox"
     >
       <div
-        className="emotion-1 null"
+        className="emotion-1"
       >
         <input
           aria-activedescendant={null}
@@ -365,14 +426,10 @@ exports[`Typeahead renders correctly with error state 1`] = `
           maxLength={100}
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           value=""
-        />
-        <ul
-          aria-labelledby="downshift-2-label"
-          id="downshift-2-menu"
-          role="listbox"
         />
       </div>
       <div>
@@ -384,15 +441,23 @@ exports[`Typeahead renders correctly with error state 1`] = `
 `;
 
 exports[`Typeahead renders correctly with items 1`] = `
+.emotion-2 {
+  line-height: 1.53;
+}
+
 .emotion-1 {
   width: 100%;
-  max-width: 500px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .emotion-0 {
-  padding: 5px;
+  border: solid 2px #8de2e0;
+  font-family: Ciutadella;
+  font-size: 22px;
   box-sizing: border-box;
   width: 100%;
+  padding: 14px 10px 10px 10px;
 }
 
 .emotion-0:focus {
@@ -400,7 +465,7 @@ exports[`Typeahead renders correctly with items 1`] = `
 }
 
 <Typeahead
-  className={null}
+  badgeToString={[Function]}
   defaultHighlightedIndex={[Function]}
   defaultIsOpen={[Function]}
   disabled={false}
@@ -434,6 +499,10 @@ exports[`Typeahead renders correctly with items 1`] = `
   menuId={[Function]}
   message=""
   minChars={0}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onInputValueChange={null}
   onOuterClick={[Function]}
   onSelect={[Function]}
   onStateChange={[Function]}
@@ -442,6 +511,7 @@ exports[`Typeahead renders correctly with items 1`] = `
   scrollIntoView={[Function]}
   selectedItem={[Function]}
   selectedItemChanged={[Function]}
+  setRef={[Function]}
   suppressRefError={[Function]}
   valid={true}
 >
@@ -469,10 +539,11 @@ exports[`Typeahead renders correctly with items 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-1-label"
       aria-owns={null}
+      className="emotion-2"
       role="combobox"
     >
       <div
-        className="emotion-1 null"
+        className="emotion-1"
       >
         <input
           aria-activedescendant={null}
@@ -486,14 +557,10 @@ exports[`Typeahead renders correctly with items 1`] = `
           maxLength={100}
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           value=""
-        />
-        <ul
-          aria-labelledby="downshift-1-label"
-          id="downshift-1-menu"
-          role="listbox"
         />
       </div>
     </div>

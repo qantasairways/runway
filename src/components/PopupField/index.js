@@ -1,187 +1,202 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Transition } from 'react-transition-group';
-import ButtonContent from './components/ButtonContent';
-import { fontWeight, colours, layout, fontFamily } from '../../theme/airways';
+import noop from '../../utils/noop';
+import { mq, layout, fontFamily } from '../../theme/airways';
 
-class PopupField extends Component {
-  state = {
-    open: false
+import ButtonWithDialog, {
+  transitionStylesSlideUp,
+  dialogStylesFullScreen,
+  ButtonContent
+} from '../../shared/ButtonWithDialog';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { withMediaQueryDetector } from '../MediaQueryDetector';
+
+export class PopupField extends Component {
+  renderButtonValue = () => {
+    const { largeButtonValue, smallButtonValue } = this.props;
+
+    return largeButtonValue || smallButtonValue ? (
+      <ButtonContent
+        largeButtonValue={largeButtonValue}
+        smallButtonValue={smallButtonValue}
+      />
+    ) : null;
   };
 
-  onEntered = () => {
-    document.addEventListener('click', this.handleClickOutside);
-    this.closeButton.focus();
+  renderHeader = ({ closeDialog }) => {
+    const { closeAriaLabel, headerLabel, HeaderIcon } = this.props;
+
+    return (
+      <Header
+        closeDialog={closeDialog}
+        headerLabel={headerLabel}
+        HeaderIcon={HeaderIcon}
+        closeAriaLabel={closeAriaLabel}
+      />
+    );
   };
 
-  onExited = () => {
-    document.removeEventListener('click', this.handleClickOutside);
-    this.props.onClose();
-    this.fieldButton.focus();
+  renderFooter = ({ closeDialog }) => {
+    const {
+      closeAriaLabel,
+      footerLabelsPrimary,
+      footerLabelPrimaryAriaTitle,
+      footerActionText,
+      onFooterAction,
+      preFooter
+    } = this.props;
+
+    return (
+      <Footer
+        primaryLabels={footerLabelsPrimary}
+        primaryLabelAriaTitle={footerLabelPrimaryAriaTitle}
+        actionText={footerActionText}
+        onAction={() => onFooterAction(closeDialog)}
+        closeAriaLabel={closeAriaLabel}
+        preFooter={preFooter}
+      />
+    );
   };
 
-  handleClickOutside = event => {
-    if (this.wrapper && !this.wrapper.contains(event.target)) {
-      this.closePopup();
-    }
+  hasDialogDimensions = () => {
+    const { dialogDimensions } = this.props;
+    return !!(
+      dialogDimensions &&
+      dialogDimensions.height &&
+      dialogDimensions.width
+    );
   };
 
-  openPopup = () => {
-    this.setState({
-      open: true
-    });
-  };
-
-  closePopup = () => {
-    this.setState({
-      open: false
-    });
+  getDialogStyles = () => {
+    const { dialogDimensions } = this.props;
+    return {
+      fontFamily: fontFamily.body,
+      ...dialogStylesFullScreen,
+      ...(this.hasDialogDimensions() && {
+        [mq.medium]: {
+          position: 'absolute',
+          height: 'auto',
+          minHeight: dialogDimensions.height,
+          width: dialogDimensions.width,
+          border: 'solid 1px #dadada',
+          boxShadow:
+            '0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)',
+          borderRadius: '2px'
+        }
+      })
+    };
   };
 
   render() {
     const {
-      closeAriaLabel,
       children,
-      className,
       onBlur,
-      fieldLabel,
+      onClose,
+      buttonLabel,
+      closeAriaLabel,
+      dialogAriaLabel,
       placeHolder,
-      largeValue,
-      smallValue,
-      icon
+      Icon,
+      iconLabelButtonValue,
+      disableFooter
     } = this.props;
-
-    const { open } = this.state;
-
-    const content =
-      typeof children === 'function'
-        ? children({
-            closePopup: this.closePopup
-          })
-        : children;
-
-    const transitionStyles = {
-      entering: {
-        transform: 'translateY(100vh)'
-      },
-      entered: {
-        transform: 'translateY(0vh)'
-      },
-      exiting: {
-        transform: 'translateY(100vh)'
-      }
-    };
-
-    const contentAriaLabel =
-      largeValue || smallValue
-        ? `${largeValue || ''} ${smallValue || ''}`
-        : placeHolder;
-
     return (
-      <div
-        ref={el => {
-          this.wrapper = el;
-        }}
+      <ButtonWithDialog
+        contentPadding={layout.gutter}
+        onBlur={onBlur}
+        onClose={onClose}
+        buttonLabel={buttonLabel}
+        placeHolder={placeHolder}
+        closeAriaLabel={closeAriaLabel}
+        dialogAriaLabel={dialogAriaLabel}
+        Icon={Icon}
+        renderHeader={this.renderHeader}
+        renderFooter={disableFooter ? noop : this.renderFooter}
+        renderButtonValue={this.renderButtonValue}
+        iconLabelButtonValue={iconLabelButtonValue}
+        dialogStyles={this.getDialogStyles()}
+        hasDialogDimensions={this.hasDialogDimensions()}
+        transitionStyles={transitionStylesSlideUp}
       >
-        <button
-          aria-haspopup="dialog"
-          aria-expanded={open}
-          aria-label={`${fieldLabel}. ${contentAriaLabel}.`}
-          className={className}
-          onClick={this.openPopup}
-          onBlur={onBlur}
-          ref={el => {
-            this.fieldButton = el;
-          }}
-          type="button"
-          css={{
-            border: 0,
-            width: '100%',
-            cursor: 'pointer',
-            backgroundColor: colours.darkerGrey,
-            padding: `0 ${layout.gutter}`,
-            position: 'relative',
-            fontFamily: fontFamily.body,
-            fontWeight: fontWeight.bold
-          }}
-        >
-          <ButtonContent
-            fieldLabel={fieldLabel}
-            placeHolder={placeHolder}
-            largeValue={largeValue}
-            smallValue={smallValue}
-            icon={icon}
-          />
-        </button>
-        <Transition
-          in={open}
-          onExited={this.onExited}
-          onEntered={this.onEntered}
-          timeout={300}
-          unmountOnExit
-        >
-          {state => (
-            <div
-              css={{
-                background: 'white',
-                boxSizing: 'border-box',
-                height: '100%',
-                left: 0,
-                padding: '15px',
-                position: 'fixed',
-                top: 0,
-                transform: 'translateY(0vh)',
-                transition: `transform 300ms ease-in-out`,
-                width: '100%',
-                zIndex: 1000,
-                ...transitionStyles[state]
-              }}
-              role="dialog"
-            >
-              <button
-                aria-label={closeAriaLabel}
-                onClick={this.closePopup}
-                type="button"
-                ref={el => {
-                  this.closeButton = el;
-                }}
-              >
-                {'<'}
-              </button>
-              <div>{content}</div>
-            </div>
-          )}
-        </Transition>
-      </div>
+        {children}
+      </ButtonWithDialog>
     );
   }
 }
 
 PopupField.propTypes = {
-  closeAriaLabel: PropTypes.string,
+  /** Children will be rendered as the content of the dialog */
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  /** Triggered when the dialog closes */
   onClose: PropTypes.func,
+  /** Triggered on the blur event of the field button */
   onBlur: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  className: PropTypes.string,
-  fieldLabel: PropTypes.string,
-  largeValue: PropTypes.string,
-  smallValue: PropTypes.string,
+  /** Large font size value of the field button */
+  largeButtonValue: PropTypes.string,
+  /** Small font size value of the field button */
+  smallButtonValue: PropTypes.string,
+  /** Label for the field  */
+  buttonLabel: PropTypes.string,
+  /** Aria label for the close button of the dialog */
+  closeAriaLabel: PropTypes.string,
+  /** Aria label for the dialog once opened */
+  dialogAriaLabel: PropTypes.string,
+  /** Custom dimensions to apply to dialog when viewing on a non-mobile device */
+  dialogDimensions: PropTypes.shape({
+    height: PropTypes.string,
+    width: PropTypes.string
+  }),
+  /** Placeholder to be displayed if no large or small values are provided */
   placeHolder: PropTypes.string,
-  icon: PropTypes.element
+  /** Icon displayed in the field button */
+  Icon: PropTypes.func,
+  /** Label displayed in the dialog header */
+  headerLabel: PropTypes.string,
+  /** Icon displayed in the dialog header */
+  HeaderIcon: PropTypes.func,
+  /** Custom Label and Icon for the field button. When provided, this signals to
+   * PopupField to render special icon/label pairing layout for the button */
+  iconLabelButtonValue: PropTypes.shape({
+    icon: PropTypes.any,
+    label: PropTypes.string
+  }),
+  /* Disables rendering dialog header */
+  disableFooter: PropTypes.bool,
+  /* Strings rendered to individual lines alongside the footerAction button */
+  footerLabelsPrimary: PropTypes.arrayOf(PropTypes.string),
+  /* Title attribute passed to footer primaryLabels container */
+  footerLabelPrimaryAriaTitle: PropTypes.string,
+  /* Text that appears inside footerAction button */
+  footerActionText: PropTypes.string,
+  /* Triggered on clicking footerAction button */
+  onFooterAction: PropTypes.func,
+  /* Custom content that renders just above footer */
+  preFooter: PropTypes.node
 };
 
 PopupField.defaultProps = {
-  closeAriaLabel: 'Close dialog',
-  onClose: () => {},
-  onBlur: () => {},
   children: null,
-  className: null,
-  fieldLabel: null,
-  largeValue: null,
-  smallValue: null,
+  onClose: noop,
+  onBlur: noop,
+  largeButtonValue: '',
+  smallButtonValue: '',
+  buttonLabel: null,
+  closeAriaLabel: 'Close dialog',
+  dialogAriaLabel: '',
   placeHolder: '',
-  icon: null
+  Icon: null,
+  headerLabel: '',
+  HeaderIcon: null,
+  dialogDimensions: null,
+  iconLabelButtonValue: null,
+  disableFooter: true,
+  footerLabelsPrimary: [],
+  footerLabelPrimaryAriaTitle: null,
+  footerActionText: null,
+  onFooterAction: () => {},
+  preFooter: null
 };
 
-export default PopupField;
+export default withMediaQueryDetector(PopupField, mq.medium);

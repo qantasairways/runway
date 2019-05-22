@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { toCx } from '../../utils/css';
+
+import MediaQueryDetector from '../MediaQueryDetector';
 
 import {
   layout,
@@ -40,18 +43,39 @@ const align = {
   alignItems: 'center'
 };
 
+export const SELECTORS = {
+  ICON: {
+    SMALL: '.runway-external-link__icon--size_small',
+    LARGE: '.runway-external-link__icon--size_large'
+  }
+};
+
+const iconStyles = {
+  [SELECTORS.ICON.SMALL]: {
+    fill: colours.darkerGrey,
+    height: '100%',
+    width: '100%'
+  },
+  [SELECTORS.ICON.LARGE]: {
+    fill: colours.white,
+    height: '100%',
+    width: '100%'
+  }
+};
+
 const ItemContainer = ({ children }) => (
   <div
     css={{
       height: '72px',
       padding: `20px ${layout.gutter}`,
-      backgroundColor: colours.lightGrey,
-      [mq.tablet]: {
+      backgroundColor: colours.white,
+      [mq.medium]: {
         height: '100%',
         padding: '0px',
         backgroundColor: colours.darkerGrey
       },
-      ...align
+      ...align,
+      ...iconStyles
     }}
   >
     {children}
@@ -69,7 +93,7 @@ const Item = ({ children, size, onlyMobile, ...rest }) => (
     css={{
       ...(size && { flex: size }),
       display: 'inline',
-      [mq.tablet]: {
+      [mq.medium]: {
         display: onlyMobile ? 'none' : 'inline'
       },
       ...rest
@@ -102,11 +126,14 @@ Spacer.defaultProps = {
 const Text = ({ children }) => (
   <span
     css={{
-      textTransform: 'uppercase',
-      fontFamily: fontFamily.body,
-      fontWeight: fontWeight.bold,
+      textTransform: 'none',
+      fontFamily: fontFamily.main,
+      fontWeight: fontWeight.regular,
       fontSize: fontSize.body,
-      color: [colours.darkGrey, colours.white]
+      color: colours.darkerGrey,
+      [mq.medium]: {
+        color: colours.white
+      }
     }}
   >
     {children}
@@ -116,11 +143,19 @@ Text.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-const ExternalLink = ({ icon, url, text }) => (
+const ExternalLink = ({ renderIcon, url, text }) => (
   <a css={{ textDecoration: 'none' }} href={url}>
     <ItemContainer>
       <Item height={layout.iconSize} width={layout.iconSize}>
-        {icon}
+        <MediaQueryDetector query={mq.medium}>
+          {atLeastTablet =>
+            renderIcon(
+              atLeastTablet
+                ? toCx(SELECTORS.ICON.LARGE)
+                : toCx(SELECTORS.ICON.SMALL)
+            )
+          }
+        </MediaQueryDetector>
       </Item>
       <Spacer />
       <Item size={1}>
@@ -135,7 +170,7 @@ const ExternalLink = ({ icon, url, text }) => (
 );
 
 ExternalLink.propTypes = {
-  icon: PropTypes.node.isRequired,
+  renderIcon: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };
