@@ -40,6 +40,7 @@ describe('Header', () => {
         startPlaceholder="depart when?"
         endPlaceholder="return when?"
         Icon={CalendarIcon}
+        isDateRange={false}
       />
     );
 

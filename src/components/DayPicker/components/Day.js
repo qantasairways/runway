@@ -197,10 +197,6 @@ class Day extends Component {
     });
   };
 
-  handleFocus = () => {
-    this.props.setFocusedDay(this.props.timestamp);
-  };
-
   handleKeyDown = event => {
     const { keyCode } = event;
     if (!keyCode) return;
@@ -321,7 +317,7 @@ class Day extends Component {
         onKeyDown={this.handleKeyDown}
       >
         <div css={dateStyles({ isToday, isDisabled })}>{dayOfMonth}</div>
-        {price && (
+        {(isLoadingPrice || price) && (
           <Price
             {...price}
             currencySymbol={currencySymbol}
@@ -354,7 +350,6 @@ Day.propTypes = {
   endDate: PropTypes.instanceOf(Date),
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
-  setFocusedDay: PropTypes.func.isRequired,
   onDayClick: PropTypes.func.isRequired,
   onDayNavigate: PropTypes.func.isRequired,
   isStart: PropTypes.bool,
