@@ -12,6 +12,7 @@ const CalendarIcon = () => <div>Calendar Icon</div>;
 const props = {
   startDate: today,
   endDate: end,
+  isDateRange: false,
   hiddenBefore,
   disabledBefore,
   disabledAfter,
@@ -76,31 +77,43 @@ describe('DayPicker', () => {
     });
   });
 
-  // describe('renderButtonDates()', () => {
-  //   it('does not render if start date is not selected', () => {
-  //     component = shallow(
-  //       <DayPicker {...props} startDate={null} endDate={null} />
-  //     );
+  describe('renderMonth()', () => {
+    it('renders correctly', () => {
+      component = shallow(<DayPicker {...props} />);
 
-  //     expect(component.instance().renderButtonDates()).toBe(null);
-  //   });
+      const renderedMonth = shallow(
+        component.instance().renderMonth({ index: 0, style: {} }, true)
+      );
 
-  //   it('renders correctly when start date is selected', () => {
-  //     component = shallow(
-  //       <DayPicker {...props} startDate={today} endDate={null} />
-  //     );
+      expect(renderedMonth).toMatchSnapshot();
+    });
+  });
 
-  //     const renderedDates = shallow(component.instance().renderButtonDates());
+  describe('renderButtonDates()', () => {
+    it('does not render if start date is not selected', () => {
+      component = shallow(
+        <DayPicker {...props} startDate={null} endDate={null} />
+      );
 
-  //     expect(renderedDates).toMatchSnapshot();
-  //   });
+      expect(component.instance().renderButtonDates()).toBe(null);
+    });
 
-  //   it('renders correctly when start and end dates are selected', () => {
-  //     component = shallow(<DayPicker {...props} />);
+    it('renders correctly when start date is selected', () => {
+      component = shallow(
+        <DayPicker {...props} startDate={today} endDate={null} />
+      );
 
-  //     const renderedDates = shallow(component.instance().renderButtonDates());
+      const renderedDates = shallow(component.instance().renderButtonDates());
 
-  //     expect(renderedDates).toMatchSnapshot();
-  //   });
-  // });
+      expect(renderedDates).toMatchSnapshot();
+    });
+
+    it('renders correctly when start and end dates are selected', () => {
+      component = shallow(<DayPicker {...props} />);
+
+      const renderedDates = shallow(component.instance().renderButtonDates());
+
+      expect(renderedDates).toMatchSnapshot();
+    });
+  });
 });

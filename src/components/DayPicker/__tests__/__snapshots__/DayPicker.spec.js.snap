@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DayPicker renderButtonDates() renders correctly when start and end dates are selected 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.emotion-0 {
+  font-size: 2.25rem;
+  margin: 0 12px 20px 12px;
+}
+
+<div
+  className="emotion-1"
+>
+  <ButtonContent
+    largeButtonValue="21"
+    smallButtonValue="Apr, 2019"
+  />
+  <div
+    className="emotion-0"
+  >
+    -
+  </div>
+  <ButtonContent
+    largeButtonValue="01"
+    smallButtonValue="May, 2019"
+  />
+</div>
+`;
+
+exports[`DayPicker renderButtonDates() renders correctly when start date is selected 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+<div
+  className="emotion-0"
+>
+  <ButtonContent
+    largeButtonValue="21"
+    smallButtonValue="Apr, 2019"
+  />
+</div>
+`;
+
 exports[`DayPicker renderHeader() renders correctly 1`] = `
 .emotion-10 {
   z-index: 1;
@@ -166,7 +220,7 @@ exports[`DayPicker renderHeader() renders correctly 1`] = `
     endDate="Wed May 01 2019"
     endPlaceholder="return when?"
     endSelectedLabel="Return MEL"
-    isDateRange={true}
+    isDateRange={false}
     isSelectingStartDate={true}
     onTabClick={[Function]}
     startDate="Sun Apr 21 2019"
@@ -192,6 +246,623 @@ exports[`DayPicker renderHeader() renders correctly 1`] = `
         Tue
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`DayPicker renderMonth() renders correctly 1`] = `
+.emotion-3 {
+  padding-top: 2px;
+  text-align: center;
+  background: #fafafa;
+  pointer-events: auto;
+}
+
+.emotion-3:last-child {
+  padding-bottom: 40px;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.375rem;
+  height: 58px;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    height: 78px;
+  }
+}
+
+.emotion-0 {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.emotion-2 {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-gap: 1px;
+  max-width: 1000px;
+  margin: 1px auto 0 auto;
+  padding: 0 1px;
+}
+
+<div
+  className="emotion-3"
+  role="rowgroup"
+  style={Object {}}
+>
+  <div
+    className="emotion-1"
+  >
+    <span
+      className="emotion-0"
+    >
+      May
+    </span>
+    <span>
+      2019
+    </span>
+  </div>
+  <div
+    className="emotion-2"
+  >
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-15T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1557928800000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1557928800000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-16T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558015200000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558015200000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-17T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558101600000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558101600000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-18T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558188000000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558188000000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-19T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558274400000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558274400000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-20T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558360800000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558360800000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-21T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={true}
+      key="1558447200000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558447200000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-22T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558533600000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558533600000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-23T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558620000000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558620000000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-24T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558706400000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558706400000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-25T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558792800000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558792800000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-26T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558879200000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558879200000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-27T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1558965600000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1558965600000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-28T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1559052000000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1559052000000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-29T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1559138400000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1559138400000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-30T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={true}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={false}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1559224800000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1559224800000}
+      year={2019}
+    />
+    <Day
+      Icon={[Function]}
+      currencyCode=""
+      currencySymbol=""
+      date={2019-05-31T14:00:00.000Z}
+      endAriaLabel="Selected for return"
+      endDate={2019-04-30T14:00:00.000Z}
+      endLabel="Return"
+      endSelectedLabel="MEL"
+      isDateRange={false}
+      isDesktopDevice={true}
+      isDisabled={false}
+      isEnd={false}
+      isFirstDayOfMonth={false}
+      isInRange={false}
+      isLoadingPrice={false}
+      isOutside={true}
+      isSelectingStartDate={true}
+      isStart={false}
+      isToday={false}
+      key="1559311200000"
+      month="May"
+      onDayClick={[Function]}
+      onDayNavigate={[Function]}
+      price={null}
+      startAriaLabel="Selected for departure"
+      startDate={2019-04-20T14:00:00.000Z}
+      startLabel="Depart"
+      startSelectedLabel="SYD"
+      timestamp={1559311200000}
+      year={2019}
+    />
   </div>
 </div>
 `;
