@@ -96,7 +96,6 @@ class Month extends PureComponent {
               onDayNavigate={onDayNavigate}
               startDate={startDate}
               endDate={endDate}
-              setFocusedDay={this.props.setFocusedDay}
               {...day}
             />
           ))}

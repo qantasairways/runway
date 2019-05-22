@@ -836,6 +836,7 @@ exports[`PopupField renders correctly with props 1`] = `
         dialogStyles={
           Object {
             "@media only screen and (min-width: 768px)": Object {
+              "border": "solid 1px #dadada",
               "borderRadius": "2px",
               "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)",
               "height": "auto",
@@ -900,6 +901,7 @@ exports[`PopupField renders correctly with props 1`] = `
             dialogStyles={
               Object {
                 "@media only screen and (min-width: 768px)": Object {
+                  "border": "solid 1px #dadada",
                   "borderRadius": "2px",
                   "boxShadow": "0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)",
                   "height": "auto",

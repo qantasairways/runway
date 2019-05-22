@@ -5,7 +5,7 @@ import Tabs from '../components/Tabs';
 const CalendarIcon = () => <div>Calendar Icon</div>;
 
 describe('Tabs', () => {
-  it('renders with defaults', () => {
+  it('renders correctly with defaults', () => {
     const calendar = shallow(
       <Tabs
         startPlaceholder="depart?"
@@ -18,7 +18,7 @@ describe('Tabs', () => {
     expect(calendar).toMatchSnapshot();
   });
 
-  it('renders with props provided', () => {
+  it('renders correctly with props provided', () => {
     const calendar = shallow(
       <Tabs
         startPlaceholder="depart?"
@@ -29,6 +29,24 @@ describe('Tabs', () => {
         startDate="6th June"
         endDate="10th October"
         Icon={CalendarIcon}
+      />
+    );
+
+    expect(calendar).toMatchSnapshot();
+  });
+
+  it('renders correctly when isDateRange is false', () => {
+    const calendar = shallow(
+      <Tabs
+        startPlaceholder="depart?"
+        endPlaceholder="return?"
+        startSelectedLabel="departing on"
+        endSelectedLabel="returning on"
+        isSelectingStartDate={false}
+        startDate="6th June"
+        endDate="10th October"
+        Icon={CalendarIcon}
+        isDateRange={false}
       />
     );
 

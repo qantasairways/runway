@@ -1,3 +1,17 @@
+# [0.25.0](https://github.com/qantasairways/runway/compare/v0.24.1...v0.25.0) (2019-05-22)
+
+
+### Features
+
+* **daypicker:** Add missing tests and minor bugfixes ([#52](https://github.com/qantasairways/runway/issues/52)) ([670e116](https://github.com/qantasairways/runway/commit/670e116))
+
+## [0.24.1](https://github.com/qantasairways/runway/compare/v0.24.0...v0.24.1) (2019-05-22)
+
+
+### Bug Fixes
+
+* **crossicon, numericinput, infosection, infoicon, footer:** fix icon positioning, viewbox dimensions, footer button dimensions, dynamic icon to text content line alignments, validation anchor element positioning, supress jest snapshots on initial github diff ([#50](https://github.com/qantasairways/runway/issues/50)) ([8c3f4ce](https://github.com/qantasairways/runway/commit/8c3f4ce))
+
 # [0.24.0](https://github.com/qantasairways/runway/compare/v0.23.0...v0.24.0) (2019-05-21)
 
 

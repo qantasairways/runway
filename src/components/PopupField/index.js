@@ -80,6 +80,7 @@ export class PopupField extends Component {
           height: 'auto',
           minHeight: dialogDimensions.height,
           width: dialogDimensions.width,
+          border: 'solid 1px #dadada',
           boxShadow:
             '0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)',
           borderRadius: '2px'

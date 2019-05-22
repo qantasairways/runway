@@ -1,6 +1,204 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs renders with defaults 1`] = `
+exports[`Tabs renders correctly when isDateRange is false 1`] = `
+.emotion-4 {
+  position: relative;
+  width: 100%;
+  background-color: #323232;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  font-family: "Ciutadella",sans-serif;
+  position: relative;
+  width: 50%;
+  height: 64px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 15px;
+  border: solid 5px #323232;
+  border-right: 0px;
+  background-color: #323232;
+  color: #fff;
+  box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.emotion-3:focus {
+  outline: none;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-3 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+.emotion-3::after {
+  content: '';
+  z-index: 5;
+  position: absolute;
+  right: 0px;
+  border-top: 32px solid transparent;
+  border-left: 0px;
+  border-bottom: 32px solid transparent;
+  border-right: 19px solid #fff;
+  top: -5px;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3::after {
+    right: -1px;
+    border-left: 0px;
+    border-top: 42px solid transparent;
+    border-bottom: 42px solid transparent;
+    top: -7px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-3 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+.emotion-0 {
+  font-size: 1.125rem;
+  line-height: 1.25;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 1.625rem;
+    max-width: 500px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width:960px) {
+  .emotion-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.emotion-1 {
+  width: 28px;
+  height: 28px;
+  z-index: 10;
+  position: absolute;
+  right: -19px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media only screen and (min-width:321px) {
+  .emotion-1 {
+    width: 32px;
+    height: 32px;
+    right: -24px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    width: 40px;
+    height: 40px;
+    right: -34px;
+  }
+}
+
+.emotion-2 {
+  z-index: 10;
+  position: absolute;
+  right: -11px;
+  top: -7px;
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 83px;
+    right: -6px;
+    top: -8px;
+  }
+}
+
+<div>
+  <div
+    className="emotion-4"
+  >
+    <button
+      className="emotion-3"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        className="emotion-0"
+      >
+        <span>
+          <b>
+            departing on
+             
+          </b>
+        </span>
+        <span>
+          6th June
+        </span>
+      </div>
+      <CalendarIcon
+        className="emotion-1"
+      />
+      <Triangle
+        className="emotion-2"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tabs renders correctly with defaults 1`] = `
 .emotion-5 {
   position: relative;
   width: 100%;
@@ -225,7 +423,7 @@ exports[`Tabs renders with defaults 1`] = `
 </div>
 `;
 
-exports[`Tabs renders with props provided 1`] = `
+exports[`Tabs renders correctly with props provided 1`] = `
 .emotion-6 {
   position: relative;
   width: 100%;

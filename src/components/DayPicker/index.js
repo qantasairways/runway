@@ -71,16 +71,6 @@ class DayPicker extends Component {
     };
   }
 
-  componentDidUpdate() {
-    if (this.focusedDay) {
-      focusDayCell(this.focusedDay);
-    }
-  }
-
-  setFocusedDay = el => {
-    this.focusedDay = el;
-  };
-
   onOpen = () => {
     const { today, startDate, disabledBefore } = this.state;
     const { date, month } = getInitialDateToFocus(
@@ -247,7 +237,6 @@ class DayPicker extends Component {
         rowStyles={rowStyles}
         isDesktopDevice={isDesktopDevice}
         today={today}
-        setFocusedDay={this.setFocusedDay}
       />
     );
   };
