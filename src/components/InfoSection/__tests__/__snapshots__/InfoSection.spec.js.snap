@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InfoSection renders correctly with props 1`] = `
-.emotion-2 {
+.emotion-3 {
   height: 100px;
   width: 200px;
   display: -webkit-box;
@@ -11,24 +11,26 @@ exports[`InfoSection renders correctly with props 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-right: 10px;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .emotion-0 {
   fill: #323232;
-  -webkit-flex: 0 0 21px;
-  -ms-flex: 0 0 21px;
-  flex: 0 0 21px;
   margin-right: 11px;
-  position: relative;
-  top: 3px;
 }
 
-.emotion-1 {
+.emotion-2 {
   color: #323232;
   line-height: 1.21;
   font-size: 14px;
@@ -36,15 +38,19 @@ exports[`InfoSection renders correctly with props 1`] = `
 }
 
 <div
-  className="emotion-2"
+  className="emotion-3"
 >
-  <InfoIcon
-    className="emotion-0"
-    height="21px"
-    width="21px"
-  />
   <span
     className="emotion-1"
+  >
+    <InfoIcon
+      className="emotion-0"
+      height="16.8px"
+      width="16.8px"
+    />
+  </span>
+  <span
+    className="emotion-2 runway-info-section__text-content"
   >
     mock content
   </span>

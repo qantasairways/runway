@@ -6,7 +6,7 @@ import InputNumber from 'rc-input-number';
 import PlusIcon from '../../icons/PlusIcon';
 import MinusIcon from '../../icons/MinusIcon';
 
-import { colours } from '../../theme/airways';
+import { colours, mq } from '../../theme/airways';
 import { toCx, forAll } from '../../utils/css';
 
 const SELECTORS = {
@@ -178,11 +178,15 @@ const axValidationStyles = {
     left: '50%',
     width: '0',
     height: '0',
-    border: '0.531em solid transparent',
+    border: '0.6em solid transparent',
     borderBottomColor: '#fcebcd',
     borderTop: '0',
     marginLeft: '-45%',
-    marginTop: '-0.531em'
+    marginTop: '-0.531em',
+    [mq.medium]: {
+      left: '19px',
+      marginLeft: '0'
+    }
   }
 };
 class NumericInput extends Component {

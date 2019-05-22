@@ -10,7 +10,7 @@ const InfoIcon = ({ className, width, height }) => {
       className={className}
       width={width}
       height={height}
-      viewBox="0 0 15 20"
+      viewBox="0 0 16 16"
       focusable="false"
     >
       <g stroke="none" strokeWidth="1">
