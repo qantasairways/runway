@@ -39,6 +39,13 @@ const transformDatesData = monthDatesData =>
         onMonthsShown: onMonthsShown
       }}
       transformDatesData={transformDatesData}
+      isDateRange={true}
+      hasPrice={true}
+      preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+      endDateData={{
+        price: { value: '15, 127.00', isLowestPrice: false },
+        currencySymbol: ' $'
+      }}
     />
   )}
 </StatefulManager>;
