@@ -1,20 +1,28 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Footer from '..';
+import Footer from '../components/Footer';
 
 describe('Footer', () => {
-  it('renders with props provided', () => {
-    const footer = shallow(
+  let footer;
+
+  it('renders correctly with defaults', () => {
+    footer = shallow(<Footer actionText="" onActionButtonClick={e => e} />);
+
+    expect(footer).toMatchSnapshot();
+  });
+
+  it('renders correctly with props provided', () => {
+    footer = shallow(
       <Footer
-        isCheapest={false}
         showPreFooter={false}
         showBottomFooter={false}
-        info="Total return pricez in AUD per adult for a 25 day trip"
-        summaryLabel="From "
-        points="150,127 points"
-        bottomFooterDisclaimer=" + $344.90 ^"
-        preFooterDisclaimer="^ taxes fees and carrier charges. Limited avaliability"
-        actionText="Confirm"
+        bottomFootersummaryLabel="From"
+        preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+        preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+        bottomFooterDisclaimer="+ $34.90^"
+        actionText="CONFIRM"
+        onActionButtonClick={e => e}
+        endDateData={null}
       />
     );
 
