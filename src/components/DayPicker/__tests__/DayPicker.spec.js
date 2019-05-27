@@ -47,7 +47,14 @@ const props = {
   dayLabels: ['Mon', 'Tue'],
   closeAriaLabel: 'Close aria label',
   dialogAriaLabel: 'dialog aria label',
-  Icon: CalendarIcon
+  Icon: CalendarIcon,
+  transformDatesData: null,
+  configOnMonthsShownSubscription: null,
+  footerButtonLabel: 'Confirm',
+  preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
+  bottomFootersummaryLabel: 'From',
+  hasPrice: false,
+  endDateData: null
 };
 
 describe('DayPicker', () => {
