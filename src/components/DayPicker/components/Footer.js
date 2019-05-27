@@ -187,42 +187,44 @@ const Footer = ({
             </div>
           )}
         </Transition>
-        <div
-          css={{
-            ...innerWrapperStyle,
-            ...bottomFooterStyle
-          }}
-        >
-          <div css={bottomFooterLeftCol}>
-            {bottomFootersummaryLabel && (
-              <span css={bottomFooterTextStyle}>
-                {bottomFootersummaryLabel}
-                <span
-                  css={{
-                    color: endDateData.price.isLowestPrice
-                      ? '#009400'
-                      : colours.darkerGrey,
-                    fontWeight: fontWeight.bold
-                  }}
-                >
-                  {endDateData.currencySymbol + endDateData.price.value}
+        {endDateData && (
+          <div
+            css={{
+              ...innerWrapperStyle,
+              ...bottomFooterStyle
+            }}
+          >
+            <div css={bottomFooterLeftCol}>
+              {bottomFootersummaryLabel && (
+                <span css={bottomFooterTextStyle}>
+                  {bottomFootersummaryLabel}
+                  <span
+                    css={{
+                      color: endDateData.price.isLowestPrice
+                        ? '#009400'
+                        : colours.darkerGrey,
+                      fontWeight: fontWeight.bold
+                    }}
+                  >
+                    {endDateData.currencySymbol + endDateData.price.value}
+                  </span>
                 </span>
-              </span>
-            )}
-            {bottomFooterDisclaimer && (
-              <span css={bottonDisclaimerStyle()}>
-                {bottomFooterDisclaimer}
-              </span>
-            )}
+              )}
+              {bottomFooterDisclaimer && (
+                <span css={bottonDisclaimerStyle()}>
+                  {bottomFooterDisclaimer}
+                </span>
+              )}
+            </div>
+            <div>
+              <Button
+                label={actionText}
+                cssOverrides={[actionButtonStyle]}
+                onClick={onActionButtonClick}
+              />
+            </div>
           </div>
-          <div>
-            <Button
-              label={actionText}
-              cssOverrides={[actionButtonStyle]}
-              onClick={onActionButtonClick}
-            />
-          </div>
-        </div>
+        )}
       </div>
     )}
   </Transition>
@@ -243,7 +245,6 @@ Footer.propTypes = {
       taxValue: PropTypes.number,
       points: PropTypes.number,
       isClassic: PropTypes.bool,
-      currency: PropTypes.string,
       isLowestPrice: PropTypes.bool
     }),
     currencyCode: '',
