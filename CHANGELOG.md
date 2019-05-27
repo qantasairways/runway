@@ -1,3 +1,11 @@
+# [0.27.0](https://github.com/qantasairways/runway/compare/v0.26.0...v0.27.0) (2019-05-27)
+
+
+### Features
+
+* **daypicker:** calendar footer ([#53](https://github.com/qantasairways/runway/issues/53)) ([74abdc5](https://github.com/qantasairways/runway/commit/74abdc5))
+* **daypicker:** calendar footer ([#53](https://github.com/qantasairways/runway/issues/53)) ([#56](https://github.com/qantasairways/runway/issues/56)) ([4f9b777](https://github.com/qantasairways/runway/commit/4f9b777))
+
 # [0.26.0](https://github.com/qantasairways/runway/compare/v0.25.0...v0.26.0) (2019-05-22)
 
 
