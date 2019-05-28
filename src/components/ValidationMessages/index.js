@@ -1,6 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+import { fontSize, fontFamily, colours } from '../../theme/airways';
+
 const MESSAGE_TYPE = {
   INFO: 'info',
   WARNING: 'warning'
@@ -11,13 +13,13 @@ const warningMessage = ({ messageType }) => ({
   minHeight: '48px',
   border: 'solid 0.5px rgba(151, 151, 151, 0)',
   position: 'relative',
-  fontFamily: 'Ciutadella',
-  fontSize: '16px',
+  fontFamily: fontFamily.main,
+  fontSize: fontSize.label,
   fontWeight: 'normal',
   fontStyle: 'normal',
   fontStretch: 'normal',
   letterSpacing: 'normal',
-  color: '#323232',
+  color: colours.darkerGrey,
   padding: '11px 13px 11px 15px',
   ...(messageType === MESSAGE_TYPE.WARNING
     ? { backgroundColor: '#fcebcd' }

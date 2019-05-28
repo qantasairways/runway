@@ -6,8 +6,8 @@ exports[`ValidationMessages info renders correctly 1`] = `
   min-height: 48px;
   border: solid 0.5px rgba(151,151,151,0);
   position: relative;
-  font-family: Ciutadella;
-  font-size: 16px;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -51,8 +51,8 @@ exports[`ValidationMessages warning message renders correctly 1`] = `
   min-height: 48px;
   border: solid 0.5px rgba(151,151,151,0);
   position: relative;
-  font-family: Ciutadella;
-  font-size: 16px;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
