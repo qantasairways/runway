@@ -16,7 +16,7 @@ describe('Footer', () => {
       <Footer
         showPreFooter={false}
         showBottomFooter={false}
-        bottomFootersummaryLabel="From"
+        bottomFootersummaryLabel="From "
         preFooterInfo="Lowest economy price per adult in AUD for a return trip."
         preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
         bottomFooterDisclaimer="+ $34.90^"

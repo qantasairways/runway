@@ -11,6 +11,7 @@ import {
   mq
 } from '../../../theme/airways';
 import Button from '../../Button';
+import { numberWithCommas, fmtCurrency } from '../helpers';
 
 const wrapperStyle = {
   transform: 'translateY(100%)',
@@ -36,7 +37,7 @@ const wrapperTransitionStyle = {
 };
 
 const innerWrapperStyle = {
-  padding: layout.gutter,
+  padding: `7.5px ${layout.gutter}`,
   width: '100%',
   maxWidth: '1030px',
   margin: '0 auto'
@@ -187,7 +188,7 @@ const Footer = ({
             </div>
           )}
         </Transition>
-        {endDateData && (
+        {showBottomFooter && (
           <div
             css={{
               ...innerWrapperStyle,
@@ -206,7 +207,9 @@ const Footer = ({
                       fontWeight: fontWeight.bold
                     }}
                   >
-                    {endDateData.currencySymbol + endDateData.price.value}
+                    {endDateData &&
+                      endDateData.currencySymbol +
+                        numberWithCommas(fmtCurrency(endDateData.price.value))}
                   </span>
                 </span>
               )}
