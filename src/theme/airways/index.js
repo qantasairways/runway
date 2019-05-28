@@ -74,11 +74,17 @@ export const mq = {
   extraLarge: `@media only screen and ${breakpoints.extraLarge}`
 };
 
+export const highlightInvalidField = {
+  borderRadius: '2px',
+  border: 'solid 2px #ed710b'
+};
+
 export default {
   layout,
   colours,
   fontFamily,
   fontSize,
   fontWeight,
-  buttons
+  buttons,
+  highlightInvalidField
 };

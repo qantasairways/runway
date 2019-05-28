@@ -36,7 +36,7 @@ const wrapperTransitionStyle = {
 };
 
 const innerWrapperStyle = {
-  padding: `0 ${layout.gutter}`,
+  padding: layout.gutter,
   width: '100%',
   maxWidth: '1030px',
   margin: '0 auto'
@@ -44,22 +44,19 @@ const innerWrapperStyle = {
 
 const preFooterStyle = {
   transition: 'transform 300ms linear',
-  display: 'flex',
-  transform: 'translateY(0)',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  padding: '11px 0',
-  boxShadow: '0 -4px 6px 0 rgba(0, 0, 0, 0.08)',
   position: 'absolute',
-  width: '100%',
   top: 0,
   left: 0,
-  backgroundColor: colours.white,
-  [mq.medium]: {
-    flexDirection: 'row',
-    justifyContent: 'left',
-    alignItems: 'center'
-  }
+  transform: 'translateY(0)',
+  boxShadow: '0 -4px 6px 0 rgba(0, 0, 0, 0.08)',
+  width: '100%',
+  backgroundColor: colours.white
+};
+
+const preFooterTextContainerStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'baseline'
 };
 
 const preFooterTransitionStyle = {
@@ -140,20 +137,24 @@ export function bottonDisclaimerStyle() {
 
 const actionButtonStyle = {
   fontWeight: fontWeight.regular,
-  letterSpacing: '1.5px'
+  letterSpacing: '1.5px',
+  height: '48px',
+  width: '100px',
+  borderRadius: '4px',
+  borderWidth: '0',
+  padding: '0 0 0 1px'
 };
 
 const Footer = ({
-  summaryLabel,
-  info,
+  bottomFootersummaryLabel,
+  preFooterInfo,
   bottomFooterDisclaimer,
   preFooterDisclaimer,
   actionText,
-  points,
-  isCheapest,
   showPreFooter,
   showBottomFooter,
-  onActionButtonClick
+  onActionButtonClick,
+  endDateData
 }) => (
   <Transition in={showBottomFooter} timeout={300}>
     {wrapperTransition => (
@@ -163,7 +164,7 @@ const Footer = ({
           ...wrapperTransitionStyle[wrapperTransition]
         }}
       >
-        <Transition in={info && showPreFooter} timeout={300}>
+        <Transition in={preFooterInfo && showPreFooter} timeout={300}>
           {preFooterTransition => (
             <div
               css={{
@@ -175,8 +176,10 @@ const Footer = ({
                 ...preFooterTransitionStyle[preFooterTransition]
               }}
             >
-              <div css={innerWrapperStyle}>
-                <span css={preFooterTextStyle}>{info}</span>
+              <div
+                css={{ ...innerWrapperStyle, ...preFooterTextContainerStyle }}
+              >
+                <span css={preFooterTextStyle}>{preFooterInfo}</span>
                 {preFooterDisclaimer && (
                   <span css={topDisclaimerStyle()}>{preFooterDisclaimer}</span>
                 )}
@@ -184,67 +187,79 @@ const Footer = ({
             </div>
           )}
         </Transition>
-        <div
-          css={{
-            ...innerWrapperStyle,
-            ...bottomFooterStyle
-          }}
-        >
-          <div css={bottomFooterLeftCol}>
-            {summaryLabel && (
-              <span css={bottomFooterTextStyle}>
-                {summaryLabel}
-                <span
-                  css={{
-                    color: isCheapest ? '#009400' : colours.darkerGrey,
-                    fontWeight: fontWeight.bold
-                  }}
-                >
-                  {points}
+        {endDateData && (
+          <div
+            css={{
+              ...innerWrapperStyle,
+              ...bottomFooterStyle
+            }}
+          >
+            <div css={bottomFooterLeftCol}>
+              {bottomFootersummaryLabel && (
+                <span css={bottomFooterTextStyle}>
+                  {bottomFootersummaryLabel}
+                  <span
+                    css={{
+                      color: endDateData.price.isLowestPrice
+                        ? '#009400'
+                        : colours.darkerGrey,
+                      fontWeight: fontWeight.bold
+                    }}
+                  >
+                    {endDateData.currencySymbol + endDateData.price.value}
+                  </span>
                 </span>
-              </span>
-            )}
-            {bottomFooterDisclaimer && (
-              <span css={bottonDisclaimerStyle()}>
-                {bottomFooterDisclaimer}
-              </span>
-            )}
+              )}
+              {bottomFooterDisclaimer && (
+                <span css={bottonDisclaimerStyle()}>
+                  {bottomFooterDisclaimer}
+                </span>
+              )}
+            </div>
+            <div>
+              <Button
+                label={actionText}
+                cssOverrides={[actionButtonStyle]}
+                onClick={onActionButtonClick}
+              />
+            </div>
           </div>
-          <div>
-            <Button
-              label={actionText}
-              cssOverrides={[actionButtonStyle]}
-              onClick={onActionButtonClick}
-            />
-          </div>
-        </div>
+        )}
       </div>
     )}
   </Transition>
 );
 
 Footer.propTypes = {
-  isCheapest: PropTypes.bool,
   showPreFooter: PropTypes.bool,
   showBottomFooter: PropTypes.bool,
-  summaryLabel: PropTypes.string,
-  points: PropTypes.string,
-  info: PropTypes.string,
+  bottomFootersummaryLabel: PropTypes.string,
+  preFooterInfo: PropTypes.string,
   preFooterDisclaimer: PropTypes.string,
   bottomFooterDisclaimer: PropTypes.string,
   actionText: PropTypes.string.isRequired,
-  onActionButtonClick: PropTypes.func.isRequired
+  onActionButtonClick: PropTypes.func.isRequired,
+  endDateData: PropTypes.shape({
+    price: PropTypes.shape({
+      value: PropTypes.number,
+      taxValue: PropTypes.number,
+      points: PropTypes.number,
+      isClassic: PropTypes.bool,
+      isLowestPrice: PropTypes.bool
+    }),
+    currencyCode: '',
+    currencySymbol: ''
+  })
 };
 
 Footer.defaultProps = {
-  isCheapest: false,
   showPreFooter: false,
   showBottomFooter: false,
-  summaryLabel: '',
-  points: '',
-  info: '',
+  bottomFootersummaryLabel: '',
+  preFooterInfo: '',
   preFooterDisclaimer: '',
-  bottomFooterDisclaimer: ''
+  bottomFooterDisclaimer: '',
+  endDateData: null
 };
 
 export default Footer;
