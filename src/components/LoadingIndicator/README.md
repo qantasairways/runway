@@ -1,0 +1,3 @@
+```js
+<LoadingIndicator screenReaderText="Loading" />
+```

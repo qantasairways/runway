@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingIndicator should render correctly with props 1`] = `
+.emotion-4 {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 3rem;
+}
+
+.emotion-3 {
+  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.emotion-1 {
+  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+  -webkit-animation-delay: 0.32s;
+  animation-delay: 0.32s;
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s;
+  margin-right: 0.25rem;
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+<div
+  className="emotion-4"
+>
+  <span
+    className="emotion-0"
+  >
+    loading
+  </span>
+  <div
+    className="emotion-1"
+  />
+  <div
+    className="emotion-2"
+  />
+  <div
+    className="emotion-3"
+  />
+</div>
+`;
