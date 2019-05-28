@@ -1,3 +1,10 @@
+# [0.29.0](https://github.com/qantasairways/runway/compare/v0.28.0...v0.29.0) (2019-05-28)
+
+
+### Features
+
+* **loading-indicator:** Added Loading Indicator component ([#55](https://github.com/qantasairways/runway/issues/55)) ([6e84006](https://github.com/qantasairways/runway/commit/6e84006))
+
 # [0.28.0](https://github.com/qantasairways/runway/compare/v0.27.0...v0.28.0) (2019-05-28)
 
 
