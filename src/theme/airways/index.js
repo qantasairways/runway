@@ -22,6 +22,7 @@ export const colours = {
   darkGrey: airwaysColours.darkGrey,
   mediumDarkGrey: airwaysColours.mediumDarkGrey,
   grey: airwaysColours.grey,
+  mediumGrey: airwaysColours.mediumGrey,
   lightGrey: airwaysColours.lightGrey,
   lighterGrey: airwaysColours.lighterGrey,
   disabledGrey: airwaysColours.disabledGrey,
