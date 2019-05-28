@@ -85,14 +85,16 @@ describe('DayPicker', () => {
   });
 
   describe('renderMonth()', () => {
-    it('renders correctly', () => {
+    it('renders correctly', done => {
       component = shallow(<DayPicker {...props} />);
-
-      const renderedMonth = shallow(
-        component.instance().renderMonth({ index: 0, style: {} }, true)
-      );
-
-      expect(renderedMonth).toMatchSnapshot();
+      component.setState({ today }, () => {
+        component.update();
+        const renderedMonth = shallow(
+          component.instance().renderMonth({ index: 0, style: {} }, true)
+        );
+        expect(renderedMonth).toMatchSnapshot();
+        done();
+      });
     });
   });
 
