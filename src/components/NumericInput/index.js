@@ -6,7 +6,7 @@ import InputNumber from 'rc-input-number';
 import PlusIcon from '../../icons/PlusIcon';
 import MinusIcon from '../../icons/MinusIcon';
 
-import { colours, mq } from '../../theme/airways';
+import { colours, mq, highlightInvalidField } from '../../theme/airways';
 import { toCx, forAll } from '../../utils/css';
 
 const SELECTORS = {
@@ -72,11 +72,11 @@ const getRcInputNumberStyles = ({ isInvalid }) => ({
     position: 'relative',
     width: '100%',
     height: '55px',
-    ...(isInvalid && { borderColor: '#ed710b' })
+    ...(isInvalid && { ...highlightInvalidField })
   },
   [SELECTORS.RCI.ROOT.FOCUSED]: {
     borderColor: '#8de2e0',
-    ...(isInvalid && { borderColor: '#ed710b' })
+    ...(isInvalid && { ...highlightInvalidField })
   },
   [SELECTORS.RCI.CONTROLS.UP_AND_DOWN.CORE]: {
     textAlign: 'center',
