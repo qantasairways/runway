@@ -43,7 +43,7 @@ const LocalStylesInjector = ({
           backgroundColor: colours.darkerGrey,
           height: `${height}px !important`
         },
-        backgroundColor: colours.darkerGrey,
+        backgroundColor: '#3c3c3c',
         ...thickenBorder(),
         ...keepAllVertAligned
       }}

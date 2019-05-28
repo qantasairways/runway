@@ -22,7 +22,7 @@ export function dropdownStyles({ withPadding }) {
     fontStretch: 'normal',
     lineHeight: 1.56,
     letterSpacing: 'normal',
-    background: colours.darkerGrey,
+    background: '#3c3c3c',
     height: withPadding ? '65px' : '30px',
     borderColor: colours.darkeGrey,
     color: '#ffffff',

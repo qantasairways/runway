@@ -99,6 +99,7 @@ export class PopupField extends Component {
       dialogAriaLabel,
       placeHolder,
       Icon,
+      isPassengers,
       iconLabelButtonValue,
       disableFooter
     } = this.props;
@@ -112,6 +113,7 @@ export class PopupField extends Component {
         closeAriaLabel={closeAriaLabel}
         dialogAriaLabel={dialogAriaLabel}
         Icon={Icon}
+        isPassengers={isPassengers}
         renderHeader={this.renderHeader}
         renderFooter={disableFooter ? noop : this.renderFooter}
         renderButtonValue={this.renderButtonValue}
@@ -152,6 +154,8 @@ PopupField.propTypes = {
   placeHolder: PropTypes.string,
   /** Icon displayed in the field button */
   Icon: PropTypes.func,
+  /** if isPassengers true change the background color */
+  isPassengers: PropTypes.bool,
   /** Label displayed in the dialog header */
   headerLabel: PropTypes.string,
   /** Icon displayed in the dialog header */
@@ -187,6 +191,7 @@ PopupField.defaultProps = {
   dialogAriaLabel: '',
   placeHolder: '',
   Icon: null,
+  isPassengers: true,
   headerLabel: '',
   HeaderIcon: null,
   dialogDimensions: null,
