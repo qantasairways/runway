@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import ValidationMessages from '..';
 
 describe('ValidationMessages', () => {
-  it('warning renders correctly', () => {
+  it('info renders correctly', () => {
     const component = mount(
       <ValidationMessages
         messageType="info"
@@ -14,7 +14,7 @@ describe('ValidationMessages', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('info message renders correctly', () => {
+  it('warning message renders correctly', () => {
     const component = mount(
       <ValidationMessages
         messageType="warning"

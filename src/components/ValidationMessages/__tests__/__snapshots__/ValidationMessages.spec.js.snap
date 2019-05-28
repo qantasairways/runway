@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ValidationMessages info message renders correctly 1`] = `
+exports[`ValidationMessages info renders correctly 1`] = `
+.emotion-0 {
+  width: 100%;
+  min-height: 48px;
+  border: solid 0.5px rgba(151,151,151,0);
+  position: relative;
+  font-family: Ciutadella;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  color: #323232;
+  padding: 11px 13px 11px 15px;
+  background-color: #bff4f2;
+}
+
+<ValidationMessages
+  messageType="info"
+  validationMessage="Passengers has been reset to default value."
+>
+  <div
+    role="alert"
+  >
+    <div
+      className="emotion-0"
+    >
+      Passengers has been reset to default value.
+    </div>
+  </div>
+</ValidationMessages>
+`;
+
+exports[`ValidationMessages warning message renders correctly 1`] = `
 .emotion-0 {
   width: 0;
   height: 0;
@@ -43,42 +79,6 @@ exports[`ValidationMessages info message renders correctly 1`] = `
       className="emotion-1"
     >
       Please select a destination.
-    </div>
-  </div>
-</ValidationMessages>
-`;
-
-exports[`ValidationMessages warning renders correctly 1`] = `
-.emotion-0 {
-  width: 100%;
-  min-height: 48px;
-  border: solid 0.5px rgba(151,151,151,0);
-  position: relative;
-  font-family: Ciutadella;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
-  color: #323232;
-  padding: 11px 13px 11px 15px;
-  background-color: #bff4f2;
-}
-
-<ValidationMessages
-  messageType="info"
-  validationMessage="Passengers has been reset to default value."
->
-  <div
-    role="alert"
-  >
-    <div
-      className="emotion-0"
-    >
-      Passengers has been reset to default value.
     </div>
   </div>
 </ValidationMessages>
