@@ -1,3 +1,10 @@
+## [0.29.1](https://github.com/qantasairways/runway/compare/v0.29.0...v0.29.1) (2019-05-29)
+
+
+### Bug Fixes
+
+* **footer, price:** minor footer style fixes, implement currency form… ([#61](https://github.com/qantasairways/runway/issues/61)) ([65efbb8](https://github.com/qantasairways/runway/commit/65efbb8))
+
 # [0.29.0](https://github.com/qantasairways/runway/compare/v0.28.0...v0.29.0) (2019-05-28)
 
 
