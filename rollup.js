@@ -6,6 +6,7 @@ const { lstatSync, readdirSync, appendFileSync } = require('fs');
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
+const THEME_DIR = './src/theme';
 
 const isDirectory = source => lstatSync(source).isDirectory();
 const getComponents = source =>
@@ -17,6 +18,8 @@ const components = [
   ...getComponents(COMPONENT_DIR),
   ...getComponents(ICON_DIR)
 ];
+
+const themes = [...getComponents(THEME_DIR)];
 
 /**
  * Rollup
@@ -127,6 +130,9 @@ async function generateModules() {
       OUTPUT_JS_TYPE
     );
   }
+  await themes.map(theme => {
+    return build(theme, `theme/${theme.split('/').pop()}`, OUTPUT_JS_TYPE);
+  });
 }
 
 generateModules();
