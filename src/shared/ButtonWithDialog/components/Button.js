@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 
 import noop from '../../../utils/noop';
 
@@ -12,21 +13,25 @@ import {
   fontWeight
 } from '../../../theme/airways';
 
-const buttonStyles = {
-  label: 'runway-popup-field__button',
-  position: 'relative',
-  height: '6rem',
-  width: '100%',
-  maxWidth: '100%',
-  border: 0,
-  padding: `0 ${layout.gutter}`,
-  cursor: 'pointer',
-  backgroundColor: colours.darkerGrey,
-  color: colours.white,
-  fontFamily: fontFamily.main,
-  fontSize: fontSize.body,
-  fontWeight: fontWeight.regular
-};
+function buttonStyles({ hasMediumGreyback }) {
+  return css({
+    label: 'runway-popup-field__button',
+    position: 'relative',
+    height: '6rem',
+    width: '100%',
+    maxWidth: '100%',
+    border: 0,
+    padding: `0 ${layout.gutter}`,
+    cursor: 'pointer',
+    backgroundColor: hasMediumGreyback
+      ? colours.mediumGrey
+      : colours.darkerGrey,
+    color: colours.white,
+    fontFamily: fontFamily.main,
+    fontSize: fontSize.body,
+    fontWeight: fontWeight.regular
+  });
+}
 
 export function ButtonContent({ largeButtonValue, smallButtonValue }) {
   return (
@@ -134,7 +139,11 @@ function Button({
       onClick={onClick}
       onBlur={onBlur}
       ref={setButtonRef}
-      css={buttonStyles}
+      css={
+        iconLabelButtonValue
+          ? buttonStyles({ hasMediumGreyback: true })
+          : buttonStyles({ hasMediumGreyback: false })
+      }
     >
       {iconLabelButtonValue ? (
         renderIconLabelPair()

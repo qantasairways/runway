@@ -706,7 +706,7 @@ exports[`PopupField renders correctly with props 1`] = `
   border: 0;
   padding: 0 15px;
   cursor: pointer;
-  background-color: #323232;
+  background-color: #3c3c3c;
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1.125rem;
