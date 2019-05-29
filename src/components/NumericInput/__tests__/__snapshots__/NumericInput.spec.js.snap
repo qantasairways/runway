@@ -206,16 +206,17 @@ exports[`NumericInput renders correctly with props 1`] = `
   font-size: 12px;
   display: inline-block;
   vertical-align: middle;
-  border: 2px solid #dadada;
-  border-radius: 0px;
+  border: solid 2px #ed710b;
+  border-radius: 2px;
   position: relative;
   width: 100%;
   height: 55px;
-  border-color: #ed710b;
 }
 
 .emotion-0 .rc-input-number-focused {
-  border-color: #ed710b;
+  border-color: #8de2e0;
+  border-radius: 2px;
+  border: solid 2px #ed710b;
 }
 
 .emotion-0 .rc-input-number-handler {

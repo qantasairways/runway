@@ -1,3 +1,26 @@
+# [0.29.0](https://github.com/qantasairways/runway/compare/v0.28.0...v0.29.0) (2019-05-28)
+
+
+### Features
+
+* **loading-indicator:** Added Loading Indicator component ([#55](https://github.com/qantasairways/runway/issues/55)) ([6e84006](https://github.com/qantasairways/runway/commit/6e84006))
+
+# [0.28.0](https://github.com/qantasairways/runway/compare/v0.27.0...v0.28.0) (2019-05-28)
+
+
+### Features
+
+* **seat:** Added Seat Icon ([#54](https://github.com/qantasairways/runway/issues/54)) ([1b39232](https://github.com/qantasairways/runway/commit/1b39232))
+* **ValidationMessages:** Component ValidationMessages added. ([#59](https://github.com/qantasairways/runway/issues/59)) ([de61eee](https://github.com/qantasairways/runway/commit/de61eee)), closes [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56)
+
+# [0.27.0](https://github.com/qantasairways/runway/compare/v0.26.0...v0.27.0) (2019-05-27)
+
+
+### Features
+
+* **daypicker:** calendar footer ([#53](https://github.com/qantasairways/runway/issues/53)) ([74abdc5](https://github.com/qantasairways/runway/commit/74abdc5))
+* **daypicker:** calendar footer ([#53](https://github.com/qantasairways/runway/issues/53)) ([#56](https://github.com/qantasairways/runway/issues/56)) ([4f9b777](https://github.com/qantasairways/runway/commit/4f9b777))
+
 # [0.26.0](https://github.com/qantasairways/runway/compare/v0.25.0...v0.26.0) (2019-05-22)
 
 
