@@ -252,7 +252,7 @@ Footer.propTypes = {
 Footer.defaultProps = {
   showPreFooter: true,
   showBottomFooter: true,
-  bottomFootersummaryLabel: 'From',
+  bottomFootersummaryLabel: 'From ',
   preFooterInfo: '',
   preFooterDisclaimer: '',
   bottomFooterDisclaimer: '',

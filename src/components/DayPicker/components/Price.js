@@ -92,7 +92,9 @@ function Price({
             }}
           >
             {currencySymbol}
-            {isDesktopDevice ? numberWithCommas(value) : abbrNum(value)}
+            {isDesktopDevice
+              ? numberWithCommas(Math.ceil(value))
+              : abbrNum(value)}
           </div>
           {taxValue && (
             <div

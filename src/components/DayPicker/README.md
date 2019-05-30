@@ -43,7 +43,7 @@ const transformDatesData = monthDatesData =>
       hasPrice={true}
       preFooterInfo="Lowest economy price per adult in AUD for a return trip."
       endDateData={{
-        price: { value: '15, 127.00', isLowestPrice: false },
+        price: { value: '15127.5', isLowestPrice: false },
         currencySymbol: ' $'
       }}
     />
