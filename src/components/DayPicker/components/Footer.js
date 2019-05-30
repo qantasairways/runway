@@ -125,7 +125,6 @@ export function topDisclaimerStyle() {
   });
 }
 
-// Not sure if this is needed any more?? Disclaimer will always stay on top?
 export function bottonDisclaimerStyle() {
   return css({
     label: 'runway-footer_button_disclaimer-label',
