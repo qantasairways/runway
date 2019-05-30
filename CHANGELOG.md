@@ -1,3 +1,10 @@
+## [0.30.1](https://github.com/qantasairways/runway/compare/v0.30.0...v0.30.1) (2019-05-30)
+
+
+### Bug Fixes
+
+* **daypicker:** add price update guard in Day SCU lifecycle, strip pr… ([#57](https://github.com/qantasairways/runway/issues/57)) ([90dcbae](https://github.com/qantasairways/runway/commit/90dcbae))
+
 # [0.30.0](https://github.com/qantasairways/runway/compare/v0.29.1...v0.30.0) (2019-05-29)
 
 
