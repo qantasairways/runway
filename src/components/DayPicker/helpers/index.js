@@ -206,6 +206,32 @@ export function abbrNum(price) {
   return Math.ceil(price);
 }
 
+/**
+ * Decimal adjustment of a number.
+ *
+ * @param {String}  type  The type of adjustment.
+ * @param {Number}  value The number.
+ * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
+ * @returns {Number} The adjusted value.
+ */
+function decimalAdjust(type, value, exponent) {
+  if (typeof exponent === 'undefined' || +exponent === 0) {
+    return Math[type](value);
+  }
+  let val = +value;
+  const exp = +exponent;
+  if (Number.isNaN(val) || !(typeof exp === 'number' && exp % 1 === 0)) {
+    return NaN;
+  }
+  val = val.toString().split('e');
+  val = Math[type](+`${val[0]}e${val[1] ? +val[1] - exp : -exp}`);
+  val = val.toString().split('e');
+  return +`${val[0]}e${val[1] ? +val[1] + exp : exp}`;
+}
+
+export const fmtCurrency = value =>
+  Number(decimalAdjust('round', Number(value), -1 * 2)).toFixed(2);
+
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

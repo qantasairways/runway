@@ -56,7 +56,7 @@ export function endTabStyle({ isSelectingStartDate }) {
     justifyContent: 'flex-end',
     padding: `0 ${layout.gutter}`,
     // [CSS_SELECTOR_HOVER]: {
-    //   backgroundColor: isSelectingStartDate ? '#3c3c3c' : colours.white
+    //   backgroundColor: isSelectingStartDate ? colours.mediumGrey : colours.white
     // },
     [mq.medium]: {
       justifyContent: 'flex-start'
@@ -78,7 +78,7 @@ export function startTabStyles({ isSelectingStartDate }) {
     justifyContent: 'space-between',
     textAlign: 'left',
     // [CSS_SELECTOR_HOVER]: {
-    //   backgroundColor: isSelectingStartDate ? colours.white : '#3c3c3c'
+    //   backgroundColor: isSelectingStartDate ? colours.white : colours.mediumGrey
     // },
     [CSS_PSEUDO_AFTER]: {
       content: "''",

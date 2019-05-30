@@ -1,3 +1,17 @@
+# [0.30.0](https://github.com/qantasairways/runway/compare/v0.29.1...v0.30.0) (2019-05-29)
+
+
+### Features
+
+* **toggle, dropdown, passenger:** change background color from charcoal to [#3](https://github.com/qantasairways/runway/issues/3)c3c3c ([#62](https://github.com/qantasairways/runway/issues/62)) ([8a1ce13](https://github.com/qantasairways/runway/commit/8a1ce13)), closes [#3c3c3](https://github.com/qantasairways/runway/issues/3c3c3)
+
+## [0.29.1](https://github.com/qantasairways/runway/compare/v0.29.0...v0.29.1) (2019-05-29)
+
+
+### Bug Fixes
+
+* **footer, price:** minor footer style fixes, implement currency form… ([#61](https://github.com/qantasairways/runway/issues/61)) ([65efbb8](https://github.com/qantasairways/runway/commit/65efbb8))
+
 # [0.29.0](https://github.com/qantasairways/runway/compare/v0.28.0...v0.29.0) (2019-05-28)
 
 
