@@ -1,3 +1,39 @@
+## [0.30.1](https://github.com/qantasairways/runway/compare/v0.30.0...v0.30.1) (2019-05-30)
+
+
+### Bug Fixes
+
+* **daypicker:** add price update guard in Day SCU lifecycle, strip pr… ([#57](https://github.com/qantasairways/runway/issues/57)) ([90dcbae](https://github.com/qantasairways/runway/commit/90dcbae))
+
+# [0.30.0](https://github.com/qantasairways/runway/compare/v0.29.1...v0.30.0) (2019-05-29)
+
+
+### Features
+
+* **toggle, dropdown, passenger:** change background color from charcoal to [#3](https://github.com/qantasairways/runway/issues/3)c3c3c ([#62](https://github.com/qantasairways/runway/issues/62)) ([8a1ce13](https://github.com/qantasairways/runway/commit/8a1ce13)), closes [#3c3c3](https://github.com/qantasairways/runway/issues/3c3c3)
+
+## [0.29.1](https://github.com/qantasairways/runway/compare/v0.29.0...v0.29.1) (2019-05-29)
+
+
+### Bug Fixes
+
+* **footer, price:** minor footer style fixes, implement currency form… ([#61](https://github.com/qantasairways/runway/issues/61)) ([65efbb8](https://github.com/qantasairways/runway/commit/65efbb8))
+
+# [0.29.0](https://github.com/qantasairways/runway/compare/v0.28.0...v0.29.0) (2019-05-28)
+
+
+### Features
+
+* **loading-indicator:** Added Loading Indicator component ([#55](https://github.com/qantasairways/runway/issues/55)) ([6e84006](https://github.com/qantasairways/runway/commit/6e84006))
+
+# [0.28.0](https://github.com/qantasairways/runway/compare/v0.27.0...v0.28.0) (2019-05-28)
+
+
+### Features
+
+* **seat:** Added Seat Icon ([#54](https://github.com/qantasairways/runway/issues/54)) ([1b39232](https://github.com/qantasairways/runway/commit/1b39232))
+* **ValidationMessages:** Component ValidationMessages added. ([#59](https://github.com/qantasairways/runway/issues/59)) ([de61eee](https://github.com/qantasairways/runway/commit/de61eee)), closes [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56) [#53](https://github.com/qantasairways/runway/issues/53) [#53](https://github.com/qantasairways/runway/issues/53) [#56](https://github.com/qantasairways/runway/issues/56)
+
 # [0.27.0](https://github.com/qantasairways/runway/compare/v0.26.0...v0.27.0) (2019-05-27)
 
 

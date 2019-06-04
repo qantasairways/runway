@@ -22,6 +22,7 @@ export const colours = {
   darkGrey: airwaysColours.darkGrey,
   mediumDarkGrey: airwaysColours.mediumDarkGrey,
   grey: airwaysColours.grey,
+  mediumGrey: airwaysColours.mediumGrey,
   lightGrey: airwaysColours.lightGrey,
   lighterGrey: airwaysColours.lighterGrey,
   disabledGrey: airwaysColours.disabledGrey,
@@ -74,11 +75,17 @@ export const mq = {
   extraLarge: `@media only screen and ${breakpoints.extraLarge}`
 };
 
+export const highlightInvalidField = {
+  borderRadius: '2px',
+  border: 'solid 2px #ed710b'
+};
+
 export default {
   layout,
   colours,
   fontFamily,
   fontSize,
   fontWeight,
-  buttons
+  buttons,
+  highlightInvalidField
 };

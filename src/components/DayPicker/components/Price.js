@@ -24,26 +24,6 @@ const loadingPrice = keyframes`
   }
 `;
 
-const outPrice = keyframes`
-0% {
-  opacity: 1;
-  transform: translate3d(0,0,0);
-}
-100% {
-  opacity: 0;
-  transform: translate3d(4px,0,0);
-}`;
-
-const enterPrice = keyframes`
-0% {
-  opacity: 0;
-  transform: translate3d(4px,0,0);
-}
-100% {
-  opacity: 1;
-  transform: translate3d(0,0,0);
-}`;
-
 function Price({
   isLoadingPrice,
   value,
@@ -69,9 +49,6 @@ function Price({
           left: '50%',
           width: '26px',
           marginLeft: '-13px',
-          animation: !isLoadingPrice
-            ? `${outPrice} 500ms linear forwards`
-            : 'none',
           [CSS_PSEUDO_AFTER]: {
             content: '""',
             position: 'absolute',
@@ -102,7 +79,6 @@ function Price({
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            animation: `${enterPrice} 250ms cubic-bezier(0.4, 0.0, 0.2, 1)`,
             [mq.medium]: {
               flexDirection: 'row',
               alignItems: 'center'
@@ -116,7 +92,9 @@ function Price({
             }}
           >
             {currencySymbol}
-            {isDesktopDevice ? numberWithCommas(value) : abbrNum(value)}
+            {isDesktopDevice
+              ? numberWithCommas(Math.ceil(value))
+              : abbrNum(value)}
           </div>
           {taxValue && (
             <div

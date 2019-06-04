@@ -518,7 +518,7 @@ DayPicker.defaultProps = {
   configOnMonthsShownSubscription: null,
   footerButtonLabel: 'Confirm',
   preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
-  bottomFootersummaryLabel: 'From',
+  bottomFootersummaryLabel: 'From ',
   hasPrice: false,
   endDateData: null
 };
