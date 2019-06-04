@@ -135,7 +135,7 @@ function generateMenu(menuProps) {
 
     const props = {
       highlighted: highlightedIndex === index,
-      selected: selectedItem === item,
+      selected: selectedItem.name === item.name,
       isLast,
       key: `${itemString}-${index}`,
       item
@@ -310,7 +310,11 @@ function renderDefaultItem(item, index, props) {
 }
 
 Dropdown.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired,
   renderItem: PropTypes.func,
   withPadding: PropTypes.bool,
   focus: PropTypes.bool,
@@ -320,7 +324,6 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  items: [],
   withPadding: false,
   renderItem: renderDefaultItem,
   focus: false,
