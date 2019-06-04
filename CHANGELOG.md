@@ -1,3 +1,10 @@
+# [0.31.0](https://github.com/qantasairways/runway/compare/v0.30.1...v0.31.0) (2019-06-04)
+
+
+### Features
+
+* **dropdown:** fix the issue for selcting items and show tick icon when select ([#66](https://github.com/qantasairways/runway/issues/66)) ([17f7f55](https://github.com/qantasairways/runway/commit/17f7f55))
+
 ## [0.30.1](https://github.com/qantasairways/runway/compare/v0.30.0...v0.30.1) (2019-05-30)
 
 
