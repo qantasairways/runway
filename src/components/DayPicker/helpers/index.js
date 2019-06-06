@@ -205,6 +205,7 @@ export function abbrNum(price) {
       abbrPrice = `${Math.ceil(price / 1000)}k`;
     } else {
       const afterDecimal = price % 1000;
+      // prettier-ignore
       abbrPrice = `${Math.floor(price / 1000)}.${Math.ceil(afterDecimal / 100)}k`;
     }
   }
