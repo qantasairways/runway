@@ -256,7 +256,22 @@ Render.defaultProps = {
 };
 
 export default class Dropdown extends React.Component {
-  state = { focus: false };
+  state = { focus: false, downshiftSelectedItem: null };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.items.length !== prevProps.items.length) {
+      debugger;
+      if (
+        this.props.items.filter(
+          item => item.value === this.state.downshiftSelectedItem.value
+        ).length === 0
+      ) {
+        return this.downshiftStateAndHelpers.selectItem(
+          this.props.defaultItemWhenNoneSelected
+        );
+      }
+    }
+  }
 
   setFocus(focus) {
     this.setState({ focus });
@@ -270,7 +285,11 @@ export default class Dropdown extends React.Component {
     return (
       <Downshift
         {...props.downShiftProps}
-        onChange={props.onChange}
+        onChange={(selectedItem, stateAndHelpers) => {
+          this.setState({ downshiftSelectedItem: selectedItem });
+          this.downshiftStateAndHelpers = stateAndHelpers;
+          props.onChange(selectedItem, stateAndHelpers);
+        }}
         initialSelectedItem={props.initialSelectedItem}
       >
         {downshiftProps => {
