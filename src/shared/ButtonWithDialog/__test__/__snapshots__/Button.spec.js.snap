@@ -112,7 +112,7 @@ exports[`Button renders correctly with defaults 1`] = `
 }
 
 .emotion-1 {
-  color: #626262;
+  color: #888888;
   font-size: 2.25rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
@@ -186,7 +186,7 @@ exports[`Button renders correctly with props provided 1`] = `
 }
 
 .emotion-1 {
-  color: #626262;
+  color: #888888;
   font-size: 2.25rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
