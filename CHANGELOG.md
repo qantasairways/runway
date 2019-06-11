@@ -1,3 +1,10 @@
+## [0.31.1](https://github.com/qantasairways/runway/compare/v0.31.0...v0.31.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* **dropdown:** fix reset the item value to the default item when is non selected ([#69](https://github.com/qantasairways/runway/issues/69)) ([b2d3443](https://github.com/qantasairways/runway/commit/b2d3443))
+
 # [0.31.0](https://github.com/qantasairways/runway/compare/v0.30.1...v0.31.0) (2019-06-04)
 
 
