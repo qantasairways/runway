@@ -12,7 +12,8 @@ import {
   differenceInCalendarMonths,
   isFirstDayOfMonth,
   differenceInWeeks,
-  startOfDay
+  startOfDay,
+  isSunday
 } from 'date-fns';
 import {
   KEY_CODE_RIGHT,
@@ -122,17 +123,22 @@ export function getItemSize(index, months, firstDayOfWeek, isDesktopDevice) {
   const month = months[index];
   const numberOfWeeks = differenceInWeeks(
     endOfMonth(month),
-    index === 0 ? startOfWeek(month) : startOfMonth(month),
-    { weekStartsOn: firstDayOfWeek }
+    index === 0
+      ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
+      : startOfMonth(month, { weekStartsOn: firstDayOfWeek })
   );
 
   return isDesktopDevice
     ? MONTH_CAPTION_HEIGHT_DESKTOP +
         (DAY_CELL_HEIGHT_DESKTOP + DAY_CELL_BORDER_WIDTH * 3) *
-          (numberOfWeeks + 1)
+          (isSunday(startOfMonth(month))
+            ? numberOfWeeks + 2
+            : numberOfWeeks + 1)
     : MONTH_CAPTION_HEIGHT_MOBILE +
         (DAY_CELL_HEIGHT_MOBILE + DAY_CELL_BORDER_WIDTH * 3) *
-          (numberOfWeeks + 1);
+          (isSunday(startOfMonth(month))
+            ? numberOfWeeks + 2
+            : numberOfWeeks + 1);
 }
 
 export function getShouldSelectAsStartDate(
