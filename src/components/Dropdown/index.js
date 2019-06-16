@@ -123,7 +123,8 @@ function generateMenu(menuProps) {
     itemToString,
     highlightedIndex,
     getMenuProps,
-    focus
+    focus,
+    width
   } = menuProps;
 
   const lastIndex = items.length - 1;
@@ -149,7 +150,7 @@ function generateMenu(menuProps) {
   });
 
   return (
-    <Menu {...getMenuProps({ focus })} isOpen={isOpen}>
+    <Menu {...getMenuProps({ focus, width })} isOpen={isOpen}>
       {list}
     </Menu>
   );
@@ -162,7 +163,8 @@ function Render(props) {
     focus,
     label,
     placeholder,
-    downshiftProps
+    downshiftProps,
+    menuWidth
   } = props;
 
   const {
@@ -188,7 +190,8 @@ function Render(props) {
     itemToString,
     highlightedIndex,
     getMenuProps,
-    focus
+    focus,
+    width: menuWidth
   };
 
   const inputProps = getInputProps({
@@ -243,7 +246,8 @@ Render.propTypes = {
     selectHighlightedItem: PropTypes.number,
     closeMenu: PropTypes.func,
     itemToString: PropTypes.func
-  }).isRequired
+  }).isRequired,
+  menuWidth: PropTypes.string
 };
 
 Render.defaultProps = {
@@ -252,7 +256,8 @@ Render.defaultProps = {
   focus: false,
   label: '',
   placeholder: '',
-  leftAlign: false
+  leftAlign: false,
+  menuWidth: null
 };
 
 export default class Dropdown extends React.Component {
@@ -344,7 +349,8 @@ Dropdown.propTypes = {
   focus: PropTypes.bool,
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
-  })
+  }),
+  menuWidth: PropTypes.string
 };
 
 Dropdown.defaultProps = {
@@ -358,5 +364,6 @@ Dropdown.defaultProps = {
       }
       return String(selectedItem.name);
     }
-  }
+  },
+  menuWidth: null
 };

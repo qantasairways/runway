@@ -23,13 +23,15 @@ export const colours = {
   mediumDarkGrey: airwaysColours.mediumDarkGrey,
   grey: airwaysColours.grey,
   mediumGrey: airwaysColours.mediumGrey,
+  mediumLightGrey: airwaysColours.mediumLightGrey,
   lightGrey: airwaysColours.lightGrey,
   lighterGrey: airwaysColours.lighterGrey,
   disabledGrey: airwaysColours.disabledGrey,
   highlights: airwaysColours.bayBlue,
   hightlightsLight: airwaysColours.lightBayBlue,
   hightlightsLighter: airwaysColours.lighterBayBlue,
-  warnings: airwaysColours.warningOrange
+  warnings: airwaysColours.warningOrange,
+  black: airwaysColours.black
 };
 
 export const fontFamily = {

@@ -21,6 +21,7 @@ exports[`ValidationMessages info renders correctly 1`] = `
 }
 
 <ValidationMessages
+  hideArrow={false}
   messageType="info"
   validationMessage="Passengers has been reset to default value."
 >
@@ -66,6 +67,7 @@ exports[`ValidationMessages warning message renders correctly 1`] = `
 }
 
 <ValidationMessages
+  hideArrow={false}
   messageType="warning"
   validationMessage="Please select a destination."
 >

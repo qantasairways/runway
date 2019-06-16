@@ -6,6 +6,7 @@ const { lstatSync, readdirSync, appendFileSync } = require('fs');
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
+const THEME_DIR = './src/theme';
 
 const isDirectory = source => lstatSync(source).isDirectory();
 const getComponents = source =>
@@ -15,7 +16,8 @@ const getComponents = source =>
 
 const components = [
   ...getComponents(COMPONENT_DIR),
-  ...getComponents(ICON_DIR)
+  ...getComponents(ICON_DIR),
+  ...getComponents(THEME_DIR)
 ];
 
 /**
@@ -114,16 +116,22 @@ async function build(entrySrc, name, type) {
   }
 }
 
+const flattenName = ({ moduleName, moduleType }) =>
+  /theme/gi.test(moduleType) ? `theme/${moduleName}` : moduleName;
+
 async function generateModules() {
   for (let index = 0; index < components.length; index++) {
-    const name = components[index].split('/').pop();
+    const dirs = components[index].split('/');
+    // eslint-disable-next-line no-unused-vars
+    const [moduleRoot, moduleType, moduleName] = dirs;
+    const name = flattenName({ moduleType, moduleName });
     console.log(
       chalk.cyan(` ⚙️  Now building: ${name}`),
       chalk.cyan(` 🗜  Module type: ${OUTPUT_JS_TYPE}`)
     );
     await build(
       components[index],
-      components[index].split('/').pop(),
+      name,
       OUTPUT_JS_TYPE
     );
   }

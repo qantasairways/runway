@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-export function menuStyles({ isOpen }) {
+export function menuStyles({ isOpen, width }) {
   const display = isOpen ? 'block' : 'none';
 
   return css({
@@ -18,7 +18,7 @@ export function menuStyles({ isOpen }) {
     margin: 0,
     top: '0',
     left: '0',
-    width: '100%',
+    width: width || '100%',
     boxSizing: 'border-box',
     padding: '10px'
   });

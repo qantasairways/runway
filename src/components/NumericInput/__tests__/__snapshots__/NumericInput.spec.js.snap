@@ -175,20 +175,6 @@ exports[`NumericInput renders correctly with props 1`] = `
   color: #323232;
 }
 
-.emotion-2 {
-  position: absolute !important;
-  display: block;
-  visibility: visible;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0px;
-  padding: 0px;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-}
-
 .emotion-0 input::-webkit-outer-spin-button,
 .emotion-0 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -206,8 +192,8 @@ exports[`NumericInput renders correctly with props 1`] = `
   font-size: 12px;
   display: inline-block;
   vertical-align: middle;
-  border: solid 2px #ed710b;
-  border-radius: 2px;
+  border: 2px solid #dadada;
+  border-radius: 0px;
   position: relative;
   width: 100%;
   height: 55px;
@@ -215,8 +201,6 @@ exports[`NumericInput renders correctly with props 1`] = `
 
 .emotion-0 .rc-input-number-focused {
   border-color: #8de2e0;
-  border-radius: 2px;
-  border: solid 2px #ed710b;
 }
 
 .emotion-0 .rc-input-number-handler {
@@ -269,43 +253,21 @@ exports[`NumericInput renders correctly with props 1`] = `
 .emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
 .emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
 .emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
-  fill: #eeeeee;
+  fill: #dadada;
 }
 
-.emotion-3 {
-  margin-top: 15px;
-  padding: 13px 15px;
-  background-color: #fcebcd;
-  font-family: Ciutadella;
-  font-size: 14px;
-  position: relative;
-}
-
-.emotion-3 a {
-  color: #323232;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-3:after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  width: 0px;
-  height: 0px;
-  border: 0.6em solid transparent;
-  border-bottom-color: #fcebcd;
-  border-top: 0px;
-  margin-left: -45%;
-  margin-top: -0.531em;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-3:after {
-    left: 19px;
-    margin-left: 0px;
-  }
+.emotion-2 {
+  position: absolute !important;
+  display: block;
+  visibility: visible;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0px;
+  padding: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
 }
 
 <Fragment>
@@ -325,6 +287,8 @@ exports[`NumericInput renders correctly with props 1`] = `
           />
         }
         focusOnUpDown={true}
+        isInvalid={true}
+        isInvalidMessage="mock message"
         min={-9007199254740991}
         onBlur={[Function]}
         onChange={[Function]}
@@ -357,11 +321,6 @@ exports[`NumericInput renders correctly with props 1`] = `
     >
       Current value is 
       .
-    </div>
-    <div
-      className="emotion-3"
-    >
-      mock message
     </div>
   </div>
 </Fragment>
