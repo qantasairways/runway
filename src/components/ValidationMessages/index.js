@@ -35,10 +35,12 @@ const warningArrow = () => ({
   marginLeft: '15px'
 });
 
-function ValidationMessages({ validationMessage, messageType }) {
+function ValidationMessages({ validationMessage, messageType, hideArrow }) {
   return (
     <div role="alert">
-      {messageType === MESSAGE_TYPE.WARNING && <div css={warningArrow} />}
+      {messageType === MESSAGE_TYPE.WARNING && !hideArrow && (
+        <div css={warningArrow} />
+      )}
       <div css={warningMessage({ messageType })}>{validationMessage}</div>
     </div>
   );
@@ -46,12 +48,14 @@ function ValidationMessages({ validationMessage, messageType }) {
 
 ValidationMessages.propTypes = {
   validationMessage: PropTypes.string,
-  messageType: PropTypes.string
+  messageType: PropTypes.string,
+  hideArrow: PropTypes.bool
 };
 
 ValidationMessages.defaultProps = {
   validationMessage: '',
-  messageType: MESSAGE_TYPE.WARNING
+  messageType: MESSAGE_TYPE.WARNING,
+  hideArrow: false
 };
 
 export default ValidationMessages;

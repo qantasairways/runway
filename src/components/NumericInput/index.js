@@ -6,7 +6,7 @@ import InputNumber from 'rc-input-number';
 import PlusIcon from '../../icons/PlusIcon';
 import MinusIcon from '../../icons/MinusIcon';
 
-import { colours, mq, highlightInvalidField } from '../../theme/airways';
+import { colours, highlightInvalidField } from '../../theme/airways';
 import { toCx, forAll } from '../../utils/css';
 
 const SELECTORS = {
@@ -42,8 +42,8 @@ const SELECTORS = {
 
 const iconWidth = '22px';
 
-const getDisabledCtrlStyles = ({ isInvalid }) =>
-  isInvalid ? { fill: colours.lighterGrey } : { fill: colours.grey };
+const getDisabledCtrlStyles = ({ highlightInvalid }) =>
+  highlightInvalid ? { fill: colours.lighterGrey } : { fill: colours.grey };
 
 const disableNativeNumberInputStyles = {
   [forAll(
@@ -58,7 +58,7 @@ const disableNativeNumberInputStyles = {
   }
 };
 
-const getRcInputNumberStyles = ({ isInvalid }) => ({
+const getRcInputNumberStyles = ({ highlightInvalid }) => ({
   ...disableNativeNumberInputStyles,
   [SELECTORS.RCI.ROOT.CORE]: {
     margin: '0',
@@ -72,11 +72,11 @@ const getRcInputNumberStyles = ({ isInvalid }) => ({
     position: 'relative',
     width: '100%',
     height: '55px',
-    ...(isInvalid && { ...highlightInvalidField })
+    ...(highlightInvalid && { ...highlightInvalidField })
   },
   [SELECTORS.RCI.ROOT.FOCUSED]: {
     borderColor: '#8de2e0',
-    ...(isInvalid && { ...highlightInvalidField })
+    ...(highlightInvalid && { ...highlightInvalidField })
   },
   [SELECTORS.RCI.CONTROLS.UP_AND_DOWN.CORE]: {
     textAlign: 'center',
@@ -132,7 +132,7 @@ const getRcInputNumberStyles = ({ isInvalid }) => ({
       SELECTORS.RCI.CONTROLS.UP.ICON,
       SELECTORS.RCI.CONTROLS.DOWN.ICON
     )]: {
-      ...getDisabledCtrlStyles({ isInvalid })
+      ...getDisabledCtrlStyles({ highlightInvalid })
     }
   }
 });
@@ -157,37 +157,6 @@ const axValidationContainerStyles = {
   border: '0',
   padding: '0',
   clip: 'rect(0 0 0 0)'
-};
-
-const axValidationStyles = {
-  label: 'runway-numeric-input__error-message',
-  marginTop: '15px',
-  padding: '13px 15px',
-  a: {
-    color: colours.darkerGrey,
-    textDecoration: 'underline'
-  },
-  backgroundColor: '#fcebcd',
-  fontFamily: 'Ciutadella',
-  fontSize: '14px',
-  position: 'relative',
-  '&:after': {
-    content: '""',
-    position: 'absolute',
-    top: '0',
-    left: '50%',
-    width: '0',
-    height: '0',
-    border: '0.6em solid transparent',
-    borderBottomColor: '#fcebcd',
-    borderTop: '0',
-    marginLeft: '-45%',
-    marginTop: '-0.531em',
-    [mq.medium]: {
-      left: '19px',
-      marginLeft: '0'
-    }
-  }
 };
 class NumericInput extends Component {
   state = {
@@ -231,14 +200,7 @@ class NumericInput extends Component {
   };
 
   render = () => {
-    const {
-      label,
-      id,
-      isInvalid,
-      isInvalidMessage,
-      onChange,
-      ...rest
-    } = this.props;
+    const { label, id, highlightInvalid, onChange, ...rest } = this.props;
 
     const up = (
       <PlusIcon
@@ -259,7 +221,7 @@ class NumericInput extends Component {
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label htmlFor={id} css={labelStyles}>
           {label}
-          <div css={getRcInputNumberStyles({ isInvalid })}>
+          <div css={getRcInputNumberStyles({ highlightInvalid })}>
             <InputNumber
               {...rest}
               type="number"
@@ -275,9 +237,6 @@ class NumericInput extends Component {
           <div css={axValidationContainerStyles}>
             Current value is {this.state.value}.
           </div>
-          {isInvalid && isInvalidMessage && (
-            <div css={axValidationStyles}>{isInvalidMessage}</div>
-          )}
         </div>
       </Fragment>
     );
@@ -286,14 +245,12 @@ class NumericInput extends Component {
 
 NumericInput.propTypes = {
   ...InputNumber.propTypes,
-  isInvalid: PropTypes.bool,
-  isInvalidMessage: PropTypes.string,
+  highlightInvalid: PropTypes.bool,
   setRef: PropTypes.func
 };
 
 NumericInput.defaultProps = {
-  isInvalid: false,
-  isInvalidMessage: null,
+  highlightInvalid: false,
   setRef: null
 };
 

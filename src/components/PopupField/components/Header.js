@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 
 import { colours, fontWeight, fontSize } from '../../../theme/airways';
 
@@ -30,10 +31,11 @@ function Header({ closeDialog, closeAriaLabel, headerLabel, HeaderIcon }) {
           />
         )}
         <span
-          css={{
+          css={css({
+            label: 'runway-popup-field__header-label',
             flex: 1,
             justifySelf: 'left'
-          }}
+          })}
         >
           {headerLabel}
         </span>

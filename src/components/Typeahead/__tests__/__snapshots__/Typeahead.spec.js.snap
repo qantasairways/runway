@@ -65,7 +65,7 @@ exports[`Typeahead renders correctly when fetching 1`] = `
 
 .emotion-1 {
   width: 100%;
-  padding: 0 10px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -76,6 +76,8 @@ exports[`Typeahead renders correctly when fetching 1`] = `
   box-sizing: border-box;
   width: 100%;
   padding: 14px 10px 10px 10px;
+  border-radius: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-0:focus {
@@ -196,7 +198,7 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 
 .emotion-1 {
   width: 100%;
-  padding: 0 10px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -207,6 +209,8 @@ exports[`Typeahead renders correctly with defaults 1`] = `
   box-sizing: border-box;
   width: 100%;
   padding: 14px 10px 10px 10px;
+  border-radius: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-0:focus {
@@ -316,7 +320,7 @@ exports[`Typeahead renders correctly with error state 1`] = `
 
 .emotion-1 {
   width: 100%;
-  padding: 0 10px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -327,6 +331,8 @@ exports[`Typeahead renders correctly with error state 1`] = `
   box-sizing: border-box;
   width: 100%;
   padding: 14px 10px 10px 10px;
+  border-radius: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-0:focus {
@@ -447,7 +453,7 @@ exports[`Typeahead renders correctly with items 1`] = `
 
 .emotion-1 {
   width: 100%;
-  padding: 0 10px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -458,6 +464,8 @@ exports[`Typeahead renders correctly with items 1`] = `
   box-sizing: border-box;
   width: 100%;
   padding: 14px 10px 10px 10px;
+  border-radius: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-0:focus {

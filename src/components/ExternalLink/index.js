@@ -119,6 +119,7 @@ const Spacer = ({ onlyMobile }) => (
 Spacer.propTypes = {
   onlyMobile: PropTypes.bool
 };
+
 Spacer.defaultProps = {
   onlyMobile: false
 };
@@ -144,7 +145,12 @@ Text.propTypes = {
 };
 
 const ExternalLink = ({ renderIcon, url, text }) => (
-  <a css={{ textDecoration: 'none' }} href={url}>
+  <a
+    css={{
+      textDecoration: 'none'
+    }}
+    href={url}
+  >
     <ItemContainer>
       <Item height={layout.iconSize} width={layout.iconSize}>
         <MediaQueryDetector query={mq.medium}>
