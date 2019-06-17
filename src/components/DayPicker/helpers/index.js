@@ -195,15 +195,24 @@ export const getLastEnabledMonthDate = ({ monthDate, disabledAfter }) => {
 };
 
 export function abbrNum(price) {
-  if (price >= 1000000) {
-    return `${Math.ceil(price / 1000000)}m`;
+  let abbrPrice = price;
+  if (price >= 999900) {
+    abbrPrice = `${Math.ceil(price / 1000000)}m`;
   }
 
-  if (price >= 1000) {
-    return `${Math.ceil(price / 1000)}k`;
+  if (price >= 10000) {
+    if (price % 1000 === 0 || price % 1000 > 900) {
+      abbrPrice = `${Math.ceil(price / 1000)}k`;
+    } else {
+      const afterDecimal = price % 1000;
+      // prettier-ignore
+      abbrPrice = `${Math.floor(price / 1000)}.${Math.ceil(afterDecimal / 100)}k`;
+    }
+  } else {
+    abbrPrice = Math.ceil(price);
   }
 
-  return Math.ceil(price);
+  return abbrPrice;
 }
 
 /**
