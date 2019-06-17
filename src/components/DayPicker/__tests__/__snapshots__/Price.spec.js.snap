@@ -429,7 +429,9 @@ exports[`Price renders correctly with defaults 1`] = `
   >
     <div
       className="emotion-1"
-    />
+    >
+      0
+    </div>
   </div>
 </div>
 `;

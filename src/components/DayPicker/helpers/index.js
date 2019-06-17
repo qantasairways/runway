@@ -208,6 +208,8 @@ export function abbrNum(price) {
       // prettier-ignore
       abbrPrice = `${Math.floor(price / 1000)}.${Math.ceil(afterDecimal / 100)}k`;
     }
+  } else {
+    abbrPrice = Math.ceil(price);
   }
 
   return abbrPrice;
