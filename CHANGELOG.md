@@ -1,3 +1,10 @@
+# [0.32.0](https://github.com/qantasairways/runway/compare/v0.31.1...v0.32.0) (2019-06-17)
+
+
+### Features
+
+* **popupfiled:** fix the color for icon and placeholder ([#70](https://github.com/qantasairways/runway/issues/70)) ([3576db7](https://github.com/qantasairways/runway/commit/3576db7))
+
 ## [0.31.1](https://github.com/qantasairways/runway/compare/v0.31.0...v0.31.1) (2019-06-11)
 
 
