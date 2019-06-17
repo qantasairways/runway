@@ -178,7 +178,7 @@ function Button({
             <div
               css={{
                 label: 'runway-popup-field__placeholder',
-                color: colours.darkGrey,
+                color: colours.mediumDarkGrey,
                 fontSize: fontSize.large,
                 letterSpacing: letterSpacing.small
               }}
@@ -192,7 +192,7 @@ function Button({
                 label: 'runway-popup-field__icon',
                 position: 'absolute',
                 right: '10px',
-                fill: colours.darkGrey
+                fill: colours.mediumDarkGrey
               }}
               height={layout.iconSize}
               width={layout.iconSize}
