@@ -29,7 +29,7 @@ const transformDatesData = monthDatesData =>
         )
       }
       firstDayOfWeek={1}
-      monthsToShow={12}
+      monthsToShow={3}
       startSelectedLabel="SYD"
       endSelectedLabel="MEL"
       Icon={PlaneIcon}
