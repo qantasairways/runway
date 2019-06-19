@@ -13,7 +13,10 @@
   "mediumDarkGrey": "#888888",
   "grey": "#dadada",
   "mediumGrey": "#3c3c3c",
+  "mediumLightGrey": "#666666",
   "lightGrey": "#f4f5f6",
   "lighterGrey": "#eeeeee",
-  "disabledGrey": "#fafafa"
+  "disabledGrey": "#fafafa",
+  "dullGrey": "#b3b3b3",
+  "black": "#000000"
 }

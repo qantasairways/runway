@@ -18,10 +18,11 @@ function typeaheadStyles() {
 function labelInputContainerStyles() {
   return {
     width: '100%',
-    padding: '0 10px',
+    padding: '0px',
     boxSizing: 'border-box'
   };
 }
+
 function inputStyles() {
   return {
     border: 'solid 2px #8de2e0',
@@ -32,7 +33,9 @@ function inputStyles() {
       outlineColor: colours.highlights
     },
     width: '100%',
-    padding: '14px 10px 10px 10px'
+    padding: '14px 10px 10px 10px',
+    borderRadius: '0px',
+    '-webkit-appearance': 'none'
   };
 }
 

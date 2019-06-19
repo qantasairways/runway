@@ -12,8 +12,7 @@ const isBadValue = value => value === 6;
       max={12}
       onChange={updater}
       value={value}
-      isInvalid={isBadValue(value)}
-      isInvalidMessage="It was a bad value"
+      highlightInvalid={isBadValue(value)}
     />
   )}
 </StatefulManager>;
