@@ -104,36 +104,36 @@ function writeComponentToIndex(name) {
   return appendFileSync(file, data);
 }
 
-async function build(entrySrc, name, type) {
+const isThemeDir = moduleDir => /theme/gi.test(moduleDir);
+
+async function build(entrySrc, name, type, moduleDir) {
   try {
     const bundle = await rollup.rollup(inputOptions(entrySrc, type));
 
     await bundle.write(outputOptions(name, type));
-    writeComponentToIndex(name);
+    if (!isThemeDir(moduleDir)) {
+      writeComponentToIndex(name);
+    }
     console.log(chalk.green(` ✅  Successuly packaged ${name} 📦`));
   } catch (error) {
     console.log(chalk.red(` ☠️  Failed to package ${name}`), error);
   }
 }
 
-const flattenName = ({ moduleName, moduleType }) =>
-  /theme/gi.test(moduleType) ? `theme/${moduleName}` : moduleName;
+const flattenName = ({ moduleName, moduleDir }) =>
+  isThemeDir(moduleDir) ? `theme/${moduleName}` : moduleName;
 
 async function generateModules() {
   for (let index = 0; index < components.length; index++) {
     const dirs = components[index].split('/');
     // eslint-disable-next-line no-unused-vars
-    const [moduleRoot, moduleType, moduleName] = dirs;
-    const name = flattenName({ moduleType, moduleName });
+    const [moduleRoot, moduleDir, moduleName] = dirs;
+    const name = flattenName({ moduleDir, moduleName });
     console.log(
       chalk.cyan(` ⚙️  Now building: ${name}`),
       chalk.cyan(` 🗜  Module type: ${OUTPUT_JS_TYPE}`)
     );
-    await build(
-      components[index],
-      name,
-      OUTPUT_JS_TYPE
-    );
+    await build(components[index], name, OUTPUT_JS_TYPE, moduleDir);
   }
 }
 
