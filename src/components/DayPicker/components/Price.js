@@ -4,7 +4,7 @@ import { keyframes } from 'emotion';
 
 import { colours, mq } from '../../../theme/airways';
 import { CSS_PSEUDO_AFTER } from '../../../constants/css';
-import { abbrNum, numberWithCommas } from '../helpers';
+import { abbrNum } from '../helpers';
 
 const priceFontStyles = {
   fontSize: '0.8125rem',
@@ -29,8 +29,7 @@ function Price({
   value,
   taxValue,
   currencySymbol,
-  isLowestPrice,
-  isDesktopDevice
+  isLowestPrice
 }) {
   return (
     <div
@@ -92,9 +91,7 @@ function Price({
             }}
           >
             {currencySymbol}
-            {isDesktopDevice
-              ? numberWithCommas(Math.ceil(value))
-              : abbrNum(value)}
+            {abbrNum(value)}
           </div>
           {taxValue && (
             <div
@@ -125,8 +122,7 @@ Price.propTypes = {
   value: PropTypes.number,
   taxValue: PropTypes.number,
   currencySymbol: PropTypes.string,
-  isLowestPrice: PropTypes.bool,
-  isDesktopDevice: PropTypes.bool
+  isLowestPrice: PropTypes.bool
 };
 
 Price.defaultProps = {
@@ -134,8 +130,7 @@ Price.defaultProps = {
   value: null,
   taxValue: null,
   currencySymbol: '',
-  isLowestPrice: false,
-  isDesktopDevice: false
+  isLowestPrice: false
 };
 
 export default Price;

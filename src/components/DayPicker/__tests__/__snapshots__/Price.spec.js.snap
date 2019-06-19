@@ -114,7 +114,7 @@ exports[`Price renders correctly when isDesktopDevice is true 1`] = `
       className="emotion-1"
     >
       $
-      12,345
+      12.4k
     </div>
     <div
       className="emotion-2"
@@ -308,7 +308,7 @@ exports[`Price renders correctly when isLowestPrice is true 1`] = `
       className="emotion-1"
     >
       $
-      13k
+      12.4k
     </div>
     <div
       className="emotion-2"
@@ -550,7 +550,7 @@ exports[`Price renders correctly with props 1`] = `
       className="emotion-1"
     >
       $
-      13k
+      12.4k
     </div>
     <div
       className="emotion-2"

@@ -86,6 +86,7 @@ class DayPicker extends Component {
 
   onBeforeClose = () => {
     this.setState({ showFooters: false });
+    this.props.onBeforeClose();
   };
 
   onDayClick = (startDate, endDate, isSelectingStartDate) => {
@@ -400,6 +401,10 @@ DayPicker.propTypes = {
    * @param {Date} startDate New start date value
    * @param {Bool} endDate New end date value if isDateRange prop is true
    */ onDayClick: PropTypes.func,
+  /**
+   * Triggered when the calendar is closed
+   *
+   */ onBeforeClose: PropTypes.func,
   /** Flag showing whether to select a date range. If set to false a single date will be selected */
   isDateRange: PropTypes.bool,
   /** Index of they day of week to display first */
@@ -483,6 +488,7 @@ DayPicker.defaultProps = {
   disabledAfter: null,
   isDateRange: true,
   onDayClick: noop,
+  onBeforeClose: noop,
   firstDayOfWeek: 0,
   monthsToShow: 12,
   buttonLabel: 'When',
