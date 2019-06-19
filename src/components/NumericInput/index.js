@@ -72,11 +72,11 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
     position: 'relative',
     width: '100%',
     height: '55px',
-    ...(highlightInvalid && { ...highlightInvalidField })
+    ...(highlightInvalid && { ...highlightInvalidField, borderRadius: '0px' })
   },
   [SELECTORS.RCI.ROOT.FOCUSED]: {
     borderColor: '#8de2e0',
-    ...(highlightInvalid && { ...highlightInvalidField })
+    ...(highlightInvalid && { ...highlightInvalidField, borderRadius: '0px' })
   },
   [SELECTORS.RCI.CONTROLS.UP_AND_DOWN.CORE]: {
     textAlign: 'center',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Switch from 'react-switch';
-import { colours, fontSize, fontFamily } from '../../theme/airways';
+import { colours, fontSize, fontFamily, mq } from '../../theme/airways';
 
 const SELECTORS = {
   REACT_SWITCH: {
@@ -45,9 +45,11 @@ const LocalStylesInjector = ({
             : { marginLeft: spaceBetween }),
           backgroundColor: colours.darkerGrey
         },
-        backgroundColor: colours.mediumGrey,
         ...thickenBorder(),
-        ...keepAllVertAligned
+        ...keepAllVertAligned,
+        [mq.medium]: {
+          backgroundColor: colours.mediumGrey
+        }
       }}
     >
       {children}
@@ -71,7 +73,7 @@ const LabelText = ({ children }) => (
     css={{
       textTransform: 'none',
       color: colours.white,
-      fontSize: fontSize.label,
+      fontSize: fontSize.body,
       fontFamily: fontFamily.main
     }}
   >

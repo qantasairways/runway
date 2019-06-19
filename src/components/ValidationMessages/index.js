@@ -9,6 +9,7 @@ const MESSAGE_TYPE = {
 };
 
 const warningMessage = ({ messageType }) => ({
+  label: 'runway-validation-messages__warning-message',
   width: '100%',
   minHeight: '48px',
   border: 'solid 0.5px rgba(151, 151, 151, 0)',

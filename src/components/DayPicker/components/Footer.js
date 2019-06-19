@@ -125,7 +125,6 @@ export function topDisclaimerStyle() {
   });
 }
 
-// Not sure if this is needed any more?? Disclaimer will always stay on top?
 export function bottonDisclaimerStyle() {
   return css({
     label: 'runway-footer_button_disclaimer-label',
@@ -201,9 +200,12 @@ const Footer = ({
                   {bottomFootersummaryLabel}
                   <span
                     css={{
-                      color: endDateData.price.isLowestPrice
-                        ? '#009400'
-                        : colours.darkerGrey,
+                      color:
+                        endDateData &&
+                        endDateData.price &&
+                        endDateData.price.isLowestPrice
+                          ? '#009400'
+                          : colours.darkerGrey,
                       fontWeight: fontWeight.bold
                     }}
                   >
