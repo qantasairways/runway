@@ -1,3 +1,10 @@
+## [0.32.1](https://github.com/qantasairways/runway/compare/v0.32.0...v0.32.1) (2019-06-19)
+
+
+### Bug Fixes
+
+* **daypicker,dropdown,externallink,numericinput,popupfield,toggle,typeahead,validationmessages,theme:** Multiple integration updates and fixes ([#71](https://github.com/qantasairways/runway/issues/71)) ([fb9784c](https://github.com/qantasairways/runway/commit/fb9784c))
+
 # [0.32.0](https://github.com/qantasairways/runway/compare/v0.31.1...v0.32.0) (2019-06-17)
 
 
