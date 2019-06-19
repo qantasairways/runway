@@ -1,3 +1,10 @@
+## [0.32.2](https://github.com/qantasairways/runway/compare/v0.32.1...v0.32.2) (2019-06-19)
+
+
+### Bug Fixes
+
+* **theme:** Remove explicit theme export from index write ([#72](https://github.com/qantasairways/runway/issues/72)) ([0fef921](https://github.com/qantasairways/runway/commit/0fef921))
+
 ## [0.32.1](https://github.com/qantasairways/runway/compare/v0.32.0...v0.32.1) (2019-06-19)
 
 
