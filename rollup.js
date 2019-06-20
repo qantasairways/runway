@@ -20,6 +20,8 @@ const components = [
   ...getComponents(THEME_DIR)
 ];
 
+const themes = [...getComponents(THEME_DIR)];
+
 /**
  * Rollup
  */

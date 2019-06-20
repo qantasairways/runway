@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
+
 import { toCx } from '../../utils/css';
 
 import MediaQueryDetector from '../MediaQueryDetector';
@@ -65,7 +67,8 @@ const iconStyles = {
 
 const ItemContainer = ({ children }) => (
   <div
-    css={{
+    css={css({
+      label: 'runway-external-link__item-container',
       height: '72px',
       padding: `20px ${layout.gutter}`,
       backgroundColor: colours.white,
@@ -76,7 +79,7 @@ const ItemContainer = ({ children }) => (
       },
       ...align,
       ...iconStyles
-    }}
+    })}
   >
     {children}
   </div>

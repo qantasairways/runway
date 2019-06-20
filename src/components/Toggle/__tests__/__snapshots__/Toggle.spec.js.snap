@@ -23,7 +23,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
     height={28}
     id="mockId-3"
     offColor="#323232"
-    offHandleColor="#fff"
+    offHandleColor="#b3b3b3"
     onChange={[Function]}
     onColor="#8de2e0"
     onHandleColor="#fff"
@@ -56,7 +56,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
     height={28}
     id="mockId-2"
     offColor="#323232"
-    offHandleColor="#fff"
+    offHandleColor="#b3b3b3"
     onChange={[Function]}
     onColor="#8de2e0"
     onHandleColor="#fff"
@@ -89,7 +89,7 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
     height={28}
     id="mockId-1"
     offColor="#323232"
-    offHandleColor="#fff"
+    offHandleColor="#b3b3b3"
     onChange={[Function]}
     onColor="#8de2e0"
     onHandleColor="#fff"

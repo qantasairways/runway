@@ -10,6 +10,7 @@ import Button, { ButtonContent } from './components/Button';
 import MediaQueryDetector from '../../components/MediaQueryDetector';
 
 const getRootContainerStyles = hasDialogDimensions => ({
+  label: 'runway-button-with-dialog__root-container',
   ...(hasDialogDimensions && {
     position: 'relative'
   })
