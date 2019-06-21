@@ -1,3 +1,10 @@
+## [0.32.4](https://github.com/qantasairways/runway/compare/v0.32.3...v0.32.4) (2019-06-21)
+
+
+### Bug Fixes
+
+* **daypicker:** fix the height of the month if has 5 rows to show all days in a month ([#73](https://github.com/qantasairways/runway/issues/73)) ([3d84c4a](https://github.com/qantasairways/runway/commit/3d84c4a))
+
 ## [0.32.3](https://github.com/qantasairways/runway/compare/v0.32.2...v0.32.3) (2019-06-20)
 
 
