@@ -29,6 +29,26 @@
     {
       text: 'Adelaide',
       badge: 'ADL'
+    },
+    {
+      text: 'Los Angeles, United States',
+      badge: 'LAX'
+    },
+    {
+      text: 'Abu Dhabi, United Arab Emirates',
+      badge: 'AUH'
+    },
+    {
+      text: 'Toowoomba (Brisbane West Wellcamp), Australia',
+      badge: 'WTB'
+    },
+    {
+      text: 'London (Heathrow), United Kingdom',
+      badge: 'LHR'
+    },
+    {
+      text: 'New York (Newark), United States',
+      badge: 'EWR'
     }
   ]}
   itemToString={item => (item ? String(item.text) : '')}

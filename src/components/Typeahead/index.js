@@ -69,22 +69,20 @@ function listItemStyles(isHighlighted) {
     fontSize: '18px',
     lineHeight: 1,
     color: '#323232',
-    display: 'inline-flex',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    textAlign: 'center'
+    display: 'flex',
+    justifyContent: 'space-between'
   };
 }
 
 function listItemBadgeStyles() {
   return {
-    marginLeft: 'auto',
     fontSize: '16px',
     textAlign: 'right',
     borderRadius: '3px',
     backgroundColor: '#8de2e0',
     fontWeight: 600,
-    padding: '2px 3px 0px'
+    padding: '2px 3px 0px',
+    height: '100%'
   };
 }
 
@@ -173,7 +171,7 @@ class Typeahead extends Component {
               })}
               css={listItemStyles(isHighlighted, isSelected)}
             >
-              {highlightedItem}
+              <span>{highlightedItem}</span>
               {badge && <span css={listItemBadgeStyles()}>{badge}</span>}
             </li>
           );
