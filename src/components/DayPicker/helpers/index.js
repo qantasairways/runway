@@ -11,7 +11,7 @@ import {
   addDays,
   differenceInCalendarMonths,
   isFirstDayOfMonth,
-  differenceInWeeks,
+  differenceInCalendarWeeks,
   startOfDay
 } from 'date-fns';
 import {
@@ -120,7 +120,7 @@ export function getInitialDateToFocus(today, startDate, disabledBefore) {
 
 export function getItemSize(index, months, firstDayOfWeek, isDesktopDevice) {
   const month = months[index];
-  const numberOfWeeks = differenceInWeeks(
+  const numberOfWeeks = differenceInCalendarWeeks(
     endOfMonth(month),
     index === 0 ? startOfWeek(month) : startOfMonth(month),
     { weekStartsOn: firstDayOfWeek }
