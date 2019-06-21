@@ -43,13 +43,17 @@ const innerWrapperStyle = {
   margin: '0 auto'
 };
 
+const sharedFooterStyle = {
+  boxShadow: '0 -4px 6px 0 rgba(0, 0, 0, 0.08)'
+};
+
 const preFooterStyle = {
   transition: 'transform 300ms linear',
   position: 'absolute',
   top: 0,
   left: 0,
   transform: 'translateY(0)',
-  boxShadow: '0 -4px 6px 0 rgba(0, 0, 0, 0.08)',
+  boxShadow: sharedFooterStyle.boxShadow,
   width: '100%',
   backgroundColor: colours.white
 };
@@ -155,85 +159,108 @@ const Footer = ({
   showBottomFooter,
   onActionButtonClick,
   endDateData
-}) => (
-  <Transition in={showBottomFooter} timeout={300}>
-    {wrapperTransition => (
-      <div
-        css={{
-          ...wrapperStyle,
-          ...wrapperTransitionStyle[wrapperTransition]
-        }}
-      >
-        <Transition in={preFooterInfo && showPreFooter} timeout={300}>
-          {preFooterTransition => (
+}) => {
+  const shouldShowPreFooterContents =
+    endDateData && endDateData.price && endDateData.price.value;
+  const shouldShowBottomFooterTextContents =
+    showBottomFooter &&
+    endDateData &&
+    endDateData.price &&
+    endDateData.price.value;
+
+  return (
+    <Transition in={showBottomFooter} timeout={300}>
+      {wrapperTransition => (
+        <div
+          css={{
+            ...wrapperStyle,
+            ...wrapperTransitionStyle[wrapperTransition],
+            ...(!shouldShowPreFooterContents && {
+              boxShadow: sharedFooterStyle.boxShadow
+            })
+          }}
+        >
+          {shouldShowPreFooterContents && (
+            <Transition in={preFooterInfo && showPreFooter} timeout={300}>
+              {preFooterTransition => (
+                <div
+                  css={{
+                    borderBottom:
+                      showPreFooter && showBottomFooter
+                        ? '1px solid #eeeeee'
+                        : 'none',
+                    ...preFooterStyle,
+                    ...preFooterTransitionStyle[preFooterTransition]
+                  }}
+                >
+                  <div
+                    css={{
+                      ...innerWrapperStyle,
+                      ...preFooterTextContainerStyle
+                    }}
+                  >
+                    <span css={preFooterTextStyle}>{preFooterInfo}</span>
+                    {preFooterDisclaimer && (
+                      <span css={topDisclaimerStyle()}>
+                        {preFooterDisclaimer}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
+            </Transition>
+          )}
+          {showBottomFooter && (
             <div
               css={{
-                borderBottom:
-                  showPreFooter && showBottomFooter
-                    ? '1px solid #eeeeee'
-                    : 'none',
-                ...preFooterStyle,
-                ...preFooterTransitionStyle[preFooterTransition]
+                ...innerWrapperStyle,
+                ...bottomFooterStyle
               }}
             >
-              <div
-                css={{ ...innerWrapperStyle, ...preFooterTextContainerStyle }}
-              >
-                <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                {preFooterDisclaimer && (
-                  <span css={topDisclaimerStyle()}>{preFooterDisclaimer}</span>
-                )}
+              {shouldShowBottomFooterTextContents ? (
+                <div css={bottomFooterLeftCol}>
+                  {bottomFootersummaryLabel && (
+                    <span css={bottomFooterTextStyle}>
+                      {bottomFootersummaryLabel}
+                      <span
+                        css={{
+                          color: endDateData.price.isLowestPrice
+                            ? '#009400'
+                            : colours.darkerGrey,
+                          fontWeight: fontWeight.bold
+                        }}
+                      >
+                        {endDateData &&
+                          endDateData.currencySymbol +
+                            numberWithCommas(
+                              fmtCurrency(endDateData.price.value)
+                            )}
+                      </span>
+                    </span>
+                  )}
+                  {bottomFooterDisclaimer && (
+                    <span css={bottonDisclaimerStyle()}>
+                      {bottomFooterDisclaimer}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div css={bottomFooterLeftCol} />
+              )}
+              <div>
+                <Button
+                  label={actionText}
+                  cssOverrides={[actionButtonStyle]}
+                  onClick={onActionButtonClick}
+                />
               </div>
             </div>
           )}
-        </Transition>
-        {showBottomFooter && (
-          <div
-            css={{
-              ...innerWrapperStyle,
-              ...bottomFooterStyle
-            }}
-          >
-            <div css={bottomFooterLeftCol}>
-              {bottomFootersummaryLabel && (
-                <span css={bottomFooterTextStyle}>
-                  {bottomFootersummaryLabel}
-                  <span
-                    css={{
-                      color:
-                        endDateData &&
-                        endDateData.price &&
-                        endDateData.price.isLowestPrice
-                          ? '#009400'
-                          : colours.darkerGrey,
-                      fontWeight: fontWeight.bold
-                    }}
-                  >
-                    {endDateData &&
-                      endDateData.currencySymbol +
-                        numberWithCommas(fmtCurrency(endDateData.price.value))}
-                  </span>
-                </span>
-              )}
-              {bottomFooterDisclaimer && (
-                <span css={bottonDisclaimerStyle()}>
-                  {bottomFooterDisclaimer}
-                </span>
-              )}
-            </div>
-            <div>
-              <Button
-                label={actionText}
-                cssOverrides={[actionButtonStyle]}
-                onClick={onActionButtonClick}
-              />
-            </div>
-          </div>
-        )}
-      </div>
-    )}
-  </Transition>
-);
+        </div>
+      )}
+    </Transition>
+  );
+};
 
 Footer.propTypes = {
   showPreFooter: PropTypes.bool,
