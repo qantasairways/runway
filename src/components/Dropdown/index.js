@@ -263,27 +263,38 @@ Render.defaultProps = {
 export default class Dropdown extends React.Component {
   state = { focus: false, downshiftSelectedItem: null };
 
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.items &&
-      this.props.items.length !== prevProps.items.length
-    ) {
+  static getDerivedStateFromProps = (props, state) => ({
+    ...state,
+    downshiftSelectedItem: props.initialSelectedItem
+  });
+
+  componentDidUpdate = prevProps => {
+    if (this.itemsChanged(prevProps.items, this.props.items)) {
       if (
         this.props.items.filter(
           item => item.value === this.state.downshiftSelectedItem.value
         ).length === 0
       ) {
-        return this.downshiftStateAndHelpers.selectItem(
-          this.props.defaultItemWhenNoneSelected
-        );
+        this.downshiftSelectItem(this.props.defaultItemWhenNoneSelected);
+      } else {
+        this.downshiftSelectItem(this.state.downshiftSelectedItem);
       }
     }
-    return null;
-  }
+  };
 
   setFocus(focus) {
     this.setState({ focus });
   }
+
+  itemsChanged = (prevItems, nextItems) =>
+    prevItems.length !== nextItems.length ||
+    !prevItems.every(prevItem =>
+      nextItems.some(nextItem => nextItem.value === prevItem.value)
+    );
+
+  collectSelectItem = selectItem => {
+    this.downshiftSelectItem = selectItem;
+  };
 
   render() {
     const { focus } = this.state;
@@ -295,7 +306,6 @@ export default class Dropdown extends React.Component {
         {...props.downShiftProps}
         onChange={(selectedItem, stateAndHelpers) => {
           this.setState({ downshiftSelectedItem: selectedItem });
-          this.downshiftStateAndHelpers = stateAndHelpers;
           if (typeof props.onChange === 'function') {
             props.onChange(selectedItem, stateAndHelpers);
           }
@@ -309,6 +319,7 @@ export default class Dropdown extends React.Component {
             setFocus,
             downshiftProps
           };
+          this.collectSelectItem(renderProps.downshiftProps.selectItem);
           return (
             <div css={dropdownStyles(props)}>
               <SelectOnKeyPressContainer
