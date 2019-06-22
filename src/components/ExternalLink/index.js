@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
+import RightArrowIcon from '../../icons/RightArrowIcon';
 import { toCx } from '../../utils/css';
-
 import MediaQueryDetector from '../MediaQueryDetector';
 
 import {
@@ -14,29 +14,6 @@ import {
   fontWeight,
   mq
 } from '../../theme/airways';
-
-const SVGArrowRight = ({ color, ...rest }) => (
-  <svg width="1em" height="1em" viewBox="0 0 24 24" {...rest}>
-    <defs>
-      <path
-        id="arrow-right_svg__a"
-        d="M10.138 11.269l5.088-4.766.005-.004.769-.721L10.138.287a1.144 1.144 0 0 0-1.53.012.976.976 0 0 0-.013 1.433l3.23 3.024H1.09C.488 4.756 0 5.214 0 5.778 0 6.342.488 6.8 1.09 6.8h10.733L8.595 9.824a.976.976 0 0 0 .014 1.432c.42.394 1.1.4 1.529.013z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd" transform="translate(4 6)">
-      <mask id="arrow-right_svg__b" fill="#fff">
-        <use xlinkHref="#arrow-right_svg__a" />
-      </mask>
-      <use fill="#202020" xlinkHref="#arrow-right_svg__a" />
-      <g fill={color} mask="url(#arrow-right_svg__b)">
-        <path d="M-4-6h24v24H-4z" />
-      </g>
-    </g>
-  </svg>
-);
-SVGArrowRight.propTypes = {
-  color: PropTypes.string.isRequired
-};
 
 const align = {
   display: 'flex',
@@ -172,7 +149,7 @@ const ExternalLink = ({ renderIcon, url, text }) => (
       </Item>
       <Spacer onlyMobile />
       <Item onlyMobile height={layout.iconSize} width={layout.iconSize}>
-        <SVGArrowRight color={colours.darkerGrey} height="100%" width="100%" />
+        <RightArrowIcon color={colours.darkerGrey} height="100%" width="100%" />
       </Item>
     </ItemContainer>
   </a>
