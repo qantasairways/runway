@@ -3,6 +3,8 @@ import { mount } from 'enzyme';
 import ExternalLink, { SELECTORS } from '../index';
 import { toCx } from '../../../utils/css';
 
+jest.mock('shortid', () => ({ generate: () => 'mockTestDeterministicId' }));
+
 describe('ExternalLink', () => {
   const setMatchMedia = matches => {
     window.matchMedia = () => ({
