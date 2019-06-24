@@ -5,26 +5,30 @@ exports[`Typeahead renderItems() returns the correct jsx for custom structure of
   className="css-evdl91"
 >
   <li
-    className="css-g84m4x"
+    className="css-qrv7uy"
   >
-    o
-    <strong
-      className="css-35ezg3"
-    >
-      ra
-    </strong>
-    nge
+    <span>
+      o
+      <strong
+        className="css-35ezg3"
+      >
+        ra
+      </strong>
+      nge
+    </span>
   </li>
   <li
-    className="css-g84m4x"
+    className="css-qrv7uy"
   >
-    g
-    <strong
-      className="css-35ezg3"
-    >
-      ra
-    </strong>
-    pe
+    <span>
+      g
+      <strong
+        className="css-35ezg3"
+      >
+        ra
+      </strong>
+      pe
+    </span>
   </li>
 </ul>
 `;
@@ -34,26 +38,30 @@ exports[`Typeahead renderItems() returns the correct jsx for simple items array 
   className="css-evdl91"
 >
   <li
-    className="css-g84m4x"
+    className="css-qrv7uy"
   >
-    o
-    <strong
-      className="css-35ezg3"
-    >
-      ra
-    </strong>
-    nge
+    <span>
+      o
+      <strong
+        className="css-35ezg3"
+      >
+        ra
+      </strong>
+      nge
+    </span>
   </li>
   <li
-    className="css-g84m4x"
+    className="css-qrv7uy"
   >
-    g
-    <strong
-      className="css-35ezg3"
-    >
-      ra
-    </strong>
-    pe
+    <span>
+      g
+      <strong
+        className="css-35ezg3"
+      >
+        ra
+      </strong>
+      pe
+    </span>
   </li>
 </ul>
 `;
