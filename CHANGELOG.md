@@ -1,3 +1,10 @@
+## [0.32.6](https://github.com/qantasairways/runway/compare/v0.32.5...v0.32.6) (2019-06-24)
+
+
+### Bug Fixes
+
+* **externallink, rightarrowicon:** map unique path ids to generated svg right arrow icons, update tests ([#78](https://github.com/qantasairways/runway/issues/78)) ([a3eec4b](https://github.com/qantasairways/runway/commit/a3eec4b))
+
 ## [0.32.5](https://github.com/qantasairways/runway/compare/v0.32.4...v0.32.5) (2019-06-24)
 
 
