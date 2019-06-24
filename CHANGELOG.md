@@ -1,3 +1,11 @@
+## [0.32.5](https://github.com/qantasairways/runway/compare/v0.32.4...v0.32.5) (2019-06-24)
+
+
+### Bug Fixes
+
+* **typeahead:** fix test ([#79](https://github.com/qantasairways/runway/issues/79)) ([34483cf](https://github.com/qantasairways/runway/commit/34483cf))
+* **typeahead:** fix truncating spaces before and after highligted text, extra spaces between text and stretching badget backgroung when city serch text warped ([#75](https://github.com/qantasairways/runway/issues/75)) ([170f271](https://github.com/qantasairways/runway/commit/170f271))
+
 ## [0.32.4](https://github.com/qantasairways/runway/compare/v0.32.3...v0.32.4) (2019-06-21)
 
 
