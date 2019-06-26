@@ -11,7 +11,8 @@ describe('NumericInput', () => {
   it('renders correctly with props', () => {
     const additionalProps = {
       isInvalid: true,
-      isInvalidMessage: 'mock message'
+      isInvalidMessage: 'mock message',
+      isTabletAndUp: false
     };
     const component = shallow(<NumericInput {...additionalProps} />);
     expect(component).toMatchSnapshot();
