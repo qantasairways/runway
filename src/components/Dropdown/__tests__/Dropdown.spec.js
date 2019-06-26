@@ -58,7 +58,7 @@ describe('Dropdown', () => {
       });
     });
     describe('when current selected is does NOT exist in items AND defaultItemWhenNoneSelected is valid AND still exists in items', () => {
-      it.only('should keep select defaultItemWhenNoneSelected', () => {
+      it('should keep select defaultItemWhenNoneSelected', () => {
         component = mount(
           <Dropdown
             {...props}
