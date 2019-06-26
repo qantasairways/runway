@@ -1,59 +1,50 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks
 } from 'body-scroll-lock';
-import { generate } from 'shortid';
-
-const dialogContentContainerStyles = ({ contentPadding }) => ({
-  ...(contentPadding && { padding: contentPadding }),
-  'overflow-y': 'auto',
-  '-webkit-overflow-scrolling': 'touch',
-  flex: 1
-});
 
 class Dialog extends Component {
   targetElement = null;
 
-  dialogContentContainerId = generate();
-
-  componentDidMount() {
-    const { lockBgScroll } = this.props;
-
-    if (lockBgScroll) {
-      this.lockBgScroll();
-    }
-  }
-
   componentDidUpdate(props) {
-    if (!!props.lockBgScroll && !this.props.lockBgScroll) {
+    if (!!props.shouldLockBgScroll && !this.props.shouldLockBgScroll) {
       this.unlockBgScroll();
       return;
     }
 
-    if (!props.lockBgScroll && !!this.props.lockBgScroll) {
+    if (!props.shouldLockBgScroll && !!this.props.shouldLockBgScroll) {
+      this.lockBgScroll();
+      return;
+    }
+
+    if (
+      props.transitionState !== this.props.transitionState &&
+      this.props.transitionState === 'entered' &&
+      !!this.props.shouldLockBgScroll
+    ) {
       this.lockBgScroll();
     }
   }
 
   componentWillUnmount() {
-    const { lockBgScroll } = this.props;
-    if (lockBgScroll) {
+    const { shouldLockBgScroll } = this.props;
+    if (shouldLockBgScroll) {
       this.unlockBgScroll();
     }
   }
 
   lockBgScroll = () => {
-    this.targetElement = document.getElementById(this.dialogContentContainerId);
-    disableBodyScroll(this.targetElement);
+    const { scrollTarget } = this.props;
+    disableBodyScroll(scrollTarget);
   };
 
   unlockBgScroll = () => {
-    enableBodyScroll(this.targetElement);
+    const { scrollTarget } = this.props;
+    enableBodyScroll(scrollTarget);
     clearAllBodyScrollLocks();
   };
 
@@ -63,11 +54,11 @@ class Dialog extends Component {
       dialogStyles,
       transitionStyles,
       transitionState,
-      contentPadding,
       content,
       renderHeader,
       renderFooter
     } = this.props;
+
     return (
       <div
         aria-label={dialogAriaLabel}
@@ -78,12 +69,7 @@ class Dialog extends Component {
         }}
       >
         {renderHeader()}
-        <div
-          id={this.dialogContentContainerId}
-          css={dialogContentContainerStyles({ contentPadding })}
-        >
-          {content}
-        </div>
+        {content}
         {renderFooter()}
       </div>
     );
@@ -99,17 +85,17 @@ Dialog.propTypes = {
     exiting: PropTypes.shape.isRequired
   }).isRequired,
   transitionState: PropTypes.string,
-  contentPadding: PropTypes.string,
   content: PropTypes.node.isRequired,
   renderHeader: PropTypes.func.isRequired,
   renderFooter: PropTypes.func.isRequired,
-  lockBgScroll: PropTypes.bool
+  shouldLockBgScroll: PropTypes.bool,
+  scrollTarget: PropTypes.node
 };
 
 Dialog.defaultProps = {
   transitionState: null,
-  contentPadding: null,
-  lockBgScroll: false
+  shouldLockBgScroll: false,
+  scrollTarget: null
 };
 
 export default Dialog;
