@@ -1,3 +1,10 @@
+## [0.32.8](https://github.com/qantasairways/runway/compare/v0.32.7...v0.32.8) (2019-06-26)
+
+
+### Bug Fixes
+
+* **passengers:** To prevent keyboard pop up in mobiles when up/down keys pressed in Numeric Input ([#82](https://github.com/qantasairways/runway/issues/82)) ([19bf62d](https://github.com/qantasairways/runway/commit/19bf62d))
+
 ## [0.32.7](https://github.com/qantasairways/runway/compare/v0.32.6...v0.32.7) (2019-06-26)
 
 
