@@ -237,7 +237,7 @@ class NumericInput extends Component {
               upHandler={up}
               downHandler={down}
               ref={this.setInputRef}
-              focusOnUpDown={isTablet ? true : false}
+              focusOnUpDown={isTablet}
             />
           </div>
         </label>
