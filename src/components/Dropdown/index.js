@@ -261,46 +261,69 @@ Render.defaultProps = {
 };
 
 export default class Dropdown extends React.Component {
-  state = { focus: false, downshiftSelectedItem: null };
+  state = {
+    focus: false
+  };
 
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.items &&
-      this.props.items.length !== prevProps.items.length
-    ) {
+  // eslint-disable-next-line consistent-return
+  componentDidUpdate = prevProps => {
+    if (this.itemsChanged(prevProps.items, this.props.items)) {
       if (
-        this.props.items.filter(
-          item => item.value === this.state.downshiftSelectedItem.value
-        ).length === 0
-      ) {
-        return this.downshiftStateAndHelpers.selectItem(
-          this.props.defaultItemWhenNoneSelected
-        );
-      }
+        this.validItem(this.downshiftSelectedItem) &&
+        this.itemsContains(this.downshiftSelectedItem)
+      )
+        return this.downshiftSelectItem(this.downshiftSelectedItem);
+      if (
+        this.validItem(this.props.defaultItemWhenNoneSelected) &&
+        this.itemsContains(this.props.defaultItemWhenNoneSelected)
+      )
+        return this.downshiftSelectItem(this.props.defaultItemWhenNoneSelected);
+      return this.downshiftSelectItem(this.props.items[0]);
     }
-    return null;
-  }
+  };
 
   setFocus(focus) {
     this.setState({ focus });
   }
 
+  itemsContains = target =>
+    !!this.props.items.filter(item => item.value === target.value).length;
+
+  itemsChanged = (prevItems, nextItems) =>
+    prevItems.length !== nextItems.length ||
+    !prevItems.every(prevItem =>
+      nextItems.some(nextItem => nextItem.value === prevItem.value)
+    );
+
+  collectSelectItem = selectItem => {
+    this.downshiftSelectItem = selectItem;
+  };
+
+  collectSelectedItem = selectedItem => {
+    this.downshiftSelectedItem = selectedItem;
+  };
+
+  getInitialSelectedItem = () =>
+    this.validItem(this.props.initialSelectedItem)
+      ? this.props.initialSelectedItem
+      : this.props.items[0];
+
+  validItem = item =>
+    item && typeof item.name === 'string' && typeof item.value === 'string';
+
   render() {
     const { focus } = this.state;
-
     const { props, setFocus } = this;
 
     return (
       <Downshift
         {...props.downShiftProps}
         onChange={(selectedItem, stateAndHelpers) => {
-          this.setState({ downshiftSelectedItem: selectedItem });
-          this.downshiftStateAndHelpers = stateAndHelpers;
           if (typeof props.onChange === 'function') {
             props.onChange(selectedItem, stateAndHelpers);
           }
         }}
-        initialSelectedItem={props.initialSelectedItem}
+        initialSelectedItem={this.getInitialSelectedItem()}
       >
         {downshiftProps => {
           const renderProps = {
@@ -309,6 +332,8 @@ export default class Dropdown extends React.Component {
             setFocus,
             downshiftProps
           };
+          this.collectSelectItem(renderProps.downshiftProps.selectItem);
+          this.collectSelectedItem(renderProps.downshiftProps.selectedItem);
           return (
             <div css={dropdownStyles(props)}>
               <SelectOnKeyPressContainer
