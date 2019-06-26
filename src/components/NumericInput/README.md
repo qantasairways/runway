@@ -13,6 +13,7 @@ const isBadValue = value => value === 6;
       onChange={updater}
       value={value}
       highlightInvalid={isBadValue(value)}
+      focusOnUpDown={false}
     />
   )}
 </StatefulManager>;

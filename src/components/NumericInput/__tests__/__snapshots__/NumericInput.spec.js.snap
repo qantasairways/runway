@@ -286,7 +286,7 @@ exports[`NumericInput renders correctly with props 1`] = `
             width="30px"
           />
         }
-        focusOnUpDown={true}
+        focusOnUpDown={false}
         isInvalid={true}
         isInvalidMessage="mock message"
         min={-9007199254740991}
