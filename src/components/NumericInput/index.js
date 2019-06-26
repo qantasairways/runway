@@ -200,7 +200,14 @@ class NumericInput extends Component {
   };
 
   render = () => {
-    const { label, id, highlightInvalid, onChange, ...rest } = this.props;
+    const {
+      label,
+      id,
+      highlightInvalid,
+      onChange,
+      isTablet,
+      ...rest
+    } = this.props;
 
     const up = (
       <PlusIcon
@@ -230,6 +237,7 @@ class NumericInput extends Component {
               upHandler={up}
               downHandler={down}
               ref={this.setInputRef}
+              focusOnUpDown={isTablet ? true : false}
             />
           </div>
         </label>
@@ -246,12 +254,14 @@ class NumericInput extends Component {
 NumericInput.propTypes = {
   ...InputNumber.propTypes,
   highlightInvalid: PropTypes.bool,
-  setRef: PropTypes.func
+  setRef: PropTypes.func,
+  isTablet: PropTypes.bool
 };
 
 NumericInput.defaultProps = {
   highlightInvalid: false,
-  setRef: null
+  setRef: null,
+  isTablet: true
 };
 
 export default NumericInput;
