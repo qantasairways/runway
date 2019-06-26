@@ -1,3 +1,11 @@
+## [0.32.7](https://github.com/qantasairways/runway/compare/v0.32.6...v0.32.7) (2019-06-26)
+
+
+### Bug Fixes
+
+* **daypicker:** safely handle date and price data render paths, skip diclaimer content container render on unpriced date ([#76](https://github.com/qantasairways/runway/issues/76)) ([3145675](https://github.com/qantasairways/runway/commit/3145675))
+* **dropdown:** guarantee initial selected item is tracked locally, collect selectItem from render calls, manually force reselection even where selected item exists to notify Dropdown consumer of current selection state ([#77](https://github.com/qantasairways/runway/issues/77)) ([7fb48df](https://github.com/qantasairways/runway/commit/7fb48df))
+
 ## [0.32.6](https://github.com/qantasairways/runway/compare/v0.32.5...v0.32.6) (2019-06-24)
 
 
