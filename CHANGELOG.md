@@ -1,3 +1,11 @@
+## [0.32.9](https://github.com/qantasairways/runway/compare/v0.32.8...v0.32.9) (2019-06-28)
+
+
+### Bug Fixes
+
+* **daypicker:** update snapshot ([#85](https://github.com/qantasairways/runway/issues/85)) ([9ebabc6](https://github.com/qantasairways/runway/commit/9ebabc6))
+* **daypicker, popupfield:** fix ios scrolling behaviour of dialogs ([#83](https://github.com/qantasairways/runway/issues/83)) ([402ee2d](https://github.com/qantasairways/runway/commit/402ee2d))
+
 ## [0.32.8](https://github.com/qantasairways/runway/compare/v0.32.7...v0.32.8) (2019-06-26)
 
 
