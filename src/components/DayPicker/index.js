@@ -332,10 +332,9 @@ class DayPicker extends Component {
         renderButtonValue={this.renderButtonDates}
         dialogStyles={dialogStylesFullScreen}
         transitionStyles={transitionStylesSlideUp}
-        contentPadding="0"
       >
-        {({ closeDialog }) => (
-          <div style={{ height: window.innerHeight }}>
+        {({ closeDialog, setScrollTargetRef }) => (
+          <div style={{ height: '100%' }}>
             <AutoSizer>
               {({ height, width }) => {
                 const isDesktopDevice =
@@ -346,6 +345,7 @@ class DayPicker extends Component {
                     ref={el => {
                       this.scrollList = el;
                     }}
+                    outerRef={setScrollTargetRef}
                     height={height}
                     itemCount={monthsToShow}
                     itemSize={index =>

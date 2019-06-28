@@ -104,7 +104,6 @@ export class PopupField extends Component {
     } = this.props;
     return (
       <ButtonWithDialog
-        contentPadding={layout.gutter}
         onBlur={onBlur}
         onClose={onClose}
         buttonLabel={buttonLabel}
@@ -120,7 +119,29 @@ export class PopupField extends Component {
         hasDialogDimensions={this.hasDialogDimensions()}
         transitionStyles={transitionStylesSlideUp}
       >
-        {children}
+        {({ closeDialog, setFocusElementRef, setScrollTargetRef }) => {
+          const content =
+            typeof children === 'function'
+              ? children({
+                  closeDialog,
+                  setFocusElementRef
+                })
+              : children;
+
+          return (
+            <div
+              ref={setScrollTargetRef}
+              css={{
+                padding: layout.gutter,
+                'overflow-y': 'auto',
+                '-webkit-overflow-scrolling': 'touch',
+                flex: 1
+              }}
+            >
+              {content}
+            </div>
+          );
+        }}
       </ButtonWithDialog>
     );
   }

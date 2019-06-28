@@ -15,7 +15,9 @@ describe('ButtonWithDialog', () => {
         renderButtonValue={() => <div>button content</div>}
         dialogStyles={{}}
         transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
-      />
+      >
+        {'children'}
+      </ButtonWithDialog>
     );
 
     expect(component).toMatchSnapshot();
@@ -90,8 +92,8 @@ describe('ButtonWithDialog', () => {
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
         >
-          {({ setFocusElementRef }) => (
-            <div>
+          {({ setFocusElementRef, setScrollTargetRef }) => (
+            <div ref={setScrollTargetRef}>
               <button type="button" ref={setFocusElementRef} />
             </div>
           )}
@@ -141,7 +143,9 @@ describe('ButtonWithDialog', () => {
           dialogStyles={{}}
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
-        />
+        >
+          {'children'}
+        </ButtonWithDialog>
       );
       jest.spyOn(component.instance().fieldButton, 'focus');
       component.instance().onExited();
@@ -186,7 +190,9 @@ describe('ButtonWithDialog', () => {
           dialogStyles={{}}
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
-        />
+        >
+          {'children'}
+        </ButtonWithDialog>
       );
       openDialog(component);
       jest.spyOn(component.instance(), 'closeDialog');
@@ -227,7 +233,9 @@ describe('ButtonWithDialog', () => {
           dialogStyles={{}}
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
-        />
+        >
+          {'children'}
+        </ButtonWithDialog>
       );
     });
 
@@ -252,7 +260,9 @@ describe('ButtonWithDialog', () => {
           dialogStyles={{}}
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
-        />
+        >
+          {'children'}
+        </ButtonWithDialog>
       );
     });
 

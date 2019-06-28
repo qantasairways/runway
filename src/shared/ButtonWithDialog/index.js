@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 
 import noop from '../../utils/noop';
-import { layout, mq, fontFamily } from '../../theme/airways';
+import { mq, fontFamily } from '../../theme/airways';
 
 import Dialog from './components/Dialog';
 import Button, { ButtonContent } from './components/Button';
@@ -43,7 +43,6 @@ export const dialogStylesFullScreen = {
   height: '100%',
   left: 0,
   position: 'fixed',
-  overflow: 'auto',
   top: '100%',
   transition: `top 300ms ease-in-out`,
   width: '100%',
@@ -53,6 +52,8 @@ export const dialogStylesFullScreen = {
 };
 
 class ButtonWithDialog extends Component {
+  scrollTarget = null;
+
   state = {
     open: false
   };
@@ -115,6 +116,10 @@ class ButtonWithDialog extends Component {
     this.fieldButton = el;
   };
 
+  setScrollTargetRef = el => {
+    this.scrollTarget = el;
+  };
+
   renderHeader = () =>
     this.props.renderHeader({
       closeDialog: this.closeDialog,
@@ -156,7 +161,6 @@ class ButtonWithDialog extends Component {
       dialogAriaLabel,
       dialogStyles,
       transitionStyles,
-      contentPadding,
       hasDialogDimensions
     } = this.props;
 
@@ -166,7 +170,8 @@ class ButtonWithDialog extends Component {
       typeof children === 'function'
         ? children({
             closeDialog: this.closeDialog,
-            setFocusElementRef: this.setFocusElementRef
+            setFocusElementRef: this.setFocusElementRef,
+            setScrollTargetRef: this.setScrollTargetRef
           })
         : children;
 
@@ -179,6 +184,7 @@ class ButtonWithDialog extends Component {
         <MediaQueryDetector query={mq.medium}>
           {atLeastTablet => {
             const isFullScreen = !hasDialogDimensions || !atLeastTablet;
+
             return (
               <Transition
                 in={open}
@@ -193,15 +199,17 @@ class ButtonWithDialog extends Component {
               >
                 {transitionState => (
                   <Dialog
-                    lockBgScroll={isFullScreen}
+                    shouldLockBgScroll={isFullScreen}
+                    lockBgScroll={this.lockBgScroll}
+                    unlockBgScroll={this.unlockBgScroll}
                     renderHeader={isFullScreen ? this.renderHeader : noop}
                     renderFooter={this.renderFooter}
-                    contentPadding={contentPadding}
                     transitionStyles={transitionStyles}
                     dialogStyles={dialogStyles}
                     dialogAriaLabel={dialogAriaLabel}
                     content={content}
                     transitionState={transitionState}
+                    scrollTarget={this.scrollTarget}
                   />
                 )}
               </Transition>
@@ -231,7 +239,6 @@ ButtonWithDialog.propTypes = {
     entered: PropTypes.shape.isRequired,
     exiting: PropTypes.shape.isRequired
   }).isRequired,
-  contentPadding: PropTypes.string,
   hasDialogDimensions: PropTypes.bool
 };
 
@@ -246,7 +253,6 @@ ButtonWithDialog.defaultProps = {
   renderHeader: noop,
   renderFooter: noop,
   dialogAriaLabel: '',
-  contentPadding: `0 ${layout.gutter}`,
   hasDialogDimensions: false
 };
 

@@ -873,7 +873,6 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
   buttonLabel="Label"
   closeAriaLabel="Close aria label"
   closeOnBlur={false}
-  contentPadding="0"
   dialogAriaLabel="dialog aria label"
   dialogStyles={
     Object {
@@ -885,7 +884,6 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
       "height": "100%",
       "label": "runway__dialog",
       "left": 0,
-      "overflow": "auto",
       "position": "fixed",
       "top": "100%",
       "transition": "top 300ms ease-in-out",
@@ -926,7 +924,6 @@ exports[`DayPicker renders correctly with defaults 1`] = `
   buttonLabel="When"
   closeAriaLabel="Close dialog"
   closeOnBlur={false}
-  contentPadding="0"
   dialogAriaLabel="Select dates"
   dialogStyles={
     Object {
@@ -938,7 +935,6 @@ exports[`DayPicker renders correctly with defaults 1`] = `
       "height": "100%",
       "label": "runway__dialog",
       "left": 0,
-      "overflow": "auto",
       "position": "fixed",
       "top": "100%",
       "transition": "top 300ms ease-in-out",

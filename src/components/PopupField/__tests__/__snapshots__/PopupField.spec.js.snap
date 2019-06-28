@@ -88,7 +88,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
         buttonLabel={null}
         closeAriaLabel="Close dialog"
         closeOnBlur={true}
-        contentPadding="15px"
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -100,7 +99,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
             "height": "100%",
             "label": "runway__dialog",
             "left": 0,
-            "overflow": "auto",
             "position": "fixed",
             "top": "100%",
             "transition": "top 300ms ease-in-out",
@@ -140,7 +138,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
             buttonLabel={null}
             closeAriaLabel="Close dialog"
             closeOnBlur={true}
-            contentPadding="15px"
             dialogStyles={
               Object {
                 "background": "white",
@@ -151,7 +148,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
                 "height": "100%",
                 "label": "runway__dialog",
                 "left": 0,
-                "overflow": "auto",
                 "position": "fixed",
                 "top": "100%",
                 "transition": "top 300ms ease-in-out",
@@ -319,7 +315,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
         buttonLabel={null}
         closeAriaLabel="Close dialog"
         closeOnBlur={true}
-        contentPadding="15px"
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -331,7 +326,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
             "height": "100%",
             "label": "runway__dialog",
             "left": 0,
-            "overflow": "auto",
             "position": "fixed",
             "top": "100%",
             "transition": "top 300ms ease-in-out",
@@ -371,7 +365,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
             buttonLabel={null}
             closeAriaLabel="Close dialog"
             closeOnBlur={true}
-            contentPadding="15px"
             dialogStyles={
               Object {
                 "background": "white",
@@ -382,7 +375,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
                 "height": "100%",
                 "label": "runway__dialog",
                 "left": 0,
-                "overflow": "auto",
                 "position": "fixed",
                 "top": "100%",
                 "transition": "top 300ms ease-in-out",
@@ -550,7 +542,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
         buttonLabel={null}
         closeAriaLabel="Close dialog"
         closeOnBlur={true}
-        contentPadding="15px"
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -562,7 +553,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
             "height": "100%",
             "label": "runway__dialog",
             "left": 0,
-            "overflow": "auto",
             "position": "fixed",
             "top": "100%",
             "transition": "top 300ms ease-in-out",
@@ -602,7 +592,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
             buttonLabel={null}
             closeAriaLabel="Close dialog"
             closeOnBlur={true}
-            contentPadding="15px"
             dialogStyles={
               Object {
                 "background": "white",
@@ -613,7 +602,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
                 "height": "100%",
                 "label": "runway__dialog",
                 "left": 0,
-                "overflow": "auto",
                 "position": "fixed",
                 "top": "100%",
                 "transition": "top 300ms ease-in-out",
@@ -755,8 +743,8 @@ exports[`PopupField renders correctly with props 1`] = `
 }
 
 <Component
-  HeaderIcon="mockIcon"
-  Icon="mockIcon"
+  HeaderIcon={[Function]}
+  Icon={[Function]}
   buttonLabel="Where"
   dialogDimensions={
     Object {
@@ -777,7 +765,7 @@ exports[`PopupField renders correctly with props 1`] = `
   headerLabel="Passengers"
   iconLabelButtonValue={
     Object {
-      "icon": "mockIcon",
+      "icon": [Function],
       "label": "12 Passengers",
     }
   }
@@ -789,8 +777,8 @@ exports[`PopupField renders correctly with props 1`] = `
     query="@media only screen and (min-width: 768px)"
   >
     <PopupField
-      HeaderIcon="mockIcon"
-      Icon="mockIcon"
+      HeaderIcon={[Function]}
+      Icon={[Function]}
       buttonLabel="Where"
       closeAriaLabel="Close dialog"
       dialogAriaLabel=""
@@ -813,7 +801,7 @@ exports[`PopupField renders correctly with props 1`] = `
       headerLabel="Passengers"
       iconLabelButtonValue={
         Object {
-          "icon": "mockIcon",
+          "icon": [Function],
           "label": "12 Passengers",
         }
       }
@@ -827,11 +815,10 @@ exports[`PopupField renders correctly with props 1`] = `
       smallButtonValue=""
     >
       <ButtonWithDialog
-        Icon="mockIcon"
+        Icon={[Function]}
         buttonLabel="Where"
         closeAriaLabel="Close dialog"
         closeOnBlur={true}
-        contentPadding="15px"
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -852,7 +839,6 @@ exports[`PopupField renders correctly with props 1`] = `
             "height": "100%",
             "label": "runway__dialog",
             "left": 0,
-            "overflow": "auto",
             "position": "fixed",
             "top": "100%",
             "transition": "top 300ms ease-in-out",
@@ -863,7 +849,7 @@ exports[`PopupField renders correctly with props 1`] = `
         hasDialogDimensions={true}
         iconLabelButtonValue={
           Object {
-            "icon": "mockIcon",
+            "icon": [Function],
             "label": "12 Passengers",
           }
         }
@@ -893,11 +879,10 @@ exports[`PopupField renders correctly with props 1`] = `
           className="emotion-5"
         >
           <Button
-            Icon="mockIcon"
+            Icon={[Function]}
             buttonLabel="Where"
             closeAriaLabel="Close dialog"
             closeOnBlur={true}
-            contentPadding="15px"
             dialogStyles={
               Object {
                 "@media only screen and (min-width: 768px)": Object {
@@ -917,7 +902,6 @@ exports[`PopupField renders correctly with props 1`] = `
                 "height": "100%",
                 "label": "runway__dialog",
                 "left": 0,
-                "overflow": "auto",
                 "position": "fixed",
                 "top": "100%",
                 "transition": "top 300ms ease-in-out",
@@ -928,7 +912,7 @@ exports[`PopupField renders correctly with props 1`] = `
             hasDialogDimensions={true}
             iconLabelButtonValue={
               Object {
-                "icon": "mockIcon",
+                "icon": [Function],
                 "label": "12 Passengers",
               }
             }
@@ -975,11 +959,15 @@ exports[`PopupField renders correctly with props 1`] = `
                 <span
                   className="emotion-2"
                 >
-                  <mockIcon
+                  <icon
                     className="emotion-1"
                     height="100%"
                     width="100%"
-                  />
+                  >
+                    <div>
+                      mockIcon
+                    </div>
+                  </icon>
                 </span>
               </div>
             </button>

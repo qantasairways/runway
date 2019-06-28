@@ -21,14 +21,14 @@ describe('PopupField', () => {
       <PopupFieldWrapped
         placeHolder="Where to?"
         buttonLabel="Where"
-        Icon="mockIcon"
-        HeaderIcon="mockIcon"
+        Icon={() => <div>mockIcon</div>}
+        HeaderIcon={() => <div>mockIcon</div>}
         headerLabel="Passengers"
         disableHeader={false}
         disableFooter={false}
         dialogDimensions={{ height: '522px', width: '375px' }}
         iconLabelButtonValue={{
-          icon: 'mockIcon',
+          icon: () => <div>mockIcon</div>,
           label: '12 Passengers'
         }}
         footerLabelsPrimary={['1 Adult, 1 Children', '4 Youths, 3 Infants']}
