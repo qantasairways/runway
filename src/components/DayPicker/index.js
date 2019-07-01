@@ -72,7 +72,13 @@ class DayPicker extends Component {
   }
 
   onOpen = () => {
-    const { today, startDate, disabledBefore } = this.state;
+    const { isDateRange } = this.props;
+    const {
+      today,
+      startDate,
+      disabledBefore,
+      isSelectingStartDate
+    } = this.state;
     const { date, month } = getInitialDateToFocus(
       today,
       startDate,
@@ -81,7 +87,11 @@ class DayPicker extends Component {
 
     this.scrollToMonth(month);
     focusDayCell(date);
-    this.setState({ showFooters: true });
+
+    this.setState({
+      showFooters: true,
+      isSelectingStartDate: !isDateRange ? true : isSelectingStartDate
+    });
   };
 
   onBeforeClose = () => {

@@ -131,5 +131,15 @@ describe('DayPicker', () => {
 
       expect(renderedDates).toMatchSnapshot();
     });
+
+    it('reset isSelectingStartDate to true when tripType is switched to Oneway (ie., isDateRange = false)', () => {
+      component = shallow(<DayPicker {...props} />);
+      component.instance().setState({ isSelectingStartDate: false });
+      expect(component.state('isSelectingStartDate')).toBeFalsy();
+
+      component.instance().onOpen();
+
+      expect(component.state('isSelectingStartDate')).toBeTruthy();
+    });
   });
 });
