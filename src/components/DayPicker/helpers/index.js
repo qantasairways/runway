@@ -70,7 +70,9 @@ export function getDateArray({
 }) {
   const arr = [];
   const initialDay =
-    monthIndex === 0 ? startOfWeek(month) : startOfMonth(month);
+    monthIndex === 0
+      ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
+      : startOfMonth(month);
   const endDay = endOfWeek(endOfMonth(month));
   const current = startOfWeek(initialDay, { weekStartsOn: firstDayOfWeek });
   const firstAvailableDay = disabledBefore || today;
@@ -122,7 +124,9 @@ export function getItemSize(index, months, firstDayOfWeek, isDesktopDevice) {
   const month = months[index];
   const numberOfWeeks = differenceInCalendarWeeks(
     endOfMonth(month),
-    index === 0 ? startOfWeek(month) : startOfMonth(month),
+    index === 0
+      ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
+      : startOfMonth(month),
     { weekStartsOn: firstDayOfWeek }
   );
 
