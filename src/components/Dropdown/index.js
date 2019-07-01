@@ -127,17 +127,12 @@ function generateMenu(menuProps) {
     width
   } = menuProps;
 
-  const lastIndex = items.length - 1;
-
   const list = items.map((item, index) => {
-    const isLast = lastIndex === index;
-
     const itemString = resolveItemAsString(itemToString, item);
 
     const props = {
       highlighted: highlightedIndex === index,
       selected: selectedItem.name === item.name,
-      isLast,
       key: `${itemString}-${index}`,
       item
     };
@@ -237,13 +232,13 @@ Render.propTypes = {
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
     getItemProps: PropTypes.func,
-    selectedItem: PropTypes.number,
+    selectedItem: PropTypes.shape(),
     highlightedIndex: PropTypes.number,
     openMenu: PropTypes.func,
     getInputProps: PropTypes.func,
     getLabelProps: PropTypes.func,
     getMenuProps: PropTypes.func,
-    selectHighlightedItem: PropTypes.number,
+    selectHighlightedItem: PropTypes.func,
     closeMenu: PropTypes.func,
     itemToString: PropTypes.func
   }).isRequired,
@@ -332,6 +327,7 @@ export default class Dropdown extends React.Component {
             setFocus,
             downshiftProps
           };
+
           this.collectSelectItem(renderProps.downshiftProps.selectItem);
           this.collectSelectedItem(renderProps.downshiftProps.selectedItem);
           return (

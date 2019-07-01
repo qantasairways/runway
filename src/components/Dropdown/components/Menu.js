@@ -24,6 +24,15 @@ export function menuStyles({ isOpen, width }) {
   });
 }
 
-export default function Menu(props) {
-  return <ul {...props} css={menuStyles({ ...props })} />;
+/* Re eslint-disbable:
+  due to the way we have designed the <Downshift> component.
+  This component should be a class.
+  See ticket CONSIDER-1054 for details.
+  */
+// eslint-disable-next-line react/prefer-stateless-function
+export default class Menu extends React.Component {
+  render() {
+    const { focus, isOpen, ...rest } = this.props;
+    return <ul {...rest} css={menuStyles({ isOpen, ...rest })} />;
+  }
 }

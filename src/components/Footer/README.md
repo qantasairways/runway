@@ -4,8 +4,9 @@
   bottomFooterDisclaimer=" + $344.90 ^"
   preFooterDisclaimer="^ taxes fees and carrier charges. Limited avaliability"
   actionText="Confirm"
+  onActionButtonClick={() => {}}
   endDateData={{
-    price: { value: '15, 127.00', isLowestPrice: false },
+    price: { value: 15127.0, isLowestPrice: false },
     currencySymbol: ' $'
   }}
 />
