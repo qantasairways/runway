@@ -1,3 +1,10 @@
+## [0.32.10](https://github.com/qantasairways/runway/compare/v0.32.9...v0.32.10) (2019-07-01)
+
+
+### Bug Fixes
+
+* **daypicker:** Fix date calculations to take into account varying startOfWeek. Fix mocking of global Date object in daypicker tests. ([#86](https://github.com/qantasairways/runway/issues/86)) ([a451895](https://github.com/qantasairways/runway/commit/a451895))
+
 ## [0.32.9](https://github.com/qantasairways/runway/compare/v0.32.8...v0.32.9) (2019-06-28)
 
 
