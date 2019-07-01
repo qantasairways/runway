@@ -24,6 +24,13 @@ export function menuStyles({ isOpen, width }) {
   });
 }
 
-export default function Menu(props) {
-  return <ul {...props} css={menuStyles({ ...props })} />;
+/* Re eslint-disbable:
+  the Downshift library is compatible with an older version of React, which only allows refs to be set on class components. As such, the <Menu/> component needs to be a class so the Downshift library is able to set a ref.
+  */
+// eslint-disable-next-line react/prefer-stateless-function
+export default class Menu extends React.Component {
+  render() {
+    const { focus, isOpen, ...rest } = this.props;
+    return <ul {...rest} css={menuStyles({ isOpen, ...rest })} />;
+  }
 }

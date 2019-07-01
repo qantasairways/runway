@@ -22,5 +22,6 @@ export function menuStyles({ highlighted }) {
 }
 
 export default function MenuItem(props) {
-  return <li {...props} css={menuStyles(props)} />;
+  const { highlighted, ...rest } = props;
+  return <li {...rest} css={menuStyles(rest)} />;
 }

@@ -77,7 +77,7 @@ export default class SelectOnKeyPressContainer extends React.Component {
 }
 
 SelectOnKeyPressContainer.propTypes = {
-  children: PropTypes.oneOf([PropTypes.element, PropTypes.node]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
     highlightedIndex: PropTypes.number,
