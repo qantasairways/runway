@@ -60,6 +60,15 @@ const props = {
 describe('DayPicker', () => {
   let component;
 
+  beforeAll(() => {
+    // Setup mock for global date object
+    const RealDate = Date;
+    global.Date = jest.fn(arg =>
+      arg ? new RealDate(arg) : new RealDate(today.toISOString())
+    );
+    Object.assign(Date, RealDate);
+  });
+
   it('renders correctly with defaults', () => {
     component = shallow(<DayPicker />);
 
