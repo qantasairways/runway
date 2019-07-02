@@ -232,7 +232,7 @@ Render.propTypes = {
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
     getItemProps: PropTypes.func,
-    selectedItem: PropTypes.shape(),
+    selectedItem: PropTypes.object,
     highlightedIndex: PropTypes.number,
     openMenu: PropTypes.func,
     getInputProps: PropTypes.func,
