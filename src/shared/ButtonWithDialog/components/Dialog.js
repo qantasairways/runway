@@ -89,7 +89,7 @@ Dialog.propTypes = {
   renderHeader: PropTypes.func.isRequired,
   renderFooter: PropTypes.func.isRequired,
   shouldLockBgScroll: PropTypes.bool,
-  scrollTarget: PropTypes.node
+  scrollTarget: PropTypes.instanceOf(Element)
 };
 
 Dialog.defaultProps = {
