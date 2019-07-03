@@ -6,7 +6,7 @@ import Downshift from 'downshift';
 import PropTypes from 'prop-types';
 import { findAll } from 'highlight-words-core';
 
-import { colours } from '../../theme/airways';
+import { colours, mq } from '../../theme/airways';
 import noop from '../../utils/noop';
 
 function typeaheadStyles() {
@@ -49,6 +49,29 @@ function labelStyles() {
     textTransform: 'none'
   };
 }
+
+// TODO:
+//  change the height to be 100vh. This is just temprary.
+
+const menuWrapStyles = {
+  maxHeight: 'none',
+  height: 'calc(100vh - 65px - 30px - 81.61px)',
+  overflowX: 'hidden',
+  overflowY: 'scroll',
+  [mq.medium]: {
+    maxHeight: '285px',
+    height: '100%'
+  }
+};
+
+const menuWrapStylesWithHeight = {
+  height: '100vh',
+  overflowX: 'hidden',
+  overflowY: 'scroll',
+  [mq.medium]: {
+    height: '285px'
+  }
+};
 
 function menuStyles() {
   return {
@@ -142,41 +165,43 @@ class Typeahead extends Component {
       : this.filterItems(items, inputValue);
 
     return (
-      <ul {...getMenuProps()} css={menuStyles()}>
-        {filteredItems.map((item, index) => {
-          const isHighlighted = highlightedIndex === index;
-          const isSelected = selectedItem === item;
+      <div css={menuWrapStyles}>
+        <ul {...getMenuProps()} css={menuStyles()}>
+          {filteredItems.map((item, index) => {
+            const isHighlighted = highlightedIndex === index;
+            const isSelected = selectedItem === item;
 
-          const text = itemToString(item);
-          const chunks = findAll({
-            searchWords: [inputValue],
-            textToHighlight: text
-          });
-          const highlightedItem = chunks.map(({ start, end, highlight }) => {
-            const textChunk = text.substr(start, end - start);
-            return highlight ? (
-              <strong css={highlightedListItemStyles()}>{textChunk}</strong>
-            ) : (
-              textChunk
+            const text = itemToString(item);
+            const chunks = findAll({
+              searchWords: [inputValue],
+              textToHighlight: text
+            });
+            const highlightedItem = chunks.map(({ start, end, highlight }) => {
+              const textChunk = text.substr(start, end - start);
+              return highlight ? (
+                <strong css={highlightedListItemStyles()}>{textChunk}</strong>
+              ) : (
+                textChunk
+              );
+            });
+            const badge = badgeToString(item);
+
+            return (
+              <li
+                key={itemToString(item)}
+                {...getItemProps({
+                  index,
+                  item
+                })}
+                css={listItemStyles(isHighlighted, isSelected)}
+              >
+                <span>{highlightedItem}</span>
+                {badge && <span css={listItemBadgeStyles()}>{badge}</span>}
+              </li>
             );
-          });
-          const badge = badgeToString(item);
-
-          return (
-            <li
-              key={itemToString(item)}
-              {...getItemProps({
-                index,
-                item
-              })}
-              css={listItemStyles(isHighlighted, isSelected)}
-            >
-              <span>{highlightedItem}</span>
-              {badge && <span css={listItemBadgeStyles()}>{badge}</span>}
-            </li>
-          );
-        })}
-      </ul>
+          })}
+        </ul>
+      </div>
     );
   };
 
@@ -267,17 +292,19 @@ class Typeahead extends Component {
                   })}
                 />
               </div>
-              {isOpen && !isFetchingList && inputValue.length >= minChars
-                ? this.renderItems(
-                    getMenuProps,
-                    getItemProps,
-                    highlightedIndex,
-                    selectedItem,
-                    inputValue
-                  )
-                : null}
               {isFetchingList && <span>Loading...</span>}
               {message && !valid && <div>{message}</div>}
+              {isOpen && !isFetchingList && inputValue.length >= minChars ? (
+                this.renderItems(
+                  getMenuProps,
+                  getItemProps,
+                  highlightedIndex,
+                  selectedItem,
+                  inputValue
+                )
+              ) : (
+                <div css={menuWrapStylesWithHeight} />
+              )}
             </div>
           );
         }}
