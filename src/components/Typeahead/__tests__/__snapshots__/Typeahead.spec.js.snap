@@ -1,73 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
-<ul
-  className="css-evdl91"
+<div
+  className="css-f9n8pv"
 >
-  <li
-    className="css-qrv7uy"
+  <ul
+    className="css-evdl91"
   >
-    <span>
-      o
-      <strong
-        className="css-35ezg3"
-      >
-        ra
-      </strong>
-      nge
-    </span>
-  </li>
-  <li
-    className="css-qrv7uy"
-  >
-    <span>
-      g
-      <strong
-        className="css-35ezg3"
-      >
-        ra
-      </strong>
-      pe
-    </span>
-  </li>
-</ul>
+    <li
+      className="css-qrv7uy"
+    >
+      <span>
+        o
+        <strong
+          className="css-35ezg3"
+        >
+          ra
+        </strong>
+        nge
+      </span>
+    </li>
+    <li
+      className="css-qrv7uy"
+    >
+      <span>
+        g
+        <strong
+          className="css-35ezg3"
+        >
+          ra
+        </strong>
+        pe
+      </span>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
-<ul
-  className="css-evdl91"
+<div
+  className="css-f9n8pv"
 >
-  <li
-    className="css-qrv7uy"
+  <ul
+    className="css-evdl91"
   >
-    <span>
-      o
-      <strong
-        className="css-35ezg3"
-      >
-        ra
-      </strong>
-      nge
-    </span>
-  </li>
-  <li
-    className="css-qrv7uy"
-  >
-    <span>
-      g
-      <strong
-        className="css-35ezg3"
-      >
-        ra
-      </strong>
-      pe
-    </span>
-  </li>
-</ul>
+    <li
+      className="css-qrv7uy"
+    >
+      <span>
+        o
+        <strong
+          className="css-35ezg3"
+        >
+          ra
+        </strong>
+        nge
+      </span>
+    </li>
+    <li
+      className="css-qrv7uy"
+    >
+      <span>
+        g
+        <strong
+          className="css-35ezg3"
+        >
+          ra
+        </strong>
+        pe
+      </span>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`Typeahead renders correctly when fetching 1`] = `
-.emotion-2 {
+.emotion-3 {
   line-height: 1.53;
 }
 
@@ -90,6 +98,18 @@ exports[`Typeahead renders correctly when fetching 1`] = `
 
 .emotion-0:focus {
   outline-color: #8de2e0;
+}
+
+.emotion-2 {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 285px;
+  }
 }
 
 <Typeahead
@@ -167,7 +187,7 @@ exports[`Typeahead renders correctly when fetching 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-3-label"
       aria-owns={null}
-      className="emotion-2"
+      className="emotion-3"
       role="combobox"
     >
       <div
@@ -194,13 +214,16 @@ exports[`Typeahead renders correctly when fetching 1`] = `
       <span>
         Loading...
       </span>
+      <div
+        className="emotion-2"
+      />
     </div>
   </Downshift>
 </Typeahead>
 `;
 
 exports[`Typeahead renders correctly with defaults 1`] = `
-.emotion-2 {
+.emotion-3 {
   line-height: 1.53;
 }
 
@@ -223,6 +246,18 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 
 .emotion-0:focus {
   outline-color: #8de2e0;
+}
+
+.emotion-2 {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 285px;
+  }
 }
 
 <Typeahead
@@ -292,7 +327,7 @@ exports[`Typeahead renders correctly with defaults 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-0-label"
       aria-owns={null}
-      className="emotion-2"
+      className="emotion-3"
       role="combobox"
     >
       <div
@@ -316,13 +351,16 @@ exports[`Typeahead renders correctly with defaults 1`] = `
           value=""
         />
       </div>
+      <div
+        className="emotion-2"
+      />
     </div>
   </Downshift>
 </Typeahead>
 `;
 
 exports[`Typeahead renders correctly with error state 1`] = `
-.emotion-2 {
+.emotion-3 {
   line-height: 1.53;
 }
 
@@ -345,6 +383,18 @@ exports[`Typeahead renders correctly with error state 1`] = `
 
 .emotion-0:focus {
   outline-color: #8de2e0;
+}
+
+.emotion-2 {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 285px;
+  }
 }
 
 <Typeahead
@@ -422,7 +472,7 @@ exports[`Typeahead renders correctly with error state 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-2-label"
       aria-owns={null}
-      className="emotion-2"
+      className="emotion-3"
       role="combobox"
     >
       <div
@@ -449,13 +499,16 @@ exports[`Typeahead renders correctly with error state 1`] = `
       <div>
         Something went wrong
       </div>
+      <div
+        className="emotion-2"
+      />
     </div>
   </Downshift>
 </Typeahead>
 `;
 
 exports[`Typeahead renders correctly with items 1`] = `
-.emotion-2 {
+.emotion-3 {
   line-height: 1.53;
 }
 
@@ -478,6 +531,18 @@ exports[`Typeahead renders correctly with items 1`] = `
 
 .emotion-0:focus {
   outline-color: #8de2e0;
+}
+
+.emotion-2 {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-2 {
+    height: 285px;
+  }
 }
 
 <Typeahead
@@ -555,7 +620,7 @@ exports[`Typeahead renders correctly with items 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-1-label"
       aria-owns={null}
-      className="emotion-2"
+      className="emotion-3"
       role="combobox"
     >
       <div
@@ -579,6 +644,9 @@ exports[`Typeahead renders correctly with items 1`] = `
           value=""
         />
       </div>
+      <div
+        className="emotion-2"
+      />
     </div>
   </Downshift>
 </Typeahead>
