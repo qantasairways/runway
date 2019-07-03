@@ -1,3 +1,10 @@
+## [0.32.11](https://github.com/qantasairways/runway/compare/v0.32.10...v0.32.11) (2019-07-03)
+
+
+### Bug Fixes
+
+* **daypicker:** Fix scrollTarget proptype ([#88](https://github.com/qantasairways/runway/issues/88)) ([ca85870](https://github.com/qantasairways/runway/commit/ca85870))
+
 ## [0.32.10](https://github.com/qantasairways/runway/compare/v0.32.9...v0.32.10) (2019-07-01)
 
 
