@@ -93,9 +93,9 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-visualizer": "^0.9.2",
-    "semantic-release": "^15.12.4",
+    "semantic-release": "^15.13.18",
     "webpack": "^4.29.5",
-    "webpack-blocks": "^2.0.0-rc"
+    "webpack-blocks": "^2.0.1"
   },
   "peerDependencies": {
     "emotion": "^9.2.12",
