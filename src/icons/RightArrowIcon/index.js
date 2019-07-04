@@ -36,13 +36,14 @@ RightArrowIcon.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   className: PropTypes.string,
-  color: PropTypes.string.isRequired
+  color: PropTypes.string
 };
 
 RightArrowIcon.defaultProps = {
   height: '24',
   width: '24',
-  className: ''
+  className: '',
+  color: null
 };
 
 export default RightArrowIcon;
