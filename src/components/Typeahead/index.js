@@ -52,16 +52,17 @@ function labelStyles() {
 
 const menuWrapStyles = {
   maxHeight: 'none',
-  height: '100%',
+  height: 'calc(100vh - 65px - 30px - 81.61px)',
   overflowX: 'hidden',
   overflowY: 'scroll',
   [mq.medium]: {
-    maxHeight: '285px'
+    maxHeight: '285px',
+    height: '100%'
   }
 };
 
 const menuWrapStylesWithHeight = {
-  height: '100%',
+  height: '100vh',
   overflowX: 'hidden',
   overflowY: 'scroll',
   [mq.medium]: {

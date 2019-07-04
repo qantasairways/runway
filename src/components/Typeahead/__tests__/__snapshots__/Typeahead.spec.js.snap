@@ -2,7 +2,7 @@
 
 exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
 <div
-  className="css-f9n8pv"
+  className="css-1cq0sna"
 >
   <ul
     className="css-evdl91"
@@ -39,7 +39,7 @@ exports[`Typeahead renderItems() returns the correct jsx for custom structure of
 
 exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
 <div
-  className="css-f9n8pv"
+  className="css-1cq0sna"
 >
   <ul
     className="css-evdl91"
@@ -101,7 +101,7 @@ exports[`Typeahead renders correctly when fetching 1`] = `
 }
 
 .emotion-2 {
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -249,7 +249,7 @@ exports[`Typeahead renders correctly with defaults 1`] = `
 }
 
 .emotion-2 {
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -386,7 +386,7 @@ exports[`Typeahead renders correctly with error state 1`] = `
 }
 
 .emotion-2 {
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -534,7 +534,7 @@ exports[`Typeahead renders correctly with items 1`] = `
 }
 
 .emotion-2 {
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
