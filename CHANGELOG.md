@@ -1,3 +1,10 @@
+## [0.32.12](https://github.com/qantasairways/runway/compare/v0.32.11...v0.32.12) (2019-07-04)
+
+
+### Bug Fixes
+
+* **daypicker, dropdown, footer, rightarrowicon:** Fixed console errors and prop type validations for several components ([#87](https://github.com/qantasairways/runway/issues/87)) ([84ea12c](https://github.com/qantasairways/runway/commit/84ea12c))
+
 ## [0.32.11](https://github.com/qantasairways/runway/compare/v0.32.10...v0.32.11) (2019-07-03)
 
 
