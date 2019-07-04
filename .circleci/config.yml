@@ -47,6 +47,9 @@ jobs:
       - run:
           name: Run linting
           command: npm run lint
+      - run:
+          name: Run commit linting
+          command: npm run commitlint-circle
   test:
     <<: *defaults
     steps:
