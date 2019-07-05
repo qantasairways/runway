@@ -1,3 +1,10 @@
+# [0.33.0](https://github.com/qantasairways/runway/compare/v0.32.12...v0.33.0) (2019-07-05)
+
+
+### Features
+
+* **commitlint:** added commitlint with angular configuration ([#93](https://github.com/qantasairways/runway/issues/93)) ([d38dac0](https://github.com/qantasairways/runway/commit/d38dac0))
+
 ## [0.32.12](https://github.com/qantasairways/runway/compare/v0.32.11...v0.32.12) (2019-07-04)
 
 
