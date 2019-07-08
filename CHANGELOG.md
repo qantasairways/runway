@@ -1,3 +1,10 @@
+# [0.34.0](https://github.com/qantasairways/runway/compare/v0.33.0...v0.34.0) (2019-07-08)
+
+
+### Features
+
+* **popupfield, daypicker:** Add css trickery to force safari header and footer to show while the popup is open based on a prop ([#90](https://github.com/qantasairways/runway/issues/90)) ([9169cd3](https://github.com/qantasairways/runway/commit/9169cd3))
+
 # [0.33.0](https://github.com/qantasairways/runway/compare/v0.32.12...v0.33.0) (2019-07-05)
 
 
