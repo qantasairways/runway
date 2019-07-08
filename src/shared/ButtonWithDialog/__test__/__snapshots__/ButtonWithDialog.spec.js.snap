@@ -26,6 +26,7 @@ exports[`ButtonWithDialog renders correctly with defaults 1`] = `
     renderButtonValue={[Function]}
     renderFooter={[Function]}
     setButtonRef={[Function]}
+    shouldAddScrollLockClass={false}
     transitionStyles={
       Object {
         "entered": Object {},
@@ -68,6 +69,7 @@ exports[`ButtonWithDialog renders correctly with one child element 1`] = `
     renderButtonValue={[Function]}
     renderFooter={[Function]}
     setButtonRef={[Function]}
+    shouldAddScrollLockClass={false}
     transitionStyles={
       Object {
         "entered": Object {},
@@ -145,6 +147,7 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
   renderButtonValue={[Function]}
   renderFooter={[Function]}
   renderHeader={[Function]}
+  shouldAddScrollLockClass={false}
   transitionStyles={
     Object {
       "entered": Object {},
@@ -174,6 +177,7 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
       renderButtonValue={[Function]}
       renderFooter={[Function]}
       setButtonRef={[Function]}
+      shouldAddScrollLockClass={false}
       transitionStyles={
         Object {
           "entered": Object {},
@@ -251,6 +255,7 @@ exports[`ButtonWithDialog renders correctly with props 1`] = `
     renderButtonValue={[Function]}
     renderFooter={[Function]}
     setButtonRef={[Function]}
+    shouldAddScrollLockClass={false}
     transitionStyles={
       Object {
         "entered": Object {},

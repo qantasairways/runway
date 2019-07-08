@@ -900,6 +900,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
   renderButtonValue={[Function]}
   renderFooter={[Function]}
   renderHeader={[Function]}
+  shouldAddScrollLockClass={false}
   transitionStyles={
     Object {
       "entered": Object {
@@ -951,6 +952,7 @@ exports[`DayPicker renders correctly with defaults 1`] = `
   renderButtonValue={[Function]}
   renderFooter={[Function]}
   renderHeader={[Function]}
+  shouldAddScrollLockClass={false}
   transitionStyles={
     Object {
       "entered": Object {

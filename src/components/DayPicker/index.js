@@ -305,7 +305,8 @@ class DayPicker extends Component {
       preFooterInfo,
       bottomFootersummaryLabel,
       hasPrice,
-      endDateData
+      endDateData,
+      shouldAddScrollLockClass
     } = this.props;
 
     const { months, showFooters } = this.state;
@@ -342,6 +343,7 @@ class DayPicker extends Component {
         renderButtonValue={this.renderButtonDates}
         dialogStyles={dialogStylesFullScreen}
         transitionStyles={transitionStylesSlideUp}
+        shouldAddScrollLockClass={shouldAddScrollLockClass}
       >
         {({ closeDialog, setScrollTargetRef }) => (
           <div style={{ height: '100%' }}>
@@ -488,7 +490,9 @@ DayPicker.propTypes = {
     }),
     currencyCode: '',
     currencySymbol: ''
-  })
+  }),
+  /* Additional scroll lock class for forcing safari toolbars to display */
+  shouldAddScrollLockClass: PropTypes.bool
 };
 
 DayPicker.defaultProps = {
@@ -536,7 +540,8 @@ DayPicker.defaultProps = {
   preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
   bottomFootersummaryLabel: 'From ',
   hasPrice: false,
-  endDateData: null
+  endDateData: null,
+  shouldAddScrollLockClass: false
 };
 
 export default DayPicker;
