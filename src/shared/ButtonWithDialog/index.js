@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
+import { css } from 'emotion';
 
 import noop from '../../utils/noop';
 import { mq, fontFamily } from '../../theme/airways';
@@ -54,6 +55,12 @@ export const dialogStylesFullScreen = {
 class ButtonWithDialog extends Component {
   scrollTarget = null;
 
+  scrollLockClass = css({
+    overflow: 'hidden',
+    height: '100%',
+    pageScrollPos: 0
+  });
+
   state = {
     open: false
   };
@@ -61,6 +68,19 @@ class ButtonWithDialog extends Component {
   onEntered = () => {
     this.props.onOpen();
     addQComZIndex('initial');
+
+    this.setState({
+      pageScrollPos: window.scrollY
+    });
+
+    if (this.props.shouldAddScrollLockClass) {
+      document
+        .getElementsByTagName('html')[0]
+        .classList.add(this.scrollLockClass);
+      document
+        .getElementsByTagName('body')[0]
+        .classList.add(this.scrollLockClass);
+    }
 
     if (this.props.closeOnBlur) {
       document.addEventListener('click', this.handleClickOutside);
@@ -74,6 +94,15 @@ class ButtonWithDialog extends Component {
   };
 
   onExit = () => {
+    document
+      .getElementsByTagName('html')[0]
+      .classList.remove(this.scrollLockClass);
+    document
+      .getElementsByTagName('body')[0]
+      .classList.remove(this.scrollLockClass);
+
+    window.scrollTo(0, this.state.pageScrollPos);
+
     this.props.onBeforeClose();
   };
 
@@ -239,7 +268,8 @@ ButtonWithDialog.propTypes = {
     entered: PropTypes.shape.isRequired,
     exiting: PropTypes.shape.isRequired
   }).isRequired,
-  hasDialogDimensions: PropTypes.bool
+  hasDialogDimensions: PropTypes.bool,
+  shouldAddScrollLockClass: PropTypes.bool
 };
 
 ButtonWithDialog.defaultProps = {
@@ -253,7 +283,8 @@ ButtonWithDialog.defaultProps = {
   renderHeader: noop,
   renderFooter: noop,
   dialogAriaLabel: '',
-  hasDialogDimensions: false
+  hasDialogDimensions: false,
+  shouldAddScrollLockClass: false
 };
 
 export { ButtonContent };

@@ -13,6 +13,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { withMediaQueryDetector } from '../MediaQueryDetector';
 
+/* TODO: 
+  - Update dialogs to use portals and remove fixed positioning
+  - Separate out the dialogs into separate components.
+    - This will remove the need for defaultScrollingContainer and setScrollTargetRef
+      which are required at the moment because of the body-scroll-lock library
+*/
+
 export class PopupField extends Component {
   renderButtonValue = () => {
     const { largeButtonValue, smallButtonValue } = this.props;
@@ -83,7 +90,8 @@ export class PopupField extends Component {
           border: 'solid 1px #dadada',
           boxShadow:
             '0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.08)',
-          borderRadius: '2px'
+          borderRadius: '2px',
+          transition: 'none'
         }
       })
     };
@@ -101,8 +109,10 @@ export class PopupField extends Component {
       Icon,
       iconLabelButtonValue,
       disableFooter,
-      defaultScrolling
+      defaultScrollingContainer,
+      shouldAddScrollLockClass
     } = this.props;
+
     return (
       <ButtonWithDialog
         onBlur={onBlur}
@@ -119,6 +129,7 @@ export class PopupField extends Component {
         dialogStyles={this.getDialogStyles()}
         hasDialogDimensions={this.hasDialogDimensions()}
         transitionStyles={transitionStylesSlideUp}
+        shouldAddScrollLockClass={shouldAddScrollLockClass}
       >
         {({ closeDialog, setFocusElementRef, setScrollTargetRef }) => {
           const content =
@@ -132,10 +143,10 @@ export class PopupField extends Component {
 
           return (
             <div
-              ref={defaultScrolling ? setScrollTargetRef : null}
+              ref={defaultScrollingContainer ? setScrollTargetRef : null}
               css={{
                 padding: layout.gutter,
-                'overflow-y': defaultScrolling ? 'auto' : 'hidden',
+                'overflow-y': defaultScrollingContainer ? 'auto' : 'hidden',
                 '-webkit-overflow-scrolling': 'touch',
                 flex: 1
               }}
@@ -198,7 +209,9 @@ PopupField.propTypes = {
   /* Custom content that renders just above footer */
   preFooter: PropTypes.node,
   /* Use the default dialog body container as the scrollable element */
-  defaultScrolling: PropTypes.bool
+  defaultScrollingContainer: PropTypes.bool,
+  /* Additional scroll lock class for forcing safari toolbars to display */
+  shouldAddScrollLockClass: PropTypes.bool
 };
 
 PopupField.defaultProps = {
@@ -222,7 +235,8 @@ PopupField.defaultProps = {
   footerActionText: null,
   onFooterAction: () => {},
   preFooter: null,
-  defaultScrolling: true
+  defaultScrollingContainer: true,
+  shouldAddScrollLockClass: false
 };
 
 export default withMediaQueryDetector(PopupField, mq.medium);
