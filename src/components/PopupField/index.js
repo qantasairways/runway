@@ -100,7 +100,8 @@ export class PopupField extends Component {
       placeHolder,
       Icon,
       iconLabelButtonValue,
-      disableFooter
+      disableFooter,
+      defaultScrolling
     } = this.props;
     return (
       <ButtonWithDialog
@@ -124,16 +125,17 @@ export class PopupField extends Component {
             typeof children === 'function'
               ? children({
                   closeDialog,
-                  setFocusElementRef
+                  setFocusElementRef,
+                  setScrollTargetRef
                 })
               : children;
 
           return (
             <div
-              ref={setScrollTargetRef}
+              ref={defaultScrolling ? setScrollTargetRef : null}
               css={{
                 padding: layout.gutter,
-                'overflow-y': 'auto',
+                'overflow-y': defaultScrolling ? 'auto' : 'hidden',
                 '-webkit-overflow-scrolling': 'touch',
                 flex: 1
               }}
@@ -194,7 +196,9 @@ PopupField.propTypes = {
   /* Triggered on clicking footerAction button */
   onFooterAction: PropTypes.func,
   /* Custom content that renders just above footer */
-  preFooter: PropTypes.node
+  preFooter: PropTypes.node,
+  /* Use the default dialog body container as the scrollable element */
+  defaultScrolling: PropTypes.bool
 };
 
 PopupField.defaultProps = {
@@ -217,7 +221,8 @@ PopupField.defaultProps = {
   footerLabelPrimaryAriaTitle: null,
   footerActionText: null,
   onFooterAction: () => {},
-  preFooter: null
+  preFooter: null,
+  defaultScrolling: true
 };
 
 export default withMediaQueryDetector(PopupField, mq.medium);
