@@ -1,3 +1,10 @@
+## [0.34.1](https://github.com/qantasairways/runway/compare/v0.34.0...v0.34.1) (2019-07-09)
+
+
+### Bug Fixes
+
+* **popupfield, numericinput:** Fix scrolling behaviour on ios of PopupField. Removed unneeded props from NumericInput ([#97](https://github.com/qantasairways/runway/issues/97)) ([6e037c3](https://github.com/qantasairways/runway/commit/6e037c3))
+
 # [0.34.0](https://github.com/qantasairways/runway/compare/v0.33.0...v0.34.0) (2019-07-08)
 
 
