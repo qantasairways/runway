@@ -1,3 +1,10 @@
+## [0.34.2](https://github.com/qantasairways/runway/compare/v0.34.1...v0.34.2) (2019-07-09)
+
+
+### Bug Fixes
+
+* **typeahead:** add buttom padding for the list to fix the scroll issue ([#98](https://github.com/qantasairways/runway/issues/98)) ([50154bb](https://github.com/qantasairways/runway/commit/50154bb))
+
 ## [0.34.1](https://github.com/qantasairways/runway/compare/v0.34.0...v0.34.1) (2019-07-09)
 
 
