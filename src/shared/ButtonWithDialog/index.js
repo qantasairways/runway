@@ -146,7 +146,9 @@ class ButtonWithDialog extends Component {
   };
 
   setScrollTargetRef = el => {
-    this.scrollTarget = el;
+    if (el) {
+      this.scrollTarget = el;
+    }
   };
 
   renderHeader = () =>

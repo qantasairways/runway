@@ -286,9 +286,10 @@ exports[`NumericInput renders correctly with props 1`] = `
             width="30px"
           />
         }
-        focusOnUpDown={false}
+        focusOnUpDown={true}
         isInvalid={true}
         isInvalidMessage="mock message"
+        isTabletAndUp={false}
         min={-9007199254740991}
         onBlur={[Function]}
         onChange={[Function]}
