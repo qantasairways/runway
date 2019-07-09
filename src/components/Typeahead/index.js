@@ -9,7 +9,7 @@ import { findAll } from 'highlight-words-core';
 import { colours, mq } from '../../theme/airways';
 import noop from '../../utils/noop';
 
-// TODO: Add props for listHeight and loadingText
+// TODO: Add props for listHeight and loadingText and bottom padding
 
 function typeaheadStyles() {
   return {
@@ -66,12 +66,18 @@ const menuWrapStyles = {
   }
 };
 
+// TODO: find alternative solution to padding. Remove the padding bottom so its not there forever not even as a prop
+
 function menuStyles() {
   return {
     display: 'flex',
     flexDirection: 'column',
     padding: 0,
-    margin: '10px 0'
+    margin: '10px 0',
+    paddingBottom: '303px',
+    [mq.medium]: {
+      padding: 0
+    }
   };
 }
 
