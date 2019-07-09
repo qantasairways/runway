@@ -2,7 +2,7 @@
 
 exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
 <ul
-  className="css-evdl91"
+  className="css-1cwu89w"
 >
   <li
     className="css-qrv7uy"
@@ -35,7 +35,7 @@ exports[`Typeahead renderItems() returns the correct jsx for custom structure of
 
 exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
 <ul
-  className="css-evdl91"
+  className="css-1cwu89w"
 >
   <li
     className="css-qrv7uy"
