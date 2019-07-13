@@ -17,14 +17,17 @@
 
 ---
 
-<p align = "center">💅 Runway, Qantas's living breathing style guide. Powered by React and Emotion to allow extendable,
-flexible, accessible components.</p>
+<p align = "center">💅 Runway, Qantas's living, breathing style guide. Powered by React and Emotion built to be extendable,
+flexible and accessible components.</p>
 
 ## Table of Contents
 
 - [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
 
+## Demo <a name="demo"></a>
 ## Installation <a name = "installation"></a>
 
 This module is distributed via [npm][npm] which is bundled with [node][node] and
@@ -37,3 +40,18 @@ npm install --save @qantasairways/runway
 > This package depends on `emotion`, `react`, `prop-types`. The project supports aliasing `preact`, which
 > is how we use runway at Qantas.
 
+## Usage <a name="usage"></a>
+
+> [Try it out in the browser](https://codesandbox.io/s/09rw5)
+
+```jsx
+import React from "react";
+import { render } from "react-dom";
+import { Button } from "@qantasairways/runway";
+
+render(<Button label="Click me" />, document.getElementById("root"));<Paste>
+```
+
+## License <a name="license"></a>
+
+MIT
