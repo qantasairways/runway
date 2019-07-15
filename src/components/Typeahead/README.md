@@ -2,57 +2,22 @@
 <Typeahead
   label="From"
   items={[
-    {
-      text: 'Sydney',
-      badge: 'SYD'
-    },
-    {
-      text: 'Melbourne',
-      badge: 'MEL'
-    },
-    {
-      text: 'Brisbane',
-      badge: 'BNE'
-    },
-    {
-      text: 'Perth',
-      badge: 'PER'
-    },
-    {
-      text: 'Darwin',
-      badge: 'DRW'
-    },
-    {
-      text: 'Gold Coast',
-      badge: 'OOL'
-    },
-    {
-      text: 'Adelaide',
-      badge: 'ADL'
-    },
-    {
-      text: 'Los Angeles, United States',
-      badge: 'LAX'
-    },
-    {
-      text: 'Abu Dhabi, United Arab Emirates',
-      badge: 'AUH'
-    },
-    {
-      text: 'Toowoomba (Brisbane West Wellcamp), Australia',
-      badge: 'WTB'
-    },
-    {
-      text: 'London (Heathrow), United Kingdom',
-      badge: 'LHR'
-    },
-    {
-      text: 'New York (Newark), United States',
-      badge: 'EWR'
-    }
+    { text: 'Sydney, Australia', badge: 'SYD' },
+    { text: 'Melbourne, Australia', badge: 'MEL' },
+    { text: 'Brisbane, Australia', badge: 'BNE' },
+    { text: 'Perth, Australia', badge: 'PER' },
+    { text: 'Darwin, Australia', badge: 'DRW' },
+    { text: 'Gold Coast, Australia', badge: 'OOL' },
+    { text: 'Adelaide, Australia', badge: 'ADL' },
+    { text: 'Los Angeles, United States', badge: 'LAX' },
+    { text: 'Abu Dhabi, United Arab Emirates', badge: 'AUH' },
+    { text: 'Toowoomba (Brisbane West Wellcamp), Australia', badge: 'WTB' },
+    { text: 'London (Heathrow), United Kingdom', badge: 'LHR' },
+    { text: 'New York (Newark), United States', badge: 'EWR' }
   ]}
   itemToString={item => (item ? String(item.text) : '')}
   badgeToString={item => (item ? String(item.badge) : '')}
+  menuHeight="auto"
   filterItems={(items, inputValue) => {
     return items.filter(item => {
       const regex = new RegExp(inputValue, 'gi');

@@ -111,6 +111,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 <Fragment>
   <label
     className="emotion-1"
+    htmlFor={null}
   >
     <div
       className="emotion-0"
@@ -125,7 +126,9 @@ exports[`NumericInput renders correctly with defaults 1`] = `
           />
         }
         focusOnUpDown={true}
-        min={-9007199254740991}
+        id={null}
+        max={null}
+        min={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -145,6 +148,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
           />
         }
         useTouch={false}
+        value={null}
       />
     </div>
   </label>
@@ -273,6 +277,7 @@ exports[`NumericInput renders correctly with props 1`] = `
 <Fragment>
   <label
     className="emotion-1"
+    htmlFor={null}
   >
     <div
       className="emotion-0"
@@ -287,10 +292,12 @@ exports[`NumericInput renders correctly with props 1`] = `
           />
         }
         focusOnUpDown={true}
+        id={null}
         isInvalid={true}
         isInvalidMessage="mock message"
         isTabletAndUp={false}
-        min={-9007199254740991}
+        max={null}
+        min={null}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -310,6 +317,7 @@ exports[`NumericInput renders correctly with props 1`] = `
           />
         }
         useTouch={false}
+        value={null}
       />
     </div>
   </label>

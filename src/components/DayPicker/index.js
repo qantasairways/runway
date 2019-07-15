@@ -453,7 +453,7 @@ DayPicker.propTypes = {
   closeAriaLabel: PropTypes.string,
   /** Aria label for the dialog once opened */
   dialogAriaLabel: PropTypes.string,
-  /** Icon to display in header and in the label of highlighted days */
+  /** Function to render an icon to display in header and in the label of highlighted days. Must return an icon. */
   Icon: PropTypes.func,
   /** Custom transform function that will be applied over dates data arrays.
    * If provided, must return an array, which will be used to replace the existing
@@ -473,13 +473,13 @@ DayPicker.propTypes = {
   }),
   /** Label for button */
   footerButtonLabel: PropTypes.string,
-  /** Flag preFooter info in case price included. In one way it's up when land to the calenadar and in return needs to select the start date  */
+  /** Text to display in the preFooter component */
   preFooterInfo: PropTypes.string,
-  /** In one way it's up when the date has been selected and in return when end date has been selected */
+  /** Text to display in the footer component */
   bottomFootersummaryLabel: PropTypes.string,
-  /** Falg showing the price whether added price to the calnendar */
+  /** Flag showing whether any date has a price associated */
   hasPrice: PropTypes.bool,
-  /** Data get from the date to show on the button footer label for price and points */
+  /** Pricing information to display in the footer for the selected date */
   endDateData: PropTypes.shape({
     price: PropTypes.shape({
       value: PropTypes.number,

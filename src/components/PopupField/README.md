@@ -1,5 +1,3 @@
-## PopupField
-
 ```js
 <div style={{ display: 'flex', flexDirection: 'row' }}>
   <div style={{ flex: 1 }}>

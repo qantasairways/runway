@@ -48,8 +48,11 @@ function ValidationMessages({ validationMessage, messageType, hideArrow }) {
 }
 
 ValidationMessages.propTypes = {
+  /** Text to display */
   validationMessage: PropTypes.string,
-  messageType: PropTypes.string,
+  /** Type of message to display corresponding styling */
+  messageType: PropTypes.oneOf([MESSAGE_TYPE.WARNING, MESSAGE_TYPE.INFO]),
+  /** Flag to hide the top arrow */
   hideArrow: PropTypes.bool
 };
 

@@ -156,8 +156,14 @@ const ExternalLink = ({ renderIcon, url, text }) => (
 );
 
 ExternalLink.propTypes = {
+  /**
+   * Render prop for the link's icon. Must return an icon.
+   *
+   * @param {String} className This string must be set as the className of the returned icon */
   renderIcon: PropTypes.func.isRequired,
+  /** URL for the link */
   url: PropTypes.string.isRequired,
+  /** Label text for the link */
   text: PropTypes.string.isRequired
 };
 

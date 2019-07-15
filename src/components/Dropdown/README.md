@@ -1,27 +1,3 @@
-### Right Aligned
-
-```js
-const itemsArray = [
-  {
-    name: 'Return'
-  },
-  {
-    name: 'One way'
-  }
-];
-const SelectedItem = itemsArray.find((value, index) => index === 0);
-
-<div>
-  <Dropdown
-    items={itemsArray}
-    placeholder="Return"
-    initialSelectedItem={SelectedItem}
-  />
-</div>;
-```
-
-### Left Aligned With Padding
-
 ```js
 const itemsArray = [
   {
@@ -37,15 +13,13 @@ const itemsArray = [
     name: 'First'
   }
 ];
-const SelectedItem = itemsArray.find((value, index) => index === 0);
 
-<div>
-  <Dropdown
-    items={itemsArray}
-    placeholder="Economy"
-    leftAlign
-    withPadding
-    initialSelectedItem={SelectedItem}
-  />
-</div>;
+const selectedItem = itemsArray.find((value, index) => index === 0);
+
+<Dropdown
+  items={itemsArray}
+  initialSelectedItem={selectedItem}
+  leftAlign
+  withPadding
+/>;
 ```

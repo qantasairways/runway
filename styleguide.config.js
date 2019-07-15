@@ -6,7 +6,7 @@ module.exports = {
   ribbon: {
     url: 'https://github.com/styleguidist/react-styleguidist'
   },
-  ignore: ['**/components/*/*/*.js'],
+  ignore: ['**/components/*/*/*.js', '**/components/MediaQueryDetector/*.js'],
   pagePerSection: true,
   sections: [
     {

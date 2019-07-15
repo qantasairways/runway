@@ -62,6 +62,7 @@ const LoadingIndicator = ({ screenReaderText }) => (
 );
 
 LoadingIndicator.propTypes = {
+  /** Mandatory string to indicate loading for accessibility */
   screenReaderText: PropTypes.string.isRequired
 };
 
