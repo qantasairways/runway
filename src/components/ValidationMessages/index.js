@@ -40,7 +40,7 @@ function ValidationMessages({ validationMessage, messageType, hideArrow }) {
   return (
     <div role="alert">
       {messageType === MESSAGE_TYPE.WARNING && !hideArrow && (
-        <div css={warningArrow} />
+        <div css={warningArrow()} />
       )}
       <div css={warningMessage({ messageType })}>{validationMessage}</div>
     </div>
@@ -48,7 +48,7 @@ function ValidationMessages({ validationMessage, messageType, hideArrow }) {
 }
 
 ValidationMessages.propTypes = {
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   messageType: PropTypes.string,
   hideArrow: PropTypes.bool
 };
