@@ -1,3 +1,10 @@
+# [0.35.0](https://github.com/qantasairways/runway/compare/v0.34.2...v0.35.0) (2019-07-15)
+
+
+### Features
+
+* **readme:** added contributing guidelines ([#101](https://github.com/qantasairways/runway/issues/101)) ([961b664](https://github.com/qantasairways/runway/commit/961b664))
+
 ## [0.34.2](https://github.com/qantasairways/runway/compare/v0.34.1...v0.34.2) (2019-07-09)
 
 
