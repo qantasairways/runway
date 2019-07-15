@@ -9,14 +9,16 @@ import { findAll } from 'highlight-words-core';
 import { colours, mq } from '../../theme/airways';
 import noop from '../../utils/noop';
 
-// TODO: Add props for listHeight and loadingText and bottom padding
+/* TODO: Add props for listHeight and loadingText.
+Find alternative solution to padding. Remove the padding bottom so its not there forever not even as a prop
+*/
 
 function typeaheadStyles() {
   return {
     lineHeight: 1.53,
     display: 'flex',
     flexDirection: 'column',
-    height: '100%' // TODO: make height configurable
+    height: '100%'
   };
 }
 
@@ -55,18 +57,18 @@ function labelStyles() {
   };
 }
 
-const menuWrapStyles = {
-  maxHeight: 'none',
-  flexGrow: 1,
-  overflowX: 'hidden',
-  overflowY: 'scroll',
-  [mq.medium]: {
-    maxHeight: '285px',
-    height: '100%'
-  }
-};
-
-// TODO: find alternative solution to padding. Remove the padding bottom so its not there forever not even as a prop
+function menuWrapStyles({ menuHeight }) {
+  return {
+    maxHeight: 'none',
+    flexGrow: 1,
+    overflowX: 'hidden',
+    overflowY: 'scroll',
+    [mq.medium]: {
+      maxHeight: menuHeight,
+      height: '100%'
+    }
+  };
+}
 
 function menuStyles() {
   return {
@@ -156,7 +158,8 @@ class Typeahead extends Component {
     getItemProps,
     highlightedIndex,
     selectedItem,
-    inputValue
+    inputValue,
+    menuHeight
   ) => {
     const { items, itemToString, fetchListOnInput, badgeToString } = this.props;
     const filteredItems = fetchListOnInput
@@ -200,7 +203,7 @@ class Typeahead extends Component {
         })}
       </ul>
     ) : (
-      <div css={{ height: '285px' }} />
+      <div css={{ height: menuHeight }} />
     );
   };
 
@@ -224,7 +227,8 @@ class Typeahead extends Component {
       stateReducer,
       valid,
       selectItemCollector,
-      maxLength
+      maxLength,
+      menuHeight
     } = this.props;
 
     const { placeholder } = this.state;
@@ -291,17 +295,21 @@ class Typeahead extends Component {
                   })}
                 />
               </div>
-              <div css={menuWrapStyles} ref={this.props.listRef}>
+              <div
+                css={menuWrapStyles({ menuHeight })}
+                ref={this.props.listRef}
+              >
                 {isOpen && !isFetchingList && inputValue.length >= minChars ? (
                   this.renderItems(
                     getMenuProps,
                     getItemProps,
                     highlightedIndex,
                     selectedItem,
-                    inputValue
+                    inputValue,
+                    menuHeight
                   )
                 ) : (
-                  <div css={{ height: '285px' }}>
+                  <div css={{ height: menuHeight }}>
                     {isFetchingList && (
                       <div css={{ padding: '16px 10px' }}>
                         Loading airports...
@@ -320,28 +328,65 @@ class Typeahead extends Component {
 }
 
 Typeahead.propTypes = {
+  /** Flag to disable the input */
   disabled: PropTypes.bool,
+  /** Optional function to fetch list items asyncronously
+   *
+   * @param {String} value The input value */
   fetchListOnInput: PropTypes.func,
+  /** Optional id for the html input */
   id: PropTypes.string,
+  /** Optional selected item when the compoenent first renders */
   initialSelectedItem: PropTypes.shape(),
+  /** Flag showing that the list is being fetched asyncronously */
   isFetchingList: PropTypes.bool,
+  /** Array of list items */
   items: PropTypes.arrayOf(PropTypes.shape),
+  /** Optional function to transform each list item into the string that should
+   * be rendered in the menu
+   * @param {Object|String} item The list item */
   itemToString: PropTypes.func,
+  /** Optional function to transform each list item into the string that should
+   * be rendered as the badge
+   * @param {Object|String} item The list item */
   badgeToString: PropTypes.func,
+  /** Label for the html input */
   label: PropTypes.string,
+  /** Triggered when the typeahead loses focus */
   onBlur: PropTypes.func,
+  /** Triggered when the typeahead is focused */
   onFocus: PropTypes.func,
+  /** Triggered when a list item is selected */
   onChange: PropTypes.func,
+  /** Triggered when the value of the imput is changed */
   onInputValueChange: PropTypes.func,
+  /** Function to filter the array of list items
+   *
+   * @param {Array} items The array of list items
+   * @param {String} inputValue The input value */
   filterItems: PropTypes.func,
+  /** Error message to display */
   message: PropTypes.string,
+  /** Optional number to only display the menu after a minimum number of characters are typed */
   minChars: PropTypes.number,
+  /** String to display in the input when no value is selected or typed */
   placeholder: PropTypes.string,
+  /** Optional function to pass as Downshift's stateReducer prop */
   stateReducer: PropTypes.func,
+  /** Flag to show whether the typeahead value is valid */
   valid: PropTypes.bool,
+  /** Optional function triggered when item is selected
+   *
+   * @param {Object|String} selectItem The item to select */
   selectItemCollector: PropTypes.func,
+  /** Optional function to set a ref on the input element
+   *
+   * @param {Node} inputRef The input element */
   setRef: PropTypes.func,
-  maxLength: PropTypes.number
+  /** Optional maxLength value for the html input */
+  maxLength: PropTypes.number,
+  /** Optional specify height for the menu */
+  menuHeight: PropTypes.string
 };
 
 Typeahead.defaultProps = {
@@ -361,11 +406,12 @@ Typeahead.defaultProps = {
   onInputValueChange: null,
   setRef: noop,
   message: '',
-  minChars: 0,
+  minChars: 1,
   placeholder: '',
   stateReducer: undefined,
   valid: true,
-  maxLength: 100
+  maxLength: 100,
+  menuHeight: '285px'
 };
 
 export default Typeahead;

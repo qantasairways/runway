@@ -89,9 +89,13 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  /** The text for the button */
   label: 'button',
+  /** The design variant */
   variant: BUTTON_VARIANT_SOLID,
+  /** Class name for the button */
   className: null,
+  /** Css overrides for the button */
   cssOverrides: []
 };
 

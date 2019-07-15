@@ -1,8 +1,11 @@
 ```js
+<ValidationMessages validationMessage="Warning Message with arrow" />
+```
+
+```js
 <ValidationMessages
+  hideArrow
   messageType="info"
-  validationMessage="Please select a destination."
->
-  Default Example Usage
-</ValidationMessages>
+  validationMessage="General info message"
+/>
 ```

@@ -184,11 +184,11 @@ PopupField.propTypes = {
   }),
   /** Placeholder to be displayed if no large or small values are provided */
   placeHolder: PropTypes.string,
-  /** Icon displayed in the field button */
+  /** Function to render an icon displayed in button. Must return an icon. */
   Icon: PropTypes.func,
   /** Label displayed in the dialog header */
   headerLabel: PropTypes.string,
-  /** Icon displayed in the dialog header */
+  /** Function to render an icon in the dialog header. Must return an icon. */
   HeaderIcon: PropTypes.func,
   /** Custom Label and Icon for the field button. When provided, this signals to
    * PopupField to render special icon/label pairing layout for the button */
@@ -196,21 +196,21 @@ PopupField.propTypes = {
     icon: PropTypes.any,
     label: PropTypes.string
   }),
-  /* Disables rendering dialog header */
+  /** Disables rendering dialog header */
   disableFooter: PropTypes.bool,
-  /* Strings rendered to individual lines alongside the footerAction button */
+  /** Strings rendered to individual lines alongside the footerAction button */
   footerLabelsPrimary: PropTypes.arrayOf(PropTypes.string),
-  /* Title attribute passed to footer primaryLabels container */
+  /** Title attribute passed to footer primaryLabels container */
   footerLabelPrimaryAriaTitle: PropTypes.string,
-  /* Text that appears inside footerAction button */
+  /** Text that appears inside footerAction button */
   footerActionText: PropTypes.string,
-  /* Triggered on clicking footerAction button */
+  /** Triggered on clicking footerAction button */
   onFooterAction: PropTypes.func,
-  /* Custom content that renders just above footer */
+  /** Custom content that renders just above footer */
   preFooter: PropTypes.node,
-  /* Use the default dialog body container as the scrollable element */
+  /** Use the default dialog body container as the scrollable element */
   defaultScrollingContainer: PropTypes.bool,
-  /* Additional scroll lock class for forcing safari toolbars to display */
+  /** Additional scroll lock class for forcing safari toolbars to display */
   shouldAddScrollLockClass: PropTypes.bool
 };
 

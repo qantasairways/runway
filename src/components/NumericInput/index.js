@@ -245,13 +245,37 @@ class NumericInput extends Component {
 
 NumericInput.propTypes = {
   ...InputNumber.propTypes,
+  /** Flag to display styles to show the current value is invalid */
   highlightInvalid: PropTypes.bool,
-  setRef: PropTypes.func
+  /** Function to set the ref on the input
+   *
+   * @param {Node} inputRef The input element */
+  setRef: PropTypes.func,
+  /** String for the html label */
+  label: PropTypes.string,
+  /** Optional id string for the input */
+  id: PropTypes.string,
+  /** The minimum value that can be selected */
+  min: PropTypes.number,
+  /** The maximum value that can be selected */
+  max: PropTypes.number,
+  /** Triggered when the user changes the value
+   *
+   * @param {Number} value New value */
+  onChange: PropTypes.func,
+  /** Prop to set the value of this controlled component */
+  value: PropTypes.number
 };
 
 NumericInput.defaultProps = {
   highlightInvalid: false,
-  setRef: null
+  setRef: null,
+  label: '',
+  id: null,
+  min: null,
+  max: null,
+  onChange: () => {},
+  value: null
 };
 
 export default NumericInput;

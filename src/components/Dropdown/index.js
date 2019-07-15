@@ -360,18 +360,31 @@ function renderDefaultItem(item, index, props) {
 }
 
 Dropdown.propTypes = {
+  /** Array of list items for the dropdown */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired
     })
   ).isRequired,
+  /** Prop to render each list item. Must return an element. */
   renderItem: PropTypes.func,
+  /** Flag to display variant with vertical padding */
   withPadding: PropTypes.bool,
+  /** @ignore */
   focus: PropTypes.bool,
+  /** @ignore */
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
   }),
-  menuWidth: PropTypes.string
+  /** Optional string to set the width of the menu */
+  menuWidth: PropTypes.string,
+  /** Flag to display variant left aligned text */
+  leftAlign: PropTypes.bool,
+  /** Triggered when the user changes the value
+   *
+   * @param {Object} selectedItem New value
+   * @param {Object} stateAndHelpers stateAndHelpers object from Downshift */
+  onChange: PropTypes.func
 };
 
 Dropdown.defaultProps = {
@@ -386,5 +399,7 @@ Dropdown.defaultProps = {
       return String(selectedItem.name);
     }
   },
-  menuWidth: null
+  menuWidth: null,
+  leftAlign: PropTypes.false,
+  onChange: null
 };

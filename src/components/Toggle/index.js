@@ -87,15 +87,27 @@ LabelText.propTypes = {
 
 class Toggle extends Component {
   static propTypes = {
+    /** Id for the html input */
     id: PropTypes.string.isRequired,
+    /** Label to display */
     label: PropTypes.string.isRequired,
+    /** @ignore */
     containerClassName: PropTypes.string,
+    /** Function triggered when the value is changed
+     * @param {Bool} value The new value
+     */
     onChange: PropTypes.func.isRequired,
+    /** Flag to control whether the toggle is checked */
     checked: PropTypes.bool.isRequired,
+    /** Flag to display the toggle before the label */
     swapPosition: PropTypes.bool,
+    /** String to specify in css units the space between toggle and label */
     spaceBetween: PropTypes.string.isRequired,
+    /** The size of the toggle handle */
     handleSize: PropTypes.number.isRequired,
+    /** The height of the toggle */
     height: PropTypes.number.isRequired,
+    /** The width of the toggle */
     width: PropTypes.number.isRequired
   };
 

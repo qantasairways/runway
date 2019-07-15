@@ -105,8 +105,11 @@ class InfoSection extends React.Component {
 }
 
 InfoSection.propTypes = {
+  /** Content element for the InfoSection */
   content: PropTypes.node.isRequired,
+  /** Optional height override */
   height: PropTypes.string,
+  /** Optional width override */
   width: PropTypes.string
 };
 
