@@ -26,13 +26,13 @@ flexible and accessible components.</p>
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributing](#contributing)
 - [License](#license)
 
 
-## Demo <a name="demo"></a>
 ## Installation <a name = "installation"></a>
 
-This module is distributed via [npm][npm] which is bundled with [node][node] and
+This module is distributed via [npm](https://www.npmjs.com) which is bundled with [node](https://nodejs.org) and
 should be installed as one of your project's `dependencies`:
 
 ```
@@ -51,8 +51,12 @@ import React from "react";
 import { render } from "react-dom";
 import { Button } from "@qantasairways/runway";
 
-render(<Button label="Click me" />, document.getElementById("root"));<Paste>
+render(<Button label="Click me" />, document.getElementById("root"));
 ```
+
+## Contributing <a name="contributing"></a>
+
+Please read our contributing guidelines <a href="https://github.com/qantasairways/runway/blob/master/CONTRIBUTING.md">here</a>.
 
 ## License <a name="license"></a>
 
