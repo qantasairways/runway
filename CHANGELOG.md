@@ -1,3 +1,10 @@
+# [0.36.0](https://github.com/qantasairways/runway/compare/v0.35.0...v0.36.0) (2019-07-15)
+
+
+### Features
+
+* **setup, typeahead, numericinput:** Added prop type documentation. Fixed styleguide examples. Added missing default props for NumericInput and Typeahead. ([#102](https://github.com/qantasairways/runway/issues/102)) ([c0b93c1](https://github.com/qantasairways/runway/commit/c0b93c1))
+
 # [0.35.0](https://github.com/qantasairways/runway/compare/v0.34.2...v0.35.0) (2019-07-15)
 
 
