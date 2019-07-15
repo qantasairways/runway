@@ -7,7 +7,18 @@ module.exports = {
     url: 'https://github.com/styleguidist/react-styleguidist'
   },
   ignore: ['**/components/*/*/*.js'],
+  pagePerSection: true,
   sections: [
+    {
+      name: 'Documentation',
+      sections: [
+        {
+          name: 'Change Log',
+          content: 'CHANGELOG.md',
+          sectionDepth: 0
+        }
+      ]
+    },
     {
       name: 'Components',
       content: 'docs/Components.md',
