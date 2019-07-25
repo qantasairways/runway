@@ -22,7 +22,8 @@ import {
   getFirstEnabledMonthDate,
   focusDayCell,
   DAY_CELL_BORDER_WIDTH,
-  getLastEnabledMonthDate
+  getLastEnabledMonthDate,
+  DISCLAIMER_HEIGHT
 } from './helpers';
 
 import ButtonWithDialog, {
@@ -32,6 +33,7 @@ import ButtonWithDialog, {
 } from '../../shared/ButtonWithDialog';
 import IconCalendar from '../../icons/CalendarIcon';
 import Header from './components/Header';
+import DisclaimerMessages from '../DisclaimerMessages';
 
 const rowStyles = {
   display: 'grid',
@@ -183,6 +185,34 @@ class DayPicker extends Component {
     ) : null;
   };
 
+  renderMonthAndDisclaimer = (row, isDesktopDevice) => {
+    const { index, style } = row;
+
+    const updatedStyle = {
+      ...style,
+      top: DISCLAIMER_HEIGHT
+    };
+
+    const updatedRow = {
+      index,
+      style: updatedStyle
+    };
+
+    return (
+      <div>
+        {this.renderDisclaimer(DISCLAIMER_HEIGHT)}
+        {this.renderMonth(updatedRow, isDesktopDevice)}
+      </div>
+    );
+  };
+
+  renderDisclaimer = disclaimerHeight => (
+    <DisclaimerMessages
+      disclaimerHeight={disclaimerHeight}
+      disclaimerMessage={this.props.disclaimerMessage}
+    />
+  );
+
   renderMonth = ({ index, style }, isDesktopDevice) => {
     const {
       isDateRange,
@@ -306,7 +336,8 @@ class DayPicker extends Component {
       bottomFootersummaryLabel,
       hasPrice,
       endDateData,
-      shouldAddScrollLockClass
+      shouldAddScrollLockClass,
+      disclaimerMessage
     } = this.props;
 
     const { months, showFooters } = this.state;
@@ -365,13 +396,18 @@ class DayPicker extends Component {
                         index,
                         months,
                         firstDayOfWeek,
-                        isDesktopDevice
+                        isDesktopDevice,
+                        disclaimerMessage
                       )
                     }
                     width={width}
                     onItemsRendered={this.setupOnMonthsShownSubscription()}
                   >
-                    {row => this.renderMonth(row, isDesktopDevice)}
+                    {row =>
+                      row.index === 0 && disclaimerMessage
+                        ? this.renderMonthAndDisclaimer(row, isDesktopDevice)
+                        : this.renderMonth(row, isDesktopDevice)
+                    }
                   </List>
                 );
               }}
@@ -492,7 +528,8 @@ DayPicker.propTypes = {
     currencySymbol: ''
   }),
   /* Additional scroll lock class for forcing safari toolbars to display */
-  shouldAddScrollLockClass: PropTypes.bool
+  shouldAddScrollLockClass: PropTypes.bool,
+  disclaimerMessage: PropTypes.string
 };
 
 DayPicker.defaultProps = {
@@ -541,7 +578,8 @@ DayPicker.defaultProps = {
   bottomFootersummaryLabel: 'From ',
   hasPrice: false,
   endDateData: null,
-  shouldAddScrollLockClass: false
+  shouldAddScrollLockClass: false,
+  disclaimerMessage: null
 };
 
 export default DayPicker;
