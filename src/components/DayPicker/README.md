@@ -28,6 +28,8 @@ const today = new Date();
         price: { value: 15127.5, isLowestPrice: false },
         currencySymbol: ' $'
       }}
+      isDisclaimerShown={true}
+      disclaimerText="Please read and agree to the terms and conditions."
     />
   )}
 </StatefulManager>;

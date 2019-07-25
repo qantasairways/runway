@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: left;
+  font-family: "Ciutadella",sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #323232;
+  background: #fafafa;
+  height: 80px;
+  font-size: 12px;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.17px;
+  -moz-letter-spacing: 0.17px;
+  -ms-letter-spacing: 0.17px;
+  letter-spacing: 0.17px;
+  padding: 15px 15px;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    font-size: 14px;
+    line-height: 1.43;
+    -webkit-letter-spacing: normal;
+    -moz-letter-spacing: normal;
+    -ms-letter-spacing: normal;
+    letter-spacing: normal;
+    padding: 0px 15px;
+    text-align: center;
+  }
+}
+
+.emotion-0 {
+  width: 750px;
+}
+
+<DisclaimerMessages
+  disclaimerHeight={80}
+  disclaimerMessage="Please read and agree to the terms and conditions."
+>
+  <div
+    className="emotion-1"
+    role="alert"
+  >
+    <div
+      className="emotion-0"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Please read and agree to the terms and conditions.",
+        }
+      }
+    />
+  </div>
+</DisclaimerMessages>
+`;
