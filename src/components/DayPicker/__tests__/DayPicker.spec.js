@@ -141,5 +141,17 @@ describe('DayPicker', () => {
 
       expect(component.state('isSelectingStartDate')).toBeTruthy();
     });
+
+    it('set isSelectingStartDate to false when isDate range is true and startDate exists', () => {
+      component = shallow(
+        <DayPicker {...props} isDateRange startDate={today} endDate={null} />
+      );
+      component.instance().setState({ isSelectingStartDate: true });
+      expect(component.state('isSelectingStartDate')).toBeTruthy();
+
+      component.instance().onOpen();
+
+      expect(component.state('isSelectingStartDate')).toBeFalsy();
+    });
   });
 });
