@@ -141,5 +141,17 @@ describe('DayPicker', () => {
 
       expect(component.state('isSelectingStartDate')).toBeTruthy();
     });
+
+    it.only('set isSelectingStartDate to false when tripType is switched to Return (ie., isDateRange = true) and startDate exists', () => {
+      component = shallow(
+        <DayPicker {...props} isDateRange startDate={today} endDate={null} />
+      );
+      component.instance().setState({ isSelectingStartDate: true });
+      expect(component.state('isSelectingStartDate')).toBeTruthy();
+
+      component.instance().onOpen();
+
+      expect(component.state('isSelectingStartDate')).toBeFalsy();
+    });
   });
 });
