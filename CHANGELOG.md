@@ -1,3 +1,10 @@
+## [0.36.1](https://github.com/qantasairways/runway/compare/v0.36.0...v0.36.1) (2019-07-25)
+
+
+### Bug Fixes
+
+* **numericinput:** Remove default min and max ([#103](https://github.com/qantasairways/runway/issues/103)) ([0ef7898](https://github.com/qantasairways/runway/commit/0ef7898))
+
 # [0.36.0](https://github.com/qantasairways/runway/compare/v0.35.0...v0.36.0) (2019-07-15)
 
 
