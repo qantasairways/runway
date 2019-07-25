@@ -255,10 +255,6 @@ NumericInput.propTypes = {
   label: PropTypes.string,
   /** Optional id string for the input */
   id: PropTypes.string,
-  /** The minimum value that can be selected */
-  min: PropTypes.number,
-  /** The maximum value that can be selected */
-  max: PropTypes.number,
   /** Triggered when the user changes the value
    *
    * @param {Number} value New value */
@@ -272,8 +268,6 @@ NumericInput.defaultProps = {
   setRef: null,
   label: '',
   id: null,
-  min: null,
-  max: null,
   onChange: () => {},
   value: null
 };
