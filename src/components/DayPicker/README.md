@@ -23,11 +23,8 @@ const today = new Date();
       onDayClick={(startDate, endDate) => updater({ startDate, endDate })}
       isDateRange={true}
       hasPrice={true}
+      priceInPoints={false}
       preFooterInfo="Lowest economy price per adult in AUD for a return trip."
-      endDateData={{
-        price: { value: 15127.5, isLowestPrice: false },
-        currencySymbol: ' $'
-      }}
       disclaimerMessage="Please read and agree to the terms and conditions."
     />
   )}

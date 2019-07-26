@@ -84,9 +84,9 @@ export function startTabStyles({ isSelectingStartDate }) {
       content: "''",
       zIndex: '5',
       position: 'absolute',
-      right: isSelectingStartDate ? '-14px' : '0',
+      right: isSelectingStartDate ? '-14px' : '-1px',
       borderTop: `32px solid ${colours.transparent}`,
-      borderLeft: isSelectingStartDate ? `14px solid ${colours.white}` : '0',
+      borderLeft: isSelectingStartDate ? `15px solid ${colours.white}` : '0',
       borderBottom: `32px solid ${colours.transparent}`,
       borderRight: isSelectingStartDate ? '0' : `19px solid ${colours.white}`,
       top: '-5px',
@@ -95,7 +95,7 @@ export function startTabStyles({ isSelectingStartDate }) {
         borderLeft: isSelectingStartDate ? `19px solid ${colours.white}` : '0',
         borderTop: `42px solid ${colours.transparent}`,
         borderBottom: `42px solid ${colours.transparent}`,
-        top: '-7px'
+        top: '-4px'
       }
     },
     [mq.medium]: {
@@ -149,13 +149,13 @@ export function TriangleSvgStyles({ isSelectingStartDate }) {
   return css({
     zIndex: '10',
     position: 'absolute',
-    right: isSelectingStartDate ? '-49px' : '-11px',
+    right: isSelectingStartDate ? '-48px' : '-12px',
     top: isSelectingStartDate ? '-5px' : '-7px',
     transform: isSelectingStartDate ? 'rotate(0)' : 'rotate(-180deg)',
     [mq.medium]: {
-      height: '83px',
-      right: isSelectingStartDate ? '-53px' : '-6px',
-      top: isSelectingStartDate ? '-5px' : '-8px'
+      height: isSelectingStartDate ? '84px' : '83px',
+      right: isSelectingStartDate ? '-53px' : '-7px',
+      top: isSelectingStartDate ? '-5px' : '-7px'
     }
   });
 }
