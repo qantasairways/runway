@@ -110,10 +110,7 @@ const bottomFooterLeftCol = {
 const bottomFooterTextStyle = {
   label: 'runway-footer_summary-label',
   fontSize: fontSize.body,
-  lineHeight: 1.56,
-  [mq.medium]: {
-    marginRight: '5px'
-  }
+  lineHeight: 1.56
 };
 
 const disclaimerStyle = {
@@ -158,10 +155,11 @@ const Footer = ({
   showPreFooter,
   showBottomFooter,
   onActionButtonClick,
-  endDateData
+  endDateData,
+  priceInPoints,
+  pointsLabel
 }) => {
-  const shouldShowPreFooterContents =
-    endDateData && endDateData.price && endDateData.price.value;
+  const shouldShowPreFooterContents = endDateData && endDateData.price;
   const shouldShowBottomFooterTextContents =
     showBottomFooter &&
     endDateData &&
@@ -200,11 +198,11 @@ const Footer = ({
                     }}
                   >
                     <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                    {preFooterDisclaimer && (
+                    {preFooterDisclaimer && priceInPoints ? (
                       <span css={topDisclaimerStyle()}>
                         {preFooterDisclaimer}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               )}
@@ -222,27 +220,41 @@ const Footer = ({
                   {bottomFootersummaryLabel && (
                     <span css={bottomFooterTextStyle}>
                       {bottomFootersummaryLabel}
+
                       <span
                         css={{
                           color: endDateData.price.isLowestPrice
                             ? '#009400'
                             : colours.darkerGrey,
-                          fontWeight: fontWeight.bold
+                          fontWeight: fontWeight.bold,
+                          padding: '0 5px'
                         }}
                       >
-                        {endDateData &&
-                          endDateData.currencySymbol +
-                            numberWithCommas(
-                              fmtCurrency(endDateData.price.value)
-                            )}
+                        <span>
+                          {endDateData && priceInPoints
+                            ? numberWithCommas(endDateData.price.points)
+                            : endDateData.currencySymbol +
+                              numberWithCommas(
+                                fmtCurrency(endDateData.price.value)
+                              )}
+                        </span>
+                        {endDateData && priceInPoints ? (
+                          <span css={{ paddingLeft: '5px' }}>
+                            {pointsLabel}
+                          </span>
+                        ) : null}
                       </span>
                     </span>
                   )}
-                  {bottomFooterDisclaimer && (
-                    <span css={bottonDisclaimerStyle()}>
-                      {bottomFooterDisclaimer}
-                    </span>
-                  )}
+
+                  {bottomFooterDisclaimer && priceInPoints ? (
+                    <div>
+                      <span>+</span>
+                      <span css={bottonDisclaimerStyle()}>
+                        {bottomFooterDisclaimer}
+                      </span>
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <div css={bottomFooterLeftCol} />
@@ -281,7 +293,9 @@ Footer.propTypes = {
     }),
     currencyCode: '',
     currencySymbol: ''
-  })
+  }),
+  priceInPoints: PropTypes.bool,
+  pointsLabel: PropTypes.string
 };
 
 Footer.defaultProps = {
@@ -291,7 +305,9 @@ Footer.defaultProps = {
   preFooterInfo: '',
   preFooterDisclaimer: '',
   bottomFooterDisclaimer: '',
-  endDateData: null
+  endDateData: null,
+  priceInPoints: false,
+  pointsLabel: ''
 };
 
 export default Footer;
