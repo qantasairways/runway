@@ -61,7 +61,10 @@ const preFooterStyle = {
 const preFooterTextContainerStyle = {
   display: 'flex',
   flexWrap: 'wrap',
-  alignItems: 'baseline'
+  alignItems: 'center',
+  [mq.medium]: {
+    display: 'block'
+  }
 };
 
 const preFooterTransitionStyle = {
@@ -80,10 +83,11 @@ const preFooterTransitionStyle = {
 const preFooterTextStyle = {
   label: 'runway-footer_info-label',
   fontSize: '0.875rem',
-  lineHeight: '2',
+  lineHeight: '1.29',
   color: colours.darkerGrey,
   [mq.medium]: {
-    marginRight: '5px'
+    marginRight: '5px',
+    fontSize: fontSize.label
   }
 };
 
@@ -97,13 +101,11 @@ const bottomFooterStyle = {
 
 const bottomFooterLeftCol = {
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
+  alignItems: 'center',
+  flexWrap: 'wrap',
   [mq.small]: {
     paddingRight: layout.gutter
-  },
-  [mq.medium]: {
-    flexDirection: 'row',
-    alignItems: 'center'
   }
 };
 
@@ -112,41 +114,46 @@ const bottomFooterTextStyle = {
   fontSize: fontSize.body,
   lineHeight: 1.56,
   [mq.medium]: {
-    marginRight: '5px'
+    fontSize: fontSize.labelLarge
   }
 };
 
 const disclaimerStyle = {
   fontSize: '0.875rem',
   lineHeight: 1.29,
-  color: colours.darkGrey
+  color: colours.mediumDarkGrey
 };
 
 export function topDisclaimerStyle() {
   return css({
     label: 'runway-footer_disclaimer-label',
-    ...disclaimerStyle
+    ...disclaimerStyle,
+    [mq.medium]: {
+      fontSize: fontSize.label
+    }
   });
 }
 
 export function bottonDisclaimerStyle() {
   return css({
     label: 'runway-footer_button_disclaimer-label',
-    ...disclaimerStyle,
+    fontSize: fontSize.body,
+    lineHeight: 1.29,
+    color: colours.mediumDarkGrey,
+    fontWeight: fontWeight.bold,
     [mq.medium]: {
-      fontSize: fontSize.body
+      fontSize: fontSize.labelLarge
     }
   });
 }
 
 const actionButtonStyle = {
-  fontWeight: fontWeight.regular,
   letterSpacing: '1.5px',
   height: '48px',
   width: '100px',
   borderRadius: '4px',
   borderWidth: '0',
-  padding: '0 0 0 1px'
+  padding: '2px 0 0 3px'
 };
 
 const Footer = ({
@@ -158,10 +165,11 @@ const Footer = ({
   showPreFooter,
   showBottomFooter,
   onActionButtonClick,
-  endDateData
+  endDateData,
+  priceInPoints,
+  pointsLabel
 }) => {
-  const shouldShowPreFooterContents =
-    endDateData && endDateData.price && endDateData.price.value;
+  const shouldShowPreFooterContents = endDateData && endDateData.price;
   const shouldShowBottomFooterTextContents =
     showBottomFooter &&
     endDateData &&
@@ -200,11 +208,11 @@ const Footer = ({
                     }}
                   >
                     <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                    {preFooterDisclaimer && (
+                    {preFooterDisclaimer && priceInPoints ? (
                       <span css={topDisclaimerStyle()}>
                         {preFooterDisclaimer}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               )}
@@ -222,27 +230,39 @@ const Footer = ({
                   {bottomFootersummaryLabel && (
                     <span css={bottomFooterTextStyle}>
                       {bottomFootersummaryLabel}
+
                       <span
                         css={{
                           color: endDateData.price.isLowestPrice
                             ? '#009400'
                             : colours.darkerGrey,
-                          fontWeight: fontWeight.bold
+                          fontWeight: fontWeight.bold,
+                          padding: '0 5px'
                         }}
                       >
-                        {endDateData &&
-                          endDateData.currencySymbol +
-                            numberWithCommas(
-                              fmtCurrency(endDateData.price.value)
-                            )}
+                        <span>
+                          {endDateData && priceInPoints
+                            ? numberWithCommas(endDateData.price.points)
+                            : endDateData.currencySymbol +
+                              numberWithCommas(
+                                fmtCurrency(endDateData.price.value)
+                              )}
+                        </span>
+                        {endDateData && priceInPoints ? (
+                          <span css={{ paddingLeft: '5px' }}>
+                            {pointsLabel}
+                          </span>
+                        ) : null}
                       </span>
                     </span>
                   )}
-                  {bottomFooterDisclaimer && (
-                    <span css={bottonDisclaimerStyle()}>
-                      {bottomFooterDisclaimer}
-                    </span>
-                  )}
+
+                  {bottomFooterDisclaimer && priceInPoints ? (
+                    <div css={bottonDisclaimerStyle()}>
+                      <span>+</span>
+                      <span>{bottomFooterDisclaimer}</span>
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <div css={bottomFooterLeftCol} />
@@ -281,7 +301,9 @@ Footer.propTypes = {
     }),
     currencyCode: '',
     currencySymbol: ''
-  })
+  }),
+  priceInPoints: PropTypes.bool,
+  pointsLabel: PropTypes.string
 };
 
 Footer.defaultProps = {
@@ -291,7 +313,9 @@ Footer.defaultProps = {
   preFooterInfo: '',
   preFooterDisclaimer: '',
   bottomFooterDisclaimer: '',
-  endDateData: null
+  endDateData: null,
+  priceInPoints: false,
+  pointsLabel: ''
 };
 
 export default Footer;

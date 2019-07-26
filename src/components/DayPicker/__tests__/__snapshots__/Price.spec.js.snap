@@ -1,55 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Price renders correctly when isDesktopDevice is true 1`] = `
-.emotion-4 {
-  margin-top: 3px;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-4 {
-    margin-top: 7px;
-  }
-}
-
-.emotion-0 {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1;
-  position: absolute;
-  left: 50%;
-  width: 26px;
-  margin-left: -13px;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    width: 30px;
-    margin-left: -15px;
-  }
-
-  .emotion-0::after {
-    height: 10px;
-  }
-}
-
-.emotion-0::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2px;
-  height: 7px;
-  margin: 0 auto;
-  -webkit-animation: animation-h2aas6 2s linear infinite;
-  animation: animation-h2aas6 2s linear infinite;
-  background: linear-gradient(to right,rgba(0,0,0,0.06) 20%,rgba(0,0,0,0.01) 70%,rgba(0,0,0,0.05) 100%);
-  bottom: 1px;
-  box-shadow: 0 0 1px rgba(0,0,0,0.12);
-  border-radius: 4px;
-}
-
-.emotion-3 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,7 +16,7 @@ exports[`Price renders correctly when isDesktopDevice is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-1 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -75,82 +27,36 @@ exports[`Price renders correctly when isDesktopDevice is true 1`] = `
   }
 }
 
-.emotion-1 {
+.emotion-0 {
   color: #888888;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 0.875rem;
   }
 }
 
-.emotion-2 {
-  font-size: 0.75rem;
-  line-height: 1;
-  color: #888888;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    font-size: 0.8125rem;
-    margin-left: 2px;
-  }
-}
-
-<div
-  className="emotion-4"
->
+<div>
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-3"
+    className="emotion-1"
   >
     <div
-      className="emotion-1"
+      className="emotion-0"
     >
-      $
-      12.4k
-    </div>
-    <div
-      className="emotion-2"
-    >
-      <span>
-        +
-      </span>
-      <span>
-        $
-      </span>
-      <span>
-        345
-      </span>
-      <span>
-         ^
-      </span>
+      $12.4k
     </div>
   </div>
 </div>
 `;
 
 exports[`Price renders correctly when isLoadingPrice is true 1`] = `
-.emotion-1 {
-  margin-top: 3px;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-1 {
-    margin-top: 7px;
-  }
-}
-
 .emotion-0 {
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
   position: absolute;
   left: 50%;
@@ -185,9 +91,7 @@ exports[`Price renders correctly when isLoadingPrice is true 1`] = `
   border-radius: 4px;
 }
 
-<div
-  className="emotion-1"
->
+<div>
   <div
     className="emotion-0"
   />
@@ -195,55 +99,7 @@ exports[`Price renders correctly when isLoadingPrice is true 1`] = `
 `;
 
 exports[`Price renders correctly when isLowestPrice is true 1`] = `
-.emotion-4 {
-  margin-top: 3px;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-4 {
-    margin-top: 7px;
-  }
-}
-
-.emotion-0 {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1;
-  position: absolute;
-  left: 50%;
-  width: 26px;
-  margin-left: -13px;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    width: 30px;
-    margin-left: -15px;
-  }
-
-  .emotion-0::after {
-    height: 10px;
-  }
-}
-
-.emotion-0::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2px;
-  height: 7px;
-  margin: 0 auto;
-  -webkit-animation: animation-h2aas6 2s linear infinite;
-  animation: animation-h2aas6 2s linear infinite;
-  background: linear-gradient(to right,rgba(0,0,0,0.06) 20%,rgba(0,0,0,0.01) 70%,rgba(0,0,0,0.05) 100%);
-  bottom: 1px;
-  box-shadow: 0 0 1px rgba(0,0,0,0.12);
-  border-radius: 4px;
-}
-
-.emotion-3 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -258,7 +114,7 @@ exports[`Price renders correctly when isLowestPrice is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-1 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -269,117 +125,34 @@ exports[`Price renders correctly when isLowestPrice is true 1`] = `
   }
 }
 
-.emotion-2 {
-  font-size: 0.75rem;
-  line-height: 1;
-  color: #888888;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    font-size: 0.8125rem;
-    margin-left: 2px;
-  }
-}
-
-.emotion-1 {
+.emotion-0 {
   color: #008600;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 0.875rem;
   }
 }
 
-<div
-  className="emotion-4"
->
+<div>
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-3"
+    className="emotion-1"
   >
     <div
-      className="emotion-1"
+      className="emotion-0"
     >
-      $
-      12.4k
-    </div>
-    <div
-      className="emotion-2"
-    >
-      <span>
-        +
-      </span>
-      <span>
-        $
-      </span>
-      <span>
-        345
-      </span>
-      <span>
-         ^
-      </span>
+      $12.4k
     </div>
   </div>
 </div>
 `;
 
 exports[`Price renders correctly with defaults 1`] = `
-.emotion-3 {
-  margin-top: 3px;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-3 {
-    margin-top: 7px;
-  }
-}
-
-.emotion-0 {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1;
-  position: absolute;
-  left: 50%;
-  width: 26px;
-  margin-left: -13px;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    width: 30px;
-    margin-left: -15px;
-  }
-
-  .emotion-0::after {
-    height: 10px;
-  }
-}
-
-.emotion-0::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2px;
-  height: 7px;
-  margin: 0 auto;
-  -webkit-animation: animation-h2aas6 2s linear infinite;
-  animation: animation-h2aas6 2s linear infinite;
-  background: linear-gradient(to right,rgba(0,0,0,0.06) 20%,rgba(0,0,0,0.01) 70%,rgba(0,0,0,0.05) 100%);
-  bottom: 1px;
-  box-shadow: 0 0 1px rgba(0,0,0,0.12);
-  border-radius: 4px;
-}
-
-.emotion-2 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -394,7 +167,7 @@ exports[`Price renders correctly with defaults 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-2 {
+  .emotion-1 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -405,30 +178,25 @@ exports[`Price renders correctly with defaults 1`] = `
   }
 }
 
-.emotion-1 {
+.emotion-0 {
   color: #888888;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 0.875rem;
   }
 }
 
-<div
-  className="emotion-3"
->
+<div>
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-2"
+    className="emotion-1"
   >
     <div
-      className="emotion-1"
+      className="emotion-0"
     >
       0
     </div>
@@ -437,55 +205,7 @@ exports[`Price renders correctly with defaults 1`] = `
 `;
 
 exports[`Price renders correctly with props 1`] = `
-.emotion-4 {
-  margin-top: 3px;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-4 {
-    margin-top: 7px;
-  }
-}
-
-.emotion-0 {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1;
-  position: absolute;
-  left: 50%;
-  width: 26px;
-  margin-left: -13px;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    width: 30px;
-    margin-left: -15px;
-  }
-
-  .emotion-0::after {
-    height: 10px;
-  }
-}
-
-.emotion-0::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2px;
-  height: 7px;
-  margin: 0 auto;
-  -webkit-animation: animation-h2aas6 2s linear infinite;
-  animation: animation-h2aas6 2s linear infinite;
-  background: linear-gradient(to right,rgba(0,0,0,0.06) 20%,rgba(0,0,0,0.01) 70%,rgba(0,0,0,0.05) 100%);
-  bottom: 1px;
-  box-shadow: 0 0 1px rgba(0,0,0,0.12);
-  border-radius: 4px;
-}
-
-.emotion-3 {
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -500,7 +220,7 @@ exports[`Price renders correctly with props 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-1 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -511,62 +231,27 @@ exports[`Price renders correctly with props 1`] = `
   }
 }
 
-.emotion-1 {
+.emotion-0 {
   color: #888888;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 0.875rem;
   }
 }
 
-.emotion-2 {
-  font-size: 0.75rem;
-  line-height: 1;
-  color: #888888;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    font-size: 0.8125rem;
-    margin-left: 2px;
-  }
-}
-
-<div
-  className="emotion-4"
->
+<div>
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-3"
+    className="emotion-1"
   >
     <div
-      className="emotion-1"
+      className="emotion-0"
     >
-      $
-      12.4k
-    </div>
-    <div
-      className="emotion-2"
-    >
-      <span>
-        +
-      </span>
-      <span>
-        $
-      </span>
-      <span>
-        345
-      </span>
-      <span>
-         ^
-      </span>
+      $12.4k
     </div>
   </div>
 </div>
