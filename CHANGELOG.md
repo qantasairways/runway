@@ -1,3 +1,10 @@
+# [0.37.0](https://github.com/qantasairways/runway/compare/v0.36.1...v0.37.0) (2019-07-30)
+
+
+### Features
+
+* **DayPicker:** To display Disclaimer message ([#104](https://github.com/qantasairways/runway/issues/104)) ([dda1413](https://github.com/qantasairways/runway/commit/dda1413))
+
 ## [0.36.1](https://github.com/qantasairways/runway/compare/v0.36.0...v0.36.1) (2019-07-25)
 
 
