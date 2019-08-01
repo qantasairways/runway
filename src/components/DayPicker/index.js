@@ -240,7 +240,7 @@ class DayPicker extends Component {
     const month = months[index];
 
     let dates = getDateArray({
-      month,
+      startDay: month,
       monthIndex: index,
       today,
       firstDayOfWeek,

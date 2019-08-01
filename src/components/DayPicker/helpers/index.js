@@ -60,7 +60,7 @@ export const getMonthsArray = (today, monthsToShow) => {
 };
 
 export function getDateArray({
-  month,
+  startDay,
   monthIndex,
   today,
   firstDayOfWeek,
@@ -70,16 +70,14 @@ export function getDateArray({
   disabledAfter
 }) {
   const arr = [];
-  const initialDay =
-    monthIndex === 0
-      ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
-      : startOfMonth(month);
-  const endDay = endOfWeek(endOfMonth(month));
+  const initialDay = monthIndex === 0 ? startDay : startOfMonth(startDay);
+  const endDay = endOfWeek(endOfMonth(startDay));
   const current = startOfWeek(initialDay, { weekStartsOn: firstDayOfWeek });
   const firstAvailableDay = disabledBefore || today;
   const startOfAvailableWeek = startOfWeek(firstAvailableDay, {
     weekStartsOn: firstDayOfWeek
   });
+
   while (current <= endDay) {
     if (
       !isSameMonth(current, initialDay) ||
