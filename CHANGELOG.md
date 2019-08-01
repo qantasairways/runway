@@ -1,3 +1,10 @@
+## [0.37.1](https://github.com/qantasairways/runway/compare/v0.37.0...v0.37.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* **daypicker:** Fix incorrect calculation for initial day  of current month ([#106](https://github.com/qantasairways/runway/issues/106)) ([013df45](https://github.com/qantasairways/runway/commit/013df45))
+
 # [0.37.0](https://github.com/qantasairways/runway/compare/v0.36.1...v0.37.0) (2019-07-30)
 
 
