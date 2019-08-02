@@ -26,6 +26,7 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
   -ms-letter-spacing: 0.17px;
   letter-spacing: 0.17px;
   padding: 15px 15px;
+  pointer-events: initial;
 }
 
 @media only screen and (min-width:768px) {
@@ -49,6 +50,8 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
   color: #323232;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+  -webkit-text-decoration-color: #323232;
+  text-decoration-color: #323232;
 }
 
 <DisclaimerMessages

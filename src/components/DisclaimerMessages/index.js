@@ -16,6 +16,7 @@ const styleDisclaimerMessage = disclaimerHeight => ({
   lineHeight: '1.25',
   letterSpacing: '0.17px',
   padding: `15px ${layout.gutter}`,
+  pointerEvents: 'initial',
   [mq.medium]: {
     fontSize: '14px',
     lineHeight: '1.43',
@@ -41,7 +42,8 @@ class DisclaimerMessages extends Component {
             width: '750px',
             '& a': {
               color: colours.darkerGrey,
-              textDecoration: 'underline'
+              textDecoration: 'underline',
+              textDecorationColor: colours.darkerGrey
             }
           }}
           /* eslint-disable react/no-danger */
