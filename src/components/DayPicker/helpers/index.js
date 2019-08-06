@@ -126,26 +126,19 @@ export function getItemSize(
   isDesktopDevice,
   disclaimerMessage
 ) {
-  const month = months[index];
+  if (index === 0) {
+    return disclaimerMessage ? DISCLAIMER_HEIGHT : 0;
+  }
+
+  const monthIndex = index - 1;
+  const month = months[monthIndex];
   const numberOfWeeks = differenceInCalendarWeeks(
     endOfMonth(month),
-    index === 0
+    monthIndex === 0
       ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
       : startOfMonth(month),
     { weekStartsOn: firstDayOfWeek }
   );
-
-  if (index === 0 && disclaimerMessage) {
-    return isDesktopDevice
-      ? DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_DESKTOP +
-          (DAY_CELL_HEIGHT_DESKTOP + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1)
-      : DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_MOBILE +
-          (DAY_CELL_HEIGHT_MOBILE + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1);
-  }
 
   return isDesktopDevice
     ? MONTH_CAPTION_HEIGHT_DESKTOP +
