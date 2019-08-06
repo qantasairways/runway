@@ -1,3 +1,10 @@
+# [0.38.0](https://github.com/qantasairways/runway/compare/v0.37.1...v0.38.0) (2019-08-06)
+
+
+### Features
+
+* **daypicker:** bug fix and enhancement ([#110](https://github.com/qantasairways/runway/issues/110)) ([d7358a4](https://github.com/qantasairways/runway/commit/d7358a4))
+
 ## [0.37.1](https://github.com/qantasairways/runway/compare/v0.37.0...v0.37.1) (2019-08-01)
 
 
