@@ -60,7 +60,7 @@ exports[`Tabs renders correctly when isDateRange is false 1`] = `
   content: '';
   z-index: 5;
   position: absolute;
-  right: 0px;
+  right: -1px;
   border-top: 32px solid transparent;
   border-left: 0px;
   border-bottom: 32px solid transparent;
@@ -74,7 +74,7 @@ exports[`Tabs renders correctly when isDateRange is false 1`] = `
     border-left: 0px;
     border-top: 42px solid transparent;
     border-bottom: 42px solid transparent;
-    top: -7px;
+    top: -4px;
   }
 }
 
@@ -150,7 +150,7 @@ exports[`Tabs renders correctly when isDateRange is false 1`] = `
 .emotion-2 {
   z-index: 10;
   position: absolute;
-  right: -11px;
+  right: -12px;
   top: -7px;
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
@@ -160,8 +160,8 @@ exports[`Tabs renders correctly when isDateRange is false 1`] = `
 @media only screen and (min-width:768px) {
   .emotion-2 {
     height: 83px;
-    right: -6px;
-    top: -8px;
+    right: -7px;
+    top: -7px;
   }
 }
 
@@ -260,7 +260,7 @@ exports[`Tabs renders correctly with defaults 1`] = `
   position: absolute;
   right: -14px;
   border-top: 32px solid transparent;
-  border-left: 14px solid #fff;
+  border-left: 15px solid #fff;
   border-bottom: 32px solid transparent;
   border-right: 0px;
   top: -5px;
@@ -272,7 +272,7 @@ exports[`Tabs renders correctly with defaults 1`] = `
     border-left: 19px solid #fff;
     border-top: 42px solid transparent;
     border-bottom: 42px solid transparent;
-    top: -7px;
+    top: -4px;
   }
 }
 
@@ -321,7 +321,7 @@ exports[`Tabs renders correctly with defaults 1`] = `
 .emotion-1 {
   z-index: 10;
   position: absolute;
-  right: -49px;
+  right: -48px;
   top: -5px;
   -webkit-transform: rotate(0);
   -ms-transform: rotate(0);
@@ -330,7 +330,7 @@ exports[`Tabs renders correctly with defaults 1`] = `
 
 @media only screen and (min-width:768px) {
   .emotion-1 {
-    height: 83px;
+    height: 84px;
     right: -53px;
     top: -5px;
   }
@@ -483,7 +483,7 @@ exports[`Tabs renders correctly with props provided 1`] = `
   content: '';
   z-index: 5;
   position: absolute;
-  right: 0px;
+  right: -1px;
   border-top: 32px solid transparent;
   border-left: 0px;
   border-bottom: 32px solid transparent;
@@ -497,7 +497,7 @@ exports[`Tabs renders correctly with props provided 1`] = `
     border-left: 0px;
     border-top: 42px solid transparent;
     border-bottom: 42px solid transparent;
-    top: -7px;
+    top: -4px;
   }
 }
 
@@ -573,7 +573,7 @@ exports[`Tabs renders correctly with props provided 1`] = `
 .emotion-2 {
   z-index: 10;
   position: absolute;
-  right: -11px;
+  right: -12px;
   top: -7px;
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
@@ -583,8 +583,8 @@ exports[`Tabs renders correctly with props provided 1`] = `
 @media only screen and (min-width:768px) {
   .emotion-2 {
     height: 83px;
-    right: -6px;
-    top: -8px;
+    right: -7px;
+    top: -7px;
   }
 }
 
