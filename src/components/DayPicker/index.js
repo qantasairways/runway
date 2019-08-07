@@ -90,9 +90,14 @@ class DayPicker extends Component {
     this.scrollToMonth(month);
     focusDayCell(date);
 
+    let shouldSelectStartDate = true;
+    if (isDateRange) {
+      shouldSelectStartDate = startDate ? false : isSelectingStartDate;
+    }
+
     this.setState({
       showFooters: true,
-      isSelectingStartDate: !isDateRange ? true : isSelectingStartDate
+      isSelectingStartDate: shouldSelectStartDate
     });
   };
 
