@@ -169,7 +169,7 @@ const Footer = ({
   priceInPoints,
   pointsLabel
 }) => {
-  const shouldShowPreFooterContents = endDateData && endDateData.price;
+  const shouldShowPreFooterContents = preFooterInfo;
   const shouldShowBottomFooterTextContents =
     showBottomFooter &&
     endDateData &&
@@ -233,9 +233,12 @@ const Footer = ({
 
                       <span
                         css={{
-                          color: endDateData.price.isLowestPrice
-                            ? '#009400'
-                            : colours.darkerGrey,
+                          color:
+                            (!priceInPoints &&
+                              endDateData.price.isLowestPrice) ||
+                            (priceInPoints && endDateData.price.isLowestPoints)
+                              ? '#009400'
+                              : colours.darkerGrey,
                           fontWeight: fontWeight.bold,
                           padding: '0 5px'
                         }}
@@ -297,7 +300,8 @@ Footer.propTypes = {
       taxValue: PropTypes.number,
       points: PropTypes.number,
       isClassic: PropTypes.bool,
-      isLowestPrice: PropTypes.bool
+      isLowestPrice: PropTypes.bool,
+      isLowestPoints: PropTypes.bool
     }),
     currencyCode: '',
     currencySymbol: ''
