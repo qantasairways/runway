@@ -98,7 +98,7 @@ describe('DayPicker', () => {
       component = shallow(<DayPicker {...props} />);
 
       const renderedMonth = shallow(
-        component.instance().renderMonth({ index: 0, style: {} }, true)
+        component.instance().renderMonth({ index: 1, style: {} }, true)
       );
 
       expect(renderedMonth).toMatchSnapshot();

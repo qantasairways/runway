@@ -18,7 +18,6 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
   font-family: "Ciutadella",sans-serif;
   color: #323232;
   background: #fafafa;
-  height: 80px;
   font-size: 12px;
   line-height: 1.25;
   -webkit-letter-spacing: 0.17px;
@@ -47,20 +46,23 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
 }
 
 .emotion-0 a {
-  color: #323232;
+  color: #ee0000;
+}
+
+.emotion-0 a:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-text-decoration-color: #323232;
-  text-decoration-color: #323232;
 }
 
 <DisclaimerMessages
   disclaimerHeight={80}
   disclaimerMessage="Please read and agree to the terms and conditions."
+  style={Object {}}
 >
   <div
     className="emotion-1"
     role="alert"
+    style={Object {}}
   >
     <div
       className="emotion-0"
