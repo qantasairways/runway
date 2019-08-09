@@ -126,7 +126,8 @@ describe('Day', () => {
         price={{
           value: 123,
           taxValue: 2,
-          isLowestPrice: false
+          isLowestPrice: false,
+          isLowestPoints: false
         }}
       />
     );
