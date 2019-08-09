@@ -1,3 +1,10 @@
+## [0.39.2](https://github.com/qantasairways/runway/compare/v0.39.1...v0.39.2) (2019-08-09)
+
+
+### Bug Fixes
+
+* **daypicker:** fix prefooter && add prop for lowest points ([#113](https://github.com/qantasairways/runway/issues/113)) ([f7d74e2](https://github.com/qantasairways/runway/commit/f7d74e2))
+
 ## [0.39.1](https://github.com/qantasairways/runway/compare/v0.39.0...v0.39.1) (2019-08-07)
 
 
