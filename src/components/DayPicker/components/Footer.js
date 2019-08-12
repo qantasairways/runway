@@ -159,7 +159,6 @@ const actionButtonStyle = {
 const Footer = ({
   bottomFootersummaryLabel,
   preFooterInfo,
-  bottomFooterDisclaimer,
   preFooterDisclaimer,
   actionText,
   showPreFooter,
@@ -175,6 +174,11 @@ const Footer = ({
     endDateData &&
     endDateData.price &&
     endDateData.price.value;
+
+  const setPreFooterDisclaimer =
+    preFooterDisclaimer &&
+    priceInPoints &&
+    (!endDateData || (endDateData && endDateData.price.isClassic));
 
   return (
     <Transition in={showBottomFooter} timeout={300}>
@@ -208,9 +212,7 @@ const Footer = ({
                     }}
                   >
                     <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                    {preFooterDisclaimer &&
-                    priceInPoints &&
-                    endDateData.price.isClassic ? (
+                    {setPreFooterDisclaimer ? (
                       <span css={topDisclaimerStyle()}>
                         {preFooterDisclaimer}
                       </span>
@@ -260,12 +262,15 @@ const Footer = ({
                     </span>
                   )}
 
-                  {bottomFooterDisclaimer &&
+                  {endDateData &&
+                  endDateData.price &&
                   priceInPoints &&
                   endDateData.price.isClassic ? (
                     <div css={bottonDisclaimerStyle()}>
-                      <span>+</span>
-                      <span>{bottomFooterDisclaimer}</span>
+                      <span>+ </span>
+                      <span>{endDateData.currencySymbol}</span>
+                      <span>{endDateData.price.taxValue}</span>
+                      <span>^</span>
                     </div>
                   ) : null}
                 </div>
@@ -293,7 +298,6 @@ Footer.propTypes = {
   bottomFootersummaryLabel: PropTypes.string,
   preFooterInfo: PropTypes.string,
   preFooterDisclaimer: PropTypes.string,
-  bottomFooterDisclaimer: PropTypes.string,
   actionText: PropTypes.string.isRequired,
   onActionButtonClick: PropTypes.func.isRequired,
   endDateData: PropTypes.shape({
@@ -318,7 +322,6 @@ Footer.defaultProps = {
   bottomFootersummaryLabel: '',
   preFooterInfo: '',
   preFooterDisclaimer: '',
-  bottomFooterDisclaimer: '',
   endDateData: null,
   priceInPoints: false,
   pointsLabel: ''
