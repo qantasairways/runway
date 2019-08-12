@@ -260,12 +260,15 @@ const Footer = ({
                     </span>
                   )}
 
-                  {bottomFooterDisclaimer &&
+                  {endDateData &&
+                  endDateData.price &&
                   priceInPoints &&
                   endDateData.price.isClassic ? (
                     <div css={bottonDisclaimerStyle()}>
-                      <span>+</span>
-                      <span>{bottomFooterDisclaimer}</span>
+                      <span>+ </span>
+                      <span>{endDateData.currencySymbol}</span>
+                      <span>{endDateData.price.taxValue}</span>
+                      <span>^</span>
                     </div>
                   ) : null}
                 </div>
