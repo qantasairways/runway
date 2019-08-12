@@ -335,7 +335,7 @@ exports[`Footer renders preFooterDisclaimer and bottom footer text contents when
 .emotion-3 {
   color: #323232;
   font-weight: 700;
-  padding: 0 5px;
+  margin: 0 5px;
 }
 
 .emotion-2 {
