@@ -1,3 +1,10 @@
+## [0.40.2](https://github.com/qantasairways/runway/compare/v0.40.1...v0.40.2) (2019-08-13)
+
+
+### Bug Fixes
+
+* **daypicker:** add classic disclaimer to the daypicker ([#116](https://github.com/qantasairways/runway/issues/116)) ([5a78e70](https://github.com/qantasairways/runway/commit/5a78e70))
+
 ## [0.40.1](https://github.com/qantasairways/runway/compare/v0.40.0...v0.40.1) (2019-08-12)
 
 
