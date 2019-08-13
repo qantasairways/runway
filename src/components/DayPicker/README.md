@@ -21,9 +21,9 @@ const today = new Date();
       endSelectedLabel="MEL"
       Icon={PlaneIcon}
       onDayClick={(startDate, endDate) => updater({ startDate, endDate })}
-      isDateRange={true}
+      isDateRange={false}
       hasPrice={true}
-      priceInPoints={false}
+      priceInPoints={true}
       preFooterInfo="Lowest economy price per adult in AUD for a return trip."
       disclaimerMessage="Please read and agree to the terms and conditions."
     />

@@ -195,6 +195,7 @@ class DayPicker extends Component {
     <DisclaimerMessages
       disclaimerMessage={this.props.disclaimerMessage}
       style={style}
+      classicDisclaimerMessage={this.props.classicDisclaimerMessage}
     />
   );
 
@@ -329,6 +330,7 @@ class DayPicker extends Component {
       endDateData,
       shouldAddScrollLockClass,
       disclaimerMessage,
+      classicDisclaimerMessage,
       priceInPoints,
       pointsLabel
     } = this.props;
@@ -390,7 +392,8 @@ class DayPicker extends Component {
                         months,
                         firstDayOfWeek,
                         isDesktopDevice,
-                        disclaimerMessage
+                        disclaimerMessage,
+                        classicDisclaimerMessage
                       )
                     }
                     width={width}
@@ -532,7 +535,9 @@ DayPicker.propTypes = {
   /* show points, classic rewards icon and tax value if it's true */
   priceInPoints: PropTypes.bool,
   /* points label in the footer */
-  pointsLabel: PropTypes.string
+  pointsLabel: PropTypes.string,
+  /* Show classic rewards disclaimer message if the priceInpoints is true */
+  classicDisclaimerMessage: PropTypes.string
 };
 
 DayPicker.defaultProps = {
@@ -586,7 +591,8 @@ DayPicker.defaultProps = {
   shouldAddScrollLockClass: false,
   disclaimerMessage: null,
   priceInPoints: false,
-  pointsLabel: 'points'
+  pointsLabel: 'points',
+  classicDisclaimerMessage: 'Classic Flight Reward one way'
 };
 
 export default DayPicker;
