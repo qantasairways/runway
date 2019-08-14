@@ -225,8 +225,14 @@ class DayPicker extends Component {
 
     if (typeof onCalendarScroll === 'function') {
       return ({ visibleStartIndex, visibleStopIndex }) => {
-        const firstVisibleDate = this.state.months[visibleStartIndex];
-        const lastVisibleDate = this.state.months[visibleStopIndex];
+        const maxValidIndex = this.state.months.length - 1;
+        const startIndex =
+          visibleStartIndex > maxValidIndex ? maxValidIndex : visibleStartIndex;
+        const stopIndex =
+          visibleStopIndex > maxValidIndex ? maxValidIndex : visibleStopIndex;
+
+        const firstVisibleDate = this.state.months[startIndex];
+        const lastVisibleDate = this.state.months[stopIndex];
 
         const startDate = getFirstEnabledMonthDate({
           monthDate: firstVisibleDate,
