@@ -26,13 +26,13 @@ function addQComZIndex(zIndex) {
 
 export const transitionStylesSlideUp = {
   entering: {
-    top: '100%'
+    transform: 'translateY(0)'
   },
   entered: {
-    top: 0
+    transform: 'translateY(-100%)'
   },
   exiting: {
-    top: '100%'
+    transform: 'translateY(0)'
   }
 };
 
@@ -45,7 +45,7 @@ export const dialogStylesFullScreen = {
   left: 0,
   position: 'fixed',
   top: '100%',
-  transition: `top 300ms ease-in-out`,
+  transition: `transform 300ms ease-in-out`,
   width: '100%',
   zIndex: 1000,
   display: 'flex',

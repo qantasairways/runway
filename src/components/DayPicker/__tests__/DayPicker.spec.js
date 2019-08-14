@@ -93,18 +93,6 @@ describe('DayPicker', () => {
     });
   });
 
-  describe('renderMonth()', () => {
-    it('renders correctly', () => {
-      component = shallow(<DayPicker {...props} />);
-
-      const renderedMonth = shallow(
-        component.instance().renderMonth({ index: 1, style: {} }, true)
-      );
-
-      expect(renderedMonth).toMatchSnapshot();
-    });
-  });
-
   describe('renderButtonDates()', () => {
     it('does not render if start date is not selected', () => {
       component = shallow(
