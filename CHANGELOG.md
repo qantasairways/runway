@@ -1,3 +1,10 @@
+# [0.41.0](https://github.com/qantasairways/runway/compare/v0.40.2...v0.41.0) (2019-08-14)
+
+
+### Features
+
+* **daypicker:** Open daypicker at top of calendar. Fix keyboard navigation a11y. Improve performance of calendar by using a class inside react-window list ([#119](https://github.com/qantasairways/runway/issues/119)) ([262abc8](https://github.com/qantasairways/runway/commit/262abc8))
+
 ## [0.40.2](https://github.com/qantasairways/runway/compare/v0.40.1...v0.40.2) (2019-08-13)
 
 
