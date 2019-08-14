@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
-import { fontFamily, mq, colours, layout } from '../../theme/airways';
-import ClassicRewards from '../../icons/ClassicRewards';
+import { fontFamily, mq, colours, layout } from '../../../theme/airways';
+import ClassicRewards from '../../../icons/ClassicRewards';
 
 class DisclaimerMessages extends Component {
   getHTMLFormat = () => {
@@ -84,7 +84,7 @@ class DisclaimerMessages extends Component {
 
 DisclaimerMessages.propTypes = {
   disclaimerMessage: PropTypes.string,
-  style: PropTypes.shape,
+  style: PropTypes.shape(),
   classicDisclaimerMessage: PropTypes.string
 };
 
