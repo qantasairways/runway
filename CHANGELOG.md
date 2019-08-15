@@ -1,3 +1,10 @@
+## [0.41.1](https://github.com/qantasairways/runway/compare/v0.41.0...v0.41.1) (2019-08-15)
+
+
+### Bug Fixes
+
+* **daypicker:** change the argument to show the prefooter disclaimer ([#118](https://github.com/qantasairways/runway/issues/118)) ([639fcdb](https://github.com/qantasairways/runway/commit/639fcdb))
+
 # [0.41.0](https://github.com/qantasairways/runway/compare/v0.40.2...v0.41.0) (2019-08-14)
 
 
