@@ -223,6 +223,7 @@ class Typeahead extends Component {
       onBlur,
       onFocus,
       onChange,
+      onKeyDown,
       message,
       stateReducer,
       valid,
@@ -291,6 +292,7 @@ class Typeahead extends Component {
                       });
                       onBlur();
                     },
+                    onKeyDown,
                     ref: this.setInputRef
                   })}
                 />
@@ -358,6 +360,8 @@ Typeahead.propTypes = {
   onFocus: PropTypes.func,
   /** Triggered when a list item is selected */
   onChange: PropTypes.func,
+  /** Triggered when the keydown event is fired */
+  onKeyDown: PropTypes.func,
   /** Triggered when the value of the imput is changed */
   onInputValueChange: PropTypes.func,
   /** Function to filter the array of list items
@@ -403,6 +407,7 @@ Typeahead.defaultProps = {
   onBlur: noop,
   onFocus: noop,
   onChange: noop,
+  onKeyDown: noop,
   onInputValueChange: null,
   setRef: noop,
   message: '',
