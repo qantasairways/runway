@@ -223,6 +223,7 @@ class Typeahead extends Component {
       onBlur,
       onFocus,
       onChange,
+      handleKeyDown,
       message,
       stateReducer,
       valid,
@@ -241,6 +242,7 @@ class Typeahead extends Component {
         onChange={onChange}
         onInputValueChange={this.onInputValueChange}
         stateReducer={stateReducer}
+        handleKeyDown={handleKeyDown}
       >
         {({
           setState,
@@ -290,6 +292,9 @@ class Typeahead extends Component {
                         placeholder: ''
                       });
                       onBlur();
+                    },
+                    onKeyDown: event => {
+                      this.props.handleKeyDown(event);
                     },
                     ref: this.setInputRef
                   })}
