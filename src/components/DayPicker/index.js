@@ -22,7 +22,8 @@ import {
   getFirstEnabledMonthDate,
   focusDayCell,
   DAY_CELL_BORDER_WIDTH,
-  getLastEnabledMonthDate
+  getLastEnabledMonthDate,
+  DISCLAIMER_HEIGHT
 } from './helpers';
 
 import ButtonWithDialog, {
@@ -33,8 +34,6 @@ import ButtonWithDialog, {
 import IconCalendar from '../../icons/CalendarIcon';
 import Header from './components/Header';
 import DisclaimerMessages from '../DisclaimerMessages';
-
-const DISCLAIMER_MSG_COUNT = 1;
 
 const rowStyles = {
   display: 'grid',
@@ -191,16 +190,35 @@ class DayPicker extends Component {
     ) : null;
   };
 
-  renderDisclaimer = ({ style }) => (
+  renderMonthAndDisclaimer = (row, isDesktopDevice) => {
+    const { index, style } = row;
+
+    const updatedStyle = {
+      ...style,
+      top: DISCLAIMER_HEIGHT
+    };
+
+    const updatedRow = {
+      index,
+      style: updatedStyle
+    };
+
+    return (
+      <div>
+        {this.renderDisclaimer(DISCLAIMER_HEIGHT)}
+        {this.renderMonth(updatedRow, isDesktopDevice)}
+      </div>
+    );
+  };
+
+  renderDisclaimer = disclaimerHeight => (
     <DisclaimerMessages
+      disclaimerHeight={disclaimerHeight}
       disclaimerMessage={this.props.disclaimerMessage}
-      style={style}
     />
   );
 
   renderMonth = ({ index, style }, isDesktopDevice) => {
-    const monthIndex = index - 1;
-
     const {
       isDateRange,
       firstDayOfWeek,
@@ -225,11 +243,11 @@ class DayPicker extends Component {
       isSelectingStartDate
     } = this.state;
 
-    const month = months[monthIndex];
+    const month = months[index];
 
     let dates = getDateArray({
       startDay: month,
-      monthIndex,
+      monthIndex: index,
       today,
       firstDayOfWeek,
       startDate,
@@ -383,7 +401,7 @@ class DayPicker extends Component {
                     }}
                     outerRef={setScrollTargetRef}
                     height={height}
-                    itemCount={monthsToShow + DISCLAIMER_MSG_COUNT}
+                    itemCount={monthsToShow}
                     itemSize={index =>
                       getItemSize(
                         index,
@@ -397,8 +415,8 @@ class DayPicker extends Component {
                     onItemsRendered={this.setupOnMonthsShownSubscription()}
                   >
                     {row =>
-                      row.index === 0
-                        ? this.renderDisclaimer(row)
+                      row.index === 0 && disclaimerMessage
+                        ? this.renderMonthAndDisclaimer(row, isDesktopDevice)
                         : this.renderMonth(row, isDesktopDevice)
                     }
                   </List>
