@@ -430,8 +430,7 @@ Day.propTypes = {
     taxValue: PropTypes.number,
     points: PropTypes.number,
     isClassic: PropTypes.bool,
-    isLowestPrice: PropTypes.bool,
-    isLowestPoints: PropTypes.bool
+    isLowestPrice: PropTypes.bool
   }),
   priceInPoints: PropTypes.bool
 };

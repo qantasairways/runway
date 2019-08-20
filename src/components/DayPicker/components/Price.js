@@ -30,7 +30,6 @@ function Price({
   taxValue,
   currencySymbol,
   isLowestPrice,
-  isLowestPoints,
   points,
   isClassic,
   priceInPoints
@@ -84,11 +83,7 @@ function Price({
         >
           <div
             css={{
-              color:
-                (priceInPoints && isLowestPoints) ||
-                (!priceInPoints && isLowestPrice)
-                  ? '#008600'
-                  : colours.mediumDarkGrey,
+              color: isLowestPrice ? '#008600' : colours.mediumDarkGrey,
               ...priceFontStyles
             }}
           >
@@ -136,7 +131,6 @@ Price.propTypes = {
   points: PropTypes.number,
   currencySymbol: PropTypes.string,
   isLowestPrice: PropTypes.bool,
-  isLowestPoints: PropTypes.bool,
   isClassic: PropTypes.bool,
   priceInPoints: PropTypes.bool
 };
@@ -148,7 +142,6 @@ Price.defaultProps = {
   points: null,
   currencySymbol: '',
   isLowestPrice: false,
-  isLowestPoints: false,
   isClassic: null,
   priceInPoints: false
 };
