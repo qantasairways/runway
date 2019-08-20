@@ -1,3 +1,10 @@
+## [0.41.2](https://github.com/qantasairways/runway/compare/v0.41.1...v0.41.2) (2019-08-20)
+
+
+### Bug Fixes
+
+* **popupfield, daypicker:** Change dialog transition styles back to top, as transform breaks desktop styling ([#122](https://github.com/qantasairways/runway/issues/122)) ([a59209e](https://github.com/qantasairways/runway/commit/a59209e))
+
 ## [0.41.1](https://github.com/qantasairways/runway/compare/v0.41.0...v0.41.1) (2019-08-15)
 
 
