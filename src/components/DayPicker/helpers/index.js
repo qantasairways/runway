@@ -27,7 +27,6 @@ export const DAY_CELL_BORDER_WIDTH = 1;
 export const MONTH_CAPTION_HEIGHT_DESKTOP = 78;
 export const DAY_CELL_HEIGHT_DESKTOP = 90;
 export const DISCLAIMER_HEIGHT = 90;
-export const CLASSIC_DISCLAIMER_HEIGHT = 130;
 
 export const isDayBefore = (firstDate, secondDate) => {
   const first = startOfDay(firstDate);
@@ -120,26 +119,15 @@ export function getInitialDateToFocus(today, startDate, disabledBefore) {
   };
 }
 
-export function getHeight(disclaimerMessage, classicDisclaimerMessage) {
-  if (disclaimerMessage && classicDisclaimerMessage) {
-    return CLASSIC_DISCLAIMER_HEIGHT;
-  }
-  if (disclaimerMessage) {
-    return DISCLAIMER_HEIGHT;
-  }
-  return 0;
-}
-
 export function getItemSize(
   index,
   months,
   firstDayOfWeek,
   isDesktopDevice,
-  disclaimerMessage,
-  classicDisclaimerMessage
+  disclaimerMessage
 ) {
   if (index === 0) {
-    return getHeight(disclaimerMessage, classicDisclaimerMessage);
+    return disclaimerMessage ? DISCLAIMER_HEIGHT : 0;
   }
 
   const monthIndex = index - 1;
