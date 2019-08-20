@@ -143,6 +143,7 @@ exports[`Header renders correctly with defaults 1`] = `
         aria-label=""
         className="emotion-3"
         onClick={[Function]}
+        onKeyDown={[Function]}
         type="button"
       >
         <CrossIcon
@@ -160,7 +161,6 @@ exports[`Header renders correctly with defaults 1`] = `
     endSelectedLabel=""
     isDateRange={false}
     isSelectingStartDate={true}
-    onTabClick={[Function]}
     startDate={null}
     startPlaceholder=""
     startSelectedLabel=""
@@ -363,6 +363,7 @@ exports[`Header renders correctly with props provided 1`] = `
         aria-label="close"
         className="emotion-3"
         onClick={[Function]}
+        onKeyDown={[Function]}
         type="button"
       >
         <CrossIcon
@@ -380,7 +381,6 @@ exports[`Header renders correctly with props provided 1`] = `
     endSelectedLabel="return"
     isDateRange={false}
     isSelectingStartDate={false}
-    onTabClick={[Function]}
     startDate="Sun Apr 21 2019"
     startPlaceholder="depart when?"
     startSelectedLabel="depart"

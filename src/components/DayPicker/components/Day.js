@@ -3,14 +3,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
+import { addDays, startOfMonth, addMonths } from 'date-fns';
 
 import { CSS_SELECTOR_HOVER, CSS_SELECTOR_FOCUS } from '../../../constants/css';
-import { KEY_CODE_SPACE, KEY_CODE_ENTER } from '../../../constants/keyCodes';
+import {
+  KEY_CODE_SPACE,
+  KEY_CODE_ENTER,
+  KEY_CODE_LEFT,
+  KEY_CODE_RIGHT,
+  KEY_CODE_UP,
+  KEY_CODE_DOWN,
+  KEY_CODE_TAB
+} from '../../../constants/keyCodes';
 import { colours, fontSize, layout, mq } from '../../../theme/airways';
 
 import {
   getShouldSelectAsStartDate,
   getEndDateFromStartDate,
+  DAY_NAVIGATION_MAPPING,
   DAY_CELL_HEIGHT_DESKTOP,
   DAY_CELL_HEIGHT_MOBILE
 } from '../helpers';
@@ -206,9 +216,14 @@ class Day extends Component {
 
   handleKeyDown = event => {
     const { keyCode } = event;
-    if (!keyCode) return;
+    const {
+      timestamp,
+      focusDateElement,
+      isFirstMonth,
+      isLastMonth
+    } = this.props;
 
-    const { timestamp, onDayNavigate } = this.props;
+    if (!keyCode || !timestamp) return;
 
     if (keyCode === KEY_CODE_SPACE || keyCode === KEY_CODE_ENTER) {
       event.preventDefault();
@@ -217,8 +232,32 @@ class Day extends Component {
       return;
     }
 
-    if (timestamp) {
-      onDayNavigate(timestamp, keyCode);
+    if (
+      keyCode === KEY_CODE_LEFT ||
+      keyCode === KEY_CODE_RIGHT ||
+      keyCode === KEY_CODE_UP ||
+      keyCode === KEY_CODE_DOWN
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+      const daysToNavigate = DAY_NAVIGATION_MAPPING[keyCode];
+      const dateToFocus = new Date(addDays(timestamp, daysToNavigate));
+
+      focusDateElement(dateToFocus);
+      return;
+    }
+
+    if (event.shiftKey && keyCode === KEY_CODE_TAB) {
+      if (isFirstMonth) return;
+
+      const dateToFocus = startOfMonth(addMonths(new Date(timestamp), -1));
+      focusDateElement(dateToFocus);
+      return;
+    }
+
+    if (keyCode === KEY_CODE_TAB && !isLastMonth) {
+      const dateToFocus = startOfMonth(addMonths(new Date(timestamp), 1));
+      focusDateElement(dateToFocus);
     }
   };
 
@@ -295,11 +334,11 @@ class Day extends Component {
     const dayOfMonth = date && date.getDate();
 
     return isOutside ? (
-      <div key={timestamp} />
+      <div />
     ) : (
       <div
         role="button"
-        tabIndex={isStart || isFirstDayOfMonth ? 0 : -1}
+        tabIndex={isStart || isEnd || isFirstDayOfMonth ? 0 : -1}
         css={dayStyles({ isStart, isEnd, isInRange, isDisabled, isOutside })}
         className={isDisabled ? '' : `d${timestamp}`}
         aria-label={getAriaLabel({
@@ -358,7 +397,7 @@ Day.propTypes = {
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   onDayClick: PropTypes.func.isRequired,
-  onDayNavigate: PropTypes.func.isRequired,
+  focusDateElement: PropTypes.func.isRequired,
   isStart: PropTypes.bool,
   isEnd: PropTypes.bool,
   isInRange: PropTypes.bool,

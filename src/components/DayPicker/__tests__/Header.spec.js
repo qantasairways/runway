@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Header from '../components/Header';
+import noop from '../../../utils/noop';
 
 const start = new Date(2019, 3, 21, 0, 0, 0, 0);
 const end = new Date(2019, 3, 24, 0, 0, 0, 0);
@@ -16,6 +17,8 @@ describe('Header', () => {
         firstDayOfWeek={1}
         rowStyles={{}}
         dayLabels={['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']}
+        onKeyDown={noop}
+        setFocusElementRef={noop}
       />
     );
 
@@ -41,6 +44,8 @@ describe('Header', () => {
         endPlaceholder="return when?"
         Icon={CalendarIcon}
         isDateRange={false}
+        onKeyDown={noop}
+        setFocusElementRef={noop}
       />
     );
 

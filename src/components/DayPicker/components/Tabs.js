@@ -189,16 +189,15 @@ const Tabs = ({
   endPlaceholder,
   startDate,
   endDate,
-  onTabClick,
   isDateRange,
   Icon
 }) => (
   <div>
     <div css={calendarHeatherCntStyle()}>
       <button
-        onClick={() => onTabClick({ isSelectingStartDate: true })}
         type="button"
         css={startTabStyles({ isSelectingStartDate })}
+        tabIndex={-1}
       >
         {renderTabContent(
           startDate,
@@ -211,9 +210,9 @@ const Tabs = ({
       </button>
       {isDateRange && (
         <button
-          onClick={() => onTabClick({ isSelectingStartDate: false })}
           type="button"
           css={endTabStyle({ isSelectingStartDate })}
+          tabIndex={-1}
         >
           {renderTabContent(
             endDate,
@@ -236,7 +235,6 @@ Tabs.propTypes = {
   endSelectedLabel: PropTypes.string.isRequired,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
-  onTabClick: PropTypes.func,
   Icon: PropTypes.func
 };
 
@@ -245,7 +243,6 @@ Tabs.defaultProps = {
   isDateRange: true,
   startDate: null,
   endDate: null,
-  onTabClick: () => {},
   Icon: null
 };
 

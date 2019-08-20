@@ -14,4 +14,6 @@ window.matchMedia = jest.fn().mockImplementation(query => ({
   removeListener: jest.fn()
 }));
 
+window.scrollTo = jest.fn();
+
 configure({ adapter: new Adapter() });

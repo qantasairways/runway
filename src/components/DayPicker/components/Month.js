@@ -6,7 +6,9 @@ import { CSS_SELECTOR_LASTCHILD } from '../../../constants/css';
 import { mq, fontWeight, colours } from '../../../theme/airways';
 
 import Day from './Day';
+
 import {
+  getDateArray,
   MONTH_CAPTION_HEIGHT_DESKTOP,
   MONTH_CAPTION_HEIGHT_MOBILE
 } from '../helpers';
@@ -49,7 +51,8 @@ class Month extends PureComponent {
 
   render() {
     const {
-      month,
+      months,
+      monthIndex,
       monthLabels,
       isDateRange,
       isSelectingStartDate,
@@ -61,14 +64,35 @@ class Month extends PureComponent {
       endAriaLabel,
       Icon,
       isDesktopDevice,
-      days,
       style,
       onDayClick,
-      onDayNavigate,
       startDate,
       endDate,
-      rowStyles
+      rowStyles,
+      transformDatesData,
+      disabledBefore,
+      disabledAfter,
+      today,
+      firstDayOfWeek,
+      focusDateElement
     } = this.props;
+
+    const month = months[monthIndex];
+
+    let days = getDateArray({
+      startDay: month,
+      monthIndex,
+      today,
+      firstDayOfWeek,
+      startDate,
+      endDate,
+      disabledBefore,
+      disabledAfter
+    });
+
+    if (typeof transformDatesData === 'function') {
+      days = transformDatesData(days);
+    }
 
     const monthLabel = monthLabels[month.getMonth()];
     const year = month.getFullYear();
@@ -93,9 +117,11 @@ class Month extends PureComponent {
               Icon={Icon}
               isDesktopDevice={isDesktopDevice}
               onDayClick={onDayClick}
-              onDayNavigate={onDayNavigate}
               startDate={startDate}
               endDate={endDate}
+              focusDateElement={focusDateElement}
+              isFirstMonth={monthIndex === 0}
+              isLastMonth={monthIndex === months.length}
               {...day}
             />
           ))}
@@ -106,15 +132,19 @@ class Month extends PureComponent {
 }
 
 Month.propTypes = {
-  month: PropTypes.instanceOf(Date).isRequired,
+  months: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  monthIndex: PropTypes.number.isRequired,
+  disabledBefore: PropTypes.instanceOf(Date).isRequired,
+  disabledAfter: PropTypes.instanceOf(Date).isRequired,
+  today: PropTypes.number.isRequired,
+  firstDayOfWeek: PropTypes.number.isRequired,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date),
-  days: PropTypes.arrayOf(PropTypes.shape).isRequired,
   isDateRange: PropTypes.bool,
   isSelectingStartDate: PropTypes.bool,
   isDesktopDevice: PropTypes.bool,
   onDayClick: PropTypes.func.isRequired,
-  onDayNavigate: PropTypes.func.isRequired,
+  focusDateElement: PropTypes.func.isRequired,
   startSelectedLabel: PropTypes.string,
   endSelectedLabel: PropTypes.string,
   startLabel: PropTypes.string,
@@ -124,7 +154,8 @@ Month.propTypes = {
   monthLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
   Icon: PropTypes.func,
   rowStyles: PropTypes.shape(),
-  style: PropTypes.shape()
+  style: PropTypes.shape(),
+  transformDatesData: PropTypes.func
 };
 
 Month.defaultProps = {
@@ -141,7 +172,8 @@ Month.defaultProps = {
   endAriaLabel: '',
   Icon: null,
   rowStyles: {},
-  style: {}
+  style: {},
+  transformDatesData: null
 };
 
 export default Month;
