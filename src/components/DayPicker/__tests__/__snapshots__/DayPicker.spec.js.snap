@@ -269,7 +269,7 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
       "left": 0,
       "position": "fixed",
       "top": "100%",
-      "transition": "transform 300ms ease-in-out",
+      "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
     }
@@ -287,13 +287,13 @@ exports[`DayPicker renders DayPicker with props provided 1`] = `
   transitionStyles={
     Object {
       "entered": Object {
-        "transform": "translateY(-100%)",
+        "top": 0,
       },
       "entering": Object {
-        "transform": "translateY(0)",
+        "top": "100%",
       },
       "exiting": Object {
-        "transform": "translateY(0)",
+        "top": "100%",
       },
     }
   }
@@ -321,7 +321,7 @@ exports[`DayPicker renders correctly with defaults 1`] = `
       "left": 0,
       "position": "fixed",
       "top": "100%",
-      "transition": "transform 300ms ease-in-out",
+      "transition": "top 300ms ease-in-out",
       "width": "100%",
       "zIndex": 1000,
     }
@@ -339,13 +339,13 @@ exports[`DayPicker renders correctly with defaults 1`] = `
   transitionStyles={
     Object {
       "entered": Object {
-        "transform": "translateY(-100%)",
+        "top": 0,
       },
       "entering": Object {
-        "transform": "translateY(0)",
+        "top": "100%",
       },
       "exiting": Object {
-        "transform": "translateY(0)",
+        "top": "100%",
       },
     }
   }
