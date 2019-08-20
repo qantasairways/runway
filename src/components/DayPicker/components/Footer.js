@@ -175,12 +175,6 @@ const Footer = ({
     endDateData.price &&
     endDateData.price.value;
 
-  const setPreFooterDisclaimer =
-    preFooterDisclaimer &&
-    priceInPoints &&
-    (!endDateData ||
-      (endDateData && endDateData.price && endDateData.price.isClassic));
-
   return (
     <Transition in={showBottomFooter} timeout={300}>
       {wrapperTransition => (
@@ -213,7 +207,9 @@ const Footer = ({
                     }}
                   >
                     <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                    {setPreFooterDisclaimer ? (
+                    {preFooterDisclaimer &&
+                    priceInPoints &&
+                    endDateData.price.isClassic ? (
                       <span css={topDisclaimerStyle()}>
                         {preFooterDisclaimer}
                       </span>
@@ -240,13 +236,8 @@ const Footer = ({
                         css={{
                           color:
                             (!priceInPoints &&
-                              endDateData &&
-                              endDateData.price &&
                               endDateData.price.isLowestPrice) ||
-                            (priceInPoints &&
-                              endDateData &&
-                              endDateData.price &&
-                              endDateData.price.isLowestPoints)
+                            (priceInPoints && endDateData.price.isLowestPoints)
                               ? '#009400'
                               : colours.darkerGrey,
                           fontWeight: fontWeight.bold,
@@ -254,7 +245,7 @@ const Footer = ({
                         }}
                       >
                         <span>
-                          {endDateData && endDateData.price && priceInPoints
+                          {endDateData && priceInPoints
                             ? numberWithCommas(endDateData.price.points)
                             : endDateData.currencySymbol +
                               numberWithCommas(
