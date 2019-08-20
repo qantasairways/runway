@@ -9,14 +9,9 @@ describe('Month', () => {
   let component;
 
   const requiredProps = {
-    months: [new Date(2019, 3, 20, 0, 0, 0)],
-    monthIndex: 0,
-    disabledBefore: new Date(2019, 3, 2, 0, 0, 0),
-    disabledAfter: new Date(2019, 3, 26, 0, 0, 0),
-    today: new Date(2019, 3, 15, 0, 0, 0).getTime(),
-    firstDayOfWeek: 1,
+    month: new Date(2019, 3, 20, 0, 0, 0),
     onDayClick: noop,
-    focusDateElement: noop,
+    onDayNavigate: noop,
     days: [
       {
         date: new Date(2019, 3, 20, 0, 0, 0),
