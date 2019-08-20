@@ -229,8 +229,7 @@ class DayPicker extends Component {
       startAriaLabel,
       endAriaLabel,
       monthLabels,
-      Icon,
-      priceInPoints
+      Icon
     } = this.props;
 
     const {
@@ -284,7 +283,6 @@ class DayPicker extends Component {
         rowStyles={rowStyles}
         isDesktopDevice={isDesktopDevice}
         today={today}
-        priceInPoints={priceInPoints}
       />
     );
   };
@@ -340,15 +338,11 @@ class DayPicker extends Component {
       isDateRange,
       footerButtonLabel,
       preFooterInfo,
-      preFooterDisclaimer,
-      bottomFooterDisclaimer,
       bottomFootersummaryLabel,
       hasPrice,
       endDateData,
       shouldAddScrollLockClass,
-      disclaimerMessage,
-      priceInPoints,
-      pointsLabel
+      disclaimerMessage
     } = this.props;
 
     const { months, showFooters } = this.state;
@@ -430,13 +424,13 @@ class DayPicker extends Component {
               showBottomFooter={setShowBottomFooters()}
               actionText={footerButtonLabel}
               onActionButtonClick={closeDialog}
-              preFooterInfo={preFooterInfo}
-              preFooterDisclaimer={preFooterDisclaimer}
-              bottomFootersummaryLabel={bottomFootersummaryLabel}
-              bottomFooterDisclaimer={bottomFooterDisclaimer}
+              preFooterInfo={
+                !isDateRange || (hasPrice && startDate) ? preFooterInfo : null
+              }
+              bottomFootersummaryLabel={
+                hasPrice ? bottomFootersummaryLabel : null
+              }
               endDateData={endDateData}
-              priceInPoints={priceInPoints}
-              pointsLabel={pointsLabel}
             />
           </div>
         )}
@@ -522,12 +516,8 @@ DayPicker.propTypes = {
   footerButtonLabel: PropTypes.string,
   /** Text to display in the preFooter component */
   preFooterInfo: PropTypes.string,
-  /** disclaimer text to display in the footer if usepoints is on and isclassic is true */
-  preFooterDisclaimer: PropTypes.string,
   /** Text to display in the footer component */
   bottomFootersummaryLabel: PropTypes.string,
-  /** tax text to display in the footer if usepoints is on and it's classic */
-  bottomFooterDisclaimer: PropTypes.string,
   /** Flag showing whether any date has a price associated */
   hasPrice: PropTypes.bool,
   /** Pricing information to display in the footer for the selected date */
@@ -544,12 +534,7 @@ DayPicker.propTypes = {
   }),
   /* Additional scroll lock class for forcing safari toolbars to display */
   shouldAddScrollLockClass: PropTypes.bool,
-  /* show the desclaimers and points if it's true */
-  disclaimerMessage: PropTypes.string,
-  /* show points, classic rewards icon and tax value if it's true */
-  priceInPoints: PropTypes.bool,
-  /* points label in the footer */
-  pointsLabel: PropTypes.string
+  disclaimerMessage: PropTypes.string
 };
 
 DayPicker.defaultProps = {
@@ -595,15 +580,11 @@ DayPicker.defaultProps = {
   configOnMonthsShownSubscription: null,
   footerButtonLabel: 'Confirm',
   preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
-  preFooterDisclaimer: '^ taxes fees and carrier charges. Limited avaliability',
-  bottomFootersummaryLabel: 'From',
-  bottomFooterDisclaimer: ' $344.70^',
+  bottomFootersummaryLabel: 'From ',
   hasPrice: false,
   endDateData: null,
   shouldAddScrollLockClass: false,
-  disclaimerMessage: null,
-  priceInPoints: false,
-  pointsLabel: 'points'
+  disclaimerMessage: null
 };
 
 export default DayPicker;

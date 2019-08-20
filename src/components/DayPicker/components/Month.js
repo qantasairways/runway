@@ -67,8 +67,7 @@ class Month extends PureComponent {
       onDayNavigate,
       startDate,
       endDate,
-      rowStyles,
-      priceInPoints
+      rowStyles
     } = this.props;
 
     const monthLabel = monthLabels[month.getMonth()];
@@ -98,7 +97,6 @@ class Month extends PureComponent {
               startDate={startDate}
               endDate={endDate}
               {...day}
-              priceInPoints={priceInPoints}
             />
           ))}
         </div>
@@ -126,8 +124,7 @@ Month.propTypes = {
   monthLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
   Icon: PropTypes.func,
   rowStyles: PropTypes.shape(),
-  style: PropTypes.shape(),
-  priceInPoints: PropTypes.bool
+  style: PropTypes.shape()
 };
 
 Month.defaultProps = {
@@ -144,8 +141,7 @@ Month.defaultProps = {
   endAriaLabel: '',
   Icon: null,
   rowStyles: {},
-  style: {},
-  priceInPoints: false
+  style: {}
 };
 
 export default Month;
