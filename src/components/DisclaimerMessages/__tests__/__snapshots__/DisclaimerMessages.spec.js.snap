@@ -6,26 +6,28 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: left;
   font-family: "Ciutadella",sans-serif;
   color: #323232;
   background: #fafafa;
-  height: 80px;
   font-size: 12px;
   line-height: 1.25;
   -webkit-letter-spacing: 0.17px;
   -moz-letter-spacing: 0.17px;
   -ms-letter-spacing: 0.17px;
   letter-spacing: 0.17px;
-  padding: 15px 15px;
+  padding: 15px 15px 0;
   pointer-events: initial;
 }
 
@@ -37,30 +39,42 @@ exports[`DisclaimerMessages Disclaimer Message renders correctly 1`] = `
     -moz-letter-spacing: normal;
     -ms-letter-spacing: normal;
     letter-spacing: normal;
-    padding: 0px 15px;
+    padding: 0 15px;
     text-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 }
 
 .emotion-0 {
-  width: 750px;
+  max-width: 750px;
 }
 
 .emotion-0 a {
-  color: #323232;
+  color: #ee0000;
+}
+
+.emotion-0 a:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-text-decoration-color: #323232;
-  text-decoration-color: #323232;
+}
+
+@media only screen and (min-width:768px) {
+
 }
 
 <DisclaimerMessages
+  classicDisclaimerMessage=""
   disclaimerHeight={80}
   disclaimerMessage="Please read and agree to the terms and conditions."
+  style={Object {}}
 >
   <div
     className="emotion-1"
     role="alert"
+    style={Object {}}
   >
     <div
       className="emotion-0"

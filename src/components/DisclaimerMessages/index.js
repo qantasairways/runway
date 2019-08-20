@@ -2,29 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { fontFamily, mq, colours, layout } from '../../theme/airways';
-
-const styleDisclaimerMessage = disclaimerHeight => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'left',
-  fontFamily: fontFamily.main,
-  color: colours.darkerGrey,
-  background: colours.disabledGrey,
-  height: `${disclaimerHeight}px`,
-  fontSize: '12px',
-  lineHeight: '1.25',
-  letterSpacing: '0.17px',
-  padding: `15px ${layout.gutter}`,
-  pointerEvents: 'initial',
-  [mq.medium]: {
-    fontSize: '14px',
-    lineHeight: '1.43',
-    letterSpacing: 'normal',
-    padding: `0px ${layout.gutter}`,
-    textAlign: 'center'
-  }
-});
+import ClassicRewards from '../../icons/ClassicRewards';
 
 class DisclaimerMessages extends Component {
   getHTMLFormat = () => {
@@ -33,22 +11,72 @@ class DisclaimerMessages extends Component {
   };
 
   render() {
-    const { disclaimerHeight } = this.props;
+    const { style, classicDisclaimerMessage } = this.props;
 
     return (
-      <div role="alert" css={styleDisclaimerMessage(disclaimerHeight)}>
+      <div
+        role="alert"
+        style={style}
+        css={{
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'flex-end',
+          flexDirection: 'column',
+          textAlign: 'left',
+          fontFamily: fontFamily.main,
+          color: colours.darkerGrey,
+          background: colours.disabledGrey,
+          fontSize: '12px',
+          lineHeight: '1.25',
+          letterSpacing: '0.17px',
+          padding: `15px ${layout.gutter} 0`,
+          pointerEvents: 'initial',
+          [mq.medium]: {
+            fontSize: '14px',
+            lineHeight: '1.43',
+            letterSpacing: 'normal',
+            padding: `0 ${layout.gutter}`,
+            textAlign: 'center',
+            alignItems: 'center'
+          }
+        }}
+      >
         <div
           css={{
-            width: '750px',
+            maxWidth: '750px',
             '& a': {
-              color: colours.darkerGrey,
-              textDecoration: 'underline',
-              textDecorationColor: colours.darkerGrey
-            }
+              color: colours.primary
+            },
+            '& a:hover': {
+              textDecoration: 'underline'
+            },
+            [mq.medium]: {}
           }}
           /* eslint-disable react/no-danger */
           dangerouslySetInnerHTML={this.getHTMLFormat()}
         />
+        {classicDisclaimerMessage && (
+          <div
+            css={{
+              display: 'flex',
+              alignItems: 'center',
+              paddingTop: '16px',
+              [mq.medium]: {
+                paddingTop: '20px'
+              }
+            }}
+          >
+            <ClassicRewards
+              css={{
+                fill: colours.primary,
+                height: '20px',
+                width: '20px',
+                marginRight: '10px'
+              }}
+            />
+            <span css={{ paddingTop: '3px' }}>{classicDisclaimerMessage}</span>
+          </div>
+        )}
       </div>
     );
   }
@@ -56,12 +84,14 @@ class DisclaimerMessages extends Component {
 
 DisclaimerMessages.propTypes = {
   disclaimerMessage: PropTypes.string,
-  disclaimerHeight: 90
+  style: PropTypes.shape,
+  classicDisclaimerMessage: PropTypes.string
 };
 
 DisclaimerMessages.defaultProps = {
   disclaimerMessage: '',
-  disclaimerHeight: PropTypes.number
+  style: {},
+  classicDisclaimerMessage: ''
 };
 
 export default DisclaimerMessages;

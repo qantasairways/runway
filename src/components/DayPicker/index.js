@@ -22,8 +22,7 @@ import {
   getFirstEnabledMonthDate,
   focusDayCell,
   DAY_CELL_BORDER_WIDTH,
-  getLastEnabledMonthDate,
-  DISCLAIMER_HEIGHT
+  getLastEnabledMonthDate
 } from './helpers';
 
 import ButtonWithDialog, {
@@ -34,6 +33,8 @@ import ButtonWithDialog, {
 import IconCalendar from '../../icons/CalendarIcon';
 import Header from './components/Header';
 import DisclaimerMessages from '../DisclaimerMessages';
+
+const DISCLAIMER_MSG_COUNT = 1;
 
 const rowStyles = {
   display: 'grid',
@@ -190,35 +191,17 @@ class DayPicker extends Component {
     ) : null;
   };
 
-  renderMonthAndDisclaimer = (row, isDesktopDevice) => {
-    const { index, style } = row;
-
-    const updatedStyle = {
-      ...style,
-      top: DISCLAIMER_HEIGHT
-    };
-
-    const updatedRow = {
-      index,
-      style: updatedStyle
-    };
-
-    return (
-      <div>
-        {this.renderDisclaimer(DISCLAIMER_HEIGHT)}
-        {this.renderMonth(updatedRow, isDesktopDevice)}
-      </div>
-    );
-  };
-
-  renderDisclaimer = disclaimerHeight => (
+  renderDisclaimer = ({ style }) => (
     <DisclaimerMessages
-      disclaimerHeight={disclaimerHeight}
       disclaimerMessage={this.props.disclaimerMessage}
+      style={style}
+      classicDisclaimerMessage={this.props.classicDisclaimerMessage}
     />
   );
 
   renderMonth = ({ index, style }, isDesktopDevice) => {
+    const monthIndex = index - 1;
+
     const {
       isDateRange,
       firstDayOfWeek,
@@ -229,7 +212,8 @@ class DayPicker extends Component {
       startAriaLabel,
       endAriaLabel,
       monthLabels,
-      Icon
+      Icon,
+      priceInPoints
     } = this.props;
 
     const {
@@ -242,11 +226,11 @@ class DayPicker extends Component {
       isSelectingStartDate
     } = this.state;
 
-    const month = months[index];
+    const month = months[monthIndex];
 
     let dates = getDateArray({
       startDay: month,
-      monthIndex: index,
+      monthIndex,
       today,
       firstDayOfWeek,
       startDate,
@@ -283,6 +267,7 @@ class DayPicker extends Component {
         rowStyles={rowStyles}
         isDesktopDevice={isDesktopDevice}
         today={today}
+        priceInPoints={priceInPoints}
       />
     );
   };
@@ -338,11 +323,16 @@ class DayPicker extends Component {
       isDateRange,
       footerButtonLabel,
       preFooterInfo,
+      preFooterDisclaimer,
+      bottomFooterDisclaimer,
       bottomFootersummaryLabel,
       hasPrice,
       endDateData,
       shouldAddScrollLockClass,
-      disclaimerMessage
+      disclaimerMessage,
+      classicDisclaimerMessage,
+      priceInPoints,
+      pointsLabel
     } = this.props;
 
     const { months, showFooters } = this.state;
@@ -395,22 +385,23 @@ class DayPicker extends Component {
                     }}
                     outerRef={setScrollTargetRef}
                     height={height}
-                    itemCount={monthsToShow}
+                    itemCount={monthsToShow + DISCLAIMER_MSG_COUNT}
                     itemSize={index =>
                       getItemSize(
                         index,
                         months,
                         firstDayOfWeek,
                         isDesktopDevice,
-                        disclaimerMessage
+                        disclaimerMessage,
+                        classicDisclaimerMessage
                       )
                     }
                     width={width}
                     onItemsRendered={this.setupOnMonthsShownSubscription()}
                   >
                     {row =>
-                      row.index === 0 && disclaimerMessage
-                        ? this.renderMonthAndDisclaimer(row, isDesktopDevice)
+                      row.index === 0
+                        ? this.renderDisclaimer(row)
                         : this.renderMonth(row, isDesktopDevice)
                     }
                   </List>
@@ -424,13 +415,13 @@ class DayPicker extends Component {
               showBottomFooter={setShowBottomFooters()}
               actionText={footerButtonLabel}
               onActionButtonClick={closeDialog}
-              preFooterInfo={
-                !isDateRange || (hasPrice && startDate) ? preFooterInfo : null
-              }
-              bottomFootersummaryLabel={
-                hasPrice ? bottomFootersummaryLabel : null
-              }
+              preFooterInfo={preFooterInfo}
+              preFooterDisclaimer={preFooterDisclaimer}
+              bottomFootersummaryLabel={bottomFootersummaryLabel}
+              bottomFooterDisclaimer={bottomFooterDisclaimer}
               endDateData={endDateData}
+              priceInPoints={priceInPoints}
+              pointsLabel={pointsLabel}
             />
           </div>
         )}
@@ -516,8 +507,12 @@ DayPicker.propTypes = {
   footerButtonLabel: PropTypes.string,
   /** Text to display in the preFooter component */
   preFooterInfo: PropTypes.string,
+  /** disclaimer text to display in the footer if usepoints is on and isclassic is true */
+  preFooterDisclaimer: PropTypes.string,
   /** Text to display in the footer component */
   bottomFootersummaryLabel: PropTypes.string,
+  /** tax text to display in the footer if usepoints is on and it's classic */
+  bottomFooterDisclaimer: PropTypes.string,
   /** Flag showing whether any date has a price associated */
   hasPrice: PropTypes.bool,
   /** Pricing information to display in the footer for the selected date */
@@ -527,14 +522,22 @@ DayPicker.propTypes = {
       taxValue: PropTypes.number,
       points: PropTypes.number,
       isClassic: PropTypes.bool,
-      isLowestPrice: PropTypes.bool
+      isLowestPrice: PropTypes.bool,
+      isLowestPoints: PropTypes.bool
     }),
     currencyCode: '',
     currencySymbol: ''
   }),
   /* Additional scroll lock class for forcing safari toolbars to display */
   shouldAddScrollLockClass: PropTypes.bool,
-  disclaimerMessage: PropTypes.string
+  /* show the desclaimers and points if it's true */
+  disclaimerMessage: PropTypes.string,
+  /* show points, classic rewards icon and tax value if it's true */
+  priceInPoints: PropTypes.bool,
+  /* points label in the footer */
+  pointsLabel: PropTypes.string,
+  /* Show classic rewards disclaimer message if the priceInpoints is true */
+  classicDisclaimerMessage: PropTypes.string
 };
 
 DayPicker.defaultProps = {
@@ -580,11 +583,16 @@ DayPicker.defaultProps = {
   configOnMonthsShownSubscription: null,
   footerButtonLabel: 'Confirm',
   preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
-  bottomFootersummaryLabel: 'From ',
+  preFooterDisclaimer: '^ taxes fees and carrier charges. Limited avaliability',
+  bottomFootersummaryLabel: 'From',
+  bottomFooterDisclaimer: ' $344.70^',
   hasPrice: false,
   endDateData: null,
   shouldAddScrollLockClass: false,
-  disclaimerMessage: null
+  disclaimerMessage: null,
+  priceInPoints: false,
+  pointsLabel: 'points',
+  classicDisclaimerMessage: 'Classic Flight Reward one way'
 };
 
 export default DayPicker;

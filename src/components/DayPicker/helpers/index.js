@@ -27,6 +27,7 @@ export const DAY_CELL_BORDER_WIDTH = 1;
 export const MONTH_CAPTION_HEIGHT_DESKTOP = 78;
 export const DAY_CELL_HEIGHT_DESKTOP = 90;
 export const DISCLAIMER_HEIGHT = 90;
+export const CLASSIC_DISCLAIMER_HEIGHT = 130;
 
 export const isDayBefore = (firstDate, secondDate) => {
   const first = startOfDay(firstDate);
@@ -119,33 +120,37 @@ export function getInitialDateToFocus(today, startDate, disabledBefore) {
   };
 }
 
+export function getHeight(disclaimerMessage, classicDisclaimerMessage) {
+  if (disclaimerMessage && classicDisclaimerMessage) {
+    return CLASSIC_DISCLAIMER_HEIGHT;
+  }
+  if (disclaimerMessage) {
+    return DISCLAIMER_HEIGHT;
+  }
+  return 0;
+}
+
 export function getItemSize(
   index,
   months,
   firstDayOfWeek,
   isDesktopDevice,
-  disclaimerMessage
+  disclaimerMessage,
+  classicDisclaimerMessage
 ) {
-  const month = months[index];
+  if (index === 0) {
+    return getHeight(disclaimerMessage, classicDisclaimerMessage);
+  }
+
+  const monthIndex = index - 1;
+  const month = months[monthIndex];
   const numberOfWeeks = differenceInCalendarWeeks(
     endOfMonth(month),
-    index === 0
+    monthIndex === 0
       ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
       : startOfMonth(month),
     { weekStartsOn: firstDayOfWeek }
   );
-
-  if (index === 0 && disclaimerMessage) {
-    return isDesktopDevice
-      ? DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_DESKTOP +
-          (DAY_CELL_HEIGHT_DESKTOP + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1)
-      : DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_MOBILE +
-          (DAY_CELL_HEIGHT_MOBILE + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1);
-  }
 
   return isDesktopDevice
     ? MONTH_CAPTION_HEIGHT_DESKTOP +
