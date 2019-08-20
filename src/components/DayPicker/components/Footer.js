@@ -208,9 +208,7 @@ const Footer = ({
                     }}
                   >
                     <span css={preFooterTextStyle}>{preFooterInfo}</span>
-                    {preFooterDisclaimer &&
-                    priceInPoints &&
-                    endDateData.price.isClassic ? (
+                    {preFooterDisclaimer && priceInPoints ? (
                       <span css={topDisclaimerStyle()}>
                         {preFooterDisclaimer}
                       </span>
@@ -242,7 +240,7 @@ const Footer = ({
                               ? '#009400'
                               : colours.darkerGrey,
                           fontWeight: fontWeight.bold,
-                          margin: '0 5px'
+                          padding: '0 5px'
                         }}
                       >
                         <span>
@@ -254,15 +252,15 @@ const Footer = ({
                               )}
                         </span>
                         {endDateData && priceInPoints ? (
-                          <span css={{ marginLeft: '5px' }}>{pointsLabel}</span>
+                          <span css={{ paddingLeft: '5px' }}>
+                            {pointsLabel}
+                          </span>
                         ) : null}
                       </span>
                     </span>
                   )}
 
-                  {bottomFooterDisclaimer &&
-                  priceInPoints &&
-                  endDateData.price.isClassic ? (
+                  {bottomFooterDisclaimer && priceInPoints ? (
                     <div css={bottonDisclaimerStyle()}>
                       <span>+</span>
                       <span>{bottomFooterDisclaimer}</span>
