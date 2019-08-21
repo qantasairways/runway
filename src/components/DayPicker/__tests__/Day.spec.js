@@ -14,13 +14,7 @@ jest.mock('../helpers', () => ({
   getShouldSelectAsStartDate: jest.fn(),
   getEndDateFromStartDate: jest.fn(),
   DAY_CELL_HEIGHT_DESKTOP: 90,
-  DAY_CELL_HEIGHT_MOBILE: 94,
-  DAY_NAVIGATION_MAPPING: {
-    39: 1,
-    37: -1,
-    40: 7,
-    38: -7
-  }
+  DAY_CELL_HEIGHT_MOBILE: 94
 }));
 
 const DummyIcon = () => <div>Icon</div>;
@@ -35,7 +29,7 @@ describe('Day', () => {
     month: 'January',
     year: 2018,
     onDayClick: noop,
-    focusDateElement: noop
+    onDayNavigate: noop
   };
 
   const props = {
@@ -132,8 +126,7 @@ describe('Day', () => {
         price={{
           value: 123,
           taxValue: 2,
-          isLowestPrice: false,
-          isLowestPoints: false
+          isLowestPrice: false
         }}
       />
     );
@@ -204,13 +197,13 @@ describe('Day', () => {
 
   describe('handleKeyDown()', () => {
     const onDayClickMock = jest.fn();
-    const focusDateElementMock = jest.fn();
+    const onDayNavigateMock = jest.fn();
     const preventDefaultMock = jest.fn();
     const stopPropagationMock = jest.fn();
 
     afterEach(() => {
       onDayClickMock.mockReset();
-      focusDateElementMock.mockReset();
+      onDayNavigateMock.mockReset();
       preventDefaultMock.mockReset();
       stopPropagationMock.mockReset();
     });
@@ -243,107 +236,14 @@ describe('Day', () => {
       expect(stopPropagationMock.mock.calls.length).toBe(1);
     });
 
-    it('calls focusDateElement when key is the UP key', () => {
+    it('calls this.props.onDayNavigate with correct args', () => {
       component = shallow(
-        <Day
-          {...defaultProps}
-          {...props}
-          focusDateElement={focusDateElementMock}
-        />
+        <Day {...defaultProps} {...props} onDayNavigate={onDayNavigateMock} />
       );
-      component.instance().handleKeyDown({
-        keyCode: 38,
-        preventDefault: preventDefaultMock,
-        stopPropagation: stopPropagationMock
-      });
-      expect(focusDateElementMock.mock.calls.length).toBe(1);
-      expect(focusDateElementMock.mock.calls[0][0]).toEqual(
-        new Date(2019, 3, 13, 0, 0, 0)
-      );
-      expect(preventDefaultMock.mock.calls.length).toBe(1);
-      expect(stopPropagationMock.mock.calls.length).toBe(1);
-    });
-
-    it('calls focusDateElement when key is the DOWN key', () => {
-      component = shallow(
-        <Day
-          {...defaultProps}
-          {...props}
-          focusDateElement={focusDateElementMock}
-        />
-      );
-      component.instance().handleKeyDown({
-        keyCode: 40,
-        preventDefault: preventDefaultMock,
-        stopPropagation: stopPropagationMock
-      });
-      expect(focusDateElementMock.mock.calls.length).toBe(1);
-      expect(focusDateElementMock.mock.calls[0][0]).toEqual(
-        new Date(2019, 3, 27, 0, 0, 0)
-      );
-      expect(preventDefaultMock.mock.calls.length).toBe(1);
-      expect(stopPropagationMock.mock.calls.length).toBe(1);
-    });
-
-    it('calls focusDateElement when key is the LEFT key', () => {
-      component = shallow(
-        <Day
-          {...defaultProps}
-          {...props}
-          focusDateElement={focusDateElementMock}
-        />
-      );
-      component.instance().handleKeyDown({
-        keyCode: 37,
-        preventDefault: preventDefaultMock,
-        stopPropagation: stopPropagationMock
-      });
-      expect(focusDateElementMock.mock.calls.length).toBe(1);
-      expect(focusDateElementMock.mock.calls[0][0]).toEqual(
-        new Date(2019, 3, 19, 0, 0, 0)
-      );
-      expect(preventDefaultMock.mock.calls.length).toBe(1);
-      expect(stopPropagationMock.mock.calls.length).toBe(1);
-    });
-
-    it('calls focusDateElement when key is the RIGHT key', () => {
-      component = shallow(
-        <Day
-          {...defaultProps}
-          {...props}
-          focusDateElement={focusDateElementMock}
-        />
-      );
-      component.instance().handleKeyDown({
-        keyCode: 39,
-        preventDefault: preventDefaultMock,
-        stopPropagation: stopPropagationMock
-      });
-      expect(focusDateElementMock.mock.calls.length).toBe(1);
-      expect(focusDateElementMock.mock.calls[0][0]).toEqual(
-        new Date(2019, 3, 21, 0, 0, 0)
-      );
-      expect(preventDefaultMock.mock.calls.length).toBe(1);
-      expect(stopPropagationMock.mock.calls.length).toBe(1);
-    });
-
-    it('does nothing when key code is something else', () => {
-      component = shallow(
-        <Day
-          {...defaultProps}
-          {...props}
-          focusDateElement={focusDateElementMock}
-        />
-      );
-      component.instance().handleKeyDown({
-        keyCode: 555,
-        preventDefault: preventDefaultMock,
-        stopPropagation: stopPropagationMock
-      });
-      expect(focusDateElementMock.mock.calls.length).toBe(0);
-      expect(onDayClickMock.mock.calls.length).toBe(0);
-      expect(preventDefaultMock.mock.calls.length).toBe(0);
-      expect(stopPropagationMock.mock.calls.length).toBe(0);
+      component.instance().handleKeyDown({ keyCode: 555 });
+      expect(onDayNavigateMock.mock.calls.length).toBe(1);
+      expect(onDayNavigateMock.mock.calls[0][0]).toBe(date.getTime());
+      expect(onDayNavigateMock.mock.calls[0][1]).toBe(555);
     });
   });
 

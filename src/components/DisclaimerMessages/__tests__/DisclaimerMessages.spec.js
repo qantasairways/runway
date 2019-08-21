@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DisclaimerMessages from '../components/DisclaimerMessages';
+import DisclaimerMessages from '..';
 
 describe('DisclaimerMessages', () => {
   it('Disclaimer Message renders correctly', () => {

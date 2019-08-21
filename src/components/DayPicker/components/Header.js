@@ -49,8 +49,7 @@ function Header({
   startPlaceholder,
   endPlaceholder,
   rowStyles,
-  Icon,
-  onKeyDown
+  Icon
 }) {
   const orderedLabels = orderLabels(firstDayOfWeek, dayLabels);
 
@@ -97,7 +96,6 @@ function Header({
           <button
             aria-label={closeAriaLabel}
             onClick={closeDialog}
-            onKeyDown={onKeyDown}
             type="button"
             css={{
               height: '48px',
@@ -172,7 +170,6 @@ function Header({
 
 Header.propTypes = {
   closeDialog: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date),
   isSelectingStartDate: PropTypes.bool,

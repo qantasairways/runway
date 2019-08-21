@@ -11,7 +11,6 @@ describe('Price', () => {
     taxValue: 345,
     currencySymbol: '$',
     isLowestPrice: false,
-    isLowestPoints: false,
     isDesktopDevice: false
   };
 

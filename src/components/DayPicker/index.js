@@ -7,7 +7,6 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 
 import Month from './components/Month';
 import Footer from './components/Footer';
-import DisclaimerMessages from './components/DisclaimerMessages';
 
 import noop from '../../utils/noop';
 import { fontSize, layout, breakpoints } from '../../theme/airways';
@@ -16,12 +15,15 @@ import {
   getTwoDigitDate,
   getMonthAndYear,
   getMonthsArray,
+  getDateArray,
   getInitialDateToFocus,
-  getDateElementOffset,
+  getDateToNavigate,
   getItemSize,
   getFirstEnabledMonthDate,
+  focusDayCell,
   DAY_CELL_BORDER_WIDTH,
-  getLastEnabledMonthDate
+  getLastEnabledMonthDate,
+  DISCLAIMER_HEIGHT
 } from './helpers';
 
 import ButtonWithDialog, {
@@ -31,7 +33,7 @@ import ButtonWithDialog, {
 } from '../../shared/ButtonWithDialog';
 import IconCalendar from '../../icons/CalendarIcon';
 import Header from './components/Header';
-import { KEY_CODE_TAB } from '../../constants/keyCodes';
+import DisclaimerMessages from '../DisclaimerMessages';
 
 const rowStyles = {
   display: 'grid',
@@ -46,20 +48,6 @@ const dividerStyles = {
   fontSize: fontSize.large,
   margin: '0 12px 20px 12px'
 };
-
-function CalendarRow({ index, style, data }) {
-  if (index === 0) {
-    return (
-      <DisclaimerMessages
-        style={style}
-        disclaimerMessage={data.disclaimerMessage}
-        classicDisclaimerMessage={data.classicDisclaimerMessage}
-      />
-    );
-  }
-
-  return <Month monthIndex={index - 1} style={style} {...data} />;
-}
 
 class DayPicker extends Component {
   constructor(props) {
@@ -85,21 +73,24 @@ class DayPicker extends Component {
     };
   }
 
-  onHeaderKeyDown = event => {
-    if (event.keyCode === KEY_CODE_TAB) {
-      event.preventDefault();
-
-      const { today, startDate, disabledBefore } = this.state;
-      const date = getInitialDateToFocus(today, startDate, disabledBefore);
-      this.focusDateElement(date);
-    }
-  };
-
   onOpen = () => {
     const { isDateRange } = this.props;
-    const { startDate, isSelectingStartDate } = this.state;
-    let shouldSelectStartDate = true;
+    const {
+      today,
+      startDate,
+      disabledBefore,
+      isSelectingStartDate
+    } = this.state;
+    const { date, month } = getInitialDateToFocus(
+      today,
+      startDate,
+      disabledBefore
+    );
 
+    this.scrollToMonth(month);
+    focusDayCell(date);
+
+    let shouldSelectStartDate = true;
     if (isDateRange) {
       shouldSelectStartDate = startDate ? false : isSelectingStartDate;
     }
@@ -122,24 +113,14 @@ class DayPicker extends Component {
     this.props.onDayClick(startDate, endDate);
   };
 
-  focusDateElement = date => {
-    const { disabledBefore, today } = this.state;
+  onDayNavigate = (timestamp, keyCode) => {
+    const dateToNavigate = getDateToNavigate(timestamp, keyCode);
+    focusDayCell(dateToNavigate);
+  };
 
-    const dateToFocus =
-      document.querySelector(`.d${date.getTime()}`) ||
-      document.querySelector(`.d${new Date(disabledBefore).getTime()}`) ||
-      document.querySelector(`.d${new Date(today).getTime()}`);
-
-    const dateElementOffset = getDateElementOffset(dateToFocus);
-
-    if (this.scrollList && dateElementOffset) {
-      this.scrollList.scrollTo(dateElementOffset);
-    }
-
-    if (dateToFocus) {
-      setTimeout(() => {
-        dateToFocus.focus();
-      });
+  scrollToMonth = index => {
+    if (this.scrollList) {
+      this.scrollList.scrollToItem(index, 'start');
     }
   };
 
@@ -178,7 +159,6 @@ class DayPicker extends Component {
         closeAriaLabel={closeAriaLabel}
         rowStyles={rowStyles}
         Icon={Icon}
-        onKeyDown={this.onHeaderKeyDown}
       />
     );
   };
@@ -210,66 +190,38 @@ class DayPicker extends Component {
     ) : null;
   };
 
-  getCalendarRowKey = (index, { monthLabels, months }) => {
-    if (index === 0) {
-      return 'disclaimer';
-    }
+  renderMonthAndDisclaimer = (row, isDesktopDevice) => {
+    const { index, style } = row;
 
-    const month = months[index - 1];
+    const updatedStyle = {
+      ...style,
+      top: DISCLAIMER_HEIGHT
+    };
 
-    return `${monthLabels[month.getMonth()]}${month.getFullYear()}`;
+    const updatedRow = {
+      index,
+      style: updatedStyle
+    };
+
+    return (
+      <div>
+        {this.renderDisclaimer(DISCLAIMER_HEIGHT)}
+        {this.renderMonth(updatedRow, isDesktopDevice)}
+      </div>
+    );
   };
 
-  setUpOnScroll = () => {
-    const { onCalendarScroll, disabledBefore, disabledAfter } = this.props;
+  renderDisclaimer = disclaimerHeight => (
+    <DisclaimerMessages
+      disclaimerHeight={disclaimerHeight}
+      disclaimerMessage={this.props.disclaimerMessage}
+    />
+  );
 
-    if (typeof onCalendarScroll === 'function') {
-      return ({ visibleStartIndex, visibleStopIndex }) => {
-        const firstVisibleDate = this.state.months[visibleStartIndex];
-        const lastVisibleDate = this.state.months[visibleStopIndex];
-
-        const startDate = getFirstEnabledMonthDate({
-          monthDate: firstVisibleDate,
-          disabledBefore,
-          disabledAfter
-        });
-
-        const endDate = getLastEnabledMonthDate({
-          monthDate: lastVisibleDate,
-          disabledAfter
-        });
-
-        onCalendarScroll({
-          startDate,
-          endDate
-        });
-      };
-    }
-    return noop;
-  };
-
-  render() {
+  renderMonth = ({ index, style }, isDesktopDevice) => {
     const {
-      monthsToShow,
-      buttonLabel,
-      placeHolder,
-      closeAriaLabel,
-      dialogAriaLabel,
-      firstDayOfWeek,
       isDateRange,
-      footerButtonLabel,
-      preFooterInfo,
-      preFooterDisclaimer,
-      bottomFooterDisclaimer,
-      bottomFootersummaryLabel,
-      hasPrice,
-      endDateData,
-      shouldAddScrollLockClass,
-      disclaimerMessage,
-      classicDisclaimerMessage,
-      priceInPoints,
-      pointsLabel,
-      transformDatesData,
+      firstDayOfWeek,
       startSelectedLabel,
       endSelectedLabel,
       startLabel,
@@ -287,10 +239,113 @@ class DayPicker extends Component {
       endDate,
       disabledBefore,
       disabledAfter,
-      isSelectingStartDate,
-      showFooters
+      isSelectingStartDate
     } = this.state;
 
+    const month = months[index];
+
+    let dates = getDateArray({
+      startDay: month,
+      monthIndex: index,
+      today,
+      firstDayOfWeek,
+      startDate,
+      endDate,
+      disabledBefore,
+      disabledAfter
+    });
+
+    const { transformDatesData } = this.props;
+    if (transformDatesData) {
+      dates = transformDatesData(dates);
+    }
+
+    return (
+      <Month
+        key={month}
+        month={month}
+        days={dates}
+        style={style}
+        startDate={startDate}
+        endDate={endDate}
+        isDateRange={isDateRange}
+        isSelectingStartDate={isSelectingStartDate}
+        onDayClick={this.onDayClick}
+        onDayNavigate={this.onDayNavigate}
+        startSelectedLabel={startSelectedLabel}
+        endSelectedLabel={endSelectedLabel}
+        startLabel={startLabel}
+        endLabel={endLabel}
+        startAriaLabel={startAriaLabel}
+        endAriaLabel={endAriaLabel}
+        monthLabels={monthLabels}
+        Icon={Icon}
+        rowStyles={rowStyles}
+        isDesktopDevice={isDesktopDevice}
+        today={today}
+      />
+    );
+  };
+
+  setupOnMonthsShownSubscription = () => {
+    const {
+      configOnMonthsShownSubscription,
+      disabledBefore,
+      disabledAfter
+    } = this.props;
+    if (configOnMonthsShownSubscription) {
+      const { onlyEnableds, onMonthsShown } = configOnMonthsShownSubscription;
+      if (onMonthsShown) {
+        return ({ visibleStartIndex, visibleStopIndex }) => {
+          const startMonthRawDate = this.state.months[visibleStartIndex];
+          const endMonthRawDate = this.state.months[visibleStopIndex];
+          if (onlyEnableds) {
+            const firstValidMonthDate = getFirstEnabledMonthDate({
+              monthDate: startMonthRawDate,
+              disabledBefore,
+              disabledAfter
+            });
+            const lastValidMonthDate = getLastEnabledMonthDate({
+              monthDate: endMonthRawDate,
+              disabledAfter
+            });
+            onMonthsShown({
+              startMonthDate: firstValidMonthDate,
+              endMonthDate: lastValidMonthDate
+            });
+            return;
+          }
+          onMonthsShown({
+            startMonthDate: startMonthRawDate,
+            endMonthDate: endMonthRawDate
+          });
+        };
+      }
+    }
+    return noop;
+  };
+
+  render() {
+    const {
+      monthsToShow,
+      buttonLabel,
+      placeHolder,
+      closeAriaLabel,
+      dialogAriaLabel,
+      firstDayOfWeek,
+      startDate,
+      endDate,
+      isDateRange,
+      footerButtonLabel,
+      preFooterInfo,
+      bottomFootersummaryLabel,
+      hasPrice,
+      endDateData,
+      shouldAddScrollLockClass,
+      disclaimerMessage
+    } = this.props;
+
+    const { months, showFooters } = this.state;
     const setPreFooter = () => {
       if (showFooters) {
         if (!isDateRange) {
@@ -315,7 +370,7 @@ class DayPicker extends Component {
         buttonLabel={buttonLabel}
         placeHolder={placeHolder}
         closeAriaLabel={closeAriaLabel}
-        dialogAriaLabel={`${dialogAriaLabel}. ${disclaimerMessage}`}
+        dialogAriaLabel={dialogAriaLabel}
         Icon={IconCalendar}
         onOpen={this.onOpen}
         onBeforeClose={this.onBeforeClose}
@@ -340,49 +395,24 @@ class DayPicker extends Component {
                     }}
                     outerRef={setScrollTargetRef}
                     height={height}
-                    itemCount={monthsToShow + 1}
-                    itemKey={this.getCalendarRowKey}
+                    itemCount={monthsToShow}
                     itemSize={index =>
                       getItemSize(
                         index,
                         months,
                         firstDayOfWeek,
                         isDesktopDevice,
-                        disclaimerMessage,
-                        classicDisclaimerMessage
+                        disclaimerMessage
                       )
                     }
                     width={width}
-                    onItemsRendered={this.setUpOnScroll()}
-                    itemData={{
-                      today,
-                      months,
-                      startDate,
-                      endDate,
-                      disabledBefore,
-                      disabledAfter,
-                      isDateRange,
-                      isSelectingStartDate,
-                      firstDayOfWeek,
-                      onDayClick: this.onDayClick,
-                      startSelectedLabel,
-                      endSelectedLabel,
-                      startLabel,
-                      endLabel,
-                      startAriaLabel,
-                      endAriaLabel,
-                      monthLabels,
-                      Icon,
-                      rowStyles,
-                      isDesktopDevice,
-                      priceInPoints,
-                      transformDatesData,
-                      disclaimerMessage,
-                      classicDisclaimerMessage,
-                      focusDateElement: this.focusDateElement
-                    }}
+                    onItemsRendered={this.setupOnMonthsShownSubscription()}
                   >
-                    {CalendarRow}
+                    {row =>
+                      row.index === 0 && disclaimerMessage
+                        ? this.renderMonthAndDisclaimer(row, isDesktopDevice)
+                        : this.renderMonth(row, isDesktopDevice)
+                    }
                   </List>
                 );
               }}
@@ -394,13 +424,13 @@ class DayPicker extends Component {
               showBottomFooter={setShowBottomFooters()}
               actionText={footerButtonLabel}
               onActionButtonClick={closeDialog}
-              preFooterInfo={preFooterInfo}
-              preFooterDisclaimer={preFooterDisclaimer}
-              bottomFootersummaryLabel={bottomFootersummaryLabel}
-              bottomFooterDisclaimer={bottomFooterDisclaimer}
+              preFooterInfo={
+                !isDateRange || (hasPrice && startDate) ? preFooterInfo : null
+              }
+              bottomFootersummaryLabel={
+                hasPrice ? bottomFootersummaryLabel : null
+              }
               endDateData={endDateData}
-              priceInPoints={priceInPoints}
-              pointsLabel={pointsLabel}
             />
           </div>
         )}
@@ -420,11 +450,14 @@ DayPicker.propTypes = {
   disabledAfter: PropTypes.instanceOf(Date),
   /**
    * Triggered when any day is clicked
+   *
    * @param {Date} startDate New start date value
    * @param {Bool} endDate New end date value if isDateRange prop is true
    */ onDayClick: PropTypes.func,
-  /** Triggered when the calendar is closed */
-  onBeforeClose: PropTypes.func,
+  /**
+   * Triggered when the calendar is closed
+   *
+   */ onBeforeClose: PropTypes.func,
   /** Flag showing whether to select a date range. If set to false a single date will be selected */
   isDateRange: PropTypes.bool,
   /** Index of they day of week to display first */
@@ -469,20 +502,22 @@ DayPicker.propTypes = {
    * dates data arrays, the consumer should not expect to have access to entire dates data list.
    */
   transformDatesData: PropTypes.func,
-  /** Function is called as the calendar is scrolled
-   * @param {Date} startDate First visible date
-   * @param {Bool} endDate Last visible date */
-  onCalendarScroll: PropTypes.func,
+  /**
+   * Object that sets up onMonthsShown event subscription. Must at least include
+   * `onMonthsShown` callback which will be dispatched when visible months on screen is updated.
+   * `onMonthsShown` will receive parameters `startMonthDate`, `endMonthDate`. Object also accepts
+   *  enabledsOnly boolean, if true will only return visible start and end month dates that are enabled
+   */
+  configOnMonthsShownSubscription: PropTypes.shape({
+    onMonthsShown: PropTypes.func.isRequired,
+    enabledsOnly: PropTypes.bool
+  }),
   /** Label for button */
   footerButtonLabel: PropTypes.string,
   /** Text to display in the preFooter component */
   preFooterInfo: PropTypes.string,
-  /** disclaimer text to display in the footer if usepoints is on and isclassic is true */
-  preFooterDisclaimer: PropTypes.string,
   /** Text to display in the footer component */
   bottomFootersummaryLabel: PropTypes.string,
-  /** tax text to display in the footer if usepoints is on and it's classic */
-  bottomFooterDisclaimer: PropTypes.string,
   /** Flag showing whether any date has a price associated */
   hasPrice: PropTypes.bool,
   /** Pricing information to display in the footer for the selected date */
@@ -492,22 +527,14 @@ DayPicker.propTypes = {
       taxValue: PropTypes.number,
       points: PropTypes.number,
       isClassic: PropTypes.bool,
-      isLowestPrice: PropTypes.bool,
-      isLowestPoints: PropTypes.bool
+      isLowestPrice: PropTypes.bool
     }),
     currencyCode: '',
     currencySymbol: ''
   }),
   /* Additional scroll lock class for forcing safari toolbars to display */
   shouldAddScrollLockClass: PropTypes.bool,
-  /* show the desclaimers and points if it's true */
-  disclaimerMessage: PropTypes.string,
-  /* show points, classic rewards icon and tax value if it's true */
-  priceInPoints: PropTypes.bool,
-  /* points label in the footer */
-  pointsLabel: PropTypes.string,
-  /* Show classic rewards disclaimer message if the priceInpoints is true */
-  classicDisclaimerMessage: PropTypes.string
+  disclaimerMessage: PropTypes.string
 };
 
 DayPicker.defaultProps = {
@@ -550,19 +577,14 @@ DayPicker.defaultProps = {
   dialogAriaLabel: 'Select dates',
   Icon: null,
   transformDatesData: null,
-  onCalendarScroll: null,
+  configOnMonthsShownSubscription: null,
   footerButtonLabel: 'Confirm',
   preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
-  preFooterDisclaimer: '^ taxes fees and carrier charges. Limited avaliability',
-  bottomFootersummaryLabel: 'From',
-  bottomFooterDisclaimer: ' $344.70^',
+  bottomFootersummaryLabel: 'From ',
   hasPrice: false,
   endDateData: null,
   shouldAddScrollLockClass: false,
-  disclaimerMessage: null,
-  priceInPoints: false,
-  pointsLabel: 'points',
-  classicDisclaimerMessage: 'Classic Flight Reward one way'
+  disclaimerMessage: null
 };
 
 export default DayPicker;

@@ -21,7 +21,7 @@ exports[`Day renderHoverLabel() when getShouldSelectAsStartDate returns true ret
 `;
 
 exports[`Day renders correctly when isDesktopDevice is true and this.state.hover is true 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -35,10 +35,7 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -48,18 +45,19 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -67,48 +65,6 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -117,45 +73,18 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -166,19 +95,9 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
   <DayLabel
     Icon={[Function]}
     bottomAligned={false}
@@ -191,48 +110,6 @@ exports[`Day renders correctly when isDesktopDevice is true and this.state.hover
 
 exports[`Day renders correctly when isDisabled is true 1`] = `
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -241,43 +118,16 @@ exports[`Day renders correctly when isDisabled is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -291,10 +141,7 @@ exports[`Day renders correctly when isDisabled is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -307,14 +154,15 @@ exports[`Day renders correctly when isDisabled is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 "
+  className="emotion-1 "
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -325,66 +173,14 @@ exports[`Day renders correctly when isDisabled is true 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;
 
 exports[`Day renders correctly when isEnd is true 1`] = `
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -393,43 +189,16 @@ exports[`Day renders correctly when isEnd is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -443,66 +212,61 @@ exports[`Day renders correctly when isEnd is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
   background: #fff;
   box-shadow: 0 0 0 1px #eaeaea;
   outline: none;
+  padding-top: 34px;
   z-index: 1;
   border: 2px solid #bff4f2;
   box-shadow: 0 0 0 1px #bff4f2;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    padding-top: 31px;
+  }
+}
+
 <div
   aria-label="Return SYD. 20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
   role="button"
-  tabIndex={0}
+  tabIndex={-1}
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
   <DayLabel
     Icon={[Function]}
     bottomAligned={false}
@@ -514,7 +278,7 @@ exports[`Day renders correctly when isEnd is true 1`] = `
 `;
 
 exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -528,10 +292,7 @@ exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -541,18 +302,19 @@ exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -560,48 +322,6 @@ exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -610,45 +330,18 @@ exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -659,66 +352,14 @@ exports[`Day renders correctly when isFirstDayOfMonth is true 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;
 
 exports[`Day renders correctly when isInRange is true 1`] = `
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -727,43 +368,16 @@ exports[`Day renders correctly when isInRange is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -777,10 +391,7 @@ exports[`Day renders correctly when isInRange is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -791,18 +402,19 @@ exports[`Day renders correctly when isInRange is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -811,7 +423,7 @@ exports[`Day renders correctly when isInRange is true 1`] = `
 
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -822,24 +434,14 @@ exports[`Day renders correctly when isInRange is true 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;
 
 exports[`Day renders correctly when isLoadingPrice is true 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -853,10 +455,7 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -866,18 +465,19 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -885,48 +485,6 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -935,45 +493,18 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -984,81 +515,28 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
 >
   <div
     className="emotion-0"
+  >
+    20
+  </div>
+  <Price
+    currencySymbol="$"
+    isDesktopDevice={false}
+    isLoadingPrice={true}
+    isLowestPrice={false}
+    taxValue={null}
+    value={null}
   />
-  <div
-    className="emotion-2"
-  >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
-  </div>
-  <div
-    className="emotion-3"
-  >
-    <Price
-      currencySymbol="$"
-      isClassic={null}
-      isDesktopDevice={false}
-      isLoadingPrice={true}
-      isLowestPoints={false}
-      isLowestPrice={false}
-      points={null}
-      priceInPoints={false}
-      taxValue={null}
-      value={null}
-    />
-  </div>
 </div>
 `;
 
-exports[`Day renders correctly when isOutside is true 1`] = `<div />`;
+exports[`Day renders correctly when isOutside is true 1`] = `
+<div
+  key="1555682400000"
+/>
+`;
 
 exports[`Day renders correctly when isStart is true 1`] = `
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -1067,43 +545,16 @@ exports[`Day renders correctly when isStart is true 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1117,43 +568,48 @@ exports[`Day renders correctly when isStart is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
   background: #fff;
   box-shadow: 0 0 0 1px #eaeaea;
   outline: none;
+  padding-top: 34px;
   z-index: 1;
   border: 2px solid #bff4f2;
   box-shadow: 0 0 0 1px #bff4f2;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
+@media only screen and (min-width:768px) {
+  .emotion-1 {
+    padding-top: 31px;
+  }
+}
+
 <div
   aria-label="Depart MEL. 20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -1164,19 +620,9 @@ exports[`Day renders correctly when isStart is true 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
   <DayLabel
     Icon={[Function]}
     bottomAligned={false}
@@ -1188,7 +634,7 @@ exports[`Day renders correctly when isStart is true 1`] = `
 `;
 
 exports[`Day renders correctly when isToday is true 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1202,10 +648,7 @@ exports[`Day renders correctly when isToday is true 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -1215,18 +658,19 @@ exports[`Day renders correctly when isToday is true 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1234,67 +678,6 @@ exports[`Day renders correctly when isToday is true 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -1303,18 +686,10 @@ exports[`Day renders correctly when isToday is true 1`] = `
   box-sizing: content-box;
   background-color: #bff4f2;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
@@ -1322,7 +697,7 @@ exports[`Day renders correctly when isToday is true 1`] = `
 
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -1333,24 +708,14 @@ exports[`Day renders correctly when isToday is true 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;
 
 exports[`Day renders correctly when price is provided 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1364,10 +729,7 @@ exports[`Day renders correctly when price is provided 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -1377,18 +739,19 @@ exports[`Day renders correctly when price is provided 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1396,48 +759,6 @@ exports[`Day renders correctly when price is provided 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -1446,45 +767,18 @@ exports[`Day renders correctly when price is provided 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -1495,37 +789,22 @@ exports[`Day renders correctly when price is provided 1`] = `
 >
   <div
     className="emotion-0"
+  >
+    20
+  </div>
+  <Price
+    currencySymbol="$"
+    isDesktopDevice={false}
+    isLoadingPrice={false}
+    isLowestPrice={false}
+    taxValue={2}
+    value={123}
   />
-  <div
-    className="emotion-2"
-  >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
-  </div>
-  <div
-    className="emotion-3"
-  >
-    <Price
-      currencySymbol="$"
-      isClassic={null}
-      isDesktopDevice={false}
-      isLoadingPrice={false}
-      isLowestPoints={false}
-      isLowestPrice={false}
-      points={null}
-      priceInPoints={false}
-      taxValue={2}
-      value={123}
-    />
-  </div>
 </div>
 `;
 
 exports[`Day renders correctly with defaults 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1539,10 +818,7 @@ exports[`Day renders correctly with defaults 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -1552,18 +828,19 @@ exports[`Day renders correctly with defaults 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1571,48 +848,6 @@ exports[`Day renders correctly with defaults 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -1621,45 +856,18 @@ exports[`Day renders correctly with defaults 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
-}
-
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <div
   aria-label="20 January 2018. "
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -1670,24 +878,14 @@ exports[`Day renders correctly with defaults 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;
 
 exports[`Day renders correctly with props provided 1`] = `
-.emotion-4 {
+.emotion-1 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1701,10 +899,7 @@ exports[`Day renders correctly with props provided 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  padding-top: 36px;
   box-sizing: border-box;
   height: 94px;
   color: #323232;
@@ -1714,18 +909,19 @@ exports[`Day renders correctly with props provided 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-4 {
+  .emotion-1 {
+    padding-top: 33px;
     height: 90px;
   }
 }
 
-.emotion-4:hover,
-.emotion-4:focus {
+.emotion-1:hover,
+.emotion-1:focus {
   z-index: 2;
   box-shadow: -2px 3px 4px 0 rgba(0,0,0,0.08),2px -3px 4px 0 rgba(0,0,0,0.04);
 }
 
-.emotion-4:hover div[class$="runway-calendar__hover-label"] {
+.emotion-1:hover div[class$="runway-calendar__hover-label"] {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1733,48 +929,6 @@ exports[`Day renders correctly with props provided 1`] = `
 }
 
 .emotion-0 {
-  height: 20px;
-  width: 20px;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-2 {
-  -webkit-flex-basis: 21%;
-  -ms-flex-preferred-size: 21%;
-  flex-basis: 21%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-2 {
-    -webkit-flex-basis: 33.33%;
-    -ms-flex-preferred-size: 33.33%;
-    flex-basis: 33.33%;
-  }
-}
-
-.emotion-1 {
   height: 1.125rem;
   padding: 2px 4px;
   font-size: 1.125rem;
@@ -1783,45 +937,18 @@ exports[`Day renders correctly with props provided 1`] = `
   box-sizing: content-box;
   background-color: initial;
   color: inherit;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 1.375rem;
     line-height: 0.95;
   }
 }
 
-.emotion-3 {
-  width: 100%;
-  -webkit-flex-basis: 33.33%;
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 <div
   aria-label="20 January 2018. Selected for return"
-  className="emotion-4 d1555682400000"
+  className="emotion-1 d1555682400000"
   onBlur={[Function]}
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -1832,18 +959,8 @@ exports[`Day renders correctly with props provided 1`] = `
 >
   <div
     className="emotion-0"
-  />
-  <div
-    className="emotion-2"
   >
-    <div
-      className="emotion-1"
-    >
-      20
-    </div>
+    20
   </div>
-  <div
-    className="emotion-3"
-  />
 </div>
 `;

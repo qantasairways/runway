@@ -3,24 +3,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import { addDays, startOfMonth, addMonths } from 'date-fns';
 
 import { CSS_SELECTOR_HOVER, CSS_SELECTOR_FOCUS } from '../../../constants/css';
-import {
-  KEY_CODE_SPACE,
-  KEY_CODE_ENTER,
-  KEY_CODE_LEFT,
-  KEY_CODE_RIGHT,
-  KEY_CODE_UP,
-  KEY_CODE_DOWN,
-  KEY_CODE_TAB
-} from '../../../constants/keyCodes';
+import { KEY_CODE_SPACE, KEY_CODE_ENTER } from '../../../constants/keyCodes';
 import { colours, fontSize, layout, mq } from '../../../theme/airways';
 
 import {
   getShouldSelectAsStartDate,
   getEndDateFromStartDate,
-  DAY_NAVIGATION_MAPPING,
   DAY_CELL_HEIGHT_DESKTOP,
   DAY_CELL_HEIGHT_MOBILE
 } from '../helpers';
@@ -29,7 +19,6 @@ import Price from './Price';
 
 import DayLabel from './DayLabel';
 import PlaneIcon from '../../../icons/PlaneIcon';
-import ClassicRewards from '../../../icons/ClassicRewards';
 
 const rangeStyles = {
   label: 'runway-calendar__day--highlighted',
@@ -38,9 +27,13 @@ const rangeStyles = {
 
 const startEndStyles = {
   label: 'runway-calendar__day--selected',
+  paddingTop: '34px',
   zIndex: 1,
   border: `2px solid ${colours.hightlightsLight}`,
-  boxShadow: `0 0 0 1px ${colours.hightlightsLight}`
+  boxShadow: `0 0 0 1px ${colours.hightlightsLight}`,
+  [mq.medium]: {
+    paddingTop: '31px'
+  }
 };
 
 const disabledStyles = {
@@ -72,7 +65,7 @@ function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
       alignItems: 'center',
       flexDirection: 'column',
       position: 'relative',
-      justifyContent: 'center',
+      paddingTop: '36px',
       boxSizing: 'border-box',
       height: `${DAY_CELL_HEIGHT_MOBILE}px`,
       color: colours.darkerGrey,
@@ -80,6 +73,7 @@ function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
       boxShadow: isOutside ? 'none' : '0 0 0 1px #eaeaea',
       outline: 'none',
       [mq.medium]: {
+        paddingTop: '33px',
         height: `${DAY_CELL_HEIGHT_DESKTOP}px`
       }
     },
@@ -101,8 +95,6 @@ function dateStyles({ isToday, isDisabled }) {
     boxSizing: 'content-box',
     backgroundColor: isToday ? colours.hightlightsLight : 'initial',
     color: isToday && isDisabled ? colours.darkGrey : 'inherit',
-    justifyContent: 'center',
-    display: 'flex',
     [mq.medium]: {
       fontSize: fontSize.labelLarge,
       lineHeight: 0.95
@@ -214,9 +206,9 @@ class Day extends Component {
 
   handleKeyDown = event => {
     const { keyCode } = event;
-    const { timestamp, focusDateElement } = this.props;
+    if (!keyCode) return;
 
-    if (!keyCode || !timestamp) return;
+    const { timestamp, onDayNavigate } = this.props;
 
     if (keyCode === KEY_CODE_SPACE || keyCode === KEY_CODE_ENTER) {
       event.preventDefault();
@@ -225,30 +217,8 @@ class Day extends Component {
       return;
     }
 
-    if (
-      keyCode === KEY_CODE_LEFT ||
-      keyCode === KEY_CODE_RIGHT ||
-      keyCode === KEY_CODE_UP ||
-      keyCode === KEY_CODE_DOWN
-    ) {
-      event.preventDefault();
-      event.stopPropagation();
-      const daysToNavigate = DAY_NAVIGATION_MAPPING[keyCode];
-      const dateToFocus = new Date(addDays(timestamp, daysToNavigate));
-
-      focusDateElement(dateToFocus);
-      return;
-    }
-
-    if (event.shiftKey && keyCode === KEY_CODE_TAB) {
-      const dateToFocus = startOfMonth(addMonths(new Date(timestamp), -1));
-      focusDateElement(dateToFocus);
-      return;
-    }
-
-    if (keyCode === KEY_CODE_TAB) {
-      const dateToFocus = startOfMonth(addMonths(new Date(timestamp), 1));
-      focusDateElement(dateToFocus);
+    if (timestamp) {
+      onDayNavigate(timestamp, keyCode);
     }
   };
 
@@ -319,17 +289,17 @@ class Day extends Component {
       Icon,
       isLoadingPrice,
       price,
-      currencySymbol,
-      priceInPoints
+      currencySymbol
     } = this.props;
+
     const dayOfMonth = date && date.getDate();
 
     return isOutside ? (
-      <div />
+      <div key={timestamp} />
     ) : (
       <div
         role="button"
-        tabIndex={isStart || isEnd || isFirstDayOfMonth ? 0 : -1}
+        tabIndex={isStart || isFirstDayOfMonth ? 0 : -1}
         css={dayStyles({ isStart, isEnd, isInRange, isDisabled, isOutside })}
         className={isDisabled ? '' : `d${timestamp}`}
         aria-label={getAriaLabel({
@@ -353,63 +323,15 @@ class Day extends Component {
         onClick={this.handleDayClick}
         onKeyDown={this.handleKeyDown}
       >
-        {/* Need this blank div for the flex logic */}
-        <div
-          css={{
-            height: '20px',
-            width: '20px',
-            flexBasis: '33.33%',
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-            display: 'flex'
-          }}
-        >
-          {price && priceInPoints && price.isClassic && (
-            <ClassicRewards
-              css={{
-                fill: colours.primary,
-                height: '20px',
-                width: '20px'
-              }}
-            />
-          )}
-        </div>
-
-        {/* Need this blank div for the flex logic */}
-        <div
-          css={{
-            flexBasis: '21%',
-            display: 'flex',
-            alignItems: 'center',
-            [mq.medium]: {
-              flexBasis: '33.33%'
-            }
-          }}
-        >
-          <div css={dateStyles({ isToday, isDisabled })}>{dayOfMonth}</div>
-        </div>
-
-        {/* Need this blank div for the flex logic */}
-        <div
-          css={{
-            width: '100%',
-            flexBasis: '33.33%',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-            display: 'flex'
-          }}
-        >
-          {(isLoadingPrice || price) && (
-            <Price
-              {...price}
-              currencySymbol={currencySymbol}
-              isDesktopDevice={isDesktopDevice}
-              isLoadingPrice={isLoadingPrice}
-              priceInPoints={priceInPoints}
-            />
-          )}
-        </div>
-
+        <div css={dateStyles({ isToday, isDisabled })}>{dayOfMonth}</div>
+        {(isLoadingPrice || price) && (
+          <Price
+            {...price}
+            currencySymbol={currencySymbol}
+            isDesktopDevice={isDesktopDevice}
+            isLoadingPrice={isLoadingPrice}
+          />
+        )}
         {isStart && (
           <DayLabel isSelected label={startSelectedLabel} Icon={Icon} />
         )}
@@ -436,7 +358,7 @@ Day.propTypes = {
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   onDayClick: PropTypes.func.isRequired,
-  focusDateElement: PropTypes.func.isRequired,
+  onDayNavigate: PropTypes.func.isRequired,
   isStart: PropTypes.bool,
   isEnd: PropTypes.bool,
   isInRange: PropTypes.bool,
@@ -462,10 +384,8 @@ Day.propTypes = {
     taxValue: PropTypes.number,
     points: PropTypes.number,
     isClassic: PropTypes.bool,
-    isLowestPrice: PropTypes.bool,
-    isLowestPoints: PropTypes.bool
-  }),
-  priceInPoints: PropTypes.bool
+    isLowestPrice: PropTypes.bool
+  })
 };
 
 Day.defaultProps = {
@@ -491,8 +411,7 @@ Day.defaultProps = {
   currencyCode: '',
   currencySymbol: '',
   isLoadingPrice: false,
-  price: null,
-  priceInPoints: false
+  price: null
 };
 
 export default Day;

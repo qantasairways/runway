@@ -84,9 +84,9 @@ export function startTabStyles({ isSelectingStartDate }) {
       content: "''",
       zIndex: '5',
       position: 'absolute',
-      right: isSelectingStartDate ? '-14px' : '-1px',
+      right: isSelectingStartDate ? '-14px' : '0',
       borderTop: `32px solid ${colours.transparent}`,
-      borderLeft: isSelectingStartDate ? `15px solid ${colours.white}` : '0',
+      borderLeft: isSelectingStartDate ? `14px solid ${colours.white}` : '0',
       borderBottom: `32px solid ${colours.transparent}`,
       borderRight: isSelectingStartDate ? '0' : `19px solid ${colours.white}`,
       top: '-5px',
@@ -95,7 +95,7 @@ export function startTabStyles({ isSelectingStartDate }) {
         borderLeft: isSelectingStartDate ? `19px solid ${colours.white}` : '0',
         borderTop: `42px solid ${colours.transparent}`,
         borderBottom: `42px solid ${colours.transparent}`,
-        top: '-4px'
+        top: '-7px'
       }
     },
     [mq.medium]: {
@@ -149,13 +149,13 @@ export function TriangleSvgStyles({ isSelectingStartDate }) {
   return css({
     zIndex: '10',
     position: 'absolute',
-    right: isSelectingStartDate ? '-48px' : '-12px',
+    right: isSelectingStartDate ? '-49px' : '-11px',
     top: isSelectingStartDate ? '-5px' : '-7px',
     transform: isSelectingStartDate ? 'rotate(0)' : 'rotate(-180deg)',
     [mq.medium]: {
-      height: isSelectingStartDate ? '84px' : '83px',
-      right: isSelectingStartDate ? '-53px' : '-7px',
-      top: isSelectingStartDate ? '-5px' : '-7px'
+      height: '83px',
+      right: isSelectingStartDate ? '-53px' : '-6px',
+      top: isSelectingStartDate ? '-5px' : '-8px'
     }
   });
 }
@@ -189,15 +189,16 @@ const Tabs = ({
   endPlaceholder,
   startDate,
   endDate,
+  onTabClick,
   isDateRange,
   Icon
 }) => (
   <div>
     <div css={calendarHeatherCntStyle()}>
       <button
+        onClick={() => onTabClick({ isSelectingStartDate: true })}
         type="button"
         css={startTabStyles({ isSelectingStartDate })}
-        tabIndex={-1}
       >
         {renderTabContent(
           startDate,
@@ -210,9 +211,9 @@ const Tabs = ({
       </button>
       {isDateRange && (
         <button
+          onClick={() => onTabClick({ isSelectingStartDate: false })}
           type="button"
           css={endTabStyle({ isSelectingStartDate })}
-          tabIndex={-1}
         >
           {renderTabContent(
             endDate,
@@ -235,6 +236,7 @@ Tabs.propTypes = {
   endSelectedLabel: PropTypes.string.isRequired,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
+  onTabClick: PropTypes.func,
   Icon: PropTypes.func
 };
 
@@ -243,6 +245,7 @@ Tabs.defaultProps = {
   isDateRange: true,
   startDate: null,
   endDate: null,
+  onTabClick: () => {},
   Icon: null
 };
 
