@@ -1,3 +1,10 @@
+# [0.42.0](https://github.com/qantasairways/runway/compare/v0.41.2...v0.42.0) (2019-08-21)
+
+
+### Features
+
+* **daypicker:** reverting several changes ([3b47c6d](https://github.com/qantasairways/runway/commit/3b47c6d)), closes [#118](https://github.com/qantasairways/runway/issues/118) [#119](https://github.com/qantasairways/runway/issues/119) [#116](https://github.com/qantasairways/runway/issues/116) [#114](https://github.com/qantasairways/runway/issues/114) [#112](https://github.com/qantasairways/runway/issues/112) [#113](https://github.com/qantasairways/runway/issues/113) [#109](https://github.com/qantasairways/runway/issues/109)
+
 ## [0.41.2](https://github.com/qantasairways/runway/compare/v0.41.1...v0.41.2) (2019-08-20)
 
 
