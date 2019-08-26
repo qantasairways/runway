@@ -171,7 +171,6 @@ function Render(props) {
     getInputProps,
     getLabelProps,
     getMenuProps,
-    selectHighlightedItem,
     closeMenu,
     itemToString
   } = downshiftProps;
@@ -206,7 +205,6 @@ function Render(props) {
           tabIndex="0"
           placeholder={placeholder}
           onBlur={() => {
-            selectHighlightedItem();
             closeMenu();
           }}
           onFocus={() => {
@@ -238,7 +236,6 @@ Render.propTypes = {
     getInputProps: PropTypes.func,
     getLabelProps: PropTypes.func,
     getMenuProps: PropTypes.func,
-    selectHighlightedItem: PropTypes.func,
     closeMenu: PropTypes.func,
     itemToString: PropTypes.func
   }).isRequired,
