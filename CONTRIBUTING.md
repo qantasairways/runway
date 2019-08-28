@@ -25,6 +25,20 @@ series [How to Contribute to an Open Source Project on GitHub][egghead]
 > can make all of your pull request branches based on this `master` branch.
 > Whenever you want to update your version of `master`, do a regular `git pull`.
 
+## Local development
+
+```
+npm run styleguide
+```
+
+This will run the styleguide development server.
+
+```
+npm run watch
+```
+
+This will automatically regenerate a bundle of your application upon your changes under your dist folder
+
 ## Add yourself as a contributor
 
 This project follows the [all contributors][all-contributors] specification. To
