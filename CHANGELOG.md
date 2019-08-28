@@ -1,3 +1,10 @@
+## [0.42.1](https://github.com/qantasairways/runway/compare/v0.42.0...v0.42.1) (2019-08-28)
+
+
+### Bug Fixes
+
+* **typeahead:** add onKeyDown prop ([#123](https://github.com/qantasairways/runway/issues/123)) ([85a8245](https://github.com/qantasairways/runway/commit/85a8245))
+
 # [0.42.0](https://github.com/qantasairways/runway/compare/v0.41.2...v0.42.0) (2019-08-21)
 
 
