@@ -2,7 +2,7 @@
  * Components
  */
 const path = require('path');
-const { lstatSync, readdirSync, appendFileSync } = require('fs');
+const { lstatSync, readdirSync, appendFileSync, readFileSync } = require('fs');
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
@@ -102,8 +102,19 @@ const outputOptions = (name, type) => {
 
 function writeComponentToIndex(name) {
   const file = path.resolve(__dirname, `${OUTPUT_DIR}/index.js`);
+
   const data = `export { default as ${name} } from './${name}';\n`;
-  return appendFileSync(file, data);
+
+  try {
+    const fileString = readFileSync(file, 'utf-8');
+    if (fileString.includes(data)) {
+      console.log('Skipping file writes');
+    } else {
+      appendFileSync(file, data);
+    }
+  } catch (e) {
+    appendFileSync(file, data);
+  }
 }
 
 const isThemeDir = moduleDir => /theme/gi.test(moduleDir);
