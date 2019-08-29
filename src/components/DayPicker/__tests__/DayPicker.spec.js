@@ -86,22 +86,12 @@ describe('DayPicker', () => {
       component = shallow(<DayPicker {...props} />);
 
       const renderedHeader = shallow(
-        component.instance().renderHeader({ closeDialog: () => {} })
+        component
+          .instance()
+          .renderHeader({ closeDialog: () => {}, setFocusElementRef: () => {} })
       );
 
       expect(renderedHeader).toMatchSnapshot();
-    });
-  });
-
-  describe('renderMonth()', () => {
-    it('renders correctly', () => {
-      component = shallow(<DayPicker {...props} />);
-
-      const renderedMonth = shallow(
-        component.instance().renderMonth({ index: 0, style: {} }, true)
-      );
-
-      expect(renderedMonth).toMatchSnapshot();
     });
   });
 

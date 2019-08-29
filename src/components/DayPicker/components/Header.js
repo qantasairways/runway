@@ -13,6 +13,7 @@ import {
 import Tabs from './Tabs';
 import QantasLogo from '../../../icons/QantasLogo';
 import CrossIcon from '../../../icons/CrossIcon';
+import noop from '../../../utils/noop';
 
 const ICON_SIZE = '32px';
 
@@ -49,7 +50,9 @@ function Header({
   startPlaceholder,
   endPlaceholder,
   rowStyles,
-  Icon
+  Icon,
+  onKeyDown,
+  setFocusElementRef
 }) {
   const orderedLabels = orderLabels(firstDayOfWeek, dayLabels);
 
@@ -96,6 +99,8 @@ function Header({
           <button
             aria-label={closeAriaLabel}
             onClick={closeDialog}
+            onKeyDown={onKeyDown}
+            ref={setFocusElementRef}
             type="button"
             css={{
               height: '48px',
@@ -170,6 +175,8 @@ function Header({
 
 Header.propTypes = {
   closeDialog: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func,
+  setFocusElementRef: PropTypes.func.isRequired,
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date),
   isSelectingStartDate: PropTypes.bool,
@@ -187,6 +194,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
+  onKeyDown: noop,
   startDate: null,
   endDate: null,
   isSelectingStartDate: true,

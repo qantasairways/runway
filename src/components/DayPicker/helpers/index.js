@@ -8,12 +8,11 @@ import {
   startOfWeek,
   endOfWeek,
   isSameMonth,
-  addDays,
-  differenceInCalendarMonths,
   isFirstDayOfMonth,
   differenceInCalendarWeeks,
   startOfDay
 } from 'date-fns';
+
 import {
   KEY_CODE_RIGHT,
   KEY_CODE_LEFT,
@@ -27,6 +26,12 @@ export const DAY_CELL_BORDER_WIDTH = 1;
 export const MONTH_CAPTION_HEIGHT_DESKTOP = 78;
 export const DAY_CELL_HEIGHT_DESKTOP = 90;
 export const DISCLAIMER_HEIGHT = 90;
+export const DAY_NAVIGATION_MAPPING = {
+  [KEY_CODE_RIGHT]: 1,
+  [KEY_CODE_LEFT]: -1,
+  [KEY_CODE_DOWN]: 7,
+  [KEY_CODE_UP]: -7
+};
 
 export const isDayBefore = (firstDate, secondDate) => {
   const first = startOfDay(firstDate);
@@ -113,10 +118,7 @@ export function getDateArray({
 export function getInitialDateToFocus(today, startDate, disabledBefore) {
   const dateToFocus = startDate || disabledBefore || today;
 
-  return {
-    date: new Date(dateToFocus).getTime(),
-    month: differenceInCalendarMonths(dateToFocus, today)
-  };
+  return new Date(dateToFocus);
 }
 
 export function getItemSize(
@@ -126,34 +128,29 @@ export function getItemSize(
   isDesktopDevice,
   disclaimerMessage
 ) {
-  const month = months[index];
+  if (index === 0) {
+    return disclaimerMessage ? DISCLAIMER_HEIGHT : 0;
+  }
+
+  const monthIndex = index - 1;
+  const month = months[monthIndex];
   const numberOfWeeks = differenceInCalendarWeeks(
     endOfMonth(month),
-    index === 0
+    monthIndex === 0
       ? startOfWeek(month, { weekStartsOn: firstDayOfWeek })
       : startOfMonth(month),
     { weekStartsOn: firstDayOfWeek }
   );
 
-  if (index === 0 && disclaimerMessage) {
-    return isDesktopDevice
-      ? DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_DESKTOP +
-          (DAY_CELL_HEIGHT_DESKTOP + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1)
-      : DISCLAIMER_HEIGHT +
-          MONTH_CAPTION_HEIGHT_MOBILE +
-          (DAY_CELL_HEIGHT_MOBILE + DAY_CELL_BORDER_WIDTH * 3) *
-            (numberOfWeeks + 1);
-  }
-
   return isDesktopDevice
     ? MONTH_CAPTION_HEIGHT_DESKTOP +
         (DAY_CELL_HEIGHT_DESKTOP + DAY_CELL_BORDER_WIDTH * 3) *
-          (numberOfWeeks + 1)
+          (numberOfWeeks + 1) +
+        3
     : MONTH_CAPTION_HEIGHT_MOBILE +
         (DAY_CELL_HEIGHT_MOBILE + DAY_CELL_BORDER_WIDTH * 3) *
-          (numberOfWeeks + 1);
+          (numberOfWeeks + 1) +
+        3;
 }
 
 export function getShouldSelectAsStartDate(
@@ -166,28 +163,6 @@ export function getShouldSelectAsStartDate(
 
 export function getEndDateFromStartDate(newStartDate, endDate) {
   return isAfter(newStartDate, endDate) ? null : endDate;
-}
-
-export function getDateToNavigate(timestamp, keyCode) {
-  switch (keyCode) {
-    case KEY_CODE_RIGHT:
-      return new Date(addDays(timestamp, 1)).getTime();
-    case KEY_CODE_LEFT:
-      return new Date(addDays(timestamp, -1)).getTime();
-    case KEY_CODE_DOWN:
-      return new Date(addDays(timestamp, 7)).getTime();
-    case KEY_CODE_UP:
-      return new Date(addDays(timestamp, -7)).getTime();
-    default:
-      return null;
-  }
-}
-
-export function focusDayCell(timestamp) {
-  if (timestamp) {
-    const elementToFocus = document.querySelector(`.d${timestamp}`);
-    if (elementToFocus) elementToFocus.focus();
-  }
 }
 
 export const getFirstEnabledMonthDate = ({
@@ -214,6 +189,22 @@ export const getLastEnabledMonthDate = ({ monthDate, disabledAfter }) => {
   }
   return validDate;
 };
+
+export function getDateElementOffset(dateElement) {
+  const monthElement = dateElement && dateElement.parentElement;
+  const calendarRowElement = monthElement && monthElement.parentElement;
+
+  if (dateElement && monthElement && calendarRowElement) {
+    return (
+      dateElement.offsetTop +
+      monthElement.offsetTop +
+      calendarRowElement.offsetTop -
+      dateElement.offsetHeight * 2
+    );
+  }
+
+  return null;
+}
 
 export function abbrNum(price) {
   let abbrPrice = price;

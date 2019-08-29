@@ -138,7 +138,9 @@ class ButtonWithDialog extends Component {
   };
 
   setFocusElementRef = el => {
-    this.focusElement = el;
+    if (el) {
+      this.focusElement = el;
+    }
   };
 
   setButtonRef = el => {
@@ -154,13 +156,13 @@ class ButtonWithDialog extends Component {
   renderHeader = () =>
     this.props.renderHeader({
       closeDialog: this.closeDialog,
-      setFocusElementRef: this.focusElementRef
+      setFocusElementRef: this.setFocusElementRef
     });
 
   renderFooter = () =>
     this.props.renderFooter({
       closeDialog: this.closeDialog,
-      setFocusElementRef: this.focusElementRef
+      setFocusElementRef: this.setFocusElementRef
     });
 
   renderButton = () => {

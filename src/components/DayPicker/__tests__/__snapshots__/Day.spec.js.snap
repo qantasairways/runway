@@ -260,7 +260,7 @@ exports[`Day renders correctly when isEnd is true 1`] = `
   onMouseLeave={[Function]}
   onMouseOver={[Function]}
   role="button"
-  tabIndex={-1}
+  tabIndex={0}
 >
   <div
     className="emotion-0"
@@ -529,11 +529,7 @@ exports[`Day renders correctly when isLoadingPrice is true 1`] = `
 </div>
 `;
 
-exports[`Day renders correctly when isOutside is true 1`] = `
-<div
-  key="1555682400000"
-/>
-`;
+exports[`Day renders correctly when isOutside is true 1`] = `<div />`;
 
 exports[`Day renders correctly when isStart is true 1`] = `
 .emotion-0 {
