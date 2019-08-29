@@ -1,3 +1,10 @@
+## [0.42.2](https://github.com/qantasairways/runway/compare/v0.42.1...v0.42.2) (2019-08-29)
+
+
+### Bug Fixes
+
+* **daypicker:** fix keyboard navigation ([#121](https://github.com/qantasairways/runway/issues/121)) ([2469acd](https://github.com/qantasairways/runway/commit/2469acd))
+
 ## [0.42.1](https://github.com/qantasairways/runway/compare/v0.42.0...v0.42.1) (2019-08-28)
 
 
