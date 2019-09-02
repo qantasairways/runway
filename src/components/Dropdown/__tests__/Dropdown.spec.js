@@ -21,8 +21,23 @@ describe('Dropdown', () => {
     withPadding: true,
     focus: true,
     downShiftProps: { itemToString: item => item.name },
-    menuWidth: '800px'
+    menuWidth: '800px',
+    height: '20px',
+    onChange: () => {},
+    highlighted: true,
+    inline: true,
+    growMenu: true
   };
+
+  it('renders correctly with defaults', () => {
+    component = mount(<Dropdown items={[]} />);
+    expect(component).toMatchSnapshot();
+  });
+
+  it('renders correctly with props provided', () => {
+    component = mount(<Dropdown {...props} />);
+    expect(component).toMatchSnapshot();
+  });
 
   it('initially renders with valid initialSelectedItem selected', () => {
     component = mount(<Dropdown {...props} initialSelectedItem={orange} />);

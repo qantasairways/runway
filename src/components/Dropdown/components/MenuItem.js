@@ -14,7 +14,7 @@ export function menuStyles({ highlighted }) {
     color: '#323232',
     boxSizing: 'border-box',
     padding: '10px',
-    height: '50px',
+    minHeight: '50px',
     [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_ACTIVE}`]: {
       backgroundColor: colours.lightGrey
     }

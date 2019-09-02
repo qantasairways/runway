@@ -10,27 +10,30 @@ import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
-import { colours, layout } from '../../theme/airways';
+import { colours, layout, fontWeight } from '../../theme/airways';
 
-export function dropdownStyles({ withPadding }) {
+export function dropdownStyles({ highlighted, growMenu, inline, height }) {
   return css({
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
     fontSize: '18px',
-    fontWeight: 400,
+    fontWeight: highlighted ? fontWeight.bold : fontWeight.regular,
     fontStyle: 'normal',
     fontStretch: 'normal',
     lineHeight: 1.56,
     letterSpacing: 'normal',
     background: colours.mediumGrey,
-    height: withPadding ? '65px' : '30px',
     borderColor: colours.darkeGrey,
-    color: '#ffffff',
-    position: 'relative'
+    color: highlighted ? colours.highlights : colours.white,
+    textDecoration: highlighted ? 'underline' : 'none',
+    position: growMenu ? 'static' : 'relative',
+    width: inline ? 'fit-content' : '100%',
+    height,
+    maxWidth: '100%'
   });
 }
 
-export function inputWrapperStyles({ withPadding }) {
+export function inputWrapperStyles() {
   return css({
     label: 'runway-dropdown__input-wrapper',
     cursor: 'pointer',
@@ -38,13 +41,24 @@ export function inputWrapperStyles({ withPadding }) {
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: withPadding ? 'space-between' : 'flex-end',
     boxSizing: 'border-box'
   });
 }
 
-export function inputStyles({ leftAlign, withPadding }) {
+const inputStylesHidden = {
+  border: '0px',
+  clip: 'rect(0px, 0px, 0px, 0px)',
+  height: '1px',
+  margin: '-1px',
+  overflow: 'hidden',
+  padding: '0px',
+  position: 'absolute',
+  width: '1px'
+};
+
+export function inputStyles({ inline }) {
   return css({
+    ...(inline ? inputStylesHidden : {}),
     label: 'runway-dropdown__input',
     backgroundColor: 'transparent',
     border: 0,
@@ -56,26 +70,28 @@ export function inputStyles({ leftAlign, withPadding }) {
     fontStretch: 'inherit',
     letterSpacing: 'inherit',
     textTransform: 'none',
-    color: 'inherit',
-    padding: withPadding ? `0 0 0 ${layout.gutter}` : 0,
+    color: inline ? 'transparent' : 'inherit',
+    padding: inline ? 0 : `0 0 0 ${layout.gutter}`,
     cursor: 'pointer',
     width: '100%',
     height: '100%',
-    textAlign: leftAlign ? 'left' : 'right',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
     '::placeholder': {
       color: 'inherit'
     }
   });
 }
 
-export function inputSvgStyles({ withPadding }) {
+export function inputSvgStyles({ inline, highlighted }) {
   return css({
     label: 'runway-dropdown__input-svg',
     width: '24px',
     height: '100%',
-    fill: '#FFFFFF',
+    fill: highlighted ? colours.highlights : colours.white,
     verticalAlign: 'middle',
-    padding: withPadding ? `0 ${layout.gutter} 0 0` : 0,
+    padding: inline ? 0 : `0 ${layout.gutter} 0 0`,
     boxSizing: 'content-box'
   });
 }
@@ -101,7 +117,7 @@ export function itemSvgStyles() {
   return css({
     label: 'runway-dropdown__item-svg',
     width: '24px',
-    fill: '#323232'
+    fill: colours.darkerGrey
   });
 }
 
@@ -159,7 +175,8 @@ function Render(props) {
     label,
     placeholder,
     downshiftProps,
-    menuWidth
+    menuWidth,
+    inline
   } = props;
 
   const {
@@ -198,6 +215,18 @@ function Render(props) {
     <div css={{ width: '100%', height: '100%' }}>
       <label {...getLabelProps()}>{label}</label>
       <span css={inputWrapperStyles(props)}>
+        {inline && (
+          <span
+            css={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
+            }}
+            {...inputProps}
+          >
+            {inputProps.value}
+          </span>
+        )}
         <input
           {...inputProps}
           css={inputStyles(props)}
@@ -226,7 +255,11 @@ Render.propTypes = {
   focus: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  leftAlign: PropTypes.bool,
+  menuWidth: PropTypes.string,
+  height: PropTypes.string,
+  highlighted: PropTypes.bool,
+  inline: PropTypes.bool,
+  growMenu: PropTypes.bool,
   downshiftProps: PropTypes.shape({
     isOpen: PropTypes.bool,
     getItemProps: PropTypes.func,
@@ -238,8 +271,7 @@ Render.propTypes = {
     getMenuProps: PropTypes.func,
     closeMenu: PropTypes.func,
     itemToString: PropTypes.func
-  }).isRequired,
-  menuWidth: PropTypes.string
+  }).isRequired
 };
 
 Render.defaultProps = {
@@ -248,8 +280,11 @@ Render.defaultProps = {
   focus: false,
   label: '',
   placeholder: '',
-  leftAlign: false,
-  menuWidth: null
+  menuWidth: null,
+  height: null,
+  highlighted: false,
+  inline: false,
+  growMenu: false
 };
 
 export default class Dropdown extends React.Component {
@@ -351,7 +386,9 @@ function renderDefaultItem(item, index, props) {
       <span css={itemSvgContainerStyles(props)}>
         <TickIcon css={itemSvgStyles(props)} />
       </span>
-      <span>{item.name}</span>
+      <span css={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
+        {item.name}
+      </span>
     </span>
   );
 }
@@ -365,8 +402,6 @@ Dropdown.propTypes = {
   ).isRequired,
   /** Prop to render each list item. Must return an element. */
   renderItem: PropTypes.func,
-  /** Flag to display variant with vertical padding */
-  withPadding: PropTypes.bool,
   /** @ignore */
   focus: PropTypes.bool,
   /** @ignore */
@@ -375,17 +410,24 @@ Dropdown.propTypes = {
   }),
   /** Optional string to set the width of the menu */
   menuWidth: PropTypes.string,
-  /** Flag to display variant left aligned text */
-  leftAlign: PropTypes.bool,
+  /** Optional string to set the height of the dropdown */
+  height: PropTypes.string,
   /** Triggered when the user changes the value
    *
    * @param {Object} selectedItem New value
    * @param {Object} stateAndHelpers stateAndHelpers object from Downshift */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** Optional flag to use highlighted styles */
+  highlighted: PropTypes.bool,
+  /** Optional flag to make the dropdown inline rather than full width */
+  inline: PropTypes.bool,
+  /**
+   * Optional flag to allow the dropdown menu to grow larger than the dropdown container
+   * Setting this flag to true requires a parent to have `position:absolute;` applied */
+  growMenu: PropTypes.bool
 };
 
 Dropdown.defaultProps = {
-  withPadding: false,
   renderItem: renderDefaultItem,
   focus: false,
   downShiftProps: {
@@ -397,6 +439,9 @@ Dropdown.defaultProps = {
     }
   },
   menuWidth: null,
-  leftAlign: PropTypes.false,
-  onChange: null
+  height: '100%',
+  onChange: null,
+  highlighted: false,
+  inline: false,
+  growMenu: false
 };
