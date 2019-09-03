@@ -1,3 +1,10 @@
+## [0.42.3](https://github.com/qantasairways/runway/compare/v0.42.2...v0.42.3) (2019-09-03)
+
+
+### Bug Fixes
+
+* **dropdown:** do not select item onBlur ([#126](https://github.com/qantasairways/runway/issues/126)) ([29140a9](https://github.com/qantasairways/runway/commit/29140a9))
+
 ## [0.42.2](https://github.com/qantasairways/runway/compare/v0.42.1...v0.42.2) (2019-08-29)
 
 
