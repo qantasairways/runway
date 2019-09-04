@@ -1,3 +1,10 @@
+# [0.43.0](https://github.com/qantasairways/runway/compare/v0.42.3...v0.43.0) (2019-09-04)
+
+
+### Features
+
+* **dropdown:** Add props for height of dropdown and highlighted, inline and growMenu variations ([#125](https://github.com/qantasairways/runway/issues/125)) ([fa1e11d](https://github.com/qantasairways/runway/commit/fa1e11d))
+
 ## [0.42.3](https://github.com/qantasairways/runway/compare/v0.42.2...v0.42.3) (2019-09-03)
 
 
