@@ -2,7 +2,12 @@
  * Components
  */
 const path = require('path');
-const { lstatSync, readdirSync, appendFileSync } = require('fs');
+const {
+  lstatSync,
+  readdirSync,
+  writeFile,
+  createWriteStream
+} = require('fs');
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
@@ -100,10 +105,15 @@ const outputOptions = (name, type) => {
   };
 };
 
-function writeComponentToIndex(name) {
+function writeComponentToIndex(names) {
   const file = path.resolve(__dirname, `${OUTPUT_DIR}/index.js`);
-  const data = `export { default as ${name} } from './${name}';\n`;
-  return appendFileSync(file, data);
+  writeFile(file, '', () => {
+    const wstream = createWriteStream(file);
+    names.forEach(name =>
+      wstream.write(`export { default as ${name} } from './${name}';\n`)
+    );
+    wstream.end();
+  });
 }
 
 const isThemeDir = moduleDir => /theme/gi.test(moduleDir);
@@ -111,11 +121,7 @@ const isThemeDir = moduleDir => /theme/gi.test(moduleDir);
 async function build(entrySrc, name, type, moduleDir) {
   try {
     const bundle = await rollup.rollup(inputOptions(entrySrc, type));
-
     await bundle.write(outputOptions(name, type));
-    if (!isThemeDir(moduleDir)) {
-      writeComponentToIndex(name);
-    }
     console.log(chalk.green(` ✅  Successuly packaged ${name} 📦`));
   } catch (error) {
     console.log(chalk.red(` ☠️  Failed to package ${name}`), error);
@@ -126,17 +132,22 @@ const flattenName = ({ moduleName, moduleDir }) =>
   isThemeDir(moduleDir) ? `theme/${moduleName}` : moduleName;
 
 async function generateModules() {
+  const moduleNames = [];
   for (let index = 0; index < components.length; index++) {
     const dirs = components[index].split('/');
     // eslint-disable-next-line no-unused-vars
     const [moduleRoot, moduleDir, moduleName] = dirs;
     const name = flattenName({ moduleDir, moduleName });
+    if (!isThemeDir(moduleDir)) {
+      moduleNames.push(name);
+    }
     console.log(
       chalk.cyan(` ⚙️  Now building: ${name}`),
       chalk.cyan(` 🗜  Module type: ${OUTPUT_JS_TYPE}`)
     );
     await build(components[index], name, OUTPUT_JS_TYPE, moduleDir);
   }
+  writeComponentToIndex(moduleNames);
 }
 
 generateModules();
