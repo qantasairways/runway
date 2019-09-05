@@ -1,3 +1,10 @@
+# [0.44.0](https://github.com/qantasairways/runway/compare/v0.43.0...v0.44.0) (2019-09-05)
+
+
+### Features
+
+* **npmlink:** watch for changes with install npm watch package ([#127](https://github.com/qantasairways/runway/issues/127)) ([1c19589](https://github.com/qantasairways/runway/commit/1c19589))
+
 # [0.43.0](https://github.com/qantasairways/runway/compare/v0.42.3...v0.43.0) (2019-09-04)
 
 
