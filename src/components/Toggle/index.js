@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Switch from 'react-switch';
-import { colours, fontSize, fontFamily, mq } from '../../theme/airways';
+import { colours, fontSize, fontFamily } from '../../theme/airways';
 
 const SELECTORS = {
   REACT_SWITCH: {
@@ -14,7 +14,6 @@ const LocalStylesInjector = ({
   children,
   checked,
   containerClassName,
-  swapPosition,
   spaceBetween
 }) => {
   const thickenBorder = () => {
@@ -40,16 +39,12 @@ const LocalStylesInjector = ({
       className={containerClassName}
       css={{
         [SELECTORS.REACT_SWITCH.ELEMENT_CONTAINER]: {
-          ...(swapPosition
-            ? { marginRight: spaceBetween }
-            : { marginLeft: spaceBetween }),
+          marginLeft: spaceBetween,
           backgroundColor: colours.darkerGrey
         },
         ...thickenBorder(),
         ...keepAllVertAligned,
-        [mq.medium]: {
-          backgroundColor: colours.mediumGrey
-        }
+        backgroundColor: colours.mediumGrey
       }}
     >
       {children}
@@ -61,11 +56,7 @@ LocalStylesInjector.propTypes = {
   children: PropTypes.node.isRequired,
   checked: PropTypes.bool.isRequired,
   containerClassName: PropTypes.string.isRequired,
-  swapPosition: PropTypes.bool,
   spaceBetween: PropTypes.string.isRequired
-};
-LocalStylesInjector.defaultProps = {
-  swapPosition: false
 };
 
 const LabelText = ({ children }) => (
@@ -88,35 +79,36 @@ LabelText.propTypes = {
 class Toggle extends Component {
   static propTypes = {
     /** Id for the html input */
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     /** Label to display */
     label: PropTypes.string.isRequired,
     /** @ignore */
     containerClassName: PropTypes.string,
     /** Function triggered when the value is changed
-     * @param {Bool} value The new value
+     * @param {bool} value The new value
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /** Flag to control whether the toggle is checked */
-    checked: PropTypes.bool.isRequired,
-    /** Flag to display the toggle before the label */
-    swapPosition: PropTypes.bool,
+    checked: PropTypes.bool,
     /** String to specify in css units the space between toggle and label */
-    spaceBetween: PropTypes.string.isRequired,
+    spaceBetween: PropTypes.string,
     /** The size of the toggle handle */
-    handleSize: PropTypes.number.isRequired,
+    handleSize: PropTypes.number,
     /** The height of the toggle */
-    height: PropTypes.number.isRequired,
+    height: PropTypes.number,
     /** The width of the toggle */
-    width: PropTypes.number.isRequired
+    width: PropTypes.number
   };
 
   static defaultProps = {
-    swapPosition: false
-  };
-
-  static defaultProps = {
-    containerClassName: 'react-toggle-container'
+    id: '',
+    containerClassName: 'react-toggle-container',
+    onChange: () => {},
+    checked: false,
+    spaceBetween: '10px',
+    handleSize: 26,
+    height: 30,
+    width: 46
   };
 
   static isControlled = props => typeof props.checked === 'boolean';
@@ -173,27 +165,12 @@ class Toggle extends Component {
   render = () => {
     const {
       containerClassName = 'react-toggle-container',
-      swapPosition,
       spaceBetween
     } = this.props;
-    if (swapPosition) {
-      return (
-        <LocalStylesInjector
-          containerClassName={containerClassName}
-          checked={this.getCheckedState()}
-          swapPosition={swapPosition}
-          spaceBetween={spaceBetween}
-        >
-          {this.renderSwitch()}
-          {this.renderLabel()}
-        </LocalStylesInjector>
-      );
-    }
     return (
       <LocalStylesInjector
         containerClassName={containerClassName}
         checked={this.getCheckedState()}
-        swapPosition={swapPosition}
         spaceBetween={spaceBetween}
       >
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
