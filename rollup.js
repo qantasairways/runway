@@ -2,12 +2,7 @@
  * Components
  */
 const path = require('path');
-const {
-  lstatSync,
-  readdirSync,
-  writeFile,
-  createWriteStream
-} = require('fs');
+const { lstatSync, readdirSync, writeFile, createWriteStream } = require('fs');
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
