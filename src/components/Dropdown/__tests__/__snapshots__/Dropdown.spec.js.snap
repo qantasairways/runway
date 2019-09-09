@@ -475,7 +475,8 @@ exports[`Dropdown renders correctly with props provided 1`] = `
 }
 
 .emotion-5:hover,
-.emotion-5:active {
+.emotion-5:active,
+.emotion-5:focus {
   background-color: #f4f5f6;
 }
 
