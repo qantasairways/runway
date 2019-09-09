@@ -1,3 +1,10 @@
+## [0.44.1](https://github.com/qantasairways/runway/compare/v0.44.0...v0.44.1) (2019-09-09)
+
+
+### Bug Fixes
+
+* **dropdown, menuitem:** include arrow key accessibility ([#129](https://github.com/qantasairways/runway/issues/129)) ([f6a59aa](https://github.com/qantasairways/runway/commit/f6a59aa))
+
 # [0.44.0](https://github.com/qantasairways/runway/compare/v0.43.0...v0.44.0) (2019-09-05)
 
 
