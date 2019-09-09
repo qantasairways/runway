@@ -194,5 +194,18 @@ describe('Typeahead', () => {
       const { value: initialSelection } = component.find('input').props();
       expect(initialSelection).toEqual('orange');
     });
+
+    it('should handle selectedItemValue when value is empty', () => {
+      const component = mount(
+        <Typeahead
+          items={items}
+          minChars={3}
+          fetchListOnInput={fetchListOnInputMock}
+          selectedItemValue=""
+        />
+      );
+      const { value: initialSelection } = component.find('input').props();
+      expect(initialSelection).toEqual('');
+    });
   });
 });
