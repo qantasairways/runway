@@ -4,7 +4,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
 <LocalStylesInjector
   checked={false}
   containerClassName="mockContainerClassName"
-  swapPosition={false}
+  spaceBetween="10px"
 >
   <label
     htmlFor="mockId-3"
@@ -20,7 +20,8 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
     checkedIcon={false}
     className="react-switch"
     disabled={false}
-    height={28}
+    handleDiameter={26}
+    height={30}
     id="mockId-3"
     offColor="#323232"
     offHandleColor="#b3b3b3"
@@ -28,7 +29,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
     onColor="#8de2e0"
     onHandleColor="#fff"
     uncheckedIcon={false}
-    width={56}
+    width={46}
   />
 </LocalStylesInjector>
 `;
@@ -37,7 +38,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
 <LocalStylesInjector
   checked={true}
   containerClassName="mockContainerClassName"
-  swapPosition={false}
+  spaceBetween="10px"
 >
   <label
     htmlFor="mockId-2"
@@ -53,7 +54,8 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
     checkedIcon={false}
     className="react-switch"
     disabled={false}
-    height={28}
+    handleDiameter={26}
+    height={30}
     id="mockId-2"
     offColor="#323232"
     offHandleColor="#b3b3b3"
@@ -61,7 +63,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
     onColor="#8de2e0"
     onHandleColor="#fff"
     uncheckedIcon={false}
-    width={56}
+    width={46}
   />
 </LocalStylesInjector>
 `;
@@ -70,7 +72,7 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
 <LocalStylesInjector
   checked={false}
   containerClassName="mockContainerClassName"
-  swapPosition={false}
+  spaceBetween="10px"
 >
   <label
     htmlFor="mockId-1"
@@ -86,7 +88,8 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
     checkedIcon={false}
     className="react-switch"
     disabled={false}
-    height={28}
+    handleDiameter={26}
+    height={30}
     id="mockId-1"
     offColor="#323232"
     offHandleColor="#b3b3b3"
@@ -94,7 +97,7 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
     onColor="#8de2e0"
     onHandleColor="#fff"
     uncheckedIcon={false}
-    width={56}
+    width={46}
   />
 </LocalStylesInjector>
 `;

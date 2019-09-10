@@ -8,10 +8,8 @@ describe('Toggle', () => {
       const toggle = shallow(
         <Toggle
           id="mockId-1"
-          onChange={() => {}}
           label="mockLabel"
           containerClassName="mockContainerClassName"
-          checked={false}
         />
       );
       expect(toggle).toMatchSnapshot();
@@ -23,7 +21,6 @@ describe('Toggle', () => {
       const toggle = shallow(
         <Toggle
           id="mockId-2"
-          onChange={() => {}}
           checked
           label="mockLabel"
           containerClassName="mockContainerClassName"
@@ -35,7 +32,6 @@ describe('Toggle', () => {
       const toggle = shallow(
         <Toggle
           id="mockId-3"
-          onChange={() => {}}
           checked={false}
           label="mockLabel"
           containerClassName="mockContainerClassName"
