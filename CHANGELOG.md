@@ -1,3 +1,10 @@
+## [0.44.2](https://github.com/qantasairways/runway/compare/v0.44.1...v0.44.2) (2019-09-10)
+
+
+### Bug Fixes
+
+* **toggle:** Removed swapPosition prop and logic, made some props non-mandatory and show background for all viewports ([#131](https://github.com/qantasairways/runway/issues/131)) ([828a590](https://github.com/qantasairways/runway/commit/828a590))
+
 ## [0.44.1](https://github.com/qantasairways/runway/compare/v0.44.0...v0.44.1) (2019-09-09)
 
 
