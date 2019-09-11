@@ -229,7 +229,8 @@ class Typeahead extends Component {
       valid,
       selectItemCollector,
       maxLength,
-      menuHeight
+      menuHeight,
+      selectedItemValue
     } = this.props;
 
     const { placeholder } = this.state;
@@ -242,6 +243,7 @@ class Typeahead extends Component {
         onChange={onChange}
         onInputValueChange={this.onInputValueChange}
         stateReducer={stateReducer}
+        selectedItem={selectedItemValue || undefined}
       >
         {({
           setState,
@@ -390,7 +392,12 @@ Typeahead.propTypes = {
   /** Optional maxLength value for the html input */
   maxLength: PropTypes.number,
   /** Optional specify height for the menu */
-  menuHeight: PropTypes.string
+  menuHeight: PropTypes.string,
+  /** Optional specify selectedItemValue to manage selectedItem state externally */
+  selectedItemValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.objectOf(PropTypes.any)
+  ])
 };
 
 Typeahead.defaultProps = {
