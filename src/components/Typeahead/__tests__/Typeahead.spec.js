@@ -170,4 +170,42 @@ describe('Typeahead', () => {
       });
     });
   });
+
+  describe('selectedItemValue()', () => {
+    let fetchListOnInputMock = jest.fn();
+
+    beforeEach(() => {
+      fetchListOnInputMock = jest.fn().mockResolvedValue({});
+    });
+
+    afterEach(() => {
+      fetchListOnInputMock.mockReset();
+    });
+
+    it('should handle selectedItemValue to selectedItem and allow selectedItem state externally', () => {
+      const component = mount(
+        <Typeahead
+          items={items}
+          minChars={3}
+          fetchListOnInput={fetchListOnInputMock}
+          selectedItemValue={items[2]}
+        />
+      );
+      const { value: initialSelection } = component.find('input').props();
+      expect(initialSelection).toEqual('orange');
+    });
+
+    it('should handle selectedItemValue when value is empty', () => {
+      const component = mount(
+        <Typeahead
+          items={items}
+          minChars={3}
+          fetchListOnInput={fetchListOnInputMock}
+          selectedItemValue=""
+        />
+      );
+      const { value: initialSelection } = component.find('input').props();
+      expect(initialSelection).toEqual('');
+    });
+  });
 });
