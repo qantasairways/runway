@@ -1,3 +1,10 @@
+# [0.45.0](https://github.com/qantasairways/runway/compare/v0.44.2...v0.45.0) (2019-09-12)
+
+
+### Features
+
+* **typeahead:** added selectedItem Prop to Typeahead ([#128](https://github.com/qantasairways/runway/issues/128)) ([12a34e9](https://github.com/qantasairways/runway/commit/12a34e9))
+
 ## [0.44.2](https://github.com/qantasairways/runway/compare/v0.44.1...v0.44.2) (2019-09-10)
 
 
