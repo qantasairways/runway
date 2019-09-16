@@ -3,6 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import { css } from 'emotion';
+import { KEY_CODE_SPACE, KEY_CODE_ENTER } from '../../constants/keyCodes';
 
 import Menu from './components/Menu';
 import MenuItem from './components/MenuItem';
@@ -12,7 +13,11 @@ import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
 import { colours, layout, fontWeight } from '../../theme/airways';
 
-export function dropdownStyles({ highlighted, growMenu, inline, height }) {
+export function dropdownStyles(
+  { highlighted, growMenu, inline, height },
+  isFocused,
+  isOpen
+) {
   return css({
     label: 'runway-dropdown',
     fontFamily: 'Ciutadella',
@@ -29,7 +34,8 @@ export function dropdownStyles({ highlighted, growMenu, inline, height }) {
     position: growMenu ? 'static' : 'relative',
     width: inline ? 'fit-content' : '100%',
     height,
-    maxWidth: '100%'
+    maxWidth: '100%',
+    outline: isFocused && !isOpen ? '-webkit-focus-ring-color auto 5px' : 'none'
   });
 }
 
@@ -41,7 +47,8 @@ export function inputWrapperStyles() {
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    justifyContent: 'space-between'
   });
 }
 
@@ -58,7 +65,7 @@ const inputStylesHidden = {
 
 export function inputStyles({ inline }) {
   return css({
-    ...(inline ? inputStylesHidden : {}),
+    ...inputStylesHidden,
     label: 'runway-dropdown__input',
     backgroundColor: 'transparent',
     border: 0,
@@ -171,7 +178,8 @@ function Render(props) {
   const {
     items,
     renderItem,
-    focus,
+    isFocused,
+    setFocus,
     label,
     placeholder,
     downshiftProps,
@@ -201,7 +209,7 @@ function Render(props) {
     itemToString,
     highlightedIndex,
     getMenuProps,
-    focus,
+    focus: isFocused,
     width: menuWidth
   };
 
@@ -215,30 +223,41 @@ function Render(props) {
     <div css={{ width: '100%', height: '100%' }}>
       <label {...getLabelProps()}>{label}</label>
       <span css={inputWrapperStyles(props)}>
-        {inline && (
-          <span
-            css={{
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap'
-            }}
-            {...inputProps}
-          >
-            {inputProps.value}
-          </span>
-        )}
+        <span
+          css={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            padding: inline ? 0 : `0 0 0 ${layout.gutter}`
+          }}
+          {...inputProps}
+        >
+          {inputProps.value}
+        </span>
         <input
           {...inputProps}
           css={inputStyles(props)}
           readOnly
           tabIndex="0"
           placeholder={placeholder}
-          onBlur={() => {
-            closeMenu();
-          }}
-          onFocus={() => {
-            openMenu();
-          }}
+          {...getInputProps({
+            onBlur: () => {
+              closeMenu();
+              setFocus(false);
+            },
+            onKeyDown: event => {
+              const { keyCode } = event;
+              if (keyCode === KEY_CODE_SPACE || keyCode === KEY_CODE_ENTER) {
+                event.preventDefault();
+                event.stopPropagation();
+                setFocus(false);
+                openMenu();
+              }
+            },
+            onFocus: () => {
+              setFocus(true);
+            }
+          })}
         />
         <span {...inputProps} css={inputSvgStyles(props)}>
           <ChevronDown css={inputSvgStyles(props)} />
@@ -289,7 +308,7 @@ Render.defaultProps = {
 
 export default class Dropdown extends React.Component {
   state = {
-    focus: false
+    isFocused: false
   };
 
   // eslint-disable-next-line consistent-return
@@ -309,9 +328,9 @@ export default class Dropdown extends React.Component {
     }
   };
 
-  setFocus(focus) {
-    this.setState({ focus });
-  }
+  setFocus = isFocused => {
+    this.setState({ isFocused });
+  };
 
   itemsContains = target =>
     !!this.props.items.filter(item => item.value === target.value).length;
@@ -339,8 +358,9 @@ export default class Dropdown extends React.Component {
     item && typeof item.name === 'string' && typeof item.value === 'string';
 
   render() {
-    const { focus } = this.state;
+    const { isFocused } = this.state;
     const { props, setFocus } = this;
+    const { isOpen } = this;
 
     return (
       <Downshift
@@ -355,7 +375,8 @@ export default class Dropdown extends React.Component {
         {downshiftProps => {
           const renderProps = {
             ...props,
-            focus,
+            isOpen,
+            isFocused,
             setFocus,
             downshiftProps
           };
@@ -363,11 +384,11 @@ export default class Dropdown extends React.Component {
           this.collectSelectItem(renderProps.downshiftProps.selectItem);
           this.collectSelectedItem(renderProps.downshiftProps.selectedItem);
           return (
-            <div css={dropdownStyles(props)}>
+            <div css={dropdownStyles(props, isFocused, isOpen)}>
               <SelectOnKeyPressContainer
                 items={props.items}
                 itemToString={props.downShiftProps.itemToString}
-                focus={focus}
+                focus={isFocused}
                 downshiftProps={downshiftProps}
               >
                 <Render {...renderProps} />
