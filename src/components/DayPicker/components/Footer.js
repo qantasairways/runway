@@ -10,7 +10,7 @@ import {
   fontWeight,
   mq
 } from '../../../theme/airways';
-import Button from '../../Button';
+import Button from '../../ButtonSolid';
 import { numberWithCommas, fmtCurrency } from '../helpers';
 
 const wrapperStyle = {

@@ -83,7 +83,7 @@ exports[`Footer renders correctly with defaults 1`] = `
         </div>
       </div>
     </span>
-    <Button
+    <ButtonSolid
       aria-label="mock closeAriaLabel"
       className="runway-footer__button"
       cssOverrides={
@@ -101,10 +101,14 @@ exports[`Footer renders correctly with defaults 1`] = `
           },
         ]
       }
+      disabled={false}
+      inline={false}
       label="mock actionText"
       onClick={[Function]}
-      variant="solid"
-    />
+      type="button"
+    >
+      button
+    </ButtonSolid>
   </div>
 </div>
 `;
@@ -204,7 +208,7 @@ exports[`Footer renders correctly with props 1`] = `
         </div>
       </div>
     </span>
-    <Button
+    <ButtonSolid
       aria-label="mock closeAriaLabel"
       className="runway-footer__button"
       cssOverrides={
@@ -222,10 +226,14 @@ exports[`Footer renders correctly with props 1`] = `
           },
         ]
       }
+      disabled={false}
+      inline={false}
       label="mock actionText"
       onClick={[Function]}
-      variant="solid"
-    />
+      type="button"
+    >
+      button
+    </ButtonSolid>
   </div>
 </div>
 `;

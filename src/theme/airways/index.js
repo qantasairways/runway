@@ -1,7 +1,4 @@
-import airwaysColours from './colours.json';
-
-export const airwaysFontFamily = '"Ciutadella", sans-serif';
-
+// TODO - remove component specific sizes
 export const layout = {
   borderRadius: '4px',
   gutter: '15px',
@@ -14,29 +11,29 @@ export const layout = {
 };
 
 export const colours = {
-  primary: airwaysColours.qantasRed,
-  primaryDark: airwaysColours.darkRed,
-  white: airwaysColours.white,
+  primary: '#ee0000',
+  primaryDark: '#ba0000',
+  white: '#fff',
   transparent: 'transparent',
-  darkerGrey: airwaysColours.charcoal,
-  darkGrey: airwaysColours.darkGrey,
-  mediumDarkGrey: airwaysColours.mediumDarkGrey,
-  dullGrey: airwaysColours.dullGrey,
-  grey: airwaysColours.grey,
-  mediumGrey: airwaysColours.mediumGrey,
-  mediumLightGrey: airwaysColours.mediumLightGrey,
-  lightGrey: airwaysColours.lightGrey,
-  lighterGrey: airwaysColours.lighterGrey,
-  disabledGrey: airwaysColours.disabledGrey,
-  highlights: airwaysColours.bayBlue,
-  hightlightsLight: airwaysColours.lightBayBlue,
-  hightlightsLighter: airwaysColours.lighterBayBlue,
-  warnings: airwaysColours.warningOrange,
-  black: airwaysColours.black
+  darkerGrey: '#323232',
+  darkGrey: '#626262',
+  mediumDarkGrey: '#888888',
+  dullGrey: '#b3b3b3',
+  grey: '#dadada',
+  mediumGrey: '#3c3c3c',
+  mediumLightGrey: '#666666',
+  lightGrey: '#f4f5f6',
+  lighterGrey: '#eeeeee',
+  disabledGrey: '#fafafa',
+  highlights: '#8de2e0',
+  hightlightsLight: '#bff4f2',
+  hightlightsLighter: '#e8f7f7',
+  warnings: '#ed710b',
+  black: '#000000'
 };
 
 export const fontFamily = {
-  main: airwaysFontFamily
+  main: '"Ciutadella", sans-serif'
 };
 
 export const fontWeight = {
@@ -44,6 +41,7 @@ export const fontWeight = {
   bold: 700
 };
 
+// TODO - remove component specific sizes
 export const fontSize = {
   body: '1.125rem',
   button: '1rem',
@@ -58,19 +56,13 @@ export const letterSpacing = {
   small: '-0.0625rem'
 };
 
-export const buttons = {
-  borderRadius: layout.borderRadius,
-  clickOffset: '1px',
-  width: '100%',
-  height: '3.125rem'
-};
-
 export const breakpoints = {
   medium: '(min-width: 768px)',
   large: '(min-width: 960px)',
   extraLarge: '(min-width: 1200px)'
 };
 
+// TODO - rename this to mediaQueries
 export const mq = {
   small: '@media only screen and (min-width: 321px)',
   medium: `@media only screen and ${breakpoints.medium}`,
@@ -78,6 +70,7 @@ export const mq = {
   extraLarge: `@media only screen and ${breakpoints.extraLarge}`
 };
 
+// TODO - remove this
 export const highlightInvalidField = {
   borderRadius: '2px',
   border: 'solid 2px #ed710b'
@@ -89,6 +82,8 @@ export default {
   fontFamily,
   fontSize,
   fontWeight,
-  buttons,
-  highlightInvalidField
+  letterSpacing,
+  breakpoints,
+  mq,
+  highlightInvalidField // this will be removed
 };

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonHollow should render correctly with defaults 1`] = `
+<WithTheme(ThemedButton)
+  disabled={false}
+  inline={false}
+  onClick={[Function]}
+  themeStyles={
+    Object {
+      "button": [Function],
+    }
+  }
+  type="button"
+>
+  button
+</WithTheme(ThemedButton)>
+`;
+
+exports[`ButtonHollow should render correctly with props 1`] = `
+<WithTheme(ThemedButton)
+  disabled={false}
+  inline={false}
+  onClick={[Function]}
+  themeStyles={
+    Object {
+      "button": [Function],
+    }
+  }
+  type="submit"
+>
+  button text
+</WithTheme(ThemedButton)>
+`;

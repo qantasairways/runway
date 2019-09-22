@@ -50,8 +50,6 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
 }
 
 .emotion-1 {
-  background-color: #ee0000;
-  color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1rem;
   width: 100%;
@@ -67,30 +65,19 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  font-weight: 400;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  height: 48px;
-  width: 100px;
-  border-radius: 4px;
-  border-width: 0px;
-  padding: 0 0 0 1px;
-}
-
-.emotion-1:hover {
-  background-color: #ba0000;
-}
-
-.emotion-1:active {
-  background-color: #ba0000;
+  background-color: #ee0000;
+  color: #fff;
 }
 
 .emotion-1:active {
   -webkit-transform: translate(1px,1px);
   -ms-transform: translate(1px,1px);
   transform: translate(1px,1px);
+  background-color: #ba0000;
+}
+
+.emotion-1:hover {
+  background-color: #ba0000;
 }
 
 .emotion-3 {
@@ -108,83 +95,361 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
   box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.08);
 }
 
-<Footer
-  actionText="CONFIRM"
-  bottomFooterDisclaimer="+ $34.90^"
-  bottomFootersummaryLabel="From "
-  endDateData={
+<RunwayThemeProvider
+  theme={
     Object {
-      "currencySymbol": "€",
-      "price": null,
+      "breakpoints": Object {
+        "extraLarge": "(min-width: 1200px)",
+        "large": "(min-width: 960px)",
+        "medium": "(min-width: 768px)",
+      },
+      "colours": Object {
+        "black": "#000000",
+        "darkGrey": "#626262",
+        "darkerGrey": "#323232",
+        "disabledGrey": "#fafafa",
+        "dullGrey": "#b3b3b3",
+        "grey": "#dadada",
+        "highlights": "#8de2e0",
+        "hightlightsLight": "#bff4f2",
+        "hightlightsLighter": "#e8f7f7",
+        "lightGrey": "#f4f5f6",
+        "lighterGrey": "#eeeeee",
+        "mediumDarkGrey": "#888888",
+        "mediumGrey": "#3c3c3c",
+        "mediumLightGrey": "#666666",
+        "primary": "#ee0000",
+        "primaryDark": "#ba0000",
+        "transparent": "transparent",
+        "warnings": "#ed710b",
+        "white": "#fff",
+      },
+      "fontFamily": Object {
+        "main": "\\"Ciutadella\\", sans-serif",
+      },
+      "fontSize": Object {
+        "body": "1.125rem",
+        "button": "1rem",
+        "label": "1rem",
+        "labelLarge": "1.375rem",
+        "large": "2.25rem",
+        "medium": "1.625rem",
+        "small": "0.625rem",
+      },
+      "fontWeight": Object {
+        "bold": 700,
+        "regular": 400,
+      },
+      "highlightInvalidField": Object {
+        "border": "solid 2px #ed710b",
+        "borderRadius": "2px",
+      },
+      "layout": Object {
+        "borderRadius": "4px",
+        "containerMaxWidth": "1000px",
+        "gutter": "15px",
+        "iconSize": "32px",
+        "links": Object {
+          "gutter": "10px",
+        },
+        "paddingContainerMaxWidth": "1030px",
+      },
+      "letterSpacing": Object {
+        "small": "-0.0625rem",
+      },
+      "mq": Object {
+        "extraLarge": "@media only screen and (min-width: 1200px)",
+        "large": "@media only screen and (min-width: 960px)",
+        "medium": "@media only screen and (min-width: 768px)",
+        "small": "@media only screen and (min-width: 321px)",
+      },
     }
   }
-  onActionButtonClick={[Function]}
-  preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
-  preFooterInfo="Lowest economy price per adult in AUD for a return trip."
-  showBottomFooter={true}
-  showPreFooter={true}
 >
-  <Transition
-    appear={false}
-    enter={true}
-    exit={true}
-    in={true}
-    mountOnEnter={false}
-    onEnter={[Function]}
-    onEntered={[Function]}
-    onEntering={[Function]}
-    onExit={[Function]}
-    onExited={[Function]}
-    onExiting={[Function]}
-    timeout={300}
-    unmountOnExit={false}
+  <ThemeProvider
+    theme={
+      Object {
+        "breakpoints": Object {
+          "extraLarge": "(min-width: 1200px)",
+          "large": "(min-width: 960px)",
+          "medium": "(min-width: 768px)",
+        },
+        "colours": Object {
+          "black": "#000000",
+          "darkGrey": "#626262",
+          "darkerGrey": "#323232",
+          "disabledGrey": "#fafafa",
+          "dullGrey": "#b3b3b3",
+          "grey": "#dadada",
+          "highlights": "#8de2e0",
+          "hightlightsLight": "#bff4f2",
+          "hightlightsLighter": "#e8f7f7",
+          "lightGrey": "#f4f5f6",
+          "lighterGrey": "#eeeeee",
+          "mediumDarkGrey": "#888888",
+          "mediumGrey": "#3c3c3c",
+          "mediumLightGrey": "#666666",
+          "primary": "#ee0000",
+          "primaryDark": "#ba0000",
+          "transparent": "transparent",
+          "warnings": "#ed710b",
+          "white": "#fff",
+        },
+        "fontFamily": Object {
+          "main": "\\"Ciutadella\\", sans-serif",
+        },
+        "fontSize": Object {
+          "body": "1.125rem",
+          "button": "1rem",
+          "label": "1rem",
+          "labelLarge": "1.375rem",
+          "large": "2.25rem",
+          "medium": "1.625rem",
+          "small": "0.625rem",
+        },
+        "fontWeight": Object {
+          "bold": 700,
+          "regular": 400,
+        },
+        "highlightInvalidField": Object {
+          "border": "solid 2px #ed710b",
+          "borderRadius": "2px",
+        },
+        "layout": Object {
+          "borderRadius": "4px",
+          "containerMaxWidth": "1000px",
+          "gutter": "15px",
+          "iconSize": "32px",
+          "links": Object {
+            "gutter": "10px",
+          },
+          "paddingContainerMaxWidth": "1030px",
+        },
+        "letterSpacing": Object {
+          "small": "-0.0625rem",
+        },
+        "mq": Object {
+          "extraLarge": "@media only screen and (min-width: 1200px)",
+          "large": "@media only screen and (min-width: 960px)",
+          "medium": "@media only screen and (min-width: 768px)",
+          "small": "@media only screen and (min-width: 321px)",
+        },
+      }
+    }
   >
-    <div
-      className="emotion-3"
+    <Footer
+      actionText="CONFIRM"
+      bottomFooterDisclaimer="+ $34.90^"
+      bottomFootersummaryLabel="From "
+      endDateData={
+        Object {
+          "currencySymbol": "€",
+          "price": null,
+        }
+      }
+      onActionButtonClick={[Function]}
+      preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+      preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+      showBottomFooter={true}
+      showPreFooter={true}
     >
-      <div
-        className="emotion-2"
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={false}
       >
         <div
-          className="emotion-0"
-        />
-        <div>
-          <Button
-            className={null}
-            cssOverrides={
-              Array [
-                Object {
-                  "borderRadius": "4px",
-                  "borderWidth": "0",
-                  "fontWeight": 400,
-                  "height": "48px",
-                  "letterSpacing": "1.5px",
-                  "padding": "0 0 0 1px",
-                  "width": "100px",
-                },
-              ]
-            }
-            label="CONFIRM"
-            onClick={[Function]}
-            variant="solid"
+          className="emotion-3"
+        >
+          <div
+            className="emotion-2"
           >
             <div
-              className={null}
-            >
-              <button
-                className="emotion-1"
+              className="emotion-0"
+            />
+            <div>
+              <ButtonSolid
+                cssOverrides={
+                  Array [
+                    Object {
+                      "borderRadius": "4px",
+                      "borderWidth": "0",
+                      "fontWeight": 400,
+                      "height": "48px",
+                      "letterSpacing": "1.5px",
+                      "padding": "0 0 0 1px",
+                      "width": "100px",
+                    },
+                  ]
+                }
+                disabled={false}
+                inline={false}
+                label="CONFIRM"
                 onClick={[Function]}
                 type="button"
               >
-                CONFIRM
-              </button>
+                <WithTheme(ThemedButton)
+                  cssOverrides={
+                    Array [
+                      Object {
+                        "borderRadius": "4px",
+                        "borderWidth": "0",
+                        "fontWeight": 400,
+                        "height": "48px",
+                        "letterSpacing": "1.5px",
+                        "padding": "0 0 0 1px",
+                        "width": "100px",
+                      },
+                    ]
+                  }
+                  disabled={false}
+                  inline={false}
+                  label="CONFIRM"
+                  onClick={[Function]}
+                  themeStyles={
+                    Object {
+                      "button": [Function],
+                    }
+                  }
+                  type="button"
+                >
+                  <ThemedButton
+                    cssOverrides={
+                      Array [
+                        Object {
+                          "borderRadius": "4px",
+                          "borderWidth": "0",
+                          "fontWeight": 400,
+                          "height": "48px",
+                          "letterSpacing": "1.5px",
+                          "padding": "0 0 0 1px",
+                          "width": "100px",
+                        },
+                      ]
+                    }
+                    disabled={false}
+                    inline={false}
+                    label="CONFIRM"
+                    onClick={[Function]}
+                    theme={
+                      Object {
+                        "breakpoints": Object {
+                          "extraLarge": "(min-width: 1200px)",
+                          "large": "(min-width: 960px)",
+                          "medium": "(min-width: 768px)",
+                        },
+                        "colours": Object {
+                          "black": "#000000",
+                          "darkGrey": "#626262",
+                          "darkerGrey": "#323232",
+                          "disabledGrey": "#fafafa",
+                          "dullGrey": "#b3b3b3",
+                          "grey": "#dadada",
+                          "highlights": "#8de2e0",
+                          "hightlightsLight": "#bff4f2",
+                          "hightlightsLighter": "#e8f7f7",
+                          "lightGrey": "#f4f5f6",
+                          "lighterGrey": "#eeeeee",
+                          "mediumDarkGrey": "#888888",
+                          "mediumGrey": "#3c3c3c",
+                          "mediumLightGrey": "#666666",
+                          "primary": "#ee0000",
+                          "primaryDark": "#ba0000",
+                          "transparent": "transparent",
+                          "warnings": "#ed710b",
+                          "white": "#fff",
+                        },
+                        "fontFamily": Object {
+                          "main": "\\"Ciutadella\\", sans-serif",
+                        },
+                        "fontSize": Object {
+                          "body": "1.125rem",
+                          "button": "1rem",
+                          "label": "1rem",
+                          "labelLarge": "1.375rem",
+                          "large": "2.25rem",
+                          "medium": "1.625rem",
+                          "small": "0.625rem",
+                        },
+                        "fontWeight": Object {
+                          "bold": 700,
+                          "regular": 400,
+                        },
+                        "highlightInvalidField": Object {
+                          "border": "solid 2px #ed710b",
+                          "borderRadius": "2px",
+                        },
+                        "layout": Object {
+                          "borderRadius": "4px",
+                          "containerMaxWidth": "1000px",
+                          "gutter": "15px",
+                          "iconSize": "32px",
+                          "links": Object {
+                            "gutter": "10px",
+                          },
+                          "paddingContainerMaxWidth": "1030px",
+                        },
+                        "letterSpacing": Object {
+                          "small": "-0.0625rem",
+                        },
+                        "mq": Object {
+                          "extraLarge": "@media only screen and (min-width: 1200px)",
+                          "large": "@media only screen and (min-width: 960px)",
+                          "medium": "@media only screen and (min-width: 768px)",
+                          "small": "@media only screen and (min-width: 321px)",
+                        },
+                      }
+                    }
+                    themeStyles={
+                      Object {
+                        "button": [Function],
+                      }
+                    }
+                    type="button"
+                  >
+                    <button
+                      className="emotion-1"
+                      cssOverrides={
+                        Array [
+                          Object {
+                            "borderRadius": "4px",
+                            "borderWidth": "0",
+                            "fontWeight": 400,
+                            "height": "48px",
+                            "letterSpacing": "1.5px",
+                            "padding": "0 0 0 1px",
+                            "width": "100px",
+                          },
+                        ]
+                      }
+                      disabled={false}
+                      inline={false}
+                      label="CONFIRM"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      button
+                    </button>
+                  </ThemedButton>
+                </WithTheme(ThemedButton)>
+              </ButtonSolid>
             </div>
-          </Button>
+          </div>
         </div>
-      </div>
-    </div>
-  </Transition>
-</Footer>
+      </Transition>
+    </Footer>
+  </ThemeProvider>
+</RunwayThemeProvider>
 `;
 
 exports[`Footer renders preFooterDisclaimer and bottom footer text contents when endDateData includes price.value 1`] = `
@@ -331,8 +596,6 @@ exports[`Footer renders preFooterDisclaimer and bottom footer text contents when
 }
 
 .emotion-8 {
-  background-color: #ee0000;
-  color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1rem;
   width: 100%;
@@ -348,67 +611,180 @@ exports[`Footer renders preFooterDisclaimer and bottom footer text contents when
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  font-weight: 400;
-  -webkit-letter-spacing: 1.5px;
-  -moz-letter-spacing: 1.5px;
-  -ms-letter-spacing: 1.5px;
-  letter-spacing: 1.5px;
-  height: 48px;
-  width: 100px;
-  border-radius: 4px;
-  border-width: 0px;
-  padding: 0 0 0 1px;
-}
-
-.emotion-8:hover {
-  background-color: #ba0000;
-}
-
-.emotion-8:active {
-  background-color: #ba0000;
+  background-color: #ee0000;
+  color: #fff;
 }
 
 .emotion-8:active {
   -webkit-transform: translate(1px,1px);
   -ms-transform: translate(1px,1px);
   transform: translate(1px,1px);
+  background-color: #ba0000;
 }
 
-<Footer
-  actionText="CONFIRM"
-  bottomFooterDisclaimer="+ $34.90^"
-  bottomFootersummaryLabel="From "
-  endDateData={
+.emotion-8:hover {
+  background-color: #ba0000;
+}
+
+<RunwayThemeProvider
+  theme={
     Object {
-      "currencySymbol": "€",
-      "price": Object {
-        "value": 3000,
+      "breakpoints": Object {
+        "extraLarge": "(min-width: 1200px)",
+        "large": "(min-width: 960px)",
+        "medium": "(min-width: 768px)",
+      },
+      "colours": Object {
+        "black": "#000000",
+        "darkGrey": "#626262",
+        "darkerGrey": "#323232",
+        "disabledGrey": "#fafafa",
+        "dullGrey": "#b3b3b3",
+        "grey": "#dadada",
+        "highlights": "#8de2e0",
+        "hightlightsLight": "#bff4f2",
+        "hightlightsLighter": "#e8f7f7",
+        "lightGrey": "#f4f5f6",
+        "lighterGrey": "#eeeeee",
+        "mediumDarkGrey": "#888888",
+        "mediumGrey": "#3c3c3c",
+        "mediumLightGrey": "#666666",
+        "primary": "#ee0000",
+        "primaryDark": "#ba0000",
+        "transparent": "transparent",
+        "warnings": "#ed710b",
+        "white": "#fff",
+      },
+      "fontFamily": Object {
+        "main": "\\"Ciutadella\\", sans-serif",
+      },
+      "fontSize": Object {
+        "body": "1.125rem",
+        "button": "1rem",
+        "label": "1rem",
+        "labelLarge": "1.375rem",
+        "large": "2.25rem",
+        "medium": "1.625rem",
+        "small": "0.625rem",
+      },
+      "fontWeight": Object {
+        "bold": 700,
+        "regular": 400,
+      },
+      "highlightInvalidField": Object {
+        "border": "solid 2px #ed710b",
+        "borderRadius": "2px",
+      },
+      "layout": Object {
+        "borderRadius": "4px",
+        "containerMaxWidth": "1000px",
+        "gutter": "15px",
+        "iconSize": "32px",
+        "links": Object {
+          "gutter": "10px",
+        },
+        "paddingContainerMaxWidth": "1030px",
+      },
+      "letterSpacing": Object {
+        "small": "-0.0625rem",
+      },
+      "mq": Object {
+        "extraLarge": "@media only screen and (min-width: 1200px)",
+        "large": "@media only screen and (min-width: 960px)",
+        "medium": "@media only screen and (min-width: 768px)",
+        "small": "@media only screen and (min-width: 321px)",
       },
     }
   }
-  onActionButtonClick={[Function]}
-  preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
-  preFooterInfo="Lowest economy price per adult in AUD for a return trip."
-  showBottomFooter={true}
-  showPreFooter={true}
 >
-  <Transition
-    appear={false}
-    enter={true}
-    exit={true}
-    in={true}
-    mountOnEnter={false}
-    onEnter={[Function]}
-    onEntered={[Function]}
-    onEntering={[Function]}
-    onExit={[Function]}
-    onExited={[Function]}
-    onExiting={[Function]}
-    timeout={300}
-    unmountOnExit={false}
+  <ThemeProvider
+    theme={
+      Object {
+        "breakpoints": Object {
+          "extraLarge": "(min-width: 1200px)",
+          "large": "(min-width: 960px)",
+          "medium": "(min-width: 768px)",
+        },
+        "colours": Object {
+          "black": "#000000",
+          "darkGrey": "#626262",
+          "darkerGrey": "#323232",
+          "disabledGrey": "#fafafa",
+          "dullGrey": "#b3b3b3",
+          "grey": "#dadada",
+          "highlights": "#8de2e0",
+          "hightlightsLight": "#bff4f2",
+          "hightlightsLighter": "#e8f7f7",
+          "lightGrey": "#f4f5f6",
+          "lighterGrey": "#eeeeee",
+          "mediumDarkGrey": "#888888",
+          "mediumGrey": "#3c3c3c",
+          "mediumLightGrey": "#666666",
+          "primary": "#ee0000",
+          "primaryDark": "#ba0000",
+          "transparent": "transparent",
+          "warnings": "#ed710b",
+          "white": "#fff",
+        },
+        "fontFamily": Object {
+          "main": "\\"Ciutadella\\", sans-serif",
+        },
+        "fontSize": Object {
+          "body": "1.125rem",
+          "button": "1rem",
+          "label": "1rem",
+          "labelLarge": "1.375rem",
+          "large": "2.25rem",
+          "medium": "1.625rem",
+          "small": "0.625rem",
+        },
+        "fontWeight": Object {
+          "bold": 700,
+          "regular": 400,
+        },
+        "highlightInvalidField": Object {
+          "border": "solid 2px #ed710b",
+          "borderRadius": "2px",
+        },
+        "layout": Object {
+          "borderRadius": "4px",
+          "containerMaxWidth": "1000px",
+          "gutter": "15px",
+          "iconSize": "32px",
+          "links": Object {
+            "gutter": "10px",
+          },
+          "paddingContainerMaxWidth": "1030px",
+        },
+        "letterSpacing": Object {
+          "small": "-0.0625rem",
+        },
+        "mq": Object {
+          "extraLarge": "@media only screen and (min-width: 1200px)",
+          "large": "@media only screen and (min-width: 960px)",
+          "medium": "@media only screen and (min-width: 768px)",
+          "small": "@media only screen and (min-width: 321px)",
+        },
+      }
+    }
   >
-    <div
-      className="emotion-10"
+    <Footer
+      actionText="CONFIRM"
+      bottomFooterDisclaimer="+ $34.90^"
+      bottomFootersummaryLabel="From "
+      endDateData={
+        Object {
+          "currencySymbol": "€",
+          "price": Object {
+            "value": 3000,
+          },
+        }
+      }
+      onActionButtonClick={[Function]}
+      preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+      preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+      showBottomFooter={true}
+      showPreFooter={true}
     >
       <Transition
         appear={false}
@@ -426,83 +802,237 @@ exports[`Footer renders preFooterDisclaimer and bottom footer text contents when
         unmountOnExit={false}
       >
         <div
-          className="emotion-3"
+          className="emotion-10"
         >
-          <div
-            className="emotion-2"
-          >
-            <span
-              className="emotion-0"
-            >
-              Lowest economy price per adult in AUD for a return trip.
-            </span>
-            <span
-              className="emotion-1"
-            >
-              ^ Taxes, fees and carrier charges. Limited avaliability
-            </span>
-          </div>
-        </div>
-      </Transition>
-      <div
-        className="emotion-9"
-      >
-        <div
-          className="emotion-7"
-        >
-          <span
-            className="emotion-5"
-          >
-            From 
-            <span
-              className="emotion-4"
-            >
-              €3,000.00
-            </span>
-          </span>
-          <span
-            className="emotion-6"
-          >
-            + $34.90^
-          </span>
-        </div>
-        <div>
-          <Button
-            className={null}
-            cssOverrides={
-              Array [
-                Object {
-                  "borderRadius": "4px",
-                  "borderWidth": "0",
-                  "fontWeight": 400,
-                  "height": "48px",
-                  "letterSpacing": "1.5px",
-                  "padding": "0 0 0 1px",
-                  "width": "100px",
-                },
-              ]
-            }
-            label="CONFIRM"
-            onClick={[Function]}
-            variant="solid"
+          <Transition
+            appear={false}
+            enter={true}
+            exit={true}
+            in={true}
+            mountOnEnter={false}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={false}
           >
             <div
-              className={null}
+              className="emotion-3"
             >
-              <button
-                className="emotion-8"
+              <div
+                className="emotion-2"
+              >
+                <span
+                  className="emotion-0"
+                >
+                  Lowest economy price per adult in AUD for a return trip.
+                </span>
+                <span
+                  className="emotion-1"
+                >
+                  ^ Taxes, fees and carrier charges. Limited avaliability
+                </span>
+              </div>
+            </div>
+          </Transition>
+          <div
+            className="emotion-9"
+          >
+            <div
+              className="emotion-7"
+            >
+              <span
+                className="emotion-5"
+              >
+                From 
+                <span
+                  className="emotion-4"
+                >
+                  €3,000.00
+                </span>
+              </span>
+              <span
+                className="emotion-6"
+              >
+                + $34.90^
+              </span>
+            </div>
+            <div>
+              <ButtonSolid
+                cssOverrides={
+                  Array [
+                    Object {
+                      "borderRadius": "4px",
+                      "borderWidth": "0",
+                      "fontWeight": 400,
+                      "height": "48px",
+                      "letterSpacing": "1.5px",
+                      "padding": "0 0 0 1px",
+                      "width": "100px",
+                    },
+                  ]
+                }
+                disabled={false}
+                inline={false}
+                label="CONFIRM"
                 onClick={[Function]}
                 type="button"
               >
-                CONFIRM
-              </button>
+                <WithTheme(ThemedButton)
+                  cssOverrides={
+                    Array [
+                      Object {
+                        "borderRadius": "4px",
+                        "borderWidth": "0",
+                        "fontWeight": 400,
+                        "height": "48px",
+                        "letterSpacing": "1.5px",
+                        "padding": "0 0 0 1px",
+                        "width": "100px",
+                      },
+                    ]
+                  }
+                  disabled={false}
+                  inline={false}
+                  label="CONFIRM"
+                  onClick={[Function]}
+                  themeStyles={
+                    Object {
+                      "button": [Function],
+                    }
+                  }
+                  type="button"
+                >
+                  <ThemedButton
+                    cssOverrides={
+                      Array [
+                        Object {
+                          "borderRadius": "4px",
+                          "borderWidth": "0",
+                          "fontWeight": 400,
+                          "height": "48px",
+                          "letterSpacing": "1.5px",
+                          "padding": "0 0 0 1px",
+                          "width": "100px",
+                        },
+                      ]
+                    }
+                    disabled={false}
+                    inline={false}
+                    label="CONFIRM"
+                    onClick={[Function]}
+                    theme={
+                      Object {
+                        "breakpoints": Object {
+                          "extraLarge": "(min-width: 1200px)",
+                          "large": "(min-width: 960px)",
+                          "medium": "(min-width: 768px)",
+                        },
+                        "colours": Object {
+                          "black": "#000000",
+                          "darkGrey": "#626262",
+                          "darkerGrey": "#323232",
+                          "disabledGrey": "#fafafa",
+                          "dullGrey": "#b3b3b3",
+                          "grey": "#dadada",
+                          "highlights": "#8de2e0",
+                          "hightlightsLight": "#bff4f2",
+                          "hightlightsLighter": "#e8f7f7",
+                          "lightGrey": "#f4f5f6",
+                          "lighterGrey": "#eeeeee",
+                          "mediumDarkGrey": "#888888",
+                          "mediumGrey": "#3c3c3c",
+                          "mediumLightGrey": "#666666",
+                          "primary": "#ee0000",
+                          "primaryDark": "#ba0000",
+                          "transparent": "transparent",
+                          "warnings": "#ed710b",
+                          "white": "#fff",
+                        },
+                        "fontFamily": Object {
+                          "main": "\\"Ciutadella\\", sans-serif",
+                        },
+                        "fontSize": Object {
+                          "body": "1.125rem",
+                          "button": "1rem",
+                          "label": "1rem",
+                          "labelLarge": "1.375rem",
+                          "large": "2.25rem",
+                          "medium": "1.625rem",
+                          "small": "0.625rem",
+                        },
+                        "fontWeight": Object {
+                          "bold": 700,
+                          "regular": 400,
+                        },
+                        "highlightInvalidField": Object {
+                          "border": "solid 2px #ed710b",
+                          "borderRadius": "2px",
+                        },
+                        "layout": Object {
+                          "borderRadius": "4px",
+                          "containerMaxWidth": "1000px",
+                          "gutter": "15px",
+                          "iconSize": "32px",
+                          "links": Object {
+                            "gutter": "10px",
+                          },
+                          "paddingContainerMaxWidth": "1030px",
+                        },
+                        "letterSpacing": Object {
+                          "small": "-0.0625rem",
+                        },
+                        "mq": Object {
+                          "extraLarge": "@media only screen and (min-width: 1200px)",
+                          "large": "@media only screen and (min-width: 960px)",
+                          "medium": "@media only screen and (min-width: 768px)",
+                          "small": "@media only screen and (min-width: 321px)",
+                        },
+                      }
+                    }
+                    themeStyles={
+                      Object {
+                        "button": [Function],
+                      }
+                    }
+                    type="button"
+                  >
+                    <button
+                      className="emotion-8"
+                      cssOverrides={
+                        Array [
+                          Object {
+                            "borderRadius": "4px",
+                            "borderWidth": "0",
+                            "fontWeight": 400,
+                            "height": "48px",
+                            "letterSpacing": "1.5px",
+                            "padding": "0 0 0 1px",
+                            "width": "100px",
+                          },
+                        ]
+                      }
+                      disabled={false}
+                      inline={false}
+                      label="CONFIRM"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      button
+                    </button>
+                  </ThemedButton>
+                </WithTheme(ThemedButton)>
+              </ButtonSolid>
             </div>
-          </Button>
+          </div>
         </div>
-      </div>
-    </div>
-  </Transition>
-</Footer>
+      </Transition>
+    </Footer>
+  </ThemeProvider>
+</RunwayThemeProvider>
 `;
 
 exports[`Footer renders with defaults 1`] = `

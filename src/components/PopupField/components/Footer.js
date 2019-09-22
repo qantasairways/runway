@@ -4,7 +4,7 @@ import { generate } from 'shortid';
 
 import { colours, fontFamily, fontWeight } from '../../../theme/airways';
 
-import Button from '../../Button';
+import Button from '../../ButtonSolid';
 
 const textTruncationStyles = {
   whiteSpace: 'nowrap',

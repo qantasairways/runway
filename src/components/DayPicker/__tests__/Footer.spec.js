@@ -31,7 +31,7 @@ describe('Footer', () => {
 
   it('renders preFooterDisclaimer and bottom footer text contents when endDateData includes price.value', () => {
     const endDateData = { price: { value: 3000 }, currencySymbol: '€' };
-    footer = mount(
+    footer = mountWithThemeProvider(
       <Footer
         showPreFooter
         showBottomFooter
@@ -49,7 +49,7 @@ describe('Footer', () => {
 
   it('renders only confirm button when endDateData does NOT include price.value', () => {
     const endDateData = { price: null, currencySymbol: '€' };
-    footer = mount(
+    footer = mountWithThemeProvider(
       <Footer
         showPreFooter
         showBottomFooter

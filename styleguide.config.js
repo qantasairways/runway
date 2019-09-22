@@ -1,5 +1,6 @@
 const { createConfig, babel, postcss } = require('webpack-blocks');
 const { version } = require('./package');
+const path = require('path');
 
 module.exports = {
   defaultExample: true,
@@ -8,6 +9,9 @@ module.exports = {
   },
   ignore: ['**/components/*/*/*.js', '**/components/MediaQueryDetector/*.js'],
   pagePerSection: true,
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'styleguide/ThemeWrapper')
+  },
   sections: [
     {
       name: 'Documentation',

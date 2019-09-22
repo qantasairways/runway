@@ -3,6 +3,7 @@
  */
 const path = require('path');
 const { lstatSync, readdirSync, writeFile, createWriteStream } = require('fs');
+const ncp = require('ncp').ncp;
 
 const COMPONENT_DIR = './src/components';
 const ICON_DIR = './src/icons';
@@ -19,8 +20,6 @@ const components = [
   ...getComponents(ICON_DIR),
   ...getComponents(THEME_DIR)
 ];
-
-const themes = [...getComponents(THEME_DIR)];
 
 /**
  * Rollup
@@ -145,4 +144,30 @@ async function generateModules() {
   writeComponentToIndex(moduleNames);
 }
 
+/**
+ * Copy Themes
+ */
+const jsonExtRegExp = /^[A-Za-z0-9\-\/]*(\.json)/;
+
+const filterFunc = src => {
+  if (lstatSync(src).isDirectory()) {
+    return true;
+  }
+  return jsonExtRegExp.test(src);
+};
+
+function copyThemes() {
+  ncp(
+    path.resolve(__dirname, THEME_DIR),
+    path.resolve(__dirname, `${OUTPUT_DIR}/theme`),
+    { filter: filterFunc },
+    function(error) {
+      if (error) {
+        console.log(chalk.red(` ☠️  Failed to copy theme files`), error);
+      }
+    }
+  );
+}
+
 generateModules();
+copyThemes();
