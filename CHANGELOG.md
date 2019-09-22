@@ -1,3 +1,10 @@
+## [0.45.1](https://github.com/qantasairways/runway/compare/v0.45.0...v0.45.1) (2019-09-22)
+
+
+### Bug Fixes
+
+* **dropdown:** dropdown should not open on focus ([#132](https://github.com/qantasairways/runway/issues/132)) ([d05b65f](https://github.com/qantasairways/runway/commit/d05b65f))
+
 # [0.45.0](https://github.com/qantasairways/runway/compare/v0.44.2...v0.45.0) (2019-09-12)
 
 
