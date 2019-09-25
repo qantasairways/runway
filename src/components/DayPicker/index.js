@@ -304,24 +304,22 @@ class DayPicker extends Component {
     } = this.state;
 
     const setPreFooter = () => {
-      if (showFooters) {
-        if (!isDateRange) {
-          // one ways
-          return true;
-        }
-        // return
-        if (hasPrice && startDate) {
-          return true;
-        }
+      if (showFooters && ((isDateRange && startDate) || !isDateRange)) {
+        return true;
       }
       return false;
     };
 
     const setShowBottomFooters = () => {
-      const result =
-        showFooters && (!!(startDate && !isDateRange) || !!endDate);
-      return result;
+      if (
+        showFooters &&
+        ((isDateRange && endDate) || (!isDateRange && startDate))
+      ) {
+        return true;
+      }
+      return false;
     };
+
     return (
       <ButtonWithDialog
         buttonLabel={buttonLabel}

@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders only confirm button when endDateData does NOT include price.value 1`] = `
-.emotion-2 {
+.emotion-7 {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-6 {
   padding: 15px;
   width: 100%;
   max-width: 1030px;
@@ -21,7 +35,7 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
   position: relative;
 }
 
-.emotion-0 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32,13 +46,13 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
 }
 
 @media only screen and (min-width:321px) {
-  .emotion-0 {
+  .emotion-4 {
     padding-right: 15px;
   }
 }
 
 @media only screen and (min-width:768px) {
-  .emotion-0 {
+  .emotion-4 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -49,7 +63,59 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
   }
 }
 
+.emotion-3 {
+  border-bottom: 1px solid #eeeeee;
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.08);
+  width: 100%;
+  background-color: #fff;
+}
+
+.emotion-2 {
+  padding: 7.5px 15px;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 {
+  font-size: 0.875rem;
+  line-height: 2;
+  color: #323232;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    margin-right: 5px;
+  }
+}
+
 .emotion-1 {
+  font-size: 0.875rem;
+  line-height: 1.29;
+  color: #626262;
+}
+
+.emotion-5 {
   background-color: #ee0000;
   color: #fff;
   font-family: "Ciutadella",sans-serif;
@@ -79,33 +145,18 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
   padding: 0 0 0 1px;
 }
 
-.emotion-1:hover {
+.emotion-5:hover {
   background-color: #ba0000;
 }
 
-.emotion-1:active {
+.emotion-5:active {
   background-color: #ba0000;
 }
 
-.emotion-1:active {
+.emotion-5:active {
   -webkit-transform: translate(1px,1px);
   -ms-transform: translate(1px,1px);
   transform: translate(1px,1px);
-}
-
-.emotion-3 {
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  -webkit-transition: -webkit-transform 300ms linear;
-  -webkit-transition: transform 300ms linear;
-  transition: transform 300ms linear;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background-color: #fff;
-  font-family: "Ciutadella",sans-serif;
-  box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.08);
 }
 
 <Footer
@@ -140,13 +191,47 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
     unmountOnExit={false}
   >
     <div
-      className="emotion-3"
+      className="emotion-7"
     >
-      <div
-        className="emotion-2"
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={false}
       >
         <div
-          className="emotion-0"
+          className="emotion-3"
+        >
+          <div
+            className="emotion-2"
+          >
+            <span
+              className="emotion-0"
+            >
+              Lowest economy price per adult in AUD for a return trip.
+            </span>
+            <span
+              className="emotion-1"
+            >
+              ^ Taxes, fees and carrier charges. Limited avaliability
+            </span>
+          </div>
+        </div>
+      </Transition>
+      <div
+        className="emotion-6"
+      >
+        <div
+          className="emotion-4"
         />
         <div>
           <Button
@@ -172,7 +257,7 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
               className={null}
             >
               <button
-                className="emotion-1"
+                className="emotion-5"
                 onClick={[Function]}
                 type="button"
               >
@@ -187,7 +272,7 @@ exports[`Footer renders only confirm button when endDateData does NOT include pr
 </Footer>
 `;
 
-exports[`Footer renders preFooterDisclaimer and bottom footer text contents when endDateData includes price.value 1`] = `
+exports[`Footer renders preFooterInfo and bottom footer text contents when endDateData includes price.value 1`] = `
 .emotion-10 {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -491,6 +576,591 @@ exports[`Footer renders preFooterDisclaimer and bottom footer text contents when
             >
               <button
                 className="emotion-8"
+                onClick={[Function]}
+                type="button"
+              >
+                CONFIRM
+              </button>
+            </div>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Transition>
+</Footer>
+`;
+
+exports[`Footer renders showBottomFooter when endDateData includes price.value 1`] = `
+.emotion-10 {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-9 {
+  padding: 15px;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media only screen and (min-width:321px) {
+  .emotion-7 {
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-7 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-5 {
+  font-size: 1.125rem;
+  line-height: 1.56;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-5 {
+    margin-right: 5px;
+  }
+}
+
+.emotion-4 {
+  color: #323232;
+  font-weight: 700;
+}
+
+.emotion-6 {
+  font-size: 0.875rem;
+  line-height: 1.29;
+  color: #626262;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-6 {
+    font-size: 1.125rem;
+  }
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #eeeeee;
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.08);
+  width: 100%;
+  background-color: #fff;
+}
+
+.emotion-2 {
+  padding: 7.5px 15px;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 {
+  font-size: 0.875rem;
+  line-height: 2;
+  color: #323232;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    margin-right: 5px;
+  }
+}
+
+.emotion-1 {
+  font-size: 0.875rem;
+  line-height: 1.29;
+  color: #626262;
+}
+
+.emotion-8 {
+  background-color: #ee0000;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  height: 3.125rem;
+  border-radius: 4px;
+  border-width: 0;
+  padding: 14px 24px 15px;
+  font-weight: 700;
+  line-height: 1.56;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  height: 48px;
+  width: 100px;
+  border-radius: 4px;
+  border-width: 0px;
+  padding: 0 0 0 1px;
+}
+
+.emotion-8:hover {
+  background-color: #ba0000;
+}
+
+.emotion-8:active {
+  background-color: #ba0000;
+}
+
+.emotion-8:active {
+  -webkit-transform: translate(1px,1px);
+  -ms-transform: translate(1px,1px);
+  transform: translate(1px,1px);
+}
+
+<Footer
+  actionText="CONFIRM"
+  bottomFooterDisclaimer="+ $34.90^"
+  bottomFootersummaryLabel="From "
+  endDateData={
+    Object {
+      "currencySymbol": "€",
+      "price": Object {
+        "value": 3000,
+      },
+    }
+  }
+  onActionButtonClick={[Function]}
+  preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+  preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+  showBottomFooter={true}
+  showPreFooter={true}
+>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <div
+      className="emotion-10"
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <div
+          className="emotion-3"
+        >
+          <div
+            className="emotion-2"
+          >
+            <span
+              className="emotion-0"
+            >
+              Lowest economy price per adult in AUD for a return trip.
+            </span>
+            <span
+              className="emotion-1"
+            >
+              ^ Taxes, fees and carrier charges. Limited avaliability
+            </span>
+          </div>
+        </div>
+      </Transition>
+      <div
+        className="emotion-9"
+      >
+        <div
+          className="emotion-7"
+        >
+          <span
+            className="emotion-5"
+          >
+            From 
+            <span
+              className="emotion-4"
+            >
+              €3,000.00
+            </span>
+          </span>
+          <span
+            className="emotion-6"
+          >
+            + $34.90^
+          </span>
+        </div>
+        <div>
+          <Button
+            className={null}
+            cssOverrides={
+              Array [
+                Object {
+                  "borderRadius": "4px",
+                  "borderWidth": "0",
+                  "fontWeight": 400,
+                  "height": "48px",
+                  "letterSpacing": "1.5px",
+                  "padding": "0 0 0 1px",
+                  "width": "100px",
+                },
+              ]
+            }
+            label="CONFIRM"
+            onClick={[Function]}
+            variant="solid"
+          >
+            <div
+              className={null}
+            >
+              <button
+                className="emotion-8"
+                onClick={[Function]}
+                type="button"
+              >
+                CONFIRM
+              </button>
+            </div>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Transition>
+</Footer>
+`;
+
+exports[`Footer renders showPreFooter when preFooterInfo has value 1`] = `
+.emotion-7 {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  font-family: "Ciutadella",sans-serif;
+}
+
+.emotion-6 {
+  padding: 15px;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media only screen and (min-width:321px) {
+  .emotion-4 {
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.emotion-3 {
+  border-bottom: 1px solid #eeeeee;
+  -webkit-transition: -webkit-transform 300ms linear;
+  -webkit-transition: transform 300ms linear;
+  transition: transform 300ms linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.08);
+  width: 100%;
+  background-color: #fff;
+}
+
+.emotion-2 {
+  padding: 7.5px 15px;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 {
+  font-size: 0.875rem;
+  line-height: 2;
+  color: #323232;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    margin-right: 5px;
+  }
+}
+
+.emotion-1 {
+  font-size: 0.875rem;
+  line-height: 1.29;
+  color: #626262;
+}
+
+.emotion-5 {
+  background-color: #ee0000;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  height: 3.125rem;
+  border-radius: 4px;
+  border-width: 0;
+  padding: 14px 24px 15px;
+  font-weight: 700;
+  line-height: 1.56;
+  -webkit-letter-spacing: 0.1em;
+  -moz-letter-spacing: 0.1em;
+  -ms-letter-spacing: 0.1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  -webkit-letter-spacing: 1.5px;
+  -moz-letter-spacing: 1.5px;
+  -ms-letter-spacing: 1.5px;
+  letter-spacing: 1.5px;
+  height: 48px;
+  width: 100px;
+  border-radius: 4px;
+  border-width: 0px;
+  padding: 0 0 0 1px;
+}
+
+.emotion-5:hover {
+  background-color: #ba0000;
+}
+
+.emotion-5:active {
+  background-color: #ba0000;
+}
+
+.emotion-5:active {
+  -webkit-transform: translate(1px,1px);
+  -ms-transform: translate(1px,1px);
+  transform: translate(1px,1px);
+}
+
+<Footer
+  actionText="CONFIRM"
+  bottomFooterDisclaimer="+ $34.90^"
+  bottomFootersummaryLabel="From "
+  endDateData={null}
+  onActionButtonClick={[Function]}
+  preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+  preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+  showBottomFooter={true}
+  showPreFooter={true}
+>
+  <Transition
+    appear={false}
+    enter={true}
+    exit={true}
+    in={true}
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  >
+    <div
+      className="emotion-7"
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={true}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <div
+          className="emotion-3"
+        >
+          <div
+            className="emotion-2"
+          >
+            <span
+              className="emotion-0"
+            >
+              Lowest economy price per adult in AUD for a return trip.
+            </span>
+            <span
+              className="emotion-1"
+            >
+              ^ Taxes, fees and carrier charges. Limited avaliability
+            </span>
+          </div>
+        </div>
+      </Transition>
+      <div
+        className="emotion-6"
+      >
+        <div
+          className="emotion-4"
+        />
+        <div>
+          <Button
+            className={null}
+            cssOverrides={
+              Array [
+                Object {
+                  "borderRadius": "4px",
+                  "borderWidth": "0",
+                  "fontWeight": 400,
+                  "height": "48px",
+                  "letterSpacing": "1.5px",
+                  "padding": "0 0 0 1px",
+                  "width": "100px",
+                },
+              ]
+            }
+            label="CONFIRM"
+            onClick={[Function]}
+            variant="solid"
+          >
+            <div
+              className={null}
+            >
+              <button
+                className="emotion-5"
                 onClick={[Function]}
                 type="button"
               >

@@ -160,8 +160,7 @@ const Footer = ({
   onActionButtonClick,
   endDateData
 }) => {
-  const shouldShowPreFooterContents =
-    endDateData && endDateData.price && endDateData.price.value;
+  const shouldShowPreFooterContents = preFooterInfo;
   const shouldShowBottomFooterTextContents =
     showBottomFooter &&
     endDateData &&

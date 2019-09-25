@@ -13,7 +13,7 @@
   "scripts": {
     "build": "npm run clean && node ./rollup",
     "clean": "rimraf lib && mkdir lib",
-    "watch": "watch 'node ./rollup' ./src/components",
+    "watch": "watch 'node ./rollup' ./src",
     "semantic-release": "semantic-release",
     "test": "TZ=Australia/Sydney jest --env=jsdom",
     "test:update": "jest -u --env=jsdom",
