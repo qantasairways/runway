@@ -29,7 +29,42 @@ describe('Footer', () => {
     expect(footer).toMatchSnapshot();
   });
 
-  it('renders preFooterDisclaimer and bottom footer text contents when endDateData includes price.value', () => {
+  it('renders preFooterInfo and bottom footer text contents when endDateData includes price.value', () => {
+    const endDateData = { price: { value: 3000 }, currencySymbol: '€' };
+    footer = mount(
+      <Footer
+        showPreFooter
+        showBottomFooter
+        bottomFootersummaryLabel="From "
+        preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+        preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+        bottomFooterDisclaimer="+ $34.90^"
+        actionText="CONFIRM"
+        onActionButtonClick={e => e}
+        endDateData={endDateData}
+      />
+    );
+    expect(footer).toMatchSnapshot();
+  });
+
+  it('renders showPreFooter when preFooterInfo has value', () => {
+    footer = mount(
+      <Footer
+        showPreFooter
+        showBottomFooter
+        bottomFootersummaryLabel="From "
+        preFooterInfo="Lowest economy price per adult in AUD for a return trip."
+        preFooterDisclaimer="^ Taxes, fees and carrier charges. Limited avaliability"
+        bottomFooterDisclaimer="+ $34.90^"
+        actionText="CONFIRM"
+        onActionButtonClick={e => e}
+        endDateData={null}
+      />
+    );
+    expect(footer).toMatchSnapshot();
+  });
+
+  it('renders showBottomFooter when endDateData includes price.value', () => {
     const endDateData = { price: { value: 3000 }, currencySymbol: '€' };
     footer = mount(
       <Footer

@@ -160,8 +160,6 @@ const Footer = ({
   onActionButtonClick,
   endDateData
 }) => {
-  const shouldShowPreFooterContents =
-    endDateData && endDateData.price && endDateData.price.value;
   const shouldShowBottomFooterTextContents =
     showBottomFooter &&
     endDateData &&
@@ -175,12 +173,12 @@ const Footer = ({
           css={{
             ...wrapperStyle,
             ...wrapperTransitionStyle[wrapperTransition],
-            ...(!shouldShowPreFooterContents && {
+            ...(!preFooterInfo && {
               boxShadow: sharedFooterStyle.boxShadow
             })
           }}
         >
-          {shouldShowPreFooterContents && (
+          {preFooterInfo && (
             <Transition in={preFooterInfo && showPreFooter} timeout={300}>
               {preFooterTransition => (
                 <div
@@ -288,7 +286,7 @@ Footer.defaultProps = {
   showPreFooter: false,
   showBottomFooter: false,
   bottomFootersummaryLabel: '',
-  preFooterInfo: '',
+  preFooterInfo: null,
   preFooterDisclaimer: '',
   bottomFooterDisclaimer: '',
   endDateData: null

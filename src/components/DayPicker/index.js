@@ -303,25 +303,12 @@ class DayPicker extends Component {
       showFooters
     } = this.state;
 
-    const setPreFooter = () => {
-      if (showFooters) {
-        if (!isDateRange) {
-          // one ways
-          return true;
-        }
-        // return
-        if (hasPrice && startDate) {
-          return true;
-        }
-      }
-      return false;
-    };
+    const setPreFooter = () =>
+      showFooters && ((isDateRange && startDate) || !isDateRange);
 
-    const setShowBottomFooters = () => {
-      const result =
-        showFooters && (!!(startDate && !isDateRange) || !!endDate);
-      return result;
-    };
+    const setShowBottomFooters = () =>
+      showFooters && ((isDateRange && endDate) || (!isDateRange && startDate));
+
     return (
       <ButtonWithDialog
         buttonLabel={buttonLabel}
@@ -552,7 +539,7 @@ DayPicker.defaultProps = {
   transformDatesData: null,
   onCalendarScroll: null,
   footerButtonLabel: 'Confirm',
-  preFooterInfo: 'Lowest economy price per adult in AUD for a return trip.',
+  preFooterInfo: null,
   bottomFootersummaryLabel: 'From ',
   hasPrice: false,
   endDateData: null,
