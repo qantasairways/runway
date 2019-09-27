@@ -6,7 +6,6 @@
         label="Toggle"
         checked={value}
         onChange={() => updater(!value)}
-        spaceBetween="10px"
         handleSize={26}
         height={30}
         width={50}
