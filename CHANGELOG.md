@@ -1,3 +1,10 @@
+# [0.46.0](https://github.com/qantasairways/runway/compare/v0.45.1...v0.46.0) (2019-10-01)
+
+
+### Features
+
+* **toggle:** clean up and simplify the toggle component ([#135](https://github.com/qantasairways/runway/issues/135)) ([727fded](https://github.com/qantasairways/runway/commit/727fded))
+
 ## [0.45.1](https://github.com/qantasairways/runway/compare/v0.45.0...v0.45.1) (2019-09-22)
 
 
