@@ -1,24 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle Controlled should render checked="false" correctly 1`] = `
-<LocalStylesInjector
-  checked={false}
-  containerClassName="mockContainerClassName"
-  spaceBetween="10px"
+.emotion-2 {
+  background-color: #3c3c3c;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  text-transform: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-family: "Ciutadella",sans-serif;
+  margin-right: 10px;
+}
+
+.emotion-1 {
+  background-color: #323232;
+}
+
+.emotion-1 .react-switch-handle {
+  height: 26px!important;
+  width: 26px!important;
+  top: 2px!important;
+  -webkit-transform: translateX(2px)!important;
+  -ms-transform: translateX(2px)!important;
+  transform: translateX(2px)!important;
+}
+
+.emotion-1 .react-switch-bg {
+  margin: 0!important;
+  -webkit-transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  box-shadow: inset #626262 0px 0px 0px 2px;
+}
+
+<div
+  className="emotion-2 mockContainerClassName"
 >
   <label
+    className="emotion-0"
     htmlFor="mockId-3"
   >
-    <LabelText>
-      mockLabel
-    </LabelText>
+    mockLabel
   </label>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
     checked={false}
     checkedIcon={false}
-    className="react-switch"
+    className="emotion-1"
     disabled={false}
     handleDiameter={26}
     height={30}
@@ -31,28 +75,72 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</LocalStylesInjector>
+</div>
 `;
 
 exports[`Toggle Controlled should render checked="true" correctly 1`] = `
-<LocalStylesInjector
-  checked={true}
-  containerClassName="mockContainerClassName"
-  spaceBetween="10px"
+.emotion-2 {
+  background-color: #3c3c3c;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  text-transform: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-family: "Ciutadella",sans-serif;
+  margin-right: 10px;
+}
+
+.emotion-1 {
+  background-color: #323232;
+}
+
+.emotion-1 .react-switch-handle {
+  height: 26px!important;
+  width: 26px!important;
+  top: 2px!important;
+  -webkit-transform: translateX(18px)!important;
+  -ms-transform: translateX(18px)!important;
+  transform: translateX(18px)!important;
+}
+
+.emotion-1 .react-switch-bg {
+  margin: 0!important;
+  -webkit-transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  box-shadow: none;
+}
+
+<div
+  className="emotion-2 mockContainerClassName"
 >
   <label
+    className="emotion-0"
     htmlFor="mockId-2"
   >
-    <LabelText>
-      mockLabel
-    </LabelText>
+    mockLabel
   </label>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
     checked={true}
     checkedIcon={false}
-    className="react-switch"
+    className="emotion-1"
     disabled={false}
     handleDiameter={26}
     height={30}
@@ -65,28 +153,72 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</LocalStylesInjector>
+</div>
 `;
 
 exports[`Toggle Uncontrolled should render correctly 1`] = `
-<LocalStylesInjector
-  checked={false}
-  containerClassName="mockContainerClassName"
-  spaceBetween="10px"
+.emotion-2 {
+  background-color: #3c3c3c;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 {
+  text-transform: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-family: "Ciutadella",sans-serif;
+  margin-right: 10px;
+}
+
+.emotion-1 {
+  background-color: #323232;
+}
+
+.emotion-1 .react-switch-handle {
+  height: 26px!important;
+  width: 26px!important;
+  top: 2px!important;
+  -webkit-transform: translateX(2px)!important;
+  -ms-transform: translateX(2px)!important;
+  transform: translateX(2px)!important;
+}
+
+.emotion-1 .react-switch-bg {
+  margin: 0!important;
+  -webkit-transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  transition: background 150ms ease 0s,box-shadow 150ms ease 0s !important;
+  box-shadow: inset #626262 0px 0px 0px 2px;
+}
+
+<div
+  className="emotion-2 mockContainerClassName"
 >
   <label
+    className="emotion-0"
     htmlFor="mockId-1"
   >
-    <LabelText>
-      mockLabel
-    </LabelText>
+    mockLabel
   </label>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
     checked={false}
     checkedIcon={false}
-    className="react-switch"
+    className="emotion-1"
     disabled={false}
     handleDiameter={26}
     height={30}
@@ -99,5 +231,5 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</LocalStylesInjector>
+</div>
 `;

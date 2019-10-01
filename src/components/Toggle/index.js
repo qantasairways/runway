@@ -1,116 +1,37 @@
+/* eslint-disable jsx-a11y/label-has-for */
+// In this case the control comes inside the 'react-switch' component
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 import Switch from 'react-switch';
 import { colours, fontSize, fontFamily } from '../../theme/airways';
 
-const SELECTORS = {
-  REACT_SWITCH: {
-    ELEMENT_CONTAINER: '.react-switch',
-    BACKGROUND: '.react-switch-bg'
-  }
-};
+const BORDER_WIDTH = 2;
 
-const LocalStylesInjector = ({
-  children,
-  checked,
-  containerClassName,
-  spaceBetween
-}) => {
-  const thickenBorder = () => {
-    const existingTransitions = `background 150ms ease 0s`;
-    const offBoxShadow = `inset ${colours.darkGrey} 0px 0px 0px 2px`;
-    return {
-      [SELECTORS.REACT_SWITCH.BACKGROUND]: {
-        transition: `${existingTransitions}, box-shadow 150ms ease 0s !important`,
-        boxShadow: checked ? 'none' : offBoxShadow
-      }
-    };
+function styleOverrides({ handleSize, width, checked }) {
+  return {
+    backgroundColor: colours.darkerGrey,
+    '.react-switch-handle': {
+      height: `${handleSize}px!important`,
+      width: `${handleSize}px!important`,
+      top: `${BORDER_WIDTH}px!important`,
+      transform: checked
+        ? `translateX(${width - handleSize - BORDER_WIDTH}px)!important`
+        : `translateX(${BORDER_WIDTH}px)!important`
+    },
+    '.react-switch-bg': {
+      margin: '0!important',
+      transition:
+        'background 150ms ease 0s, box-shadow 150ms ease 0s !important',
+      boxShadow: checked
+        ? 'none'
+        : `inset ${colours.darkGrey} 0px 0px 0px ${BORDER_WIDTH}px`
+    }
   };
-
-  const keepAllVertAligned = {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  };
-
-  return (
-    <div
-      className={containerClassName}
-      css={{
-        [SELECTORS.REACT_SWITCH.ELEMENT_CONTAINER]: {
-          marginLeft: spaceBetween,
-          backgroundColor: colours.darkerGrey
-        },
-        ...thickenBorder(),
-        ...keepAllVertAligned,
-        backgroundColor: colours.mediumGrey
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-LocalStylesInjector.propTypes = {
-  children: PropTypes.node.isRequired,
-  checked: PropTypes.bool.isRequired,
-  containerClassName: PropTypes.string.isRequired,
-  spaceBetween: PropTypes.string.isRequired
-};
-
-const LabelText = ({ children }) => (
-  <span
-    css={{
-      textTransform: 'none',
-      color: colours.white,
-      fontSize: fontSize.body,
-      fontFamily: fontFamily.main
-    }}
-  >
-    {children}
-  </span>
-);
-
-LabelText.propTypes = {
-  children: PropTypes.node.isRequired
-};
+}
 
 class Toggle extends Component {
-  static propTypes = {
-    /** Id for the html input */
-    id: PropTypes.string,
-    /** Label to display */
-    label: PropTypes.string.isRequired,
-    /** @ignore */
-    containerClassName: PropTypes.string,
-    /** Function triggered when the value is changed
-     * @param {bool} value The new value
-     */
-    onChange: PropTypes.func,
-    /** Flag to control whether the toggle is checked */
-    checked: PropTypes.bool,
-    /** String to specify in css units the space between toggle and label */
-    spaceBetween: PropTypes.string,
-    /** The size of the toggle handle */
-    handleSize: PropTypes.number,
-    /** The height of the toggle */
-    height: PropTypes.number,
-    /** The width of the toggle */
-    width: PropTypes.number
-  };
-
-  static defaultProps = {
-    id: '',
-    containerClassName: 'react-toggle-container',
-    onChange: () => {},
-    checked: false,
-    spaceBetween: '10px',
-    handleSize: 26,
-    height: 30,
-    width: 46
-  };
-
   static isControlled = props => typeof props.checked === 'boolean';
 
   state = {
@@ -118,67 +39,100 @@ class Toggle extends Component {
   };
 
   handleChange = () => {
-    if (Toggle.isControlled(this.props)) {
-      this.props.onChange();
-    } else {
-      const update = !this.state.checked; // eslint-disable-line
-      this.setState({ checked: update }, () => this.props.onChange(update));
-    }
+    this.setState(
+      prevState => ({ checked: !prevState.checked }),
+      () => this.props.onChange(this.state.checked)
+    );
   };
 
   getCheckedState = () =>
     Toggle.isControlled(this.props) ? this.props.checked : this.state.checked;
 
-  renderLabel = () => {
-    const { id, label } = this.props;
-    return (
-      // eslint-disable-next-line jsx-a11y/label-has-for
-      <label htmlFor={id}>
-        <LabelText>{label}</LabelText>
-      </label>
-    );
-  };
-
-  renderSwitch = () => {
-    const { id, handleSize, height, width } = this.props;
-
-    return (
-      <Switch
-        checked={this.getCheckedState()}
-        onChange={this.handleChange}
-        offColor={colours.darkerGrey}
-        onColor={colours.highlights}
-        handleDiameter={handleSize}
-        offHandleColor={colours.dullGrey}
-        onHandleColor={colours.white}
-        boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
-        uncheckedIcon={false}
-        checkedIcon={false}
-        height={height}
-        width={width}
-        className="react-switch"
-        id={id}
-      />
-    );
-  };
-
   render = () => {
     const {
-      containerClassName = 'react-toggle-container',
-      spaceBetween
+      handleSize,
+      height,
+      id,
+      label,
+      width,
+      containerClassName
     } = this.props;
+
+    const checked = this.getCheckedState();
+
     return (
-      <LocalStylesInjector
-        containerClassName={containerClassName}
-        checked={this.getCheckedState()}
-        spaceBetween={spaceBetween}
+      <div
+        className={containerClassName}
+        css={{
+          backgroundColor: colours.mediumGrey,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center'
+        }}
       >
-        {/* eslint-disable-next-line jsx-a11y/label-has-for */}
-        {this.renderLabel()}
-        {this.renderSwitch()}
-      </LocalStylesInjector>
+        <label
+          htmlFor={id}
+          css={{
+            textTransform: 'none',
+            color: colours.white,
+            fontSize: fontSize.body,
+            fontFamily: fontFamily.main,
+            marginRight: '10px'
+          }}
+        >
+          {label}
+        </label>
+        <Switch
+          id={id}
+          checked={this.getCheckedState()}
+          onChange={this.handleChange}
+          offColor={colours.darkerGrey}
+          onColor={colours.highlights}
+          handleDiameter={handleSize}
+          offHandleColor={colours.dullGrey}
+          onHandleColor={colours.white}
+          boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+          uncheckedIcon={false}
+          checkedIcon={false}
+          height={height}
+          width={width}
+          className={css(styleOverrides({ handleSize, width, checked }))}
+        />
+      </div>
     );
   };
 }
+
+Toggle.propTypes = {
+  /** Id for the html input */
+  id: PropTypes.string,
+  /** Label to display */
+  label: PropTypes.string.isRequired,
+  /** Function triggered when the value is changed
+   * @param {bool} value The new value
+   */
+  onChange: PropTypes.func,
+  /** Optional flag to control whether the toggle is checked */
+  checked: PropTypes.bool,
+  /** The size of the toggle handle */
+  handleSize: PropTypes.number,
+  /** The height of the toggle */
+  height: PropTypes.number,
+  /** The width of the toggle */
+  width: PropTypes.number,
+  /* Optional className for the container */
+  containerClassName: PropTypes.string
+};
+
+Toggle.defaultProps = {
+  id: '',
+  onChange: () => {},
+  checked: null,
+  handleSize: 26,
+  height: 30,
+  width: 46,
+  containerClassName: 'react-toggle-container'
+};
 
 export default Toggle;
