@@ -67,7 +67,7 @@ class Toggle extends Component {
           backgroundColor: colours.mediumGrey,
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'flex-start',
+          justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
