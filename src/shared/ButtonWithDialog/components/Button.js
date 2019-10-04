@@ -91,7 +91,7 @@ function Button({
   const renderIconLabelPair = () => (
     <div
       css={{
-        width: `calc(100% - ${layout.iconSize})`,
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -112,8 +112,6 @@ function Button({
       </span>
       <span
         css={{
-          position: 'absolute',
-          right: '10px',
           width: layout.iconSize,
           height: layout.iconSize
         }}
