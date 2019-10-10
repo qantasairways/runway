@@ -82,6 +82,7 @@ function dayStyles({ isInRange, isDisabled, isOutside, isStart, isEnd }) {
       background: colours.white,
       boxShadow: isOutside ? 'none' : '0 0 0 1px #eaeaea',
       outline: 'none',
+      width: 'calc(100% / 7 )',
       [mq.medium]: {
         paddingTop: '33px',
         height: `${DAY_CELL_HEIGHT_DESKTOP}px`

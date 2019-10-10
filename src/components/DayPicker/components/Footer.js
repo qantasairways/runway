@@ -20,7 +20,8 @@ const wrapperStyle = {
   position: 'fixed',
   bottom: 0,
   backgroundColor: colours.white,
-  fontFamily: fontFamily.main
+  fontFamily: fontFamily.main,
+  zIndex: 3
 };
 
 const wrapperTransitionStyle = {

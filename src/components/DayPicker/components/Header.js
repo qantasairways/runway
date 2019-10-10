@@ -146,6 +146,7 @@ function Header({
               key={day}
               css={{
                 display: 'flex',
+                flex: '1 1 auto',
                 alignItems: 'center',
                 justifyContent: 'center',
                 position: 'relative',

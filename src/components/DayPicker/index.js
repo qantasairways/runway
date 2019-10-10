@@ -28,16 +28,14 @@ import {
   getDateElementOffset,
   getItemSize,
   getFirstEnabledMonthDate,
-  DAY_CELL_BORDER_WIDTH,
   getLastEnabledMonthDate
 } from './helpers';
 
 import { KEY_CODE_TAB } from '../../constants/keyCodes';
 
 const rowStyles = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(7, 1fr)',
-  gridGap: `${DAY_CELL_BORDER_WIDTH}px`,
+  display: 'flex',
+  flexWrap: 'wrap',
   maxWidth: layout.containerMaxWidth,
   margin: '1px auto 0 auto',
   padding: '0 1px'

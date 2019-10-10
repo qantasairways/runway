@@ -10,11 +10,7 @@ import {
   fontWeight,
   fontFamily
 } from '../../../theme/airways';
-import {
-  CSS_PSEUDO_AFTER,
-  CSS_SELECTOR_FOCUS
-  // CSS_SELECTOR_HOVER
-} from '../../../constants/css';
+import { CSS_PSEUDO_AFTER, CSS_SELECTOR_FOCUS } from '../../../constants/css';
 
 export function calendarHeatherCntStyle() {
   return css({
@@ -28,7 +24,6 @@ export function calendarHeatherCntStyle() {
 const tabStyles = {
   fontFamily: fontFamily.main,
   position: 'relative',
-  // cursor: 'pointer',
   width: '50%',
   height: '64px',
   display: 'flex',
@@ -55,9 +50,6 @@ export function endTabStyle({ isSelectingStartDate }) {
     float: 'right',
     justifyContent: 'flex-end',
     padding: `0 ${layout.gutter}`,
-    // [CSS_SELECTOR_HOVER]: {
-    //   backgroundColor: isSelectingStartDate ? colours.mediumGrey : colours.white
-    // },
     [mq.medium]: {
       justifyContent: 'flex-start'
     }
@@ -77,25 +69,22 @@ export function startTabStyles({ isSelectingStartDate }) {
     boxSizing: 'border-box',
     justifyContent: 'space-between',
     textAlign: 'left',
-    // [CSS_SELECTOR_HOVER]: {
-    //   backgroundColor: isSelectingStartDate ? colours.white : colours.mediumGrey
-    // },
     [CSS_PSEUDO_AFTER]: {
       content: "''",
       zIndex: '5',
       position: 'absolute',
-      right: isSelectingStartDate ? '-14px' : '0',
+      right: isSelectingStartDate ? '-14px' : '-1px',
       borderTop: `32px solid ${colours.transparent}`,
-      borderLeft: isSelectingStartDate ? `14px solid ${colours.white}` : '0',
+      borderLeft: isSelectingStartDate ? `15px solid ${colours.white}` : '0',
       borderBottom: `32px solid ${colours.transparent}`,
       borderRight: isSelectingStartDate ? '0' : `19px solid ${colours.white}`,
       top: '-5px',
       [mq.medium]: {
         right: isSelectingStartDate ? '-17px' : '-1px',
         borderLeft: isSelectingStartDate ? `19px solid ${colours.white}` : '0',
-        borderTop: `42px solid ${colours.transparent}`,
-        borderBottom: `42px solid ${colours.transparent}`,
-        top: '-7px'
+        borderTop: `40px solid ${colours.transparent}`,
+        borderBottom: `40px solid ${colours.transparent}`,
+        top: '-4px'
       }
     },
     [mq.medium]: {
@@ -149,13 +138,13 @@ export function TriangleSvgStyles({ isSelectingStartDate }) {
   return css({
     zIndex: '10',
     position: 'absolute',
-    right: isSelectingStartDate ? '-49px' : '-11px',
+    right: isSelectingStartDate ? '-48px' : '-12px',
     top: isSelectingStartDate ? '-5px' : '-7px',
     transform: isSelectingStartDate ? 'rotate(0)' : 'rotate(-180deg)',
     [mq.medium]: {
-      height: '83px',
-      right: isSelectingStartDate ? '-53px' : '-6px',
-      top: isSelectingStartDate ? '-5px' : '-8px'
+      height: isSelectingStartDate ? '84px' : '83px',
+      right: isSelectingStartDate ? '-53px' : '-7px',
+      top: isSelectingStartDate ? '-5px' : '-7px'
     }
   });
 }
