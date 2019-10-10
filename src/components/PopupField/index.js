@@ -148,7 +148,7 @@ export class PopupField extends Component {
                 padding: layout.gutter,
                 'overflow-y': defaultScrollingContainer ? 'scroll' : 'hidden',
                 '-webkit-overflow-scrolling': 'touch',
-                flex: 1
+                flex: '1 1 auto'
               }}
             >
               {content}

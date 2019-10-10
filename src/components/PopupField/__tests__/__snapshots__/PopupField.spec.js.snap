@@ -714,7 +714,7 @@ exports[`PopupField renders correctly with props 1`] = `
 }
 
 .emotion-3 {
-  width: calc(100% - 32px);
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -743,8 +743,6 @@ exports[`PopupField renders correctly with props 1`] = `
 }
 
 .emotion-2 {
-  position: absolute;
-  right: 10px;
   width: 32px;
   height: 32px;
 }

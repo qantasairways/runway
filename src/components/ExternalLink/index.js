@@ -144,7 +144,7 @@ const ExternalLink = ({ renderIcon, url, text }) => (
         </MediaQueryDetector>
       </Item>
       <Spacer />
-      <Item size={1}>
+      <Item size="1 1 auto">
         <Text>{text}</Text>
       </Item>
       <Spacer onlyMobile />
