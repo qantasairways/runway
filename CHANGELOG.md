@@ -1,3 +1,10 @@
+# [0.47.0](https://github.com/qantasairways/runway/compare/v0.46.1...v0.47.0) (2019-10-11)
+
+
+### Features
+
+* **daypicker:** remove daypicker ([#138](https://github.com/qantasairways/runway/issues/138)) ([cb37bb8](https://github.com/qantasairways/runway/commit/cb37bb8))
+
 ## [0.46.1](https://github.com/qantasairways/runway/compare/v0.46.0...v0.46.1) (2019-10-10)
 
 
