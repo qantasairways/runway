@@ -1,3 +1,10 @@
+# [0.48.0](https://github.com/qantasairways/runway/compare/v0.47.0...v0.48.0) (2019-10-22)
+
+
+### Features
+
+* **setup:** remove unused libraries ([#139](https://github.com/qantasairways/runway/issues/139)) ([a21d137](https://github.com/qantasairways/runway/commit/a21d137))
+
 # [0.47.0](https://github.com/qantasairways/runway/compare/v0.46.1...v0.47.0) (2019-10-11)
 
 
