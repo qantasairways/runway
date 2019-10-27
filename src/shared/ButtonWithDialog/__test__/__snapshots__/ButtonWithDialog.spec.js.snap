@@ -93,7 +93,7 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
 
 .emotion-2 {
   position: relative;
-  height: 6rem;
+  height: 70px;
   width: 100%;
   max-width: 100%;
   border: 0;

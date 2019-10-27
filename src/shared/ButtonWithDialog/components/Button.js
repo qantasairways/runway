@@ -17,7 +17,7 @@ function buttonStyles({ hasMediumGreyback }) {
   return css({
     label: 'runway-popup-field__button',
     position: 'relative',
-    height: '6rem',
+    height: '70px',
     width: '100%',
     maxWidth: '100%',
     border: 0,
@@ -46,7 +46,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
           label: 'runway-dialog-button__value--large',
           fontSize: fontSize.large,
           letterSpacing: letterSpacing.small,
-          lineHeight: '2.65rem'
+          lineHeight: 1
         }}
       >
         {largeButtonValue}
