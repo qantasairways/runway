@@ -51,7 +51,15 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 0 0 15px;
+  padding: 10px 0 10px 15px;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    padding: 6px 0 5px 15px;
+  }
 }
 
 .emotion-1 {
@@ -414,6 +422,14 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-width:768px) {
+  .emotion-0 {
+    padding: 0;
+  }
 }
 
 .emotion-1 {

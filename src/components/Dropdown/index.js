@@ -11,7 +11,7 @@ import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
-import { colours, layout, fontWeight } from '../../theme/airways';
+import { colours, layout, fontWeight, mq } from '../../theme/airways';
 
 export function dropdownStyles(
   { highlighted, growMenu, inline, height },
@@ -207,7 +207,12 @@ function Render(props) {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
-            padding: inline ? 0 : `0 0 0 ${layout.gutter}`
+            padding: inline ? 0 : `10px 0 10px ${layout.gutter}`,
+            height: '100%',
+            width: '100%',
+            [mq.medium]: {
+              padding: inline ? 0 : `6px 0  5px ${layout.gutter}`
+            }
           }}
           {...inputProps}
         >
