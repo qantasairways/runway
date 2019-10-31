@@ -82,6 +82,10 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   font-family: Ciutadella;
 }
 
+.emotion-0 .rc-input-number-input::-ms-clear {
+  display: none;
+}
+
 .emotion-0 .rc-input-number-input-wrap {
   overflow: hidden;
   height: 100%;
@@ -245,6 +249,10 @@ exports[`NumericInput renders correctly with props 1`] = `
   font-size: 22px;
   color: #323232;
   font-family: Ciutadella;
+}
+
+.emotion-0 .rc-input-number-input::-ms-clear {
+  display: none;
 }
 
 .emotion-0 .rc-input-number-input-wrap {

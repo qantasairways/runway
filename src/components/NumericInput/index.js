@@ -112,7 +112,10 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
     display: 'block',
     fontSize: '22px',
     color: '#323232',
-    fontFamily: 'Ciutadella'
+    fontFamily: 'Ciutadella',
+    '&::-ms-clear': {
+      display: 'none'
+    }
   },
   [SELECTORS.RCI.INPUT.WRAPPER]: {
     overflow: 'hidden',
