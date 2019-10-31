@@ -1,3 +1,10 @@
+## [0.48.1](https://github.com/qantasairways/runway/compare/v0.48.0...v0.48.1) (2019-10-31)
+
+
+### Bug Fixes
+
+* **numericinput:** fix the plus icon in ie ([#141](https://github.com/qantasairways/runway/issues/141)) ([56c23ff](https://github.com/qantasairways/runway/commit/56c23ff))
+
 # [0.48.0](https://github.com/qantasairways/runway/compare/v0.47.0...v0.48.0) (2019-10-22)
 
 
