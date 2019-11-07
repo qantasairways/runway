@@ -113,9 +113,13 @@ describe('ButtonWithDialog', () => {
     it('adds click event listener', () => {
       const addEventListenerCalls = document.addEventListener.mock.calls;
 
-      expect(addEventListenerCalls.length).toBe(1);
+      expect(addEventListenerCalls.length).toBe(2);
       expect(addEventListenerCalls[0][0]).toBe('click');
       expect(addEventListenerCalls[0][1]).toBe(
+        component.instance().handleClickOutside
+      );
+      expect(addEventListenerCalls[1][0]).toBe('focusin');
+      expect(addEventListenerCalls[1][1]).toBe(
         component.instance().handleClickOutside
       );
     });
@@ -160,9 +164,14 @@ describe('ButtonWithDialog', () => {
     it('removes click event listener', () => {
       const removeEventListenerCalls = document.removeEventListener.mock.calls;
 
-      expect(removeEventListenerCalls.length).toBe(1);
+      expect(removeEventListenerCalls.length).toBe(2);
       expect(removeEventListenerCalls[0][0]).toBe('click');
       expect(removeEventListenerCalls[0][1]).toBe(
+        component.instance().handleClickOutside
+      );
+
+      expect(removeEventListenerCalls[1][0]).toBe('focusin');
+      expect(removeEventListenerCalls[1][1]).toBe(
         component.instance().handleClickOutside
       );
     });
@@ -202,14 +211,14 @@ describe('ButtonWithDialog', () => {
       component.instance().closeDialog.mockReset();
     });
 
-    it('calls closeDialog() if the click was outside', () => {
+    it('calls closeDialog() if the click/focus was outside', () => {
       const componentInstance = component.instance();
 
       componentInstance.handleClickOutside({ target: document });
       expect(componentInstance.closeDialog).toHaveBeenCalled();
     });
 
-    it('does nothing if the click was inside', () => {
+    it('does nothing if the click/focus was inside', () => {
       const componentInstance = component.instance();
 
       componentInstance.handleClickOutside({
