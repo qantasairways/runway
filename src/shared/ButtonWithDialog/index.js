@@ -84,6 +84,7 @@ class ButtonWithDialog extends Component {
 
     if (this.props.closeOnBlur) {
       document.addEventListener('click', this.handleClickOutside);
+      document.addEventListener('focusin', this.handleClickOutside);
     }
 
     setTimeout(() => {
@@ -112,6 +113,7 @@ class ButtonWithDialog extends Component {
 
     if (this.props.closeOnBlur) {
       document.removeEventListener('click', this.handleClickOutside);
+      document.removeEventListener('focusin', this.handleClickOutside);
     }
 
     if (this.fieldButton) {
