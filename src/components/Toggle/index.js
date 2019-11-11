@@ -61,7 +61,7 @@ class Toggle extends Component {
     const checked = this.getCheckedState();
 
     return (
-      <div
+      <label
         className={containerClassName}
         css={{
           backgroundColor: colours.mediumGrey,
@@ -70,9 +70,9 @@ class Toggle extends Component {
           justifyContent: 'space-between',
           alignItems: 'center'
         }}
+        htmlFor={id}
       >
-        <label
-          htmlFor={id}
+        <span
           css={{
             textTransform: 'none',
             color: colours.white,
@@ -82,7 +82,7 @@ class Toggle extends Component {
           }}
         >
           {label}
-        </label>
+        </span>
         <Switch
           id={id}
           checked={this.getCheckedState()}
@@ -99,7 +99,7 @@ class Toggle extends Component {
           width={width}
           className={css(styleOverrides({ handleSize, width, checked }))}
         />
-      </div>
+      </label>
     );
   };
 }
