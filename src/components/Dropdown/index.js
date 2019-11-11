@@ -11,7 +11,7 @@ import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
-import { colours, layout, fontWeight, mq } from '../../theme/airways';
+import { colours, layout, fontWeight } from '../../theme/airways';
 
 export function dropdownStyles(
   { highlighted, growMenu, inline, height },
@@ -201,25 +201,18 @@ function Render(props) {
   return (
     <div css={{ width: '100%', height: '100%' }}>
       <label {...getLabelProps()}>{label}</label>
-      <span css={inputWrapperStyles(props)}>
+      <div {...inputProps} css={inputWrapperStyles(props)}>
         <span
           css={{
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
-            padding: inline ? 0 : `10px 0 10px ${layout.gutter}`,
-            height: '100%',
-            width: '100%',
-            [mq.medium]: {
-              padding: inline ? 0 : `6px 0  5px ${layout.gutter}`
-            }
+            padding: inline ? 0 : `0 0 0 ${layout.gutter}`
           }}
-          {...inputProps}
         >
           {inputProps.value}
         </span>
         <input
-          {...inputProps}
           css={inputStyles(props)}
           readOnly
           tabIndex="0"
@@ -243,11 +236,11 @@ function Render(props) {
             }
           })}
         />
-        <span {...inputProps} css={inputSvgStyles(props)}>
+        <span css={inputSvgStyles(props)}>
           <ChevronDown css={inputSvgStyles(props)} />
         </span>
-        {generateMenu(menuProps)}
-      </span>
+      </div>
+      {generateMenu(menuProps)}
     </div>
   );
 }

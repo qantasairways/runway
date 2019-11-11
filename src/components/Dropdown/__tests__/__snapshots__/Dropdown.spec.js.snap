@@ -28,7 +28,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   height: 100%;
 }
 
-.emotion-6 {
+.emotion-5 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -51,15 +51,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 10px 0 10px 15px;
-  height: 100%;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    padding: 6px 0 5px 15px;
-  }
+  padding: 0 0 0 15px;
 }
 
 .emotion-1 {
@@ -100,7 +92,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   box-sizing: content-box;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: none;
   min-width: 240px;
   border-radius: 4px;
@@ -249,22 +241,22 @@ exports[`Dropdown renders correctly with defaults 1`] = `
               htmlFor="downshift-0-input"
               id="downshift-0-label"
             />
-            <span
-              className="emotion-6"
+            <div
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls={null}
+              aria-labelledby="downshift-0-label"
+              autoComplete="off"
+              className="emotion-5"
+              id="downshift-0-input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              value=""
             >
               <span
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-0-label"
-                autoComplete="off"
                 className="emotion-0"
-                id="downshift-0-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                value=""
               />
               <input
                 aria-activedescendant={null}
@@ -276,7 +268,6 @@ exports[`Dropdown renders correctly with defaults 1`] = `
                 id="downshift-0-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder=""
@@ -285,18 +276,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
                 value=""
               />
               <span
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-0-label"
-                autoComplete="off"
                 className="emotion-2"
-                id="downshift-0-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                value=""
               >
                 <ChevronDown
                   className="emotion-2"
@@ -343,23 +323,23 @@ exports[`Dropdown renders correctly with defaults 1`] = `
                   </svg>
                 </ChevronDown>
               </span>
-              <Menu
+            </div>
+            <Menu
+              aria-labelledby="downshift-0-label"
+              focus={false}
+              id="downshift-0-menu"
+              isOpen={false}
+              role="listbox"
+              width={null}
+            >
+              <ul
                 aria-labelledby="downshift-0-label"
-                focus={false}
+                className="emotion-6"
                 id="downshift-0-menu"
-                isOpen={false}
                 role="listbox"
                 width={null}
-              >
-                <ul
-                  aria-labelledby="downshift-0-label"
-                  className="emotion-5"
-                  id="downshift-0-menu"
-                  role="listbox"
-                  width={null}
-                />
-              </Menu>
-            </span>
+              />
+            </Menu>
           </div>
         </Render>
       </SelectOnKeyPressContainer>
@@ -374,7 +354,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   height: 100%;
 }
 
-.emotion-9 {
+.emotion-5 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -422,14 +402,6 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-@media only screen and (min-width:768px) {
-  .emotion-0 {
-    padding: 0;
-  }
 }
 
 .emotion-1 {
@@ -470,7 +442,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   box-sizing: content-box;
 }
 
-.emotion-8 {
+.emotion-9 {
   display: none;
   min-width: 240px;
   border-radius: 4px;
@@ -488,7 +460,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   padding: 10px;
 }
 
-.emotion-5 {
+.emotion-6 {
   font-weight: 400;
   background-color: none;
   color: #323232;
@@ -497,9 +469,9 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   min-height: 50px;
 }
 
-.emotion-5:hover,
-.emotion-5:active,
-.emotion-5:focus {
+.emotion-6:hover,
+.emotion-6:active,
+.emotion-6:focus {
   background-color: #f4f5f6;
 }
 
@@ -693,22 +665,22 @@ exports[`Dropdown renders correctly with props provided 1`] = `
               htmlFor="downshift-1-input"
               id="downshift-1-label"
             />
-            <span
-              className="emotion-9"
+            <div
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls={null}
+              aria-labelledby="downshift-1-label"
+              autoComplete="off"
+              className="emotion-5"
+              id="downshift-1-input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              value="name:apple"
             >
               <span
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-1-label"
-                autoComplete="off"
                 className="emotion-0"
-                id="downshift-1-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                value="name:apple"
               >
                 name:apple
               </span>
@@ -722,7 +694,6 @@ exports[`Dropdown renders correctly with props provided 1`] = `
                 id="downshift-1-input"
                 onBlur={[Function]}
                 onChange={[Function]}
-                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder=""
@@ -731,18 +702,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
                 value="name:apple"
               />
               <span
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-1-label"
-                autoComplete="off"
                 className="emotion-2"
-                id="downshift-1-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                value="name:apple"
               >
                 <ChevronDown
                   className="emotion-2"
@@ -789,102 +749,102 @@ exports[`Dropdown renders correctly with props provided 1`] = `
                   </svg>
                 </ChevronDown>
               </span>
-              <Menu
+            </div>
+            <Menu
+              aria-labelledby="downshift-1-label"
+              focus={false}
+              id="downshift-1-menu"
+              isOpen={false}
+              role="listbox"
+              width="800px"
+            >
+              <ul
                 aria-labelledby="downshift-1-label"
-                focus={false}
+                className="emotion-9"
                 id="downshift-1-menu"
-                isOpen={false}
                 role="listbox"
                 width="800px"
               >
-                <ul
-                  aria-labelledby="downshift-1-label"
-                  className="emotion-8"
-                  id="downshift-1-menu"
-                  role="listbox"
-                  width="800px"
+                <MenuItem
+                  aria-selected={false}
+                  highlighted={false}
+                  id="downshift-1-item-0"
+                  key="name:apple-0"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseMove={[Function]}
+                  role="option"
+                  selected={true}
                 >
-                  <MenuItem
+                  <li
                     aria-selected={false}
-                    highlighted={false}
+                    className="emotion-6"
                     id="downshift-1-item-0"
-                    key="name:apple-0"
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                     selected={true}
                   >
-                    <li
-                      aria-selected={false}
-                      className="emotion-5"
-                      id="downshift-1-item-0"
-                      onClick={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseMove={[Function]}
-                      role="option"
-                      selected={true}
-                    >
-                      <div>
-                        mockRenderItemResult
-                      </div>
-                    </li>
-                  </MenuItem>
-                  <MenuItem
+                    <div>
+                      mockRenderItemResult
+                    </div>
+                  </li>
+                </MenuItem>
+                <MenuItem
+                  aria-selected={false}
+                  highlighted={false}
+                  id="downshift-1-item-1"
+                  key="name:orange-1"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseMove={[Function]}
+                  role="option"
+                  selected={false}
+                >
+                  <li
                     aria-selected={false}
-                    highlighted={false}
+                    className="emotion-6"
                     id="downshift-1-item-1"
-                    key="name:orange-1"
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                     selected={false}
                   >
-                    <li
-                      aria-selected={false}
-                      className="emotion-5"
-                      id="downshift-1-item-1"
-                      onClick={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseMove={[Function]}
-                      role="option"
-                      selected={false}
-                    >
-                      <div>
-                        mockRenderItemResult
-                      </div>
-                    </li>
-                  </MenuItem>
-                  <MenuItem
+                    <div>
+                      mockRenderItemResult
+                    </div>
+                  </li>
+                </MenuItem>
+                <MenuItem
+                  aria-selected={false}
+                  highlighted={false}
+                  id="downshift-1-item-2"
+                  key="name:banana-2"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseMove={[Function]}
+                  role="option"
+                  selected={false}
+                >
+                  <li
                     aria-selected={false}
-                    highlighted={false}
+                    className="emotion-6"
                     id="downshift-1-item-2"
-                    key="name:banana-2"
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                     selected={false}
                   >
-                    <li
-                      aria-selected={false}
-                      className="emotion-5"
-                      id="downshift-1-item-2"
-                      onClick={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseMove={[Function]}
-                      role="option"
-                      selected={false}
-                    >
-                      <div>
-                        mockRenderItemResult
-                      </div>
-                    </li>
-                  </MenuItem>
-                </ul>
-              </Menu>
-            </span>
+                    <div>
+                      mockRenderItemResult
+                    </div>
+                  </li>
+                </MenuItem>
+              </ul>
+            </Menu>
           </div>
         </Render>
       </SelectOnKeyPressContainer>
