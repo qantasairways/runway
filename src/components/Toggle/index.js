@@ -68,7 +68,8 @@ class Toggle extends Component {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          cursor: 'pointer'
         }}
         htmlFor={id}
       >

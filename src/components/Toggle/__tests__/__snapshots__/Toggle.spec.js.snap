@@ -18,6 +18,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -96,6 +97,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -174,6 +176,7 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
