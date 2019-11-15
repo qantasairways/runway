@@ -1,3 +1,10 @@
+## [0.48.2](https://github.com/qantasairways/runway/compare/v0.48.1...v0.48.2) (2019-11-15)
+
+
+### Bug Fixes
+
+* **dropdown:** fix dropdown to selectable all box ([#146](https://github.com/qantasairways/runway/issues/146)) ([3d7ce1a](https://github.com/qantasairways/runway/commit/3d7ce1a))
+
 ## [0.48.1](https://github.com/qantasairways/runway/compare/v0.48.0...v0.48.1) (2019-10-31)
 
 
