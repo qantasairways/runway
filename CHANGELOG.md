@@ -1,3 +1,10 @@
+## [0.49.4](https://github.com/qantasairways/runway/compare/v0.49.3...v0.49.4) (2019-11-18)
+
+
+### Bug Fixes
+
+* **minus-icon:** added comprehensive unit tests ([#156](https://github.com/qantasairways/runway/issues/156)) ([934fdb6](https://github.com/qantasairways/runway/commit/934fdb6))
+
 ## [0.49.3](https://github.com/qantasairways/runway/compare/v0.49.2...v0.49.3) (2019-11-18)
 
 
