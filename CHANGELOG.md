@@ -1,3 +1,10 @@
+# [0.49.0](https://github.com/qantasairways/runway/compare/v0.48.2...v0.49.0) (2019-11-18)
+
+
+### Features
+
+* **button:** changed the height and font size of the button ([#140](https://github.com/qantasairways/runway/issues/140)) ([0afe075](https://github.com/qantasairways/runway/commit/0afe075))
+
 ## [0.48.2](https://github.com/qantasairways/runway/compare/v0.48.1...v0.48.2) (2019-11-15)
 
 
