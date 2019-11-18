@@ -1,3 +1,10 @@
+## [0.49.1](https://github.com/qantasairways/runway/compare/v0.49.0...v0.49.1) (2019-11-18)
+
+
+### Bug Fixes
+
+* **calendaricon:** added comprehensive unit tests ([#150](https://github.com/qantasairways/runway/issues/150)) ([43e3b0b](https://github.com/qantasairways/runway/commit/43e3b0b))
+
 # [0.49.0](https://github.com/qantasairways/runway/compare/v0.48.2...v0.49.0) (2019-11-18)
 
 
