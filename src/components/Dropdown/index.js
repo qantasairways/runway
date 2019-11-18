@@ -192,16 +192,20 @@ function Render(props) {
     width: menuWidth
   };
 
-  const inputProps = getInputProps({
+  const inputProps = getInputProps();
+
+  const containerProps = {
     onClick: () => {
       openMenu();
     }
-  });
+  };
+
+
 
   return (
     <div css={{ width: '100%', height: '100%' }}>
       <label {...getLabelProps()}>{label}</label>
-      <div {...inputProps} css={inputWrapperStyles(props)}>
+      <div {...containerProps} css={inputWrapperStyles(props)}>
         <span
           css={{
             overflow: 'hidden',
