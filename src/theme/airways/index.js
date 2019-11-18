@@ -49,7 +49,7 @@ export const fontSize = {
   button: '1rem',
   label: '1rem',
   labelLarge: '1.375rem',
-  large: '2.25rem',
+  large: '1.75rem',
   medium: '1.625rem',
   small: '0.625rem'
 };
