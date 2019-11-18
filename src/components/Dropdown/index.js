@@ -201,7 +201,7 @@ function Render(props) {
   return (
     <div css={{ width: '100%', height: '100%' }}>
       <label {...getLabelProps()}>{label}</label>
-      <div {...inputProps} css={inputWrapperStyles(props)}>
+      <span css={inputWrapperStyles(props)}>
         <span
           css={{
             overflow: 'hidden',
@@ -209,10 +209,12 @@ function Render(props) {
             whiteSpace: 'nowrap',
             padding: inline ? 0 : `0 0 0 ${layout.gutter}`
           }}
+          {...inputProps}
         >
           {inputProps.value}
         </span>
         <input
+          {...inputProps}
           css={inputStyles(props)}
           readOnly
           tabIndex="0"
@@ -236,11 +238,11 @@ function Render(props) {
             }
           })}
         />
-        <span css={inputSvgStyles(props)}>
+        <span {...inputProps} css={inputSvgStyles(props)}>
           <ChevronDown css={inputSvgStyles(props)} />
         </span>
-      </div>
-      {generateMenu(menuProps)}
+        {generateMenu(menuProps)}
+      </span>
     </div>
   );
 }
