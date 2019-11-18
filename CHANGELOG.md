@@ -1,3 +1,10 @@
+## [0.49.2](https://github.com/qantasairways/runway/compare/v0.49.1...v0.49.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **contributors:** added james and yogesh ([a7670af](https://github.com/qantasairways/runway/commit/a7670af))
+
 ## [0.49.1](https://github.com/qantasairways/runway/compare/v0.49.0...v0.49.1) (2019-11-18)
 
 
