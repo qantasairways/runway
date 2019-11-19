@@ -12,6 +12,7 @@ describe('FocusLock', () => {
       `"React.Children.only expected to receive a single React element child."`
     );
     expect(consoleError).toHaveBeenCalled();
+    consoleError.mockReset();
   });
 
   it('renders errors if multiple children are provided', () => {
@@ -29,6 +30,7 @@ describe('FocusLock', () => {
       `"React.Children.only expected to receive a single React element child."`
     );
     expect(consoleError).toHaveBeenCalled();
+    consoleError.mockReset();
   });
 
   it('renders non-focusable children without any errors', () => {
@@ -39,7 +41,7 @@ describe('FocusLock', () => {
       </FocusLock>
     );
     expect(wrapper.contains('Child without focusable elements')).toBe(true);
-    expect(documentListener).toHaveBeenCalledTimes(0);
+    expect(documentListener).not.toHaveBeenCalled();
   });
 
   it('renders and focuses first focusable child', () => {
@@ -47,11 +49,12 @@ describe('FocusLock', () => {
     const wrapper = mount(
       <FocusLock>
         <div>
-          <input type="text" value="Focus Field" />
+          <input type="text" defaultValue="Focus Field" />
           <button type="button">Should not focus me</button>
         </div>
       </FocusLock>
     );
+
     expect(documentListener).toHaveBeenCalled();
     expect(document.activeElement).toEqual(wrapper.find('input').getDOMNode());
   });
