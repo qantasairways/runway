@@ -2,14 +2,14 @@ import React, { Component, Children } from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 
-// From: https://github.com/davidtheclark/tabbable
+// Adapted from: https://github.com/davidtheclark/tabbable
 const tabbableSelector = [
-  'input',
+  'input:not([type="hidden"])',
   'button',
   'select',
   'a[href]',
   'textarea',
-  '[tabindex]',
+  '[tabindex="0"]',
   'audio[controls]',
   'video[controls]',
   '[contenteditable]:not([contenteditable="false"])'
@@ -28,7 +28,14 @@ class LockWrapper extends Component {
     // eslint-disable-next-line react/no-find-dom-node
     this.base = findDOMNode(this);
 
-    this.firstFocusEl = this.base.querySelector(tabbableSelector);
+    const tabbables = [...this.base.querySelectorAll(tabbableSelector)];
+
+    // First tabbable element that is visible
+    this.firstFocusEl = tabbables.find(
+      node =>
+        node.offsetParent !== null &&
+        window.getComputedStyle(node).visibility !== 'hidden'
+    );
 
     if (this.firstFocusEl) {
       this.firstFocusEl.focus();

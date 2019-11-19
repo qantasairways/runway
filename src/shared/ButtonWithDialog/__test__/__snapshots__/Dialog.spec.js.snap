@@ -1,33 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dialog renders correctly with defaults 1`] = `
-<div
-  aria-label="mock aria label"
-  className="emotion-0"
-  role="dialog"
->
-  <div>
-    mockHeader
+<FocusLock>
+  <div
+    aria-label="mock aria label"
+    className="emotion-0"
+    role="dialog"
+  >
+    <div>
+      mockHeader
+    </div>
+    mock content
+    <div>
+      mockHeader
+    </div>
   </div>
-  mock content
-  <div>
-    mockHeader
-  </div>
-</div>
+</FocusLock>
 `;
 
 exports[`Dialog renders correctly with props provided 1`] = `
-<div
-  aria-label="mock aria label"
-  className="emotion-0"
-  role="dialog"
->
-  <div>
-    mockHeader
+<FocusLock>
+  <div
+    aria-label="mock aria label"
+    className="emotion-0"
+    role="dialog"
+  >
+    <div>
+      mockHeader
+    </div>
+    mock content
+    <div>
+      mockHeader
+    </div>
   </div>
-  mock content
-  <div>
-    mockHeader
-  </div>
-</div>
+</FocusLock>
 `;
