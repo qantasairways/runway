@@ -89,7 +89,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
-        closeOnBlur={true}
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -140,7 +139,6 @@ exports[`PopupField renders correctly with defaults 1`] = `
             Icon={null}
             buttonLabel={null}
             closeAriaLabel="Close dialog"
-            closeOnBlur={true}
             dialogStyles={
               Object {
                 "background": "white",
@@ -320,7 +318,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
-        closeOnBlur={true}
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -371,7 +368,6 @@ exports[`PopupField renders correctly with one child element 1`] = `
             Icon={null}
             buttonLabel={null}
             closeAriaLabel="Close dialog"
-            closeOnBlur={true}
             dialogStyles={
               Object {
                 "background": "white",
@@ -551,7 +547,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
         Icon={null}
         buttonLabel={null}
         closeAriaLabel="Close dialog"
-        closeOnBlur={true}
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -602,7 +597,6 @@ exports[`PopupField renders correctly with one child function 1`] = `
             Icon={null}
             buttonLabel={null}
             closeAriaLabel="Close dialog"
-            closeOnBlur={true}
             dialogStyles={
               Object {
                 "background": "white",
@@ -830,7 +824,6 @@ exports[`PopupField renders correctly with props 1`] = `
         Icon={[Function]}
         buttonLabel="Where"
         closeAriaLabel="Close dialog"
-        closeOnBlur={true}
         dialogAriaLabel=""
         dialogStyles={
           Object {
@@ -896,7 +889,6 @@ exports[`PopupField renders correctly with props 1`] = `
             Icon={[Function]}
             buttonLabel="Where"
             closeAriaLabel="Close dialog"
-            closeOnBlur={true}
             dialogStyles={
               Object {
                 "@media only screen and (min-width: 768px)": Object {

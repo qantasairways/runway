@@ -131,12 +131,11 @@ export class PopupField extends Component {
         transitionStyles={transitionStylesSlideUp}
         shouldAddScrollLockClass={shouldAddScrollLockClass}
       >
-        {({ closeDialog, setFocusElementRef, setScrollTargetRef }) => {
+        {({ closeDialog, setScrollTargetRef }) => {
           const content =
             typeof children === 'function'
               ? children({
                   closeDialog,
-                  setFocusElementRef,
                   setScrollTargetRef
                 })
               : children;
