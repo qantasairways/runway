@@ -1,3 +1,10 @@
+## [0.49.5](https://github.com/qantasairways/runway/compare/v0.49.4...v0.49.5) (2019-11-19)
+
+
+### Bug Fixes
+
+* **popup-field:** ios safari does not scroll in the typeahead ([#163](https://github.com/qantasairways/runway/issues/163)) ([ff55ccc](https://github.com/qantasairways/runway/commit/ff55ccc))
+
 ## [0.49.4](https://github.com/qantasairways/runway/compare/v0.49.3...v0.49.4) (2019-11-18)
 
 
