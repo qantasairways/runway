@@ -1,3 +1,10 @@
+## [0.49.6](https://github.com/qantasairways/runway/compare/v0.49.5...v0.49.6) (2019-11-19)
+
+
+### Bug Fixes
+
+* **popup-field:** desktop chrome is broken ([dc2a7f0](https://github.com/qantasairways/runway/commit/dc2a7f0))
+
 ## [0.49.5](https://github.com/qantasairways/runway/compare/v0.49.4...v0.49.5) (2019-11-19)
 
 
