@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown renders correctly with defaults 1`] = `
-.emotion-8 {
-  font-family: Ciutadella;
+.emotion-6 {
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
@@ -12,7 +11,6 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   -moz-letter-spacing: normal;
   -ms-letter-spacing: normal;
   letter-spacing: normal;
-  background: #3c3c3c;
   color: #fff;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -20,22 +18,19 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   width: 100%;
   height: 100%;
   max-width: 100%;
-  outline: none;
 }
 
-.emotion-7 {
+.emotion-5 {
   width: 100%;
   height: 100%;
 }
 
-.emotion-5 {
+.emotion-4 {
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  height: 100%;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -45,69 +40,40 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  background: #3c3c3c;
+  border-color: #3c3c3c;
+  color: #fff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
 }
 
 .emotion-0 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 0 0 15px;
 }
 
 .emotion-1 {
-  border: 0px;
-  -webkit-clip: rect(0px,0px,0px,0px);
-  clip: rect(0px,0px,0px,0px);
-  margin: -1px;
-  position: absolute;
-  background-color: transparent;
-  color: inherit;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
-
-.emotion-1::-webkit-input-placeholder {
-  color: inherit;
-}
-
-.emotion-1::-moz-placeholder {
-  color: inherit;
-}
-
-.emotion-1:-ms-input-placeholder {
-  color: inherit;
-}
-
-.emotion-1::placeholder {
-  color: inherit;
-}
-
-.emotion-2 {
   width: 24px;
   height: 100%;
   fill: #fff;
   vertical-align: middle;
-  padding: 0 15px 0 0;
+  padding: 0;
   box-sizing: content-box;
-}
-
-.emotion-6 {
-  display: none;
-  min-width: 240px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-  border: solid 1px #dadada;
-  background-color: #ffffff;
-  list-style: none;
-  position: absolute;
-  z-index: 5;
-  margin: 0;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
 }
 
 <Dropdown
@@ -148,10 +114,15 @@ exports[`Dropdown renders correctly with defaults 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-0-label"
       aria-owns={null}
-      className="emotion-8"
+      className="emotion-6"
       role="combobox"
     >
-      <SelectOnKeyPressContainer
+      <DropdownMenu
+        downShiftProps={
+          Object {
+            "itemToString": [Function],
+          }
+        }
         downshiftProps={
           Object {
             "clearItems": [Function],
@@ -182,189 +153,105 @@ exports[`Dropdown renders correctly with defaults 1`] = `
           }
         }
         focus={false}
-        itemToString={[Function]}
+        growMenu={false}
+        height="100%"
+        highlighted={false}
+        inline={false}
         items={Array []}
+        label=""
+        menuWidth={null}
+        onChange={null}
+        placeholder=""
+        renderItem={[Function]}
       >
-        <Render
-          downShiftProps={
-            Object {
-              "itemToString": [Function],
-            }
-          }
-          downshiftProps={
-            Object {
-              "clearItems": [Function],
-              "clearSelection": [Function],
-              "closeMenu": [Function],
-              "getInputProps": [Function],
-              "getItemProps": [Function],
-              "getLabelProps": [Function],
-              "getMenuProps": [Function],
-              "getRootProps": [Function],
-              "getToggleButtonProps": [Function],
-              "highlightedIndex": null,
-              "id": "downshift-0",
-              "inputValue": "",
-              "isOpen": false,
-              "itemToString": [Function],
-              "openMenu": [Function],
-              "reset": [Function],
-              "selectHighlightedItem": [Function],
-              "selectItem": [Function],
-              "selectItemAtIndex": [Function],
-              "selectedItem": null,
-              "setHighlightedIndex": [Function],
-              "setItemCount": [Function],
-              "setState": [Function],
-              "toggleMenu": [Function],
-              "unsetItemCount": [Function],
-            }
-          }
-          focus={false}
-          growMenu={false}
-          height="100%"
-          highlighted={false}
-          inline={false}
-          isFocused={false}
-          items={Array []}
-          label=""
-          menuWidth={null}
-          onChange={null}
-          placeholder=""
-          renderItem={[Function]}
-          setFocus={[Function]}
+        <div
+          className="emotion-5"
         >
-          <div
-            className="emotion-7"
+          <button
+            aria-activedescendant={null}
+            aria-haspopup={true}
+            aria-label={null}
+            className="emotion-4"
+            data-toggle={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            type="button"
           >
-            <label
-              htmlFor="downshift-0-input"
-              id="downshift-0-label"
+            <span
+              className="emotion-0"
             />
-            <div
-              className="emotion-5"
-              onClick={[Function]}
+            <span
+              className="emotion-1"
             >
-              <span
-                className="emotion-0"
-              />
-              <input
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-0-label"
-                autoComplete="off"
+              <ChevronDown
                 className="emotion-1"
-                id="downshift-0-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder=""
-                readOnly={true}
-                tabIndex="0"
-                value=""
-              />
-              <span
-                className="emotion-2"
+                height="24"
+                width="24"
               >
-                <ChevronDown
-                  className="emotion-2"
+                <svg
+                  className="emotion-1"
                   height="24"
+                  viewBox="0 0 24 24"
                   width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
                 >
-                  <svg
-                    className="emotion-2"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                  <defs>
+                    <path
+                      d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
+                      id="mockId"
+                    />
+                  </defs>
+                  <g
+                    fillRule="evenodd"
+                    transform="translate(6 8)"
                   >
-                    <defs>
-                      <path
-                        d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
-                        id="mockId"
-                      />
-                    </defs>
-                    <g
-                      fillRule="evenodd"
-                      transform="translate(6 8)"
+                    <mask
+                      id="mockId"
                     >
-                      <mask
-                        id="mockId"
-                      >
-                        <use
-                          xlinkHref="#mockId"
-                        />
-                      </mask>
                       <use
-                        fillRule="nonzero"
                         xlinkHref="#mockId"
                       />
-                      <g
-                        mask="url(#mockId)"
-                      >
-                        <path
-                          d="M0 0h12v8H0z"
-                        />
-                      </g>
+                    </mask>
+                    <use
+                      fillRule="nonzero"
+                      xlinkHref="#mockId"
+                    />
+                    <g
+                      mask="url(#mockId)"
+                    >
+                      <path
+                        d="M0 0h12v8H0z"
+                      />
                     </g>
-                  </svg>
-                </ChevronDown>
-              </span>
-            </div>
-            <Menu
-              aria-labelledby="downshift-0-label"
-              focus={false}
-              id="downshift-0-menu"
-              isOpen={false}
-              role="listbox"
-              width={null}
-            >
-              <ul
-                aria-labelledby="downshift-0-label"
-                className="emotion-6"
-                id="downshift-0-menu"
-                role="listbox"
-                width={null}
-              />
-            </Menu>
-          </div>
-        </Render>
-      </SelectOnKeyPressContainer>
+                  </g>
+                </svg>
+              </ChevronDown>
+            </span>
+          </button>
+        </div>
+      </DropdownMenu>
     </div>
   </Downshift>
 </Dropdown>
 `;
 
 exports[`Dropdown renders correctly with props provided 1`] = `
-.emotion-10 {
-  width: 100%;
-  height: 100%;
-}
-
 .emotion-5 {
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   height: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  box-sizing: border-box;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
 }
 
-.emotion-11 {
-  font-family: Ciutadella;
+.emotion-0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-6 {
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -374,7 +261,6 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   -moz-letter-spacing: normal;
   -ms-letter-spacing: normal;
   letter-spacing: normal;
-  background: #3c3c3c;
   color: #8de2e0;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -384,85 +270,53 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   width: fit-content;
   height: 20px;
   max-width: 100%;
-  outline: none;
 }
 
-.emotion-0 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.emotion-4 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  background: #3c3c3c;
+  border-color: #3c3c3c;
+  color: #8de2e0;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  position: static;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 20px;
+  max-width: 100%;
 }
 
 .emotion-1 {
-  border: 0px;
-  -webkit-clip: rect(0px,0px,0px,0px);
-  clip: rect(0px,0px,0px,0px);
-  margin: -1px;
-  position: absolute;
-  background-color: transparent;
-  color: transparent;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
-
-.emotion-1::-webkit-input-placeholder {
-  color: inherit;
-}
-
-.emotion-1::-moz-placeholder {
-  color: inherit;
-}
-
-.emotion-1:-ms-input-placeholder {
-  color: inherit;
-}
-
-.emotion-1::placeholder {
-  color: inherit;
-}
-
-.emotion-2 {
   width: 24px;
   height: 100%;
   fill: #8de2e0;
   vertical-align: middle;
   padding: 0;
   box-sizing: content-box;
-}
-
-.emotion-9 {
-  display: none;
-  min-width: 240px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-  border: solid 1px #dadada;
-  background-color: #ffffff;
-  list-style: none;
-  position: absolute;
-  z-index: 5;
-  margin: 0;
-  top: 0px;
-  left: 0px;
-  width: 800px;
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.emotion-6 {
-  font-weight: 400;
-  background-color: none;
-  color: #323232;
-  box-sizing: border-box;
-  padding: 10px;
-  min-height: 50px;
-}
-
-.emotion-6:hover,
-.emotion-6:active,
-.emotion-6:focus {
-  background-color: #f4f5f6;
 }
 
 <Dropdown
@@ -525,10 +379,15 @@ exports[`Dropdown renders correctly with props provided 1`] = `
       aria-haspopup="listbox"
       aria-labelledby="downshift-1-label"
       aria-owns={null}
-      className="emotion-11"
+      className="emotion-6"
       role="combobox"
     >
-      <SelectOnKeyPressContainer
+      <DropdownMenu
+        downShiftProps={
+          Object {
+            "itemToString": [Function],
+          }
+        }
         downshiftProps={
           Object {
             "clearItems": [Function],
@@ -561,8 +420,11 @@ exports[`Dropdown renders correctly with props provided 1`] = `
             "unsetItemCount": [Function],
           }
         }
-        focus={false}
-        itemToString={[Function]}
+        focus={true}
+        growMenu={true}
+        height="20px"
+        highlighted={true}
+        inline={true}
         items={
           Array [
             Object {
@@ -579,255 +441,85 @@ exports[`Dropdown renders correctly with props provided 1`] = `
             },
           ]
         }
+        label=""
+        menuWidth="800px"
+        onChange={[Function]}
+        placeholder=""
+        renderItem={[Function]}
+        withPadding={true}
       >
-        <Render
-          downShiftProps={
-            Object {
-              "itemToString": [Function],
-            }
-          }
-          downshiftProps={
-            Object {
-              "clearItems": [Function],
-              "clearSelection": [Function],
-              "closeMenu": [Function],
-              "getInputProps": [Function],
-              "getItemProps": [Function],
-              "getLabelProps": [Function],
-              "getMenuProps": [Function],
-              "getRootProps": [Function],
-              "getToggleButtonProps": [Function],
-              "highlightedIndex": null,
-              "id": "downshift-1",
-              "inputValue": "name:apple",
-              "isOpen": false,
-              "itemToString": [Function],
-              "openMenu": [Function],
-              "reset": [Function],
-              "selectHighlightedItem": [Function],
-              "selectItem": [Function],
-              "selectItemAtIndex": [Function],
-              "selectedItem": Object {
-                "name": "name:apple",
-                "value": "value:apple",
-              },
-              "setHighlightedIndex": [Function],
-              "setItemCount": [Function],
-              "setState": [Function],
-              "toggleMenu": [Function],
-              "unsetItemCount": [Function],
-            }
-          }
-          focus={true}
-          growMenu={true}
-          height="20px"
-          highlighted={true}
-          inline={true}
-          isFocused={false}
-          items={
-            Array [
-              Object {
-                "name": "name:apple",
-                "value": "value:apple",
-              },
-              Object {
-                "name": "name:orange",
-                "value": "name:orange",
-              },
-              Object {
-                "name": "name:banana",
-                "value": "name:banana",
-              },
-            ]
-          }
-          label=""
-          menuWidth="800px"
-          onChange={[Function]}
-          placeholder=""
-          renderItem={[Function]}
-          setFocus={[Function]}
-          withPadding={true}
+        <div
+          className="emotion-5"
         >
-          <div
-            className="emotion-10"
+          <button
+            aria-activedescendant={null}
+            aria-haspopup={true}
+            aria-label="name:apple selected"
+            className="emotion-4"
+            data-toggle={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            type="button"
           >
-            <label
-              htmlFor="downshift-1-input"
-              id="downshift-1-label"
-            />
-            <div
-              className="emotion-5"
-              onClick={[Function]}
+            <span
+              className="emotion-0"
             >
-              <span
-                className="emotion-0"
-              >
-                name:apple
-              </span>
-              <input
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-1-label"
-                autoComplete="off"
+              name:apple
+            </span>
+            <span
+              className="emotion-1"
+            >
+              <ChevronDown
                 className="emotion-1"
-                id="downshift-1-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder=""
-                readOnly={true}
-                tabIndex="0"
-                value="name:apple"
-              />
-              <span
-                className="emotion-2"
+                height="24"
+                width="24"
               >
-                <ChevronDown
-                  className="emotion-2"
+                <svg
+                  className="emotion-1"
                   height="24"
+                  viewBox="0 0 24 24"
                   width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
                 >
-                  <svg
-                    className="emotion-2"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                  <defs>
+                    <path
+                      d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
+                      id="mockId"
+                    />
+                  </defs>
+                  <g
+                    fillRule="evenodd"
+                    transform="translate(6 8)"
                   >
-                    <defs>
-                      <path
-                        d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
-                        id="mockId"
-                      />
-                    </defs>
-                    <g
-                      fillRule="evenodd"
-                      transform="translate(6 8)"
+                    <mask
+                      id="mockId"
                     >
-                      <mask
-                        id="mockId"
-                      >
-                        <use
-                          xlinkHref="#mockId"
-                        />
-                      </mask>
                       <use
-                        fillRule="nonzero"
                         xlinkHref="#mockId"
                       />
-                      <g
-                        mask="url(#mockId)"
-                      >
-                        <path
-                          d="M0 0h12v8H0z"
-                        />
-                      </g>
+                    </mask>
+                    <use
+                      fillRule="nonzero"
+                      xlinkHref="#mockId"
+                    />
+                    <g
+                      mask="url(#mockId)"
+                    >
+                      <path
+                        d="M0 0h12v8H0z"
+                      />
                     </g>
-                  </svg>
-                </ChevronDown>
-              </span>
-            </div>
-            <Menu
-              aria-labelledby="downshift-1-label"
-              focus={false}
-              id="downshift-1-menu"
-              isOpen={false}
-              role="listbox"
-              width="800px"
-            >
-              <ul
-                aria-labelledby="downshift-1-label"
-                className="emotion-9"
-                id="downshift-1-menu"
-                role="listbox"
-                width="800px"
-              >
-                <MenuItem
-                  aria-selected={false}
-                  highlighted={false}
-                  id="downshift-1-item-0"
-                  key="name:apple-0"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseMove={[Function]}
-                  role="option"
-                  selected={true}
-                >
-                  <li
-                    aria-selected={false}
-                    className="emotion-6"
-                    id="downshift-1-item-0"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseMove={[Function]}
-                    role="option"
-                    selected={true}
-                  >
-                    <div>
-                      mockRenderItemResult
-                    </div>
-                  </li>
-                </MenuItem>
-                <MenuItem
-                  aria-selected={false}
-                  highlighted={false}
-                  id="downshift-1-item-1"
-                  key="name:orange-1"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseMove={[Function]}
-                  role="option"
-                  selected={false}
-                >
-                  <li
-                    aria-selected={false}
-                    className="emotion-6"
-                    id="downshift-1-item-1"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseMove={[Function]}
-                    role="option"
-                    selected={false}
-                  >
-                    <div>
-                      mockRenderItemResult
-                    </div>
-                  </li>
-                </MenuItem>
-                <MenuItem
-                  aria-selected={false}
-                  highlighted={false}
-                  id="downshift-1-item-2"
-                  key="name:banana-2"
-                  onClick={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseMove={[Function]}
-                  role="option"
-                  selected={false}
-                >
-                  <li
-                    aria-selected={false}
-                    className="emotion-6"
-                    id="downshift-1-item-2"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseMove={[Function]}
-                    role="option"
-                    selected={false}
-                  >
-                    <div>
-                      mockRenderItemResult
-                    </div>
-                  </li>
-                </MenuItem>
-              </ul>
-            </Menu>
-          </div>
-        </Render>
-      </SelectOnKeyPressContainer>
+                  </g>
+                </svg>
+              </ChevronDown>
+            </span>
+          </button>
+        </div>
+      </DropdownMenu>
     </div>
   </Downshift>
 </Dropdown>
