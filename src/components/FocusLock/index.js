@@ -28,17 +28,20 @@ class LockWrapper extends Component {
     // eslint-disable-next-line react/no-find-dom-node
     this.base = findDOMNode(this);
 
-    const tabbables = [...this.base.querySelectorAll(tabbableSelector)];
-
-    // First tabbable element that is visible
-    this.firstFocusEl = tabbables.find(
+    // Tabbable visible elements
+    const tabbables = [...this.base.querySelectorAll(tabbableSelector)].filter(
       node =>
         node.offsetParent !== null &&
         window.getComputedStyle(node).visibility !== 'hidden'
     );
 
+    // eslint-disable-next-line prefer-destructuring
+    this.firstFocusEl = tabbables[0];
+    this.lastFocusEl = tabbables[tabbables.length - 1];
+
     if (this.firstFocusEl) {
       this.firstFocusEl.focus();
+      this.currentFocusedEl = this.firstFocusEl;
       document.addEventListener('focusin', this.onFocus);
     }
   }
@@ -51,9 +54,17 @@ class LockWrapper extends Component {
   }
 
   onFocus = event => {
-    if (!this.base.contains(event.target) && this.firstFocusEl) {
+    // Focused element is inside our component
+    if (this.base.contains(event.target)) {
+      this.currentFocusedEl = event.target;
+    } else {
+      // Focused element is _outside_ our component
       event.preventDefault();
-      this.firstFocusEl.focus();
+      if (this.currentFocusedEl === this.lastFocusEl) {
+        this.firstFocusEl.focus();
+      } else if (this.currentFocusedEl === this.firstFocusEl) {
+        this.lastFocusEl.focus();
+      }
     }
   };
 
