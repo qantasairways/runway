@@ -7,6 +7,7 @@ lib
 .next
 .eslintcache
 .docz
+.vscode/*
 styleguide
 preact/
 stats.html
