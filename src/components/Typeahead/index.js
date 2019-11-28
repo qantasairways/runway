@@ -117,16 +117,6 @@ function highlightedListItemStyles() {
 }
 
 class Typeahead extends Component {
-  constructor(props) {
-    super(props);
-
-    const { placeholder } = props;
-
-    this.state = {
-      placeholder
-    };
-  }
-
   componentDidMount() {
     if (typeof this.props.setRef === 'function' && this.inputRef) {
       this.props.setRef(this.inputRef);
@@ -230,10 +220,9 @@ class Typeahead extends Component {
       selectItemCollector,
       maxLength,
       menuHeight,
-      selectedItemValue
+      selectedItemValue,
+      placeholder
     } = this.props;
-
-    const { placeholder } = this.state;
 
     return (
       <Downshift
@@ -273,25 +262,14 @@ class Typeahead extends Component {
                   {...getInputProps({
                     disabled,
                     id,
-                    placeholder,
                     maxLength,
-                    onFocus: e => {
-                      setState({
-                        inputValue: ''
-                      });
-                      this.setState({
-                        placeholder: e.target.value
-                      });
+                    placeholder: placeholder || itemToString(selectedItem),
+                    onFocus: () => {
+                      setState({ inputValue: '' });
                       onFocus();
                     },
                     onBlur: () => {
-                      setState({
-                        inputValue: itemToString(selectedItem),
-                        placeholder: ''
-                      });
-                      this.setState({
-                        placeholder: ''
-                      });
+                      setState({ inputValue: itemToString(selectedItem) });
                       onBlur();
                     },
                     onKeyDown,
