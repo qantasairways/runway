@@ -203,7 +203,14 @@ class NumericInput extends Component {
   };
 
   render = () => {
-    const { label, id, highlightInvalid, onChange, ...rest } = this.props;
+    const {
+      label,
+      id,
+      highlightInvalid,
+      onChange,
+      ariaDescription,
+      ...rest
+    } = this.props;
 
     const up = (
       <PlusIcon
@@ -224,23 +231,34 @@ class NumericInput extends Component {
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label htmlFor={id} css={labelStyles}>
           {label}
-          <div css={getRcInputNumberStyles({ highlightInvalid })}>
-            <InputNumber
-              {...rest}
-              type="number"
-              id={id}
-              onChange={this.overloadedOnChange}
-              upHandler={up}
-              downHandler={down}
-              ref={this.setInputRef}
-            />
-          </div>
         </label>
+        <div css={getRcInputNumberStyles({ highlightInvalid })}>
+          <InputNumber
+            {...rest}
+            type="number"
+            id={id}
+            onChange={this.overloadedOnChange}
+            upHandler={up}
+            downHandler={down}
+            ref={this.setInputRef}
+            aria-describedby={`${id}-description`}
+          />
+        </div>
         <div aria-live="polite" aria-atomic="true">
           <div css={axValidationContainerStyles}>
             Current value is {this.state.value}.
           </div>
         </div>
+        {ariaDescription && (
+          <div
+            aria-live="off"
+            aria-atomic="true"
+            id={`${id}-description`}
+            css={axValidationContainerStyles}
+          >
+            {ariaDescription}
+          </div>
+        )}
       </Fragment>
     );
   };
@@ -256,6 +274,8 @@ NumericInput.propTypes = {
   setRef: PropTypes.func,
   /** String for the html label */
   label: PropTypes.string,
+  /** String for the input description */
+  ariaDescription: PropTypes.string,
   /** Optional id string for the input */
   id: PropTypes.string,
   /** Triggered when the user changes the value
@@ -270,6 +290,7 @@ NumericInput.defaultProps = {
   highlightInvalid: false,
   setRef: null,
   label: '',
+  ariaDescription: '',
   id: null,
   onChange: () => {},
   value: null
