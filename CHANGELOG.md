@@ -1,3 +1,17 @@
+# [0.50.0](https://github.com/qantasairways/runway/compare/v0.49.7...v0.50.0) (2019-11-28)
+
+
+### Bug Fixes
+
+* **focuslock:** loop backwards with shift+tab ([6c55bf6](https://github.com/qantasairways/runway/commit/6c55bf6))
+* **typeahead:** always keep placeholder text ([39f3e55](https://github.com/qantasairways/runway/commit/39f3e55))
+
+
+### Features
+
+* **buttonwithdialog:** add focuslock ([0d60661](https://github.com/qantasairways/runway/commit/0d60661))
+* **focuslock:** add focusLock component ([1493b1e](https://github.com/qantasairways/runway/commit/1493b1e))
+
 ## [0.49.7](https://github.com/qantasairways/runway/compare/v0.49.6...v0.49.7) (2019-11-27)
 
 
