@@ -1,3 +1,19 @@
+## [0.50.1](https://github.com/qantasairways/runway/compare/v0.50.0...v0.50.1) (2019-11-29)
+
+
+### Bug Fixes
+
+* **circleci:** upgrade to node v8.16 to fix semantic versioning ([#166](https://github.com/qantasairways/runway/issues/166)) ([573486a](https://github.com/qantasairways/runway/commit/573486a59935d5aac467debbb001f0b6bbb86669))
+* **cross-icon:** added comprehensive unit tests ([#152](https://github.com/qantasairways/runway/issues/152)) ([df3df50](https://github.com/qantasairways/runway/commit/df3df5059f87106b37fafaf60f69a4ee8ee234a6))
+* **globe-icon:** added comprehensive unit tests ([#153](https://github.com/qantasairways/runway/issues/153)) ([8eae58f](https://github.com/qantasairways/runway/commit/8eae58fd4197bdd75a5b324629fbfea5c3c14edf))
+* **info-icon:** added comprehensive unit tests ([#154](https://github.com/qantasairways/runway/issues/154)) ([c2ae640](https://github.com/qantasairways/runway/commit/c2ae6408a3037ac4619cbdf1e31e10429a641b50))
+* **map-pin-icon:** added comprehensive unit tests ([#155](https://github.com/qantasairways/runway/issues/155)) ([df1dc0d](https://github.com/qantasairways/runway/commit/df1dc0db20b6e931bdb48a71dfbd855081104475))
+* **package.json:** fix npm package vulnerabilities ([#164](https://github.com/qantasairways/runway/issues/164)) ([7bcff61](https://github.com/qantasairways/runway/commit/7bcff61d0e0f49fb1c59de52f8a3b5a1602ed890))
+* **person-icon:** added comprehensive unit tests ([#157](https://github.com/qantasairways/runway/issues/157)) ([f154587](https://github.com/qantasairways/runway/commit/f1545876d6d4fbf380c9b5412fe7282d544a2ee7))
+* **pin-icon:** added comprehensive unit tests ([#158](https://github.com/qantasairways/runway/issues/158)) ([884fe3f](https://github.com/qantasairways/runway/commit/884fe3fbb95416cabeaf7eaa9715c2100f37e2c4))
+* **pin-plus-icon:** added comprehensive unit tests ([#159](https://github.com/qantasairways/runway/issues/159)) ([46ef67f](https://github.com/qantasairways/runway/commit/46ef67fb90eed9618d9c583bb644778ec5910290))
+* **toggle:** wrap toggle control with label for better a11y ([#145](https://github.com/qantasairways/runway/issues/145)) ([11c2246](https://github.com/qantasairways/runway/commit/11c22468fd537d01184889381bf12cbee3d9f8d5))
+
 # [0.50.0](https://github.com/qantasairways/runway/compare/v0.49.7...v0.50.0) (2019-11-28)
 
 
