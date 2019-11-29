@@ -12,7 +12,6 @@ exports[`ButtonWithDialog renders correctly with defaults 1`] = `
     Icon={null}
     buttonLabel=""
     closeAriaLabel=""
-    closeOnBlur={true}
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}
@@ -55,7 +54,6 @@ exports[`ButtonWithDialog renders correctly with one child element 1`] = `
     Icon={null}
     buttonLabel=""
     closeAriaLabel=""
-    closeOnBlur={true}
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}
@@ -93,7 +91,7 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
 
 .emotion-2 {
   position: relative;
-  height: 6rem;
+  height: 70px;
   width: 100%;
   max-width: 100%;
   border: 0;
@@ -136,7 +134,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
 
 <ButtonWithDialog
   closeAriaLabel=""
-  closeOnBlur={true}
   dialogAriaLabel=""
   dialogStyles={Object {}}
   hasDialogDimensions={false}
@@ -163,7 +160,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
       Icon={null}
       buttonLabel=""
       closeAriaLabel=""
-      closeOnBlur={true}
       dialogStyles={Object {}}
       hasDialogDimensions={false}
       iconLabelButtonValue={null}
@@ -241,7 +237,6 @@ exports[`ButtonWithDialog renders correctly with props 1`] = `
     Icon={null}
     buttonLabel=""
     closeAriaLabel=""
-    closeOnBlur={true}
     dialogStyles={Object {}}
     hasDialogDimensions={false}
     iconLabelButtonValue={null}

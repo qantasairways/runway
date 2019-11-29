@@ -17,7 +17,7 @@ function buttonStyles({ hasMediumGreyback }) {
   return css({
     label: 'runway-popup-field__button',
     position: 'relative',
-    height: '6rem',
+    height: '70px',
     width: '100%',
     maxWidth: '100%',
     border: 0,
@@ -46,7 +46,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
           label: 'runway-dialog-button__value--large',
           fontSize: fontSize.large,
           letterSpacing: letterSpacing.small,
-          lineHeight: '2.65rem'
+          lineHeight: 1
         }}
       >
         {largeButtonValue}
@@ -206,7 +206,7 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   renderButtonValue: PropTypes.func,
   onBlur: PropTypes.func,
-  setButtonRef: PropTypes.func.isRequired,
+  setButtonRef: PropTypes.func,
   open: PropTypes.bool,
   buttonLabel: PropTypes.string,
   placeHolder: PropTypes.string,
@@ -219,6 +219,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   onBlur: noop,
+  setButtonRef: noop,
   renderButtonValue: () => null,
   open: false,
   buttonLabel: '',

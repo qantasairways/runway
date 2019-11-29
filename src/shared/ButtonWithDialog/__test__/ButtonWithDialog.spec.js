@@ -92,37 +92,38 @@ describe('ButtonWithDialog', () => {
           transitionStyles={{ entering: {}, entered: {}, exiting: {} }}
           contentPadding="1px"
         >
-          {({ setFocusElementRef, setScrollTargetRef }) => (
+          {({ setScrollTargetRef }) => (
             <div ref={setScrollTargetRef}>
-              <button type="button" ref={setFocusElementRef} />
+              <button type="button" />
             </div>
           )}
         </ButtonWithDialog>
       );
       openDialog(component);
-      jest.spyOn(component.instance().focusElement, 'focus');
       component.instance().onEntered();
       jest.useFakeTimers();
     });
 
     afterEach(() => {
       document.addEventListener.mockReset();
-      component.instance().focusElement.focus.mockReset();
     });
 
-    it('adds click event listener', () => {
+    it('adds click/keydown/focusin event listener', () => {
       const addEventListenerCalls = document.addEventListener.mock.calls;
 
-      expect(addEventListenerCalls.length).toBe(1);
-      expect(addEventListenerCalls[0][0]).toBe('click');
-      expect(addEventListenerCalls[0][1]).toBe(
+      expect(addEventListenerCalls.length).toBe(3);
+
+      expect(addEventListenerCalls[0][0]).toBe('focusin');
+
+      expect(addEventListenerCalls[1][0]).toBe('click');
+      expect(addEventListenerCalls[1][1]).toBe(
         component.instance().handleClickOutside
       );
-    });
 
-    it('focuses the element with ref this.focusElement', () => {
-      jest.runAllTimers();
-      expect(component.instance().focusElement.focus).toHaveBeenCalled();
+      expect(addEventListenerCalls[2][0]).toBe('keydown');
+      expect(addEventListenerCalls[2][1]).toBe(
+        component.instance().handleEscKey
+      );
     });
   });
 
@@ -147,32 +148,32 @@ describe('ButtonWithDialog', () => {
           {'children'}
         </ButtonWithDialog>
       );
-      jest.spyOn(component.instance().fieldButton, 'focus');
       component.instance().onExited();
     });
 
     afterEach(() => {
       document.removeEventListener.mockReset();
       mockOnClose.mockReset();
-      component.instance().fieldButton.focus.mockReset();
     });
 
-    it('removes click event listener', () => {
+    it('removes click/keydown event listener', () => {
       const removeEventListenerCalls = document.removeEventListener.mock.calls;
 
-      expect(removeEventListenerCalls.length).toBe(1);
+      expect(removeEventListenerCalls.length).toBe(2);
+
       expect(removeEventListenerCalls[0][0]).toBe('click');
       expect(removeEventListenerCalls[0][1]).toBe(
         component.instance().handleClickOutside
+      );
+
+      expect(removeEventListenerCalls[1][0]).toBe('keydown');
+      expect(removeEventListenerCalls[1][1]).toBe(
+        component.instance().handleEscKey
       );
     });
 
     it('calls this.props.onClose()', () => {
       expect(mockOnClose.mock.calls.length).toBe(1);
-    });
-
-    it('focuses the field button', () => {
-      expect(component.instance().fieldButton.focus).toHaveBeenCalled();
     });
   });
 

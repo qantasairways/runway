@@ -3,7 +3,7 @@
 exports[`Button renders correctly with buttonContent custom element 1`] = `
 .emotion-2 {
   position: relative;
-  height: 6rem;
+  height: 70px;
   width: 100%;
   max-width: 100%;
   border: 0;
@@ -70,7 +70,7 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
 exports[`Button renders correctly with defaults 1`] = `
 .emotion-3 {
   position: relative;
-  height: 6rem;
+  height: 70px;
   width: 100%;
   max-width: 100%;
   border: 0;
@@ -113,7 +113,7 @@ exports[`Button renders correctly with defaults 1`] = `
 
 .emotion-1 {
   color: #888888;
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
   -ms-letter-spacing: -0.0625rem;
@@ -144,7 +144,7 @@ exports[`Button renders correctly with defaults 1`] = `
 exports[`Button renders correctly with props provided 1`] = `
 .emotion-3 {
   position: relative;
-  height: 6rem;
+  height: 70px;
   width: 100%;
   max-width: 100%;
   border: 0;
@@ -187,7 +187,7 @@ exports[`Button renders correctly with props provided 1`] = `
 
 .emotion-1 {
   color: #888888;
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
   -ms-letter-spacing: -0.0625rem;
@@ -226,12 +226,12 @@ exports[`ButtonContent renders correctly with defaults 1`] = `
 }
 
 .emotion-0 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
   -ms-letter-spacing: -0.0625rem;
   letter-spacing: -0.0625rem;
-  line-height: 2.65rem;
+  line-height: 1;
 }
 
 .emotion-1 {
@@ -259,12 +259,12 @@ exports[`ButtonContent renders correctly with props provided 1`] = `
 }
 
 .emotion-0 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   -webkit-letter-spacing: -0.0625rem;
   -moz-letter-spacing: -0.0625rem;
   -ms-letter-spacing: -0.0625rem;
   letter-spacing: -0.0625rem;
-  line-height: 2.65rem;
+  line-height: 1;
 }
 
 .emotion-1 {

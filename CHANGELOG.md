@@ -1,3 +1,80 @@
+# [0.50.0](https://github.com/qantasairways/runway/compare/v0.49.7...v0.50.0) (2019-11-28)
+
+
+### Bug Fixes
+
+* **focuslock:** loop backwards with shift+tab ([6c55bf6](https://github.com/qantasairways/runway/commit/6c55bf6))
+* **typeahead:** always keep placeholder text ([39f3e55](https://github.com/qantasairways/runway/commit/39f3e55))
+
+
+### Features
+
+* **buttonwithdialog:** add focuslock ([0d60661](https://github.com/qantasairways/runway/commit/0d60661))
+* **focuslock:** add focusLock component ([1493b1e](https://github.com/qantasairways/runway/commit/1493b1e))
+
+## [0.49.7](https://github.com/qantasairways/runway/compare/v0.49.6...v0.49.7) (2019-11-27)
+
+
+### Bug Fixes
+
+* **dropdown:** fix dropdown to be selectable all box ([#160](https://github.com/qantasairways/runway/issues/160)) ([52481e2](https://github.com/qantasairways/runway/commit/52481e2))
+
+## [0.49.6](https://github.com/qantasairways/runway/compare/v0.49.5...v0.49.6) (2019-11-19)
+
+
+### Bug Fixes
+
+* **popup-field:** desktop chrome is broken ([dc2a7f0](https://github.com/qantasairways/runway/commit/dc2a7f0))
+
+## [0.49.5](https://github.com/qantasairways/runway/compare/v0.49.4...v0.49.5) (2019-11-19)
+
+
+### Bug Fixes
+
+* **popup-field:** ios safari does not scroll in the typeahead ([#163](https://github.com/qantasairways/runway/issues/163)) ([ff55ccc](https://github.com/qantasairways/runway/commit/ff55ccc))
+
+## [0.49.4](https://github.com/qantasairways/runway/compare/v0.49.3...v0.49.4) (2019-11-18)
+
+
+### Bug Fixes
+
+* **minus-icon:** added comprehensive unit tests ([#156](https://github.com/qantasairways/runway/issues/156)) ([934fdb6](https://github.com/qantasairways/runway/commit/934fdb6))
+
+## [0.49.3](https://github.com/qantasairways/runway/compare/v0.49.2...v0.49.3) (2019-11-18)
+
+
+### Bug Fixes
+
+* **chevron-down-icon:** added comprehensive unit tests ([#151](https://github.com/qantasairways/runway/issues/151)) ([c7f9836](https://github.com/qantasairways/runway/commit/c7f9836))
+
+## [0.49.2](https://github.com/qantasairways/runway/compare/v0.49.1...v0.49.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **contributors:** added james and yogesh ([a7670af](https://github.com/qantasairways/runway/commit/a7670af))
+
+## [0.49.1](https://github.com/qantasairways/runway/compare/v0.49.0...v0.49.1) (2019-11-18)
+
+
+### Bug Fixes
+
+* **calendaricon:** added comprehensive unit tests ([#150](https://github.com/qantasairways/runway/issues/150)) ([43e3b0b](https://github.com/qantasairways/runway/commit/43e3b0b))
+
+# [0.49.0](https://github.com/qantasairways/runway/compare/v0.48.2...v0.49.0) (2019-11-18)
+
+
+### Features
+
+* **button:** changed the height and font size of the button ([#140](https://github.com/qantasairways/runway/issues/140)) ([0afe075](https://github.com/qantasairways/runway/commit/0afe075))
+
+## [0.48.2](https://github.com/qantasairways/runway/compare/v0.48.1...v0.48.2) (2019-11-15)
+
+
+### Bug Fixes
+
+* **dropdown:** fix dropdown to selectable all box ([#146](https://github.com/qantasairways/runway/issues/146)) ([3d7ce1a](https://github.com/qantasairways/runway/commit/3d7ce1a))
+
 ## [0.48.1](https://github.com/qantasairways/runway/compare/v0.48.0...v0.48.1) (2019-10-31)
 
 
