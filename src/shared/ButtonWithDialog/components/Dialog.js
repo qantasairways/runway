@@ -6,6 +6,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks
 } from 'body-scroll-lock';
+import FocusLock from '../../../components/FocusLock';
 
 class Dialog extends Component {
   targetElement = null;
@@ -60,18 +61,20 @@ class Dialog extends Component {
     } = this.props;
 
     return (
-      <div
-        aria-label={dialogAriaLabel}
-        role="dialog"
-        css={{
-          ...dialogStyles,
-          ...transitionStyles[transitionState]
-        }}
-      >
-        {renderHeader()}
-        {content}
-        {renderFooter()}
-      </div>
+      <FocusLock>
+        <div
+          aria-label={dialogAriaLabel}
+          role="dialog"
+          css={{
+            ...dialogStyles,
+            ...transitionStyles[transitionState]
+          }}
+        >
+          {renderHeader()}
+          {content}
+          {renderFooter()}
+        </div>
+      </FocusLock>
     );
   };
 }
