@@ -13,7 +13,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { withMediaQueryDetector } from '../MediaQueryDetector';
 
-/* TODO: 
+/* TODO:
   - Update dialogs to use portals and remove fixed positioning
   - Separate out the dialogs into separate components.
     - This will remove the need for defaultScrollingContainer and setScrollTargetRef
@@ -131,12 +131,11 @@ export class PopupField extends Component {
         transitionStyles={transitionStylesSlideUp}
         shouldAddScrollLockClass={shouldAddScrollLockClass}
       >
-        {({ closeDialog, setFocusElementRef, setScrollTargetRef }) => {
+        {({ closeDialog, setScrollTargetRef }) => {
           const content =
             typeof children === 'function'
               ? children({
                   closeDialog,
-                  setFocusElementRef,
                   setScrollTargetRef
                 })
               : children;
@@ -148,7 +147,8 @@ export class PopupField extends Component {
                 padding: layout.gutter,
                 'overflow-y': defaultScrollingContainer ? 'scroll' : 'hidden',
                 '-webkit-overflow-scrolling': 'touch',
-                flex: '1 1 auto'
+                flex: '1',
+                '-ms-flex': 'none'
               }}
             >
               {content}
