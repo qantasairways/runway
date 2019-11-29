@@ -16,4 +16,12 @@ window.matchMedia = jest.fn().mockImplementation(query => ({
 
 window.scrollTo = jest.fn();
 
+// Mock offsetParent (undefined in jsdom)
+// https://github.com/jsdom/jsdom/issues/1261
+Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
+  get() {
+    return this.parentNode;
+  }
+});
+
 configure({ adapter: new Adapter() });
