@@ -18,6 +18,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -48,15 +49,15 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
   box-shadow: inset #626262 0px 0px 0px 2px;
 }
 
-<div
+<label
   className="emotion-2 mockContainerClassName"
+  htmlFor="mockId-3"
 >
-  <label
+  <span
     className="emotion-0"
-    htmlFor="mockId-3"
   >
     mockLabel
-  </label>
+  </span>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
@@ -75,7 +76,7 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</div>
+</label>
 `;
 
 exports[`Toggle Controlled should render checked="true" correctly 1`] = `
@@ -96,6 +97,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -126,15 +128,15 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
   box-shadow: none;
 }
 
-<div
+<label
   className="emotion-2 mockContainerClassName"
+  htmlFor="mockId-2"
 >
-  <label
+  <span
     className="emotion-0"
-    htmlFor="mockId-2"
   >
     mockLabel
-  </label>
+  </span>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
@@ -153,7 +155,7 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</div>
+</label>
 `;
 
 exports[`Toggle Uncontrolled should render correctly 1`] = `
@@ -174,6 +176,7 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .emotion-0 {
@@ -204,15 +207,15 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
   box-shadow: inset #626262 0px 0px 0px 2px;
 }
 
-<div
+<label
   className="emotion-2 mockContainerClassName"
+  htmlFor="mockId-1"
 >
-  <label
+  <span
     className="emotion-0"
-    htmlFor="mockId-1"
   >
     mockLabel
-  </label>
+  </span>
   <ReactSwitch
     activeBoxShadow="0 0 2px 3px #3bf"
     boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
@@ -231,5 +234,5 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
     uncheckedIcon={false}
     width={46}
   />
-</div>
+</label>
 `;
