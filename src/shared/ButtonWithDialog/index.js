@@ -5,6 +5,7 @@ import { css } from 'emotion';
 
 import noop from '../../utils/noop';
 import { mq, fontFamily } from '../../theme/airways';
+import { KEY_CODE_ESC } from '../../constants/keyCodes';
 
 import Dialog from './components/Dialog';
 import Button, { ButtonContent } from './components/Button';
@@ -67,39 +68,24 @@ class ButtonWithDialog extends Component {
 
   onEntered = () => {
     this.props.onOpen();
-    addQComZIndex('initial');
+    addQComZIndex('auto');
 
     this.setState({
       pageScrollPos: window.scrollY
     });
 
     if (this.props.shouldAddScrollLockClass) {
-      document
-        .getElementsByTagName('html')[0]
-        .classList.add(this.scrollLockClass);
-      document
-        .getElementsByTagName('body')[0]
-        .classList.add(this.scrollLockClass);
+      document.documentElement.classList.add(this.scrollLockClass);
+      document.body.classList.add(this.scrollLockClass);
     }
 
-    if (this.props.closeOnBlur) {
-      document.addEventListener('click', this.handleClickOutside);
-    }
-
-    setTimeout(() => {
-      if (this.focusElement) {
-        this.focusElement.focus();
-      }
-    });
+    document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleEscKey);
   };
 
   onExit = () => {
-    document
-      .getElementsByTagName('html')[0]
-      .classList.remove(this.scrollLockClass);
-    document
-      .getElementsByTagName('body')[0]
-      .classList.remove(this.scrollLockClass);
+    document.documentElement.classList.remove(this.scrollLockClass);
+    document.body.classList.remove(this.scrollLockClass);
 
     window.scrollTo(0, this.state.pageScrollPos);
 
@@ -108,19 +94,20 @@ class ButtonWithDialog extends Component {
 
   onExited = () => {
     this.props.onClose();
-    addQComZIndex(null);
+    addQComZIndex('');
 
-    if (this.props.closeOnBlur) {
-      document.removeEventListener('click', this.handleClickOutside);
-    }
-
-    if (this.fieldButton) {
-      this.fieldButton.focus();
-    }
+    document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleEscKey);
   };
 
   handleClickOutside = event => {
     if (this.wrapper && !this.wrapper.contains(event.target)) {
+      this.closeDialog();
+    }
+  };
+
+  handleEscKey = event => {
+    if (event.keyCode === KEY_CODE_ESC) {
       this.closeDialog();
     }
   };
@@ -137,16 +124,6 @@ class ButtonWithDialog extends Component {
     });
   };
 
-  setFocusElementRef = el => {
-    if (el) {
-      this.focusElement = el;
-    }
-  };
-
-  setButtonRef = el => {
-    this.fieldButton = el;
-  };
-
   setScrollTargetRef = el => {
     if (el) {
       this.scrollTarget = el;
@@ -154,16 +131,10 @@ class ButtonWithDialog extends Component {
   };
 
   renderHeader = () =>
-    this.props.renderHeader({
-      closeDialog: this.closeDialog,
-      setFocusElementRef: this.setFocusElementRef
-    });
+    this.props.renderHeader({ closeDialog: this.closeDialog });
 
   renderFooter = () =>
-    this.props.renderFooter({
-      closeDialog: this.closeDialog,
-      setFocusElementRef: this.setFocusElementRef
-    });
+    this.props.renderFooter({ closeDialog: this.closeDialog });
 
   renderButton = () => {
     const { open } = this.state;
@@ -174,14 +145,7 @@ class ButtonWithDialog extends Component {
       ...buttonProps
     } = this.props;
 
-    return (
-      <Button
-        onClick={this.openDialog}
-        setButtonRef={this.setButtonRef}
-        open={open}
-        {...buttonProps}
-      />
-    );
+    return <Button onClick={this.openDialog} open={open} {...buttonProps} />;
   };
 
   collectRef = el => {
@@ -203,7 +167,6 @@ class ButtonWithDialog extends Component {
       typeof children === 'function'
         ? children({
             closeDialog: this.closeDialog,
-            setFocusElementRef: this.setFocusElementRef,
             setScrollTargetRef: this.setScrollTargetRef
           })
         : children;
@@ -261,7 +224,6 @@ ButtonWithDialog.propTypes = {
   onClose: PropTypes.func,
   onBeforeClose: PropTypes.func,
   onBlur: PropTypes.func,
-  closeOnBlur: PropTypes.bool,
   closeAriaLabel: PropTypes.string,
   dialogAriaLabel: PropTypes.string,
   renderHeader: PropTypes.func,
@@ -283,7 +245,6 @@ ButtonWithDialog.defaultProps = {
   onOpen: noop,
   onBlur: noop,
   closeAriaLabel: '',
-  closeOnBlur: true,
   renderHeader: noop,
   renderFooter: noop,
   dialogAriaLabel: '',
