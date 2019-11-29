@@ -206,7 +206,7 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   renderButtonValue: PropTypes.func,
   onBlur: PropTypes.func,
-  setButtonRef: PropTypes.func.isRequired,
+  setButtonRef: PropTypes.func,
   open: PropTypes.bool,
   buttonLabel: PropTypes.string,
   placeHolder: PropTypes.string,
@@ -219,6 +219,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   onBlur: noop,
+  setButtonRef: noop,
   renderButtonValue: () => null,
   open: false,
   buttonLabel: '',

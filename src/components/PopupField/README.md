@@ -29,10 +29,9 @@
 
 If the type of `children` provided is a function, the following render props are provided:
 
-| Prop               | Type     | Description                                                      |
-| ------------------ | -------- | ---------------------------------------------------------------- |
-| closeDialog        | function | Closes the popup                                                 |
-| setFocusElementRef | function | Sets ref on an element that will be focused when the popup opens |
+| Prop        | Type     | Description      |
+| ----------- | -------- | ---------------- |
+| closeDialog | function | Closes the popup |
 
 ### Value not selected
 
@@ -46,10 +45,10 @@ Optional placeholder and icon will be displayed if provided
   HeaderIcon={PinIcon}
   headerLabel="Popup Field"
 >
-  {({ closeDialog, setFocusElementRef }) => (
+  {({ closeDialog }) => (
     <div>
       <div>Render Custom Content</div>
-      <input type="text" ref={setFocusElementRef} />
+      <input type="text" />
       <button onClick={closeDialog}>Close</button>
     </div>
   )}
