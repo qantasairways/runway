@@ -149,7 +149,8 @@ class Typeahead extends Component {
     highlightedIndex,
     selectedItem,
     inputValue,
-    menuHeight
+    menuHeight,
+    listRef
   ) => {
     const { items, itemToString, fetchListOnInput, badgeToString } = this.props;
     const filteredItems = fetchListOnInput
@@ -157,7 +158,7 @@ class Typeahead extends Component {
       : this.filterItems(items, inputValue);
 
     return filteredItems.length ? (
-      <ul {...getMenuProps()} css={menuStyles()}>
+      <ul {...getMenuProps()} css={menuStyles()} ref={listRef}>
         {filteredItems.map((item, index) => {
           const isHighlighted = highlightedIndex === index;
           const isSelected = selectedItem === item;
@@ -193,7 +194,7 @@ class Typeahead extends Component {
         })}
       </ul>
     ) : (
-      <div css={{ height: menuHeight }} />
+      <div ref={listRef} css={{ height: menuHeight }} />
     );
   };
 
@@ -277,10 +278,7 @@ class Typeahead extends Component {
                   })}
                 />
               </div>
-              <div
-                css={menuWrapStyles({ menuHeight })}
-                ref={this.props.listRef}
-              >
+              <div css={menuWrapStyles({ menuHeight })}>
                 {isOpen && !isFetchingList && inputValue.length >= minChars ? (
                   this.renderItems(
                     getMenuProps,
@@ -288,7 +286,8 @@ class Typeahead extends Component {
                     highlightedIndex,
                     selectedItem,
                     inputValue,
-                    menuHeight
+                    menuHeight,
+                    this.props.listRef
                   )
                 ) : (
                   <div css={{ height: menuHeight }}>
