@@ -151,17 +151,21 @@ class Typeahead extends Component {
     inputValue,
     menuHeight
   ) => {
-    const { items, itemToString, fetchListOnInput, badgeToString } = this.props;
+    const {
+      items,
+      itemToString,
+      fetchListOnInput,
+      badgeToString,
+      listRef
+    } = this.props;
     const filteredItems = fetchListOnInput
       ? items
       : this.filterItems(items, inputValue);
-
     return filteredItems.length ? (
-      <ul {...getMenuProps()} css={menuStyles()}>
+      <ul {...getMenuProps()} css={menuStyles()} ref={listRef}>
         {filteredItems.map((item, index) => {
           const isHighlighted = highlightedIndex === index;
           const isSelected = selectedItem === item;
-
           const text = itemToString(item);
           const chunks = findAll({
             searchWords: [inputValue],
@@ -176,7 +180,6 @@ class Typeahead extends Component {
             );
           });
           const badge = badgeToString(item);
-
           return (
             <li
               key={itemToString(item)}
@@ -223,7 +226,6 @@ class Typeahead extends Component {
       selectedItemValue,
       placeholder
     } = this.props;
-
     return (
       <Downshift
         initialSelectedItem={initialSelectedItem}
@@ -277,10 +279,7 @@ class Typeahead extends Component {
                   })}
                 />
               </div>
-              <div
-                css={menuWrapStyles({ menuHeight })}
-                ref={this.props.listRef}
-              >
+              <div css={menuWrapStyles({ menuHeight })}>
                 {isOpen && !isFetchingList && inputValue.length >= minChars ? (
                   this.renderItems(
                     getMenuProps,
@@ -377,7 +376,6 @@ Typeahead.propTypes = {
     PropTypes.objectOf(PropTypes.any)
   ])
 };
-
 Typeahead.defaultProps = {
   ...Downshift.propTypes,
   disabled: false,
