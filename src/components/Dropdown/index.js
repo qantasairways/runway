@@ -9,6 +9,7 @@ import {
   CSS_SELECTOR_FOCUS
 } from '../../constants/css';
 
+import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
@@ -141,7 +142,6 @@ function DropdownMenu(props) {
   } = downshiftProps;
 
   const inputProps = getInputProps();
-  console.log('mina', inputProps);
 
   return (
     <div css={{ width: '100%', height: '100%' }}>
@@ -272,8 +272,14 @@ export default class Dropdown extends React.Component {
             downshiftProps
           };
           return (
-            <div css={dropdownMenuContainerStyles(props)}>
-              <DropdownMenu {...renderProps} />
+            <div css={dropdownMenuContainerStyles(props, isOpen)}>
+              <SelectOnKeyPressContainer
+                items={props.items}
+                itemToString={props.downShiftProps.itemToString}
+                downshiftProps={downshiftProps}
+              >
+                <DropdownMenu {...renderProps} />
+              </SelectOnKeyPressContainer>
             </div>
           );
         }}

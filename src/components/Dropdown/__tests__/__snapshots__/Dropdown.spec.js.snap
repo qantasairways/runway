@@ -105,13 +105,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
       className="emotion-6"
       role="combobox"
     >
-      <DropdownMenu
-        ariaLabel=""
-        downShiftProps={
-          Object {
-            "itemToString": [Function],
-          }
-        }
+      <SelectOnKeyPressContainer
         downshiftProps={
           Object {
             "clearItems": [Function],
@@ -141,86 +135,127 @@ exports[`Dropdown renders correctly with defaults 1`] = `
             "unsetItemCount": [Function],
           }
         }
-        growMenu={false}
-        height="100%"
-        highlighted={false}
-        inline={false}
+        focus={false}
+        itemToString={[Function]}
         items={Array []}
-        label=""
-        menuWidth={null}
-        onChange={null}
-        renderItem={[Function]}
       >
-        <div
-          className="emotion-5"
+        <DropdownMenu
+          ariaLabel=""
+          downShiftProps={
+            Object {
+              "itemToString": [Function],
+            }
+          }
+          downshiftProps={
+            Object {
+              "clearItems": [Function],
+              "clearSelection": [Function],
+              "closeMenu": [Function],
+              "getInputProps": [Function],
+              "getItemProps": [Function],
+              "getLabelProps": [Function],
+              "getMenuProps": [Function],
+              "getRootProps": [Function],
+              "getToggleButtonProps": [Function],
+              "highlightedIndex": null,
+              "id": "downshift-0",
+              "inputValue": "",
+              "isOpen": false,
+              "itemToString": [Function],
+              "openMenu": [Function],
+              "reset": [Function],
+              "selectHighlightedItem": [Function],
+              "selectItem": [Function],
+              "selectItemAtIndex": [Function],
+              "selectedItem": null,
+              "setHighlightedIndex": [Function],
+              "setItemCount": [Function],
+              "setState": [Function],
+              "toggleMenu": [Function],
+              "unsetItemCount": [Function],
+            }
+          }
+          growMenu={false}
+          height="100%"
+          highlighted={false}
+          inline={false}
+          items={Array []}
+          label=""
+          menuWidth={null}
+          onChange={null}
+          renderItem={[Function]}
         >
-          <button
-            aria-activedescendant={null}
-            aria-haspopup={true}
-            aria-label={null}
-            className="emotion-4"
-            data-toggle={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            type="button"
+          <div
+            className="emotion-5"
           >
-            <span
-              className="emotion-0"
-            />
-            <span
-              className="emotion-1"
+            <button
+              aria-activedescendant={null}
+              aria-haspopup={true}
+              aria-label={null}
+              className="emotion-4"
+              data-toggle={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              role="button"
+              type="button"
             >
-              <ChevronDown
+              <span
+                className="emotion-0"
+              />
+              <span
                 className="emotion-1"
-                height="24"
-                width="24"
               >
-                <svg
+                <ChevronDown
                   className="emotion-1"
                   height="24"
-                  viewBox="0 0 24 24"
                   width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
                 >
-                  <defs>
-                    <path
-                      d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
-                      id="mockId"
-                    />
-                  </defs>
-                  <g
-                    fillRule="evenodd"
-                    transform="translate(6 8)"
+                  <svg
+                    className="emotion-1"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
                   >
-                    <mask
-                      id="mockId"
+                    <defs>
+                      <path
+                        d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
+                        id="mockId"
+                      />
+                    </defs>
+                    <g
+                      fillRule="evenodd"
+                      transform="translate(6 8)"
                     >
+                      <mask
+                        id="mockId"
+                      >
+                        <use
+                          xlinkHref="#mockId"
+                        />
+                      </mask>
                       <use
+                        fillRule="nonzero"
                         xlinkHref="#mockId"
                       />
-                    </mask>
-                    <use
-                      fillRule="nonzero"
-                      xlinkHref="#mockId"
-                    />
-                    <g
-                      mask="url(#mockId)"
-                    >
-                      <path
-                        d="M0 0h12v8H0z"
-                      />
+                      <g
+                        mask="url(#mockId)"
+                      >
+                        <path
+                          d="M0 0h12v8H0z"
+                        />
+                      </g>
                     </g>
-                  </g>
-                </svg>
-              </ChevronDown>
-            </span>
-          </button>
-        </div>
-      </DropdownMenu>
+                  </svg>
+                </ChevronDown>
+              </span>
+            </button>
+          </div>
+        </DropdownMenu>
+      </SelectOnKeyPressContainer>
     </div>
   </Downshift>
 </Dropdown>
@@ -358,13 +393,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
       className="emotion-6"
       role="combobox"
     >
-      <DropdownMenu
-        ariaLabel=""
-        downShiftProps={
-          Object {
-            "itemToString": [Function],
-          }
-        }
+      <SelectOnKeyPressContainer
         downshiftProps={
           Object {
             "clearItems": [Function],
@@ -397,11 +426,8 @@ exports[`Dropdown renders correctly with props provided 1`] = `
             "unsetItemCount": [Function],
           }
         }
-        focus={true}
-        growMenu={true}
-        height="20px"
-        highlighted={true}
-        inline={true}
+        focus={false}
+        itemToString={[Function]}
         items={
           Array [
             Object {
@@ -418,84 +444,146 @@ exports[`Dropdown renders correctly with props provided 1`] = `
             },
           ]
         }
-        label=""
-        menuWidth="800px"
-        onChange={[Function]}
-        renderItem={[Function]}
-        withPadding={true}
       >
-        <div
-          className="emotion-5"
+        <DropdownMenu
+          ariaLabel=""
+          downShiftProps={
+            Object {
+              "itemToString": [Function],
+            }
+          }
+          downshiftProps={
+            Object {
+              "clearItems": [Function],
+              "clearSelection": [Function],
+              "closeMenu": [Function],
+              "getInputProps": [Function],
+              "getItemProps": [Function],
+              "getLabelProps": [Function],
+              "getMenuProps": [Function],
+              "getRootProps": [Function],
+              "getToggleButtonProps": [Function],
+              "highlightedIndex": null,
+              "id": "downshift-1",
+              "inputValue": "name:apple",
+              "isOpen": false,
+              "itemToString": [Function],
+              "openMenu": [Function],
+              "reset": [Function],
+              "selectHighlightedItem": [Function],
+              "selectItem": [Function],
+              "selectItemAtIndex": [Function],
+              "selectedItem": Object {
+                "name": "name:apple",
+                "value": "value:apple",
+              },
+              "setHighlightedIndex": [Function],
+              "setItemCount": [Function],
+              "setState": [Function],
+              "toggleMenu": [Function],
+              "unsetItemCount": [Function],
+            }
+          }
+          focus={true}
+          growMenu={true}
+          height="20px"
+          highlighted={true}
+          inline={true}
+          items={
+            Array [
+              Object {
+                "name": "name:apple",
+                "value": "value:apple",
+              },
+              Object {
+                "name": "name:orange",
+                "value": "name:orange",
+              },
+              Object {
+                "name": "name:banana",
+                "value": "name:banana",
+              },
+            ]
+          }
+          label=""
+          menuWidth="800px"
+          onChange={[Function]}
+          renderItem={[Function]}
+          withPadding={true}
         >
-          <button
-            aria-activedescendant={null}
-            aria-haspopup={true}
-            aria-label=" Menu, name:apple selected"
-            className="emotion-4"
-            data-toggle={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            type="button"
+          <div
+            className="emotion-5"
           >
-            <span
-              className="emotion-0"
+            <button
+              aria-activedescendant={null}
+              aria-haspopup={true}
+              aria-label=" Menu, name:apple selected"
+              className="emotion-4"
+              data-toggle={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              role="button"
+              type="button"
             >
-              name:apple
-            </span>
-            <span
-              className="emotion-1"
-            >
-              <ChevronDown
-                className="emotion-1"
-                height="24"
-                width="24"
+              <span
+                className="emotion-0"
               >
-                <svg
+                name:apple
+              </span>
+              <span
+                className="emotion-1"
+              >
+                <ChevronDown
                   className="emotion-1"
                   height="24"
-                  viewBox="0 0 24 24"
                   width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
                 >
-                  <defs>
-                    <path
-                      d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
-                      id="mockId"
-                    />
-                  </defs>
-                  <g
-                    fillRule="evenodd"
-                    transform="translate(6 8)"
+                  <svg
+                    className="emotion-1"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
                   >
-                    <mask
-                      id="mockId"
+                    <defs>
+                      <path
+                        d="M2.12 1.29L6 5.17l3.88-3.88a.996.996 0 1 1 1.41 1.41L6.7 7.29a.996.996 0 0 1-1.41 0L.7 2.7a.996.996 0 0 1 0-1.41c.39-.38 1.03-.39 1.42 0z"
+                        id="mockId"
+                      />
+                    </defs>
+                    <g
+                      fillRule="evenodd"
+                      transform="translate(6 8)"
                     >
+                      <mask
+                        id="mockId"
+                      >
+                        <use
+                          xlinkHref="#mockId"
+                        />
+                      </mask>
                       <use
+                        fillRule="nonzero"
                         xlinkHref="#mockId"
                       />
-                    </mask>
-                    <use
-                      fillRule="nonzero"
-                      xlinkHref="#mockId"
-                    />
-                    <g
-                      mask="url(#mockId)"
-                    >
-                      <path
-                        d="M0 0h12v8H0z"
-                      />
+                      <g
+                        mask="url(#mockId)"
+                      >
+                        <path
+                          d="M0 0h12v8H0z"
+                        />
+                      </g>
                     </g>
-                  </g>
-                </svg>
-              </ChevronDown>
-            </span>
-          </button>
-        </div>
-      </DropdownMenu>
+                  </svg>
+                </ChevronDown>
+              </span>
+            </button>
+          </div>
+        </DropdownMenu>
+      </SelectOnKeyPressContainer>
     </div>
   </Downshift>
 </Dropdown>
