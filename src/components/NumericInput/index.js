@@ -163,8 +163,11 @@ const axValidationContainerStyles = {
 };
 class NumericInput extends Component {
   state = {
-    value: this.props.value
+    value: this.props.value,
+    ariaValueUpdate: false
   };
+
+  getAriaDescriptionId = () => `${this.props.id}-description`;
 
   componentDidMount = () => {
     const clickables = document.querySelectorAll(
@@ -180,7 +183,7 @@ class NumericInput extends Component {
   };
 
   overloadedOnChange = value => {
-    this.setState({ value });
+    this.setState({ value, ariaValueUpdate: true });
     this.props.onChange(value);
   };
 
@@ -241,23 +244,31 @@ class NumericInput extends Component {
             upHandler={up}
             downHandler={down}
             ref={this.setInputRef}
-            aria-describedby={`${id}-description`}
+            aria-describedby={this.getAriaDescriptionId()}
           />
-        </div>
-        <div aria-live="polite" aria-atomic="true">
-          <div css={axValidationContainerStyles}>
-            Current value is {this.state.value}
-          </div>
-        </div>
-        <div
-          aria-live="off"
-          aria-atomic="true"
-          id={`${id}-description`}
-          css={axValidationContainerStyles}
-        >
-          {ariaDescription}
+          {this.renderAriaHiddenText()}
         </div>
       </Fragment>
+    );
+  };
+
+  renderAriaHiddenText = () => {
+    const { ariaDescription } = this.props;
+    const { value, ariaValueUpdate } = this.state;
+    return (
+      <div css={axValidationContainerStyles}>
+        <span aria-live="polite" aria-atomic="true">
+          {ariaValueUpdate ? `Current value is ${value}.` : ''}
+        </span>
+        <span
+          aria-live="off"
+          aria-atomic="true"
+          id={this.getAriaDescriptionId()}
+        >
+          {`Current value is ${value}.`}
+          {ariaDescription}
+        </span>
+      </div>
     );
   };
 }

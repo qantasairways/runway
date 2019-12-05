@@ -13,17 +13,17 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   color: #323232;
 }
 
-.emotion-1 input::-webkit-outer-spin-button,
-.emotion-1 input::-webkit-inner-spin-button {
+.emotion-2 input::-webkit-outer-spin-button,
+.emotion-2 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0px;
 }
 
-.emotion-1 input[type="number"] {
+.emotion-2 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.emotion-1 .rc-input-number {
+.emotion-2 .rc-input-number {
   margin: 0px;
   padding: 0px;
   line-height: 26px;
@@ -37,11 +37,11 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   height: 55px;
 }
 
-.emotion-1 .rc-input-number-focused {
+.emotion-2 .rc-input-number-focused {
   border-color: #8de2e0;
 }
 
-.emotion-1 .rc-input-number-handler {
+.emotion-2 .rc-input-number-handler {
   text-align: center;
   line-height: 12px;
   height: 12px;
@@ -50,21 +50,21 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   touch-action: none;
 }
 
-.emotion-1 .rc-input-number-handler-up {
+.emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-handler-down {
+.emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-input {
+.emotion-2 .rc-input-number-input {
   text-align: center;
   outline: 0px;
   -moz-appearance: textfield;
@@ -82,23 +82,23 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   font-family: Ciutadella;
 }
 
-.emotion-1 .rc-input-number-input::-ms-clear {
+.emotion-2 .rc-input-number-input::-ms-clear {
   display: none;
 }
 
-.emotion-1 .rc-input-number-input-wrap {
+.emotion-2 .rc-input-number-input-wrap {
   overflow: hidden;
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
-.emotion-1 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
-.emotion-1 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
-.emotion-1 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
   fill: #dadada;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: absolute !important;
   display: block;
   visibility: visible;
@@ -117,7 +117,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
     className="emotion-0"
   />
   <div
-    className="emotion-1"
+    className="emotion-2"
   >
     <InputNumber
       aria-describedby="undefined-description"
@@ -153,23 +153,22 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       useTouch={false}
       value={null}
     />
-  </div>
-  <div
-    aria-atomic="true"
-    aria-live="polite"
-  >
     <div
-      className="emotion-2"
+      className="emotion-1"
     >
-      Current value is 
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+      />
+      <span
+        aria-atomic="true"
+        aria-live="off"
+        id="undefined-description"
+      >
+        Current value is null.
+      </span>
     </div>
   </div>
-  <div
-    aria-atomic="true"
-    aria-live="off"
-    className="emotion-2"
-    id="undefined-description"
-  />
 </Fragment>
 `;
 
@@ -186,17 +185,17 @@ exports[`NumericInput renders correctly with props 1`] = `
   color: #323232;
 }
 
-.emotion-1 input::-webkit-outer-spin-button,
-.emotion-1 input::-webkit-inner-spin-button {
+.emotion-2 input::-webkit-outer-spin-button,
+.emotion-2 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0px;
 }
 
-.emotion-1 input[type="number"] {
+.emotion-2 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.emotion-1 .rc-input-number {
+.emotion-2 .rc-input-number {
   margin: 0px;
   padding: 0px;
   line-height: 26px;
@@ -210,11 +209,11 @@ exports[`NumericInput renders correctly with props 1`] = `
   height: 55px;
 }
 
-.emotion-1 .rc-input-number-focused {
+.emotion-2 .rc-input-number-focused {
   border-color: #8de2e0;
 }
 
-.emotion-1 .rc-input-number-handler {
+.emotion-2 .rc-input-number-handler {
   text-align: center;
   line-height: 12px;
   height: 12px;
@@ -223,21 +222,21 @@ exports[`NumericInput renders correctly with props 1`] = `
   touch-action: none;
 }
 
-.emotion-1 .rc-input-number-handler-up {
+.emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-handler-down {
+.emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-input {
+.emotion-2 .rc-input-number-input {
   text-align: center;
   outline: 0px;
   -moz-appearance: textfield;
@@ -255,23 +254,23 @@ exports[`NumericInput renders correctly with props 1`] = `
   font-family: Ciutadella;
 }
 
-.emotion-1 .rc-input-number-input::-ms-clear {
+.emotion-2 .rc-input-number-input::-ms-clear {
   display: none;
 }
 
-.emotion-1 .rc-input-number-input-wrap {
+.emotion-2 .rc-input-number-input-wrap {
   overflow: hidden;
   height: 100%;
 }
 
-.emotion-1 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
-.emotion-1 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
-.emotion-1 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
-.emotion-1 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
   fill: #dadada;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: absolute !important;
   display: block;
   visibility: visible;
@@ -290,7 +289,7 @@ exports[`NumericInput renders correctly with props 1`] = `
     className="emotion-0"
   />
   <div
-    className="emotion-1"
+    className="emotion-2"
   >
     <InputNumber
       aria-describedby="undefined-description"
@@ -329,22 +328,21 @@ exports[`NumericInput renders correctly with props 1`] = `
       useTouch={false}
       value={null}
     />
-  </div>
-  <div
-    aria-atomic="true"
-    aria-live="polite"
-  >
     <div
-      className="emotion-2"
+      className="emotion-1"
     >
-      Current value is 
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+      />
+      <span
+        aria-atomic="true"
+        aria-live="off"
+        id="undefined-description"
+      >
+        Current value is null.
+      </span>
     </div>
   </div>
-  <div
-    aria-atomic="true"
-    aria-live="off"
-    className="emotion-2"
-    id="undefined-description"
-  />
 </Fragment>
 `;
