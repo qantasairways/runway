@@ -115,13 +115,12 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 <Fragment>
   <label
     className="emotion-0"
-    htmlFor={null}
   />
   <div
     className="emotion-1"
   >
     <InputNumber
-      aria-describedby="null-description"
+      aria-describedby="undefined-description"
       autoComplete="off"
       downHandler={
         <MinusIcon
@@ -131,7 +130,6 @@ exports[`NumericInput renders correctly with defaults 1`] = `
         />
       }
       focusOnUpDown={true}
-      id={null}
       min={-9007199254740991}
       onBlur={[Function]}
       onChange={[Function]}
@@ -164,9 +162,14 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       className="emotion-2"
     >
       Current value is 
-      .
     </div>
   </div>
+  <div
+    aria-atomic="true"
+    aria-live="off"
+    className="emotion-2"
+    id="undefined-description"
+  />
 </Fragment>
 `;
 
@@ -285,13 +288,12 @@ exports[`NumericInput renders correctly with props 1`] = `
 <Fragment>
   <label
     className="emotion-0"
-    htmlFor={null}
   />
   <div
     className="emotion-1"
   >
     <InputNumber
-      aria-describedby="null-description"
+      aria-describedby="undefined-description"
       autoComplete="off"
       downHandler={
         <MinusIcon
@@ -301,7 +303,6 @@ exports[`NumericInput renders correctly with props 1`] = `
         />
       }
       focusOnUpDown={true}
-      id={null}
       isInvalid={true}
       isInvalidMessage="mock message"
       isTabletAndUp={false}
@@ -337,8 +338,13 @@ exports[`NumericInput renders correctly with props 1`] = `
       className="emotion-2"
     >
       Current value is 
-      .
     </div>
   </div>
+  <div
+    aria-atomic="true"
+    aria-live="off"
+    className="emotion-2"
+    id="undefined-description"
+  />
 </Fragment>
 `;

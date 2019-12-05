@@ -246,19 +246,17 @@ class NumericInput extends Component {
         </div>
         <div aria-live="polite" aria-atomic="true">
           <div css={axValidationContainerStyles}>
-            Current value is {this.state.value}.
+            Current value is {this.state.value}
           </div>
         </div>
-        {ariaDescription && (
-          <div
-            aria-live="off"
-            aria-atomic="true"
-            id={`${id}-description`}
-            css={axValidationContainerStyles}
-          >
-            {ariaDescription}
-          </div>
-        )}
+        <div
+          aria-live="off"
+          aria-atomic="true"
+          id={`${id}-description`}
+          css={axValidationContainerStyles}
+        >
+          {ariaDescription}
+        </div>
       </Fragment>
     );
   };
@@ -277,7 +275,7 @@ NumericInput.propTypes = {
   /** String for the input description */
   ariaDescription: PropTypes.string,
   /** Optional id string for the input */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   /** Triggered when the user changes the value
    *
    * @param {Number} value New value */
@@ -291,7 +289,6 @@ NumericInput.defaultProps = {
   setRef: null,
   label: '',
   ariaDescription: '',
-  id: null,
   onChange: () => {},
   value: null
 };
