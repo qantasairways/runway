@@ -29,7 +29,9 @@ class LockWrapper extends Component {
     this.base = findDOMNode(this);
 
     // Tabbable visible elements
-    const tabbables = [...this.base.querySelectorAll(tabbableSelector)].filter(
+    const tabbables = Array.from(
+      this.base.querySelectorAll(tabbableSelector)
+    ).filter(
       node =>
         node.offsetParent !== null &&
         window.getComputedStyle(node).visibility !== 'hidden'
