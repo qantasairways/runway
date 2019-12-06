@@ -1,3 +1,10 @@
+## [0.50.2](https://github.com/qantasairways/runway/compare/v0.50.1...v0.50.2) (2019-12-06)
+
+
+### Bug Fixes
+
+* **typeahead:** fix scroll ref ([#167](https://github.com/qantasairways/runway/issues/167)) ([9156a05](https://github.com/qantasairways/runway/commit/9156a05bdb09b9e8cc74de9df9fee27ec2a6b440))
+
 ## [0.50.1](https://github.com/qantasairways/runway/compare/v0.50.0...v0.50.1) (2019-11-29)
 
 
