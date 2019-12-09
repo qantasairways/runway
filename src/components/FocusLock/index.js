@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 // Adapted from: https://github.com/davidtheclark/tabbable
 const tabbableSelector = [
-  'input:not([type="hidden"])',
+  '[tabindex="0"]',
   'button',
   'select',
   'a[href]',
   'textarea',
-  '[tabindex="0"]',
   'audio[controls]',
   'video[controls]',
+  'input:not([type="hidden"])',
   '[contenteditable]:not([contenteditable="false"])'
 ].join(',');
 
@@ -29,23 +29,16 @@ class LockWrapper extends Component {
     this.base = findDOMNode(this);
 
     // Tabbable visible elements
-    const tabbables = Array.from(
-      this.base.querySelectorAll(tabbableSelector)
-    ).filter(
-      node =>
-        node.offsetParent !== null &&
-        window.getComputedStyle(node).visibility !== 'hidden'
-    );
+    this.tabbables = this.getTabbables();
 
-    // eslint-disable-next-line prefer-destructuring
-    this.firstFocusEl = tabbables[0];
-    this.lastFocusEl = tabbables[tabbables.length - 1];
-
-    if (this.firstFocusEl) {
-      this.firstFocusEl.focus();
-      this.currentFocusedEl = this.firstFocusEl;
+    if (this.tabbables[0]) {
+      this.tabbables[0].focus();
       document.addEventListener('focusin', this.onFocus);
     }
+  }
+
+  componentDidUpdate() {
+    this.tabbables = this.getTabbables();
   }
 
   componentWillUnmount() {
@@ -55,17 +48,23 @@ class LockWrapper extends Component {
     }
   }
 
+  getTabbables = () =>
+    Array.from(this.base.querySelectorAll(tabbableSelector)).filter(
+      node =>
+        !node.disabled &&
+        node.tabIndex !== -1 &&
+        node.offsetParent !== null &&
+        window.getComputedStyle(node).visibility !== 'hidden'
+    );
+
   onFocus = event => {
-    // Focused element is inside our component
-    if (this.base.contains(event.target)) {
-      this.currentFocusedEl = event.target;
-    } else {
+    if (!this.base.contains(event.target)) {
       // Focused element is _outside_ our component
       event.preventDefault();
-      if (this.currentFocusedEl === this.lastFocusEl) {
-        this.firstFocusEl.focus();
-      } else if (this.currentFocusedEl === this.firstFocusEl) {
-        this.lastFocusEl.focus();
+      if (event.relatedTarget === this.tabbables[0]) {
+        this.tabbables[this.tabbables.length - 1].focus();
+      } else {
+        this.tabbables[0].focus();
       }
     }
   };
