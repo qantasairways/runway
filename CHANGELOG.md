@@ -1,3 +1,10 @@
+## [0.50.4](https://github.com/qantasairways/runway/compare/v0.50.3...v0.50.4) (2019-12-09)
+
+
+### Bug Fixes
+
+* **focuslock:** array spread iterator breaks in IE11 ([#171](https://github.com/qantasairways/runway/issues/171)) ([d9a43e0](https://github.com/qantasairways/runway/commit/d9a43e05728e61e3655bc8ccbf6999c4ab7e42ec))
+
 ## [0.50.3](https://github.com/qantasairways/runway/compare/v0.50.2...v0.50.3) (2019-12-09)
 
 
