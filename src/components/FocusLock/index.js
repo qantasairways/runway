@@ -58,9 +58,11 @@ class LockWrapper extends Component {
     );
 
   onFocus = event => {
+    // Focused element is _outside_ our component
     if (!this.base.contains(event.target)) {
-      // Focused element is _outside_ our component
       event.preventDefault();
+      this.tabbables = this.getTabbables();
+
       if (event.relatedTarget === this.tabbables[0]) {
         this.tabbables[this.tabbables.length - 1].focus();
       } else {
