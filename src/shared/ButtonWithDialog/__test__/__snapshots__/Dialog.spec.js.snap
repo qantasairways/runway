@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dialog renders correctly with defaults 1`] = `
-<FocusLock>
+<LockWrapper
+  active={true}
+  returnFocus={true}
+>
   <div
     aria-label="mock aria label"
     className="emotion-0"
@@ -15,11 +18,14 @@ exports[`Dialog renders correctly with defaults 1`] = `
       mockHeader
     </div>
   </div>
-</FocusLock>
+</LockWrapper>
 `;
 
 exports[`Dialog renders correctly with props provided 1`] = `
-<FocusLock>
+<LockWrapper
+  active={true}
+  returnFocus={true}
+>
   <div
     aria-label="mock aria label"
     className="emotion-0"
@@ -33,5 +39,5 @@ exports[`Dialog renders correctly with props provided 1`] = `
       mockHeader
     </div>
   </div>
-</FocusLock>
+</LockWrapper>
 `;

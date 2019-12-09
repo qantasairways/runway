@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import { Component, Children } from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -15,9 +15,18 @@ const tabbableSelector = [
   '[contenteditable]:not([contenteditable="false"])'
 ].join(',');
 
-class LockWrapper extends Component {
+export default class LockWrapper extends Component {
   static propTypes = {
+    /** Flag to set if the focus lock is active (default: true) */
+    active: PropTypes.bool,
+    /** Flag to set if the focus should return to previous element when lock is deactivated */
+    returnFocus: PropTypes.bool,
     children: PropTypes.element.isRequired
+  };
+
+  static defaultProps = {
+    active: true,
+    returnFocus: true
   };
 
   componentDidMount() {
@@ -28,24 +37,32 @@ class LockWrapper extends Component {
     // eslint-disable-next-line react/no-find-dom-node
     this.base = findDOMNode(this);
 
-    // Tabbable visible elements
+    // Get tabbable visible elements
     this.tabbables = this.getTabbables();
 
-    if (this.tabbables[0]) {
+    if (this.props.active && this.tabbables[0]) {
       this.tabbables[0].focus();
-      document.addEventListener('focusin', this.onFocus);
     }
+
+    document.addEventListener('focusin', this.onFocus);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     this.tabbables = this.getTabbables();
+
+    if (!prevProps.active && this.props.active) {
+      this.previousFocusEl = document.activeElement;
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('focusin', this.onFocus);
-    if (this.previousFocusEl) {
+    const { active, returnFocus } = this.props;
+
+    if (active && returnFocus && this.previousFocusEl) {
       this.previousFocusEl.focus();
     }
+
+    document.removeEventListener('focusin', this.onFocus);
   }
 
   getTabbables = () =>
@@ -58,33 +75,24 @@ class LockWrapper extends Component {
     );
 
   onFocus = event => {
-    if (!this.base.contains(event.target)) {
+    if (this.props.active && !this.base.contains(event.target)) {
       // Focused element is _outside_ our component
-      event.preventDefault();
-      if (event.relatedTarget === this.tabbables[0]) {
-        this.tabbables[this.tabbables.length - 1].focus();
-      } else {
-        this.tabbables[0].focus();
+      this.tabbables = this.getTabbables();
+
+      if (this.tabbables.length) {
+        event.preventDefault();
+
+        if (event.relatedTarget === this.tabbables[0]) {
+          this.tabbables[this.tabbables.length - 1].focus();
+        } else {
+          this.tabbables[0].focus();
+        }
       }
     }
   };
 
   render() {
-    const { children } = this.props;
     // Only allow one single child
-    return Children.only(children);
+    return Children.only(this.props.children);
   }
 }
-
-export default function FocusLock({ active = true, children }) {
-  if (active) {
-    return <LockWrapper>{children}</LockWrapper>;
-  }
-
-  return children;
-}
-
-FocusLock.propTypes = {
-  active: PropTypes.bool,
-  children: PropTypes.element.isRequired
-};
