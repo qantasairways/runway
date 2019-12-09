@@ -1,3 +1,10 @@
+## [0.50.3](https://github.com/qantasairways/runway/compare/v0.50.2...v0.50.3) (2019-12-09)
+
+
+### Reverts
+
+* Revert "fix(typeahead): fix scroll ref (#167)" (#170) ([7bc6035](https://github.com/qantasairways/runway/commit/7bc60352fcabc7a21359c98d902f264dbf3c84a1)), closes [#167](https://github.com/qantasairways/runway/issues/167) [#170](https://github.com/qantasairways/runway/issues/170)
+
 ## [0.50.2](https://github.com/qantasairways/runway/compare/v0.50.1...v0.50.2) (2019-12-06)
 
 
