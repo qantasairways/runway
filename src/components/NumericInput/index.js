@@ -266,7 +266,7 @@ class NumericInput extends Component {
           id={this.getAriaDescriptionId()}
         >
           {`Current value is ${value}.`}
-          {ariaDescription}
+          {ariaDescription ? ` ${ariaDescription}` : ''}
         </span>
       </div>
     );
