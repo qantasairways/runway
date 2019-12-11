@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NumericInput renders correctly with defaults 1`] = `
-.emotion-1 {
+.emotion-0 {
   height: 28px;
   line-height: 1.75;
   -webkit-letter-spacing: normal;
@@ -13,17 +13,17 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   color: #323232;
 }
 
-.emotion-0 input::-webkit-outer-spin-button,
-.emotion-0 input::-webkit-inner-spin-button {
+.emotion-2 input::-webkit-outer-spin-button,
+.emotion-2 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0px;
 }
 
-.emotion-0 input[type="number"] {
+.emotion-2 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.emotion-0 .rc-input-number {
+.emotion-2 .rc-input-number {
   margin: 0px;
   padding: 0px;
   line-height: 26px;
@@ -37,11 +37,11 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   height: 55px;
 }
 
-.emotion-0 .rc-input-number-focused {
+.emotion-2 .rc-input-number-focused {
   border-color: #8de2e0;
 }
 
-.emotion-0 .rc-input-number-handler {
+.emotion-2 .rc-input-number-handler {
   text-align: center;
   line-height: 12px;
   height: 12px;
@@ -50,21 +50,21 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   touch-action: none;
 }
 
-.emotion-0 .rc-input-number-handler-up {
+.emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-handler-down {
+.emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-input {
+.emotion-2 .rc-input-number-input {
   text-align: center;
   outline: 0px;
   -moz-appearance: textfield;
@@ -82,23 +82,23 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   font-family: Ciutadella;
 }
 
-.emotion-0 .rc-input-number-input::-ms-clear {
+.emotion-2 .rc-input-number-input::-ms-clear {
   display: none;
 }
 
-.emotion-0 .rc-input-number-input-wrap {
+.emotion-2 .rc-input-number-input-wrap {
   overflow: hidden;
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
-.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
-.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
-.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
   fill: #dadada;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: absolute !important;
   display: block;
   visibility: visible;
@@ -114,63 +114,66 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 
 <Fragment>
   <label
-    className="emotion-1"
-    htmlFor={null}
-  >
-    <div
-      className="emotion-0"
-    >
-      <InputNumber
-        autoComplete="off"
-        downHandler={
-          <MinusIcon
-            className="runway-numeric-input__decrement_icon"
-            height="100%"
-            width="30px"
-          />
-        }
-        focusOnUpDown={true}
-        id={null}
-        min={-9007199254740991}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        parser={[Function]}
-        prefixCls="rc-input-number"
-        required={false}
-        setRef={null}
-        step={1}
-        style={Object {}}
-        type="number"
-        upHandler={
-          <PlusIcon
-            className="runway-numeric-input__increment_icon"
-            height="100%"
-            width="30px"
-          />
-        }
-        useTouch={false}
-        value={null}
-      />
-    </div>
-  </label>
+    className="emotion-0"
+  />
   <div
-    aria-atomic="true"
-    aria-live="polite"
+    className="emotion-2"
   >
+    <InputNumber
+      aria-describedby="undefined-description"
+      autoComplete="off"
+      downHandler={
+        <MinusIcon
+          className="runway-numeric-input__decrement_icon"
+          height="100%"
+          width="30px"
+        />
+      }
+      focusOnUpDown={true}
+      min={-9007199254740991}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onPressEnter={[Function]}
+      parser={[Function]}
+      prefixCls="rc-input-number"
+      required={false}
+      setRef={null}
+      step={1}
+      style={Object {}}
+      type="number"
+      upHandler={
+        <PlusIcon
+          className="runway-numeric-input__increment_icon"
+          height="100%"
+          width="30px"
+        />
+      }
+      useTouch={false}
+      value={null}
+    />
     <div
-      className="emotion-2"
+      className="emotion-1"
     >
-      Current value is 
-      .
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+      />
+      <span
+        aria-atomic="true"
+        aria-live="off"
+        id="undefined-description"
+      >
+        Current value is null.
+      </span>
     </div>
   </div>
 </Fragment>
 `;
 
 exports[`NumericInput renders correctly with props 1`] = `
-.emotion-1 {
+.emotion-0 {
   height: 28px;
   line-height: 1.75;
   -webkit-letter-spacing: normal;
@@ -182,17 +185,17 @@ exports[`NumericInput renders correctly with props 1`] = `
   color: #323232;
 }
 
-.emotion-0 input::-webkit-outer-spin-button,
-.emotion-0 input::-webkit-inner-spin-button {
+.emotion-2 input::-webkit-outer-spin-button,
+.emotion-2 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0px;
 }
 
-.emotion-0 input[type="number"] {
+.emotion-2 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.emotion-0 .rc-input-number {
+.emotion-2 .rc-input-number {
   margin: 0px;
   padding: 0px;
   line-height: 26px;
@@ -206,11 +209,11 @@ exports[`NumericInput renders correctly with props 1`] = `
   height: 55px;
 }
 
-.emotion-0 .rc-input-number-focused {
+.emotion-2 .rc-input-number-focused {
   border-color: #8de2e0;
 }
 
-.emotion-0 .rc-input-number-handler {
+.emotion-2 .rc-input-number-handler {
   text-align: center;
   line-height: 12px;
   height: 12px;
@@ -219,21 +222,21 @@ exports[`NumericInput renders correctly with props 1`] = `
   touch-action: none;
 }
 
-.emotion-0 .rc-input-number-handler-up {
+.emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-handler-down {
+.emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
   width: calc(30px + 22px);
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-input {
+.emotion-2 .rc-input-number-input {
   text-align: center;
   outline: 0px;
   -moz-appearance: textfield;
@@ -251,23 +254,23 @@ exports[`NumericInput renders correctly with props 1`] = `
   font-family: Ciutadella;
 }
 
-.emotion-0 .rc-input-number-input::-ms-clear {
+.emotion-2 .rc-input-number-input::-ms-clear {
   display: none;
 }
 
-.emotion-0 .rc-input-number-input-wrap {
+.emotion-2 .rc-input-number-input-wrap {
   overflow: hidden;
   height: 100%;
 }
 
-.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
-.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
-.emotion-0 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
-.emotion-0 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__increment_icon,
+.emotion-2 .rc-input-number-handler-down-disabled .runway-numeric-input__decrement_icon,
+.emotion-2 .rc-input-number-handler-up-disabled .runway-numeric-input__decrement_icon {
   fill: #dadada;
 }
 
-.emotion-2 {
+.emotion-1 {
   position: absolute !important;
   display: block;
   visibility: visible;
@@ -283,59 +286,62 @@ exports[`NumericInput renders correctly with props 1`] = `
 
 <Fragment>
   <label
-    className="emotion-1"
-    htmlFor={null}
-  >
-    <div
-      className="emotion-0"
-    >
-      <InputNumber
-        autoComplete="off"
-        downHandler={
-          <MinusIcon
-            className="runway-numeric-input__decrement_icon"
-            height="100%"
-            width="30px"
-          />
-        }
-        focusOnUpDown={true}
-        id={null}
-        isInvalid={true}
-        isInvalidMessage="mock message"
-        isTabletAndUp={false}
-        min={-9007199254740991}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        parser={[Function]}
-        prefixCls="rc-input-number"
-        required={false}
-        setRef={null}
-        step={1}
-        style={Object {}}
-        type="number"
-        upHandler={
-          <PlusIcon
-            className="runway-numeric-input__increment_icon"
-            height="100%"
-            width="30px"
-          />
-        }
-        useTouch={false}
-        value={null}
-      />
-    </div>
-  </label>
+    className="emotion-0"
+  />
   <div
-    aria-atomic="true"
-    aria-live="polite"
+    className="emotion-2"
   >
+    <InputNumber
+      aria-describedby="undefined-description"
+      autoComplete="off"
+      downHandler={
+        <MinusIcon
+          className="runway-numeric-input__decrement_icon"
+          height="100%"
+          width="30px"
+        />
+      }
+      focusOnUpDown={true}
+      isInvalid={true}
+      isInvalidMessage="mock message"
+      isTabletAndUp={false}
+      min={-9007199254740991}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onPressEnter={[Function]}
+      parser={[Function]}
+      prefixCls="rc-input-number"
+      required={false}
+      setRef={null}
+      step={1}
+      style={Object {}}
+      type="number"
+      upHandler={
+        <PlusIcon
+          className="runway-numeric-input__increment_icon"
+          height="100%"
+          width="30px"
+        />
+      }
+      useTouch={false}
+      value={null}
+    />
     <div
-      className="emotion-2"
+      className="emotion-1"
     >
-      Current value is 
-      .
+      <span
+        aria-atomic="true"
+        aria-live="polite"
+      />
+      <span
+        aria-atomic="true"
+        aria-live="off"
+        id="undefined-description"
+      >
+        Current value is null.
+      </span>
     </div>
   </div>
 </Fragment>

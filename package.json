@@ -44,7 +44,7 @@
     "highlight-words-core": "^1.2.2",
     "lodash.debounce": "4.0.8",
     "prop-types": "^15.6.2",
-    "rc-input-number": "^4.3.9",
+    "rc-input-number": "^4.5.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-highlight-words": "^0.16.0",

@@ -163,8 +163,11 @@ const axValidationContainerStyles = {
 };
 class NumericInput extends Component {
   state = {
-    value: this.props.value
+    value: this.props.value,
+    ariaValueUpdate: false
   };
+
+  getAriaDescriptionId = () => `${this.props.id}-description`;
 
   componentDidMount = () => {
     const clickables = document.querySelectorAll(
@@ -180,7 +183,7 @@ class NumericInput extends Component {
   };
 
   overloadedOnChange = value => {
-    this.setState({ value });
+    this.setState({ value, ariaValueUpdate: true });
     this.props.onChange(value);
   };
 
@@ -203,7 +206,14 @@ class NumericInput extends Component {
   };
 
   render = () => {
-    const { label, id, highlightInvalid, onChange, ...rest } = this.props;
+    const {
+      label,
+      id,
+      highlightInvalid,
+      onChange,
+      ariaDescription,
+      ...rest
+    } = this.props;
 
     const up = (
       <PlusIcon
@@ -224,24 +234,41 @@ class NumericInput extends Component {
         {/* eslint-disable-next-line jsx-a11y/label-has-for */}
         <label htmlFor={id} css={labelStyles}>
           {label}
-          <div css={getRcInputNumberStyles({ highlightInvalid })}>
-            <InputNumber
-              {...rest}
-              type="number"
-              id={id}
-              onChange={this.overloadedOnChange}
-              upHandler={up}
-              downHandler={down}
-              ref={this.setInputRef}
-            />
-          </div>
         </label>
-        <div aria-live="polite" aria-atomic="true">
-          <div css={axValidationContainerStyles}>
-            Current value is {this.state.value}.
-          </div>
+        <div css={getRcInputNumberStyles({ highlightInvalid })}>
+          <InputNumber
+            {...rest}
+            type="number"
+            id={id}
+            onChange={this.overloadedOnChange}
+            upHandler={up}
+            downHandler={down}
+            ref={this.setInputRef}
+            aria-describedby={this.getAriaDescriptionId()}
+          />
+          {this.renderAriaHiddenText()}
         </div>
       </Fragment>
+    );
+  };
+
+  renderAriaHiddenText = () => {
+    const { ariaDescription } = this.props;
+    const { value, ariaValueUpdate } = this.state;
+    return (
+      <div css={axValidationContainerStyles}>
+        <span aria-live="polite" aria-atomic="true">
+          {ariaValueUpdate ? `Current value is ${value}.` : ''}
+        </span>
+        <span
+          aria-live="off"
+          aria-atomic="true"
+          id={this.getAriaDescriptionId()}
+        >
+          {`Current value is ${value}.`}
+          {ariaDescription ? ` ${ariaDescription}` : ''}
+        </span>
+      </div>
     );
   };
 }
@@ -256,8 +283,10 @@ NumericInput.propTypes = {
   setRef: PropTypes.func,
   /** String for the html label */
   label: PropTypes.string,
+  /** String for the input description */
+  ariaDescription: PropTypes.string,
   /** Optional id string for the input */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   /** Triggered when the user changes the value
    *
    * @param {Number} value New value */
@@ -270,7 +299,7 @@ NumericInput.defaultProps = {
   highlightInvalid: false,
   setRef: null,
   label: '',
-  id: null,
+  ariaDescription: '',
   onChange: () => {},
   value: null
 };
