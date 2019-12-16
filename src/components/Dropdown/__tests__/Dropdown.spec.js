@@ -40,9 +40,11 @@ describe('Dropdown', () => {
   });
 
   it('initially renders with valid initialSelectedItem selected', () => {
-    component = mount(<Dropdown {...props} initialSelectedItem={orange} />);
-    const input = component.find('input');
-    expect(input.props().value).toEqual(orange.name);
+    component = mount(
+      <Dropdown {...props} items={items} initialSelectedItem={orange} />
+    );
+    const button = component.find('button');
+    expect(button.text()).toEqual(orange.name);
   });
 
   it('initially renders with first available item selected when initialSelectedItem not valid', () => {
@@ -55,8 +57,8 @@ describe('Dropdown', () => {
         initialSelectedItem={missingName}
       />
     );
-    const input = component.find('input');
-    expect(input.props().value).toEqual(items[0].name);
+    const button = component.find('button');
+    expect(button.text()).toEqual(items[0].name);
   });
 
   describe('when items change', () => {
@@ -68,42 +70,8 @@ describe('Dropdown', () => {
         const nextItems = [pear, orange];
         component.setProps({ items: nextItems });
         component.update();
-        const input = component.find('input');
-        expect(input.props().value).toEqual(orange.name);
-      });
-    });
-    describe('when current selected is does NOT exist in items AND defaultItemWhenNoneSelected is valid AND still exists in items', () => {
-      it('should keep select defaultItemWhenNoneSelected', () => {
-        component = mount(
-          <Dropdown
-            {...props}
-            items={items}
-            initialSelectedItem={orange}
-            defaultItemWhenNoneSelected={banana}
-          />
-        );
-        const nextItems = [apple, banana];
-        component.setProps({ items: nextItems });
-        component.update();
-        const input = component.find('input');
-        expect(input.props().value).toEqual(banana.name);
-      });
-    });
-    describe('when current selected does NOT exist in items AND defaultItemWhenNoneSelected does NOT exist in items', () => {
-      it('should select first available item', () => {
-        component = mount(
-          <Dropdown
-            {...props}
-            items={items}
-            initialSelectedItem={orange}
-            defaultItemWhenNoneSelected={banana}
-          />
-        );
-        const nextItems = [apple, pear];
-        component.setProps({ items: nextItems });
-        component.update();
-        const input = component.find('input');
-        expect(input.props().value).toEqual(apple.name);
+        const button = component.find('button');
+        expect(button.text()).toEqual(orange.name);
       });
     });
   });
