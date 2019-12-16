@@ -17,7 +17,7 @@
 
 ---
 
-<p align = "center">💅 Runway, Qantas' living, breathing style guide. Powered by React and Emotion built to be extendable,
+<p align = "center">👩‍🎤 Runway, Qantas' living, breathing style guide. Powered by React and Emotion built to be extendable,
 flexible and accessible components.</p>
 
 > [Demo](https://desolate-ravine-84627.herokuapp.com)
