@@ -67,7 +67,9 @@ describe('Typeahead', () => {
     it('returns the correct jsx for simple items array', () => {
       const component = mount(<Typeahead items={items} />);
       expect(
-        component.instance().renderItems(() => {}, () => {}, 5, 6, 'ra')
+        component
+          .instance()
+          .renderItems(() => ({ ref: '' }), () => {}, 5, 6, 'ra')
       ).toMatchSnapshot();
     });
 
@@ -78,7 +80,9 @@ describe('Typeahead', () => {
         <Typeahead items={itemsCustom} itemToString={itemToString} />
       );
       expect(
-        component.instance().renderItems(() => {}, () => {}, 5, 6, 'ra')
+        component
+          .instance()
+          .renderItems(() => ({ ref: '' }), () => {}, 5, 6, 'ra')
       ).toMatchSnapshot();
     });
   });
