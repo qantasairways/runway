@@ -1,3 +1,10 @@
+# [0.51.0](https://github.com/qantasairways/runway/compare/v0.50.5...v0.51.0) (2019-12-19)
+
+
+### Features
+
+* **vendor:** updating react/react-dom to v16.12 ([0e86bd4](https://github.com/qantasairways/runway/commit/0e86bd4c5fb8fd55fc46b8fb23cd45020b9bce94))
+
 ## [0.50.5](https://github.com/qantasairways/runway/compare/v0.50.4...v0.50.5) (2019-12-16)
 
 
