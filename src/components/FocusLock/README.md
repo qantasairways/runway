@@ -1,9 +1,7 @@
 ```js
-<FocusLock active={false}>
-  <div>
-    <button type="button">Focus</button>
-    <input type="text" value="will" />
-    <a href="be">lock here</a>
-  </div>
+<FocusLock active={false} returnFocus={false}>
+  <button type="button">Focus</button>
+  <input type="text" value="should" />
+  <a href="focus">lock here</a>
 </FocusLock>
 ```

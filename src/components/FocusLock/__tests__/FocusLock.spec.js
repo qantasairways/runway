@@ -3,22 +3,26 @@ import { mount } from 'enzyme';
 
 import FocusLock from '..';
 
+// JSDOM is not recreated after each test
+// document.activeElement will never be reset to default (document.body)
+beforeEach(() => {
+  document.body.setAttribute('tabindex', '0');
+  document.body.focus();
+  document.body.removeAttribute('tabindex');
+});
+
 describe('FocusLock', () => {
-  it('renders errors if no children provided', () => {
-    const consoleError = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => {});
-    expect(() => mount(<FocusLock />)).toThrowErrorMatchingInlineSnapshot(
-      `"React.Children.only expected to receive a single React element child."`
-    );
-    expect(consoleError).toHaveBeenCalled();
-    consoleError.mockReset();
+  it('renders without errors if single child is provided', () => {
+    expect(() =>
+      mount(
+        <FocusLock>
+          <div />
+        </FocusLock>
+      )
+    ).not.toThrow();
   });
 
-  it('renders errors if multiple children are provided', () => {
-    const consoleError = jest
-      .spyOn(console, 'error')
-      .mockImplementation(() => {});
+  it('renders without errors if multiple children are provided', () => {
     expect(() =>
       mount(
         <FocusLock>
@@ -26,32 +30,44 @@ describe('FocusLock', () => {
           <span />
         </FocusLock>
       )
-    ).toThrowErrorMatchingInlineSnapshot(
-      `"React.Children.only expected to receive a single React element child."`
-    );
-    expect(consoleError).toHaveBeenCalled();
-    consoleError.mockReset();
+    ).not.toThrow();
   });
 
   it('renders non-focusable children without any errors', () => {
-    const documentListener = jest.spyOn(document, 'addEventListener');
     const wrapper = mount(
       <FocusLock>
         <div>Child without focusable elements</div>
       </FocusLock>
     );
     expect(wrapper.contains('Child without focusable elements')).toBe(true);
-    expect(documentListener).not.toHaveBeenCalled();
+
+    expect(document.activeElement).toEqual(document.body);
   });
 
-  it('renders and focuses first focusable child', () => {
+  it('adds focusin listener on document and removes it on unmount', () => {
+    const addListener = jest.spyOn(document, 'addEventListener');
+    const removeListener = jest.spyOn(document, 'removeEventListener');
+    const wrapper = mount(
+      <FocusLock>
+        <div />
+      </FocusLock>
+    );
+    expect(addListener).toHaveBeenCalledWith('focusin', expect.any(Function));
+
+    wrapper.unmount();
+
+    expect(removeListener).toHaveBeenCalledWith(
+      'focusin',
+      expect.any(Function)
+    );
+  });
+
+  it('renders and focuses first focusable child by default', () => {
     const documentListener = jest.spyOn(document, 'addEventListener');
     const wrapper = mount(
       <FocusLock>
-        <div>
-          <input type="text" defaultValue="Focus Field" />
-          <button type="button">Should not focus me</button>
-        </div>
+        <input type="text" defaultValue="Focus Field" />
+        <button type="button">Should not focus me</button>
       </FocusLock>
     );
 
@@ -59,12 +75,10 @@ describe('FocusLock', () => {
     expect(document.activeElement).toEqual(wrapper.find('input').getDOMNode());
   });
 
-  it('keeps focus inside', async () => {
+  it('keeps focus inside', () => {
     const wrapper = mount(
       <FocusLock>
-        <div>
-          <button type="button">Focus Me</button>
-        </div>
+        <button type="button">Focus Me</button>
       </FocusLock>
     );
 
@@ -72,19 +86,17 @@ describe('FocusLock', () => {
 
     expect(document.activeElement).toEqual(button);
 
-    document.body.dispatchEvent(new Event('focusin'));
+    document.dispatchEvent(new Event('focusin'));
 
     expect(document.activeElement).toEqual(button);
   });
 
-  it('returns focus on unmount', async () => {
+  it('returns focus on unmount by default', () => {
     const previousFocus = document.activeElement;
 
     const wrapper = mount(
       <FocusLock>
-        <nav>
-          <a href="//qantas.com">Link</a>
-        </nav>
+        <a href="//qantas.com">Link</a>
       </FocusLock>
     );
 
@@ -93,5 +105,39 @@ describe('FocusLock', () => {
     wrapper.unmount();
 
     expect(document.activeElement).toEqual(previousFocus);
+  });
+
+  describe('isActive prop', () => {
+    it('if ACTIVE it should focus first focusable child', () => {
+      const documentListener = jest.spyOn(document, 'addEventListener');
+      const wrapper = mount(
+        <FocusLock active>
+          <input type="text" defaultValue="Focus Field" />
+        </FocusLock>
+      );
+
+      expect(documentListener).toHaveBeenCalled();
+      expect(document.activeElement).toEqual(
+        wrapper.find('input').getDOMNode()
+      );
+    });
+
+    it('if INACTIVE it should NOT change focused element', () => {
+      const documentListener = jest.spyOn(document, 'addEventListener');
+
+      const wrapper = mount(
+        <FocusLock active={false}>
+          <input type="text" defaultValue="Focus Field" />
+        </FocusLock>
+      );
+
+      expect(documentListener).toHaveBeenCalled();
+
+      expect(document.activeElement).not.toEqual(
+        wrapper.find('input').getDOMNode()
+      );
+
+      expect(document.activeElement).toEqual(document.body);
+    });
   });
 });
