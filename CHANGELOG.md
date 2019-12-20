@@ -1,3 +1,17 @@
+# [0.51.0](https://github.com/qantasairways/runway/compare/v0.50.5...v0.51.0) (2019-12-19)
+
+
+### Features
+
+* **vendor:** updating react/react-dom to v16.12 ([0e86bd4](https://github.com/qantasairways/runway/commit/0e86bd4c5fb8fd55fc46b8fb23cd45020b9bce94))
+
+## [0.50.5](https://github.com/qantasairways/runway/compare/v0.50.4...v0.50.5) (2019-12-16)
+
+
+### Bug Fixes
+
+* **dropdown:** fix dropdown voiceover and refactoring code ([#168](https://github.com/qantasairways/runway/issues/168)) ([f2ff25c](https://github.com/qantasairways/runway/commit/f2ff25cc512589011f883b10591403517510e9d1))
+
 ## [0.50.4](https://github.com/qantasairways/runway/compare/v0.50.3...v0.50.4) (2019-12-09)
 
 

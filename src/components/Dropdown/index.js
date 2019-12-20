@@ -3,82 +3,75 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import { css } from 'emotion';
-import { KEY_CODE_SPACE, KEY_CODE_ENTER } from '../../constants/keyCodes';
+import {
+  CSS_SELECTOR_HOVER,
+  CSS_SELECTOR_ACTIVE,
+  CSS_SELECTOR_FOCUS
+} from '../../constants/css';
 
-import Menu from './components/Menu';
-import MenuItem from './components/MenuItem';
 import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 import TickIcon from '../../icons/Tick';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
-import { colours, layout, fontWeight } from '../../theme/airways';
+import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
 
-export function dropdownStyles(
-  { highlighted, growMenu, inline, height },
-  isFocused,
-  isOpen
-) {
+export function dropdownMenuContainerStyles({
+  highlighted,
+  growMenu,
+  inline,
+  height
+}) {
   return css({
-    label: 'runway-dropdown',
-    fontFamily: 'Ciutadella',
-    fontSize: '18px',
+    label: 'runway-dropdown__container',
+    color: highlighted ? colours.highlights : colours.white,
+    position: growMenu ? 'static' : 'relative',
+    width: inline ? 'fit-content' : '100%',
+    height,
+    maxWidth: '100%'
+  });
+}
+
+export function buttonStyles({ highlighted, inline, height }) {
+  return css({
+    label: 'runway-dropdown__button-wrapper',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    boxSizing: 'border-box',
+    justifyContent: 'space-between',
+    padding: inline ? 0 : `0 ${layout.gutter}`,
+    fontSize: fontSize.label,
     fontWeight: highlighted ? fontWeight.bold : fontWeight.regular,
     fontStyle: 'normal',
     fontStretch: 'normal',
     lineHeight: 1.56,
     letterSpacing: 'normal',
     background: colours.mediumGrey,
-    borderColor: colours.darkeGrey,
+    border: 0,
     color: highlighted ? colours.highlights : colours.white,
     textDecoration: highlighted ? 'underline' : 'none',
-    position: growMenu ? 'static' : 'relative',
     width: inline ? 'fit-content' : '100%',
     height,
-    maxWidth: '100%',
-    outline: isFocused && !isOpen ? '-webkit-focus-ring-color auto 5px' : 'none'
+    maxWidth: '100%'
   });
 }
 
-export function inputWrapperStyles() {
+export function buttonSvgStyles({ highlighted }) {
   return css({
-    label: 'runway-dropdown__input-wrapper',
-    cursor: 'pointer',
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    boxSizing: 'border-box',
-    justifyContent: 'space-between'
-  });
-}
-
-export function inputStyles({ inline }) {
-  return css({
-    border: '0px',
-    clip: 'rect(0px, 0px, 0px, 0px)',
-    margin: '-1px',
-    position: 'absolute',
-    label: 'runway-dropdown__input',
-    backgroundColor: 'transparent',
-    color: inline ? 'transparent' : 'inherit',
-    cursor: 'pointer',
-    width: '100%',
-    height: '100%',
-    '::placeholder': {
-      color: 'inherit'
-    }
-  });
-}
-
-export function inputSvgStyles({ inline, highlighted }) {
-  return css({
-    label: 'runway-dropdown__input-svg',
+    label: 'runway-dropdown__button-svg',
     width: '24px',
     height: '100%',
     fill: highlighted ? colours.highlights : colours.white,
     verticalAlign: 'middle',
-    padding: inline ? 0 : `0 ${layout.gutter} 0 0`,
+    padding: 0,
     boxSizing: 'content-box'
+  });
+}
+
+export function itemContainerStyles() {
+  return css({
+    label: 'runway-dropdown__item-container',
+    display: 'inline-flex'
   });
 }
 
@@ -92,13 +85,6 @@ export function itemSvgContainerStyles({ selected }) {
   });
 }
 
-export function itemContainerStyles() {
-  return css({
-    label: 'runway-dropdown__item-container',
-    display: 'inline-flex'
-  });
-}
-
 export function itemSvgStyles() {
   return css({
     label: 'runway-dropdown__item-svg',
@@ -107,153 +93,108 @@ export function itemSvgStyles() {
   });
 }
 
-function defaultItemToString(item) {
-  return item === null ? '' : String(item);
-}
-
-function resolveItemAsString(itemToString = defaultItemToString, item) {
-  return itemToString(item);
-}
-
-function generateMenu(menuProps) {
-  const {
-    isOpen,
-    items,
-    getItemProps,
-    selectedItem,
-    renderItem,
-    itemToString,
-    highlightedIndex,
-    getMenuProps,
-    focus,
-    width
-  } = menuProps;
-
-  const list = items.map((item, index) => {
-    const itemString = resolveItemAsString(itemToString, item);
-
-    const props = {
-      highlighted: highlightedIndex === index,
-      selected: selectedItem.name === item.name,
-      key: `${itemString}-${index}`,
-      item
-    };
-
-    const itemProps = getItemProps({ ...props });
-
-    return (
-      <MenuItem {...itemProps}>{renderItem(item, index, itemProps)}</MenuItem>
-    );
+export function menuStyles({ width }) {
+  return css({
+    label: 'runway-dropdown__menu',
+    minWidth: '240px',
+    borderRadius: '4px',
+    boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.2)',
+    border: 'solid 1px #dadada',
+    backgroundColor: '#ffffff',
+    listStyle: 'none',
+    position: 'absolute',
+    zIndex: '5',
+    margin: 0,
+    top: '0',
+    left: '0',
+    width: width || '100%',
+    boxSizing: 'border-box',
+    padding: '10px'
   });
-
-  return (
-    <Menu {...getMenuProps({ focus, width })} isOpen={isOpen}>
-      {list}
-    </Menu>
-  );
 }
 
-function Render(props) {
-  const {
-    items,
-    renderItem,
-    isFocused,
-    setFocus,
-    label,
-    placeholder,
-    downshiftProps,
-    menuWidth,
-    inline
-  } = props;
+export function menuItemsStyles({ highlighted }) {
+  return css({
+    label: 'runway-dropdown__menu-item',
+    fontWeight: 400,
+    backgroundColor: highlighted ? colours.lightGrey : 'none',
+    color: colours.darkerGrey,
+    boxSizing: 'border-box',
+    padding: '10px',
+    minHeight: '50px',
+    [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_ACTIVE}, ${CSS_SELECTOR_FOCUS}`]: {
+      backgroundColor: colours.lightGrey
+    }
+  });
+}
+
+function DropdownMenu(props) {
+  const { items, renderItem, downshiftProps, menuWidth, ariaLabel } = props;
 
   const {
     isOpen,
     getItemProps,
     selectedItem,
     highlightedIndex,
-    openMenu,
-    getInputProps,
-    getLabelProps,
+    getToggleButtonProps,
     getMenuProps,
-    closeMenu,
-    itemToString
+    getInputProps
   } = downshiftProps;
-
-  const menuProps = {
-    isOpen,
-    items,
-    getItemProps,
-    selectedItem,
-    renderItem,
-    itemToString,
-    highlightedIndex,
-    getMenuProps,
-    focus: isFocused,
-    width: menuWidth
-  };
 
   const inputProps = getInputProps();
 
-  const containerProps = {
-    onClick: () => {
-      openMenu();
-    }
-  };
-
   return (
     <div css={{ width: '100%', height: '100%' }}>
-      <label {...getLabelProps()}>{label}</label>
-      <div {...containerProps} css={inputWrapperStyles(props)}>
+      <button
+        css={buttonStyles(props)}
+        type="button"
+        {...getToggleButtonProps({
+          'aria-activedescendant': inputProps['aria-activedescendant'],
+          'aria-label':
+            selectedItem && `${ariaLabel} Menu, ${selectedItem.name} selected`
+        })}
+      >
         <span
           css={{
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-            padding: inline ? 0 : `0 0 0 ${layout.gutter}`
+            whiteSpace: 'nowrap'
           }}
         >
-          {inputProps.value}
+          {selectedItem && selectedItem.name}
         </span>
-        <input
-          css={inputStyles(props)}
-          readOnly
-          tabIndex="0"
-          placeholder={placeholder}
-          {...getInputProps({
-            onBlur: () => {
-              closeMenu();
-              setFocus(false);
-            },
-            onKeyDown: event => {
-              const { keyCode } = event;
-              if (keyCode === KEY_CODE_SPACE || keyCode === KEY_CODE_ENTER) {
-                event.preventDefault();
-                event.stopPropagation();
-                setFocus(false);
-                openMenu();
-              }
-            },
-            onFocus: () => {
-              setFocus(true);
-            }
+        <span css={buttonSvgStyles(props)}>
+          <ChevronDown css={buttonSvgStyles(props)} />
+        </span>
+      </button>
+      {!isOpen ? null : (
+        <ul css={menuStyles({ menuWidth })} {...getMenuProps()}>
+          {items.map((item, index) => {
+            const itemProps = getItemProps({
+              highlighted: highlightedIndex === index,
+              selected: selectedItem && selectedItem.name === item.name,
+              key: index,
+              item
+            });
+
+            return (
+              <li {...itemProps} css={menuItemsStyles(itemProps)}>
+                {renderItem(item, index, itemProps)}
+              </li>
+            );
           })}
-        />
-        <span css={inputSvgStyles(props)}>
-          <ChevronDown css={inputSvgStyles(props)} />
-        </span>
-      </div>
-      {generateMenu(menuProps)}
+        </ul>
+      )}
     </div>
   );
 }
 
-Render.propTypes = {
+DropdownMenu.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
   renderItem: PropTypes.func,
-  focus: PropTypes.bool,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
   menuWidth: PropTypes.string,
+  ariaLabel: PropTypes.string,
   height: PropTypes.string,
   highlighted: PropTypes.bool,
   inline: PropTypes.bool,
@@ -263,22 +204,19 @@ Render.propTypes = {
     getItemProps: PropTypes.func,
     selectedItem: PropTypes.object,
     highlightedIndex: PropTypes.number,
-    openMenu: PropTypes.func,
-    getInputProps: PropTypes.func,
-    getLabelProps: PropTypes.func,
+    getToggleButtonProps: PropTypes.func,
     getMenuProps: PropTypes.func,
-    closeMenu: PropTypes.func,
+    getInputProps: PropTypes.func,
     itemToString: PropTypes.func
   }).isRequired
 };
 
-Render.defaultProps = {
+DropdownMenu.defaultProps = {
   items: [],
   renderItem: noop,
-  focus: false,
   label: '',
-  placeholder: '',
   menuWidth: null,
+  ariaLabel: '',
   height: null,
   highlighted: false,
   inline: false,
@@ -286,60 +224,35 @@ Render.defaultProps = {
 };
 
 export default class Dropdown extends React.Component {
-  state = {
-    isFocused: false
-  };
-
-  // eslint-disable-next-line consistent-return
-  componentDidUpdate = prevProps => {
-    if (this.itemsChanged(prevProps.items, this.props.items)) {
-      if (
-        this.validItem(this.downshiftSelectedItem) &&
-        this.itemsContains(this.downshiftSelectedItem)
-      )
-        return this.downshiftSelectItem(this.downshiftSelectedItem);
-      if (
-        this.validItem(this.props.defaultItemWhenNoneSelected) &&
-        this.itemsContains(this.props.defaultItemWhenNoneSelected)
-      )
-        return this.downshiftSelectItem(this.props.defaultItemWhenNoneSelected);
-      return this.downshiftSelectItem(this.props.items[0]);
+  componentDidUpdate(prevProps) {
+    if (prevProps.initialSelectedItem !== this.props.initialSelectedItem) {
+      /* eslint-disable no-console */
+      console.warn(
+        'Runway Dropdown: initialSelectedItem should not change, please use selectedItem if you want a controlled component'
+      );
     }
-  };
-
-  setFocus = isFocused => {
-    this.setState({ isFocused });
-  };
-
-  itemsContains = target =>
-    !!this.props.items.filter(item => item.value === target.value).length;
-
-  itemsChanged = (prevItems, nextItems) =>
-    prevItems.length !== nextItems.length ||
-    !prevItems.every(prevItem =>
-      nextItems.some(nextItem => nextItem.value === prevItem.value)
-    );
-
-  collectSelectItem = selectItem => {
-    this.downshiftSelectItem = selectItem;
-  };
-
-  collectSelectedItem = selectedItem => {
-    this.downshiftSelectedItem = selectedItem;
-  };
+  }
 
   getInitialSelectedItem = () =>
     this.validItem(this.props.initialSelectedItem)
       ? this.props.initialSelectedItem
       : this.props.items[0];
 
-  validItem = item =>
-    item && typeof item.name === 'string' && typeof item.value === 'string';
+  getSelectedItem = () =>
+    this.validItem(this.props.selectedItem) && this.props.selectedItem;
+
+  validItem = item => {
+    const { items } = this.props;
+    return (
+      item &&
+      typeof item.name === 'string' &&
+      typeof item.value === 'string' &&
+      items.includes(item)
+    );
+  };
 
   render() {
-    const { isFocused } = this.state;
-    const { props, setFocus } = this;
-    const { isOpen } = this;
+    const { props, isOpen } = this;
 
     return (
       <Downshift
@@ -350,27 +263,22 @@ export default class Dropdown extends React.Component {
           }
         }}
         initialSelectedItem={this.getInitialSelectedItem()}
+        selectedItem={this.getSelectedItem()}
       >
         {downshiftProps => {
           const renderProps = {
             ...props,
             isOpen,
-            isFocused,
-            setFocus,
             downshiftProps
           };
-
-          this.collectSelectItem(renderProps.downshiftProps.selectItem);
-          this.collectSelectedItem(renderProps.downshiftProps.selectedItem);
           return (
-            <div css={dropdownStyles(props, isFocused, isOpen)}>
+            <div css={dropdownMenuContainerStyles(props, isOpen)}>
               <SelectOnKeyPressContainer
                 items={props.items}
                 itemToString={props.downShiftProps.itemToString}
-                focus={isFocused}
                 downshiftProps={downshiftProps}
               >
-                <Render {...renderProps} />
+                <DropdownMenu {...renderProps} />
               </SelectOnKeyPressContainer>
             </div>
           );
@@ -402,14 +310,13 @@ Dropdown.propTypes = {
   ).isRequired,
   /** Prop to render each list item. Must return an element. */
   renderItem: PropTypes.func,
-  /** @ignore */
-  focus: PropTypes.bool,
-  /** @ignore */
   downShiftProps: PropTypes.shape({
     itemToString: PropTypes.func
   }),
   /** Optional string to set the width of the menu */
   menuWidth: PropTypes.string,
+  /** Optional string set the aria label to call dropdown name */
+  ariaLabel: PropTypes.string,
   /** Optional string to set the height of the dropdown */
   height: PropTypes.string,
   /** Triggered when the user changes the value
@@ -429,7 +336,6 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   renderItem: renderDefaultItem,
-  focus: false,
   downShiftProps: {
     itemToString: selectedItem => {
       if (!selectedItem || !selectedItem.name) {
@@ -439,6 +345,7 @@ Dropdown.defaultProps = {
     }
   },
   menuWidth: null,
+  ariaLabel: '',
   height: '100%',
   onChange: null,
   highlighted: false,
