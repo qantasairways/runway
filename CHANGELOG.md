@@ -1,3 +1,10 @@
+## [0.51.1](https://github.com/qantasairways/runway/compare/v0.51.0...v0.51.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* **buttonwithdialog:** fix the width of the parents ([#172](https://github.com/qantasairways/runway/issues/172)) ([5ad06ed](https://github.com/qantasairways/runway/commit/5ad06edbdbc43ffd71a7cfde00eb59e8cf9230a0))
+
 # [0.51.0](https://github.com/qantasairways/runway/compare/v0.50.5...v0.51.0) (2019-12-19)
 
 
