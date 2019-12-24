@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should match the snapshot when an element is given as a child 1`] = `
+.emotion-0 {
+  min-width: 240px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  border: solid 1px #dadada;
+  background-color: #ffffff;
+  list-style: none;
+  position: absolute;
+  z-index: 5;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+<ul
+  className="emotion-0"
+>
+  <Component>
+    Perth
+  </Component>
+</ul>
+`;
+
+exports[`List should match the snapshot when no children are given 1`] = `
+.emotion-0 {
+  min-width: 240px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  border: solid 1px #dadada;
+  background-color: #ffffff;
+  list-style: none;
+  position: absolute;
+  z-index: 5;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+<ul
+  className="emotion-0"
+/>
+`;

@@ -3,6 +3,8 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'jest-emotion';
 import * as emotion from 'emotion';
+import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/react/dont-cleanup-after-each';
 
 expect.addSnapshotSerializer(createSerializer(emotion));
 
