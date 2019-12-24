@@ -16,11 +16,7 @@ const itemsArray = [
 
 const selectedItem = itemsArray.find((value, index) => index === 0);
 
-<Dropdown
-  items={itemsArray}
-  initialSelectedItem={selectedItem}
-  height="50px"
-/>;
+<Select items={itemsArray} initialSelectedItem={selectedItem} height="50px" />;
 ```
 
 ```js
@@ -42,7 +38,7 @@ const itemsArray = [
 const selectedItem = itemsArray.find((value, index) => index === 0);
 
 <div style={{ position: 'relative' }}>
-  <Dropdown
+  <Select
     items={itemsArray}
     initialSelectedItem={selectedItem}
     highlighted
