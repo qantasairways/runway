@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown renders correctly with defaults 1`] = `
+exports[`Select renders correctly with defaults 1`] = `
 .emotion-6 {
   color: #fff;
   position: relative;
@@ -64,7 +64,7 @@ exports[`Dropdown renders correctly with defaults 1`] = `
   box-sizing: content-box;
 }
 
-<Dropdown
+<Select
   ariaLabel=""
   downShiftProps={
     Object {
@@ -258,10 +258,10 @@ exports[`Dropdown renders correctly with defaults 1`] = `
       </SelectOnKeyPressContainer>
     </div>
   </Downshift>
-</Dropdown>
+</Select>
 `;
 
-exports[`Dropdown renders correctly with props provided 1`] = `
+exports[`Select renders correctly with props provided 1`] = `
 .emotion-5 {
   width: 100%;
   height: 100%;
@@ -329,7 +329,7 @@ exports[`Dropdown renders correctly with props provided 1`] = `
   box-sizing: content-box;
 }
 
-<Dropdown
+<Select
   ariaLabel=""
   downShiftProps={
     Object {
@@ -586,5 +586,5 @@ exports[`Dropdown renders correctly with props provided 1`] = `
       </SelectOnKeyPressContainer>
     </div>
   </Downshift>
-</Dropdown>
+</Select>
 `;

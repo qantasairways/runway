@@ -22,7 +22,7 @@ export function styles({ width }) {
   });
 }
 
-const MenuList = React.forwardRef(function MenuList(props, ref) {
+const List = React.forwardRef(function List(props, ref) {
   const {
     component: Component = 'ul',
     children,
@@ -36,9 +36,9 @@ const MenuList = React.forwardRef(function MenuList(props, ref) {
   );
 });
 
-MenuList.propTypes = {
+List.propTypes = {
   children: PropTypes.node,
   component: PropTypes.elementType
 };
 
-export default MenuList;
+export default List;

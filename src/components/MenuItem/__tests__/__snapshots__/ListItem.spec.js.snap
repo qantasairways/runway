@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should match the snapshot when a simple textual child is given 1`] = `
+.emotion-0 {
+  font-weight: 400;
+  background-color: none;
+  color: #323232;
+  box-sizing: border-box;
+  padding: 10px;
+  min-height: 50px;
+}
+
+.emotion-0:hover,
+.emotion-0:active,
+.emotion-0:focus {
+  background-color: #f4f5f6;
+}
+
+<li
+  className="emotion-0"
+>
+  Economy
+</li>
+`;
+
+exports[`Select should match the snapshot when an element is given as a child 1`] = `
+.emotion-0 {
+  font-weight: 400;
+  background-color: none;
+  color: #323232;
+  box-sizing: border-box;
+  padding: 10px;
+  min-height: 50px;
+}
+
+.emotion-0:hover,
+.emotion-0:active,
+.emotion-0:focus {
+  background-color: #f4f5f6;
+}
+
+<li
+  className="emotion-0"
+>
+  <button
+    key=".0"
+  >
+    Economy
+  </button>
+</li>
+`;

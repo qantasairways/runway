@@ -6,7 +6,8 @@ import { css } from 'emotion';
 
 import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 
-import ListItem from '../ListItem';
+import List from '../List';
+import MenuItem from '../MenuItem';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
 import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
@@ -104,7 +105,7 @@ function DropdownMenu(props) {
         </span>
       </button>
       {!isOpen ? null : (
-        <MenuList {...getMenuProps()}>
+        <List {...getMenuProps()}>
           {items.map((item, index) => {
             const itemProps = getItemProps({
               highlighted: highlightedIndex === index,
@@ -114,12 +115,12 @@ function DropdownMenu(props) {
             });
 
             return (
-              <ListItem {...itemProps}>
+              <MenuItem {...itemProps}>
                 {renderItem(item, index, itemProps)}
-              </ListItem>
+              </MenuItem>
             );
           })}
-        </MenuList>
+        </List>
       )}
     </div>
   );

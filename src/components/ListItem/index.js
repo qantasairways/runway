@@ -3,58 +3,50 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
-import TickIcon from '../../icons/Tick';
-import MenuItem from '../MenuItem';
+import {
+  CSS_SELECTOR_HOVER,
+  CSS_SELECTOR_ACTIVE,
+  CSS_SELECTOR_FOCUS
+} from '../../constants/css';
 
-export function itemContainerStyles() {
+export function styles({ highlighted }) {
   return css({
-    label: 'runway-dropdown__item-container',
-    display: 'inline-flex'
-  });
-}
-
-export function itemSvgContainerStyles({ selected }) {
-  const visibility = selected ? 'visible' : 'hidden';
-
-  return css({
-    label: 'runway-dropdown__item-svg-container',
-    visibility,
-    marginRight: '10px'
-  });
-}
-
-export function itemSvgStyles() {
-  return css({
-    label: 'runway-dropdown__item-svg',
-    width: '24px',
-    fill: colours.darkerGrey
+    label: 'runway-dropdown__menu-item',
+    fontWeight: 400,
+    backgroundColor: highlighted ? colours.lightGrey : 'none',
+    color: colours.darkerGrey,
+    boxSizing: 'border-box',
+    padding: '10px',
+    minHeight: '50px',
+    [`${CSS_SELECTOR_HOVER}, ${CSS_SELECTOR_ACTIVE}, ${CSS_SELECTOR_FOCUS}`]: {
+      backgroundColor: colours.lightGrey
+    }
   });
 }
 
 const ListItem = React.forwardRef(function ListItem(props, ref) {
   const {
-    component: Component = 'span',
-    children,
-    item,
+    component: Component = 'li',
+    children: childrenProp = [],
     ...otherProps
   } = props;
 
+  const componentProps = {
+    ...otherProps
+  };
+
+  const children = React.Children.toArray(childrenProp);
+
   return (
-    <MenuItem {...otherProps}>
-      <Component css={itemContainerStyles(props)}>
-        <span css={itemSvgContainerStyles(props)}>
-          <TickIcon css={itemSvgStyles(props)} />
-        </span>
-        <span css={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>
-          {children}
-        </span>
-      </Component>
-    </MenuItem>
+    <Component css={styles(componentProps)} {...componentProps}>
+      {children}
+    </Component>
   );
 });
 
 ListItem.propTypes = {
-  children: PropTypes.node,
-  component: PropTypes.elementType
+  children: PropTypes.node, // TODO: make a custom propType validation that needs to be treeshaken for efficiency yo
+  highlighted: PropTypes.bool // TODO: deprecate this as its a crappy api name should be selected which is way more dope
 };
+
 export default ListItem;

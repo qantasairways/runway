@@ -1,11 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import Dropdown from '../index';
 
 jest.mock('shortid', () => ({ generate: () => 'mockId' }));
 
-describe('Dropdown', () => {
+describe('Select', () => {
   let component;
 
   const apple = { name: 'name:apple', value: 'value:apple' };
