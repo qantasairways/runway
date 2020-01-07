@@ -152,12 +152,13 @@ class Typeahead extends Component {
     menuHeight
   ) => {
     const { items, itemToString, fetchListOnInput, badgeToString } = this.props;
+    const { ref: refUsedInParent, ...menuProps } = getMenuProps();
     const filteredItems = fetchListOnInput
       ? items
       : this.filterItems(items, inputValue);
 
     return filteredItems.length ? (
-      <ul {...getMenuProps()} css={menuStyles()}>
+      <ul {...menuProps} css={menuStyles()}>
         {filteredItems.map((item, index) => {
           const isHighlighted = highlightedIndex === index;
           const isSelected = selectedItem === item;
@@ -199,6 +200,15 @@ class Typeahead extends Component {
 
   setInputRef = el => {
     this.inputRef = el;
+  };
+
+  setListRef = (el, getMenuProps) => {
+    // Downshift ref for scrolling highlighted item into view
+    getMenuProps().ref(el);
+    // scroll ref prop
+    if (this.props.listRef) {
+      this.props.listRef(el);
+    }
   };
 
   render() {
@@ -279,7 +289,7 @@ class Typeahead extends Component {
               </div>
               <div
                 css={menuWrapStyles({ menuHeight })}
-                ref={this.props.listRef}
+                ref={el => this.setListRef(el, getMenuProps)}
               >
                 {isOpen && !isFetchingList && inputValue.length >= minChars ? (
                   this.renderItems(
