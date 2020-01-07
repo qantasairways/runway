@@ -37,7 +37,7 @@ export function ButtonContent({ largeButtonValue, smallButtonValue }) {
   return (
     <div
       css={{
-        maxWidth: '100%',
+        width: '100%',
         minWidth: 0
       }}
     >

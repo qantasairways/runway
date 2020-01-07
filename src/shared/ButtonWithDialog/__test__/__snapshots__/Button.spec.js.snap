@@ -221,7 +221,7 @@ exports[`Button renders correctly with props provided 1`] = `
 
 exports[`ButtonContent renders correctly with defaults 1`] = `
 .emotion-2 {
-  max-width: 100%;
+  width: 100%;
   min-width: 0;
 }
 
@@ -254,7 +254,7 @@ exports[`ButtonContent renders correctly with defaults 1`] = `
 
 exports[`ButtonContent renders correctly with props provided 1`] = `
 .emotion-2 {
-  max-width: 100%;
+  width: 100%;
   min-width: 0;
 }
 
