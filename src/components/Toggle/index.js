@@ -3,7 +3,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
 import Switch from 'react-switch';
 import { colours, fontSize, fontFamily } from '../../theme/airways';
 
@@ -98,7 +97,7 @@ class Toggle extends Component {
           checkedIcon={false}
           height={height}
           width={width}
-          className={css(styleOverrides({ handleSize, width, checked }))}
+          css={styleOverrides({ handleSize, width, checked })}
         />
       </label>
     );

@@ -50,11 +50,11 @@ const disableNativeNumberInputStyles = {
     'input::-webkit-outer-spin-button',
     'input::-webkit-inner-spin-button'
   )]: {
-    '-webkit-appearance': 'none',
-    margin: '0px'
+    margin: '0px',
+    WebkitAppearance: 'none'
   },
   'input[type="number"]': {
-    '-moz-appearance': 'textfield'
+    MozAppearance: 'textfield'
   }
 };
 
@@ -101,7 +101,6 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
   [SELECTORS.RCI.INPUT.CORE]: {
     textAlign: 'center',
     outline: '0',
-    '-moz-appearance': 'textfield',
     lineHeight: '26px',
     height: '100%',
     transition: 'all 0.3s ease',
@@ -113,6 +112,7 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
     fontSize: '22px',
     color: '#323232',
     fontFamily: 'Ciutadella',
+    MozAppearance: 'textfield',
     '&::-ms-clear': {
       display: 'none'
     }

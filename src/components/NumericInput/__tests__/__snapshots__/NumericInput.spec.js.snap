@@ -15,8 +15,8 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 
 .emotion-2 input::-webkit-outer-spin-button,
 .emotion-2 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-2 input[type="number"] {
@@ -24,8 +24,8 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 }
 
 .emotion-2 .rc-input-number {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   line-height: 26px;
   font-size: 12px;
   display: inline-block;
@@ -66,20 +66,20 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 
 .emotion-2 .rc-input-number-input {
   text-align: center;
-  outline: 0px;
-  -moz-appearance: textfield;
+  outline: 0;
   line-height: 26px;
   height: 100%;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  border: 0px;
-  padding: 0px;
+  border: 0;
+  padding: 0;
   width: 99%;
   border-radius: 0px;
   display: block;
   font-size: 22px;
   color: #323232;
   font-family: Ciutadella;
+  -moz-appearance: textfield;
 }
 
 .emotion-2 .rc-input-number-input::-ms-clear {
@@ -106,13 +106,20 @@ exports[`NumericInput renders correctly with defaults 1`] = `
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0px;
-  padding: 0px;
+  border: 0;
+  padding: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
 }
 
-<Fragment>
+<NumericInput
+  ariaDescription=""
+  highlightInvalid={false}
+  label=""
+  onChange={[Function]}
+  setRef={null}
+  value={null}
+>
   <label
     className="emotion-0"
   />
@@ -123,7 +130,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       aria-describedby="undefined-description"
       autoComplete="off"
       downHandler={
-        <MinusIcon
+        <Unknown
           className="runway-numeric-input__decrement_icon"
           height="100%"
           width="30px"
@@ -144,7 +151,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       style={Object {}}
       type="number"
       upHandler={
-        <PlusIcon
+        <Unknown
           className="runway-numeric-input__increment_icon"
           height="100%"
           width="30px"
@@ -152,7 +159,122 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       }
       useTouch={false}
       value={null}
-    />
+    >
+      <div
+        className="rc-input-number"
+        style={Object {}}
+      >
+        <div
+          className="rc-input-number-handler-wrap"
+        >
+          <InputHandler
+            aria-disabled={false}
+            aria-label="Increase Value"
+            className="rc-input-number-handler rc-input-number-handler-up "
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            prefixCls="rc-input-number"
+            role="button"
+            unselectable="unselectable"
+          >
+            <TouchFeedback
+              activeClassName="rc-input-number-handler-active"
+              disabled={false}
+            >
+              <span
+                aria-disabled={false}
+                aria-label="Increase Value"
+                className="rc-input-number-handler rc-input-number-handler-up "
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                unselectable="unselectable"
+              >
+                <Component
+                  className="runway-numeric-input__increment_icon"
+                  height="100%"
+                  width="30px"
+                >
+                  <span>
+                    Mock Plus Icon
+                  </span>
+                </Component>
+              </span>
+            </TouchFeedback>
+          </InputHandler>
+          <InputHandler
+            aria-disabled={false}
+            aria-label="Decrease Value"
+            className="rc-input-number-handler rc-input-number-handler-down "
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            prefixCls="rc-input-number"
+            role="button"
+            unselectable="unselectable"
+          >
+            <TouchFeedback
+              activeClassName="rc-input-number-handler-active"
+              disabled={false}
+            >
+              <span
+                aria-disabled={false}
+                aria-label="Decrease Value"
+                className="rc-input-number-handler rc-input-number-handler-down "
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                unselectable="unselectable"
+              >
+                <Component
+                  className="runway-numeric-input__decrement_icon"
+                  height="100%"
+                  width="30px"
+                >
+                  <span>
+                    Mock Minus Icon
+                  </span>
+                </Component>
+              </span>
+            </TouchFeedback>
+          </InputHandler>
+        </div>
+        <div
+          className="rc-input-number-input-wrap"
+        >
+          <input
+            aria-describedby="undefined-description"
+            aria-valuemin={-9007199254740991}
+            aria-valuenow={null}
+            autoComplete="off"
+            className="rc-input-number-input"
+            min={-9007199254740991}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseUp={[Function]}
+            required={false}
+            role="spinbutton"
+            step={1}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+    </InputNumber>
     <div
       className="emotion-1"
     >
@@ -169,7 +291,7 @@ exports[`NumericInput renders correctly with defaults 1`] = `
       </span>
     </div>
   </div>
-</Fragment>
+</NumericInput>
 `;
 
 exports[`NumericInput renders correctly with props 1`] = `
@@ -187,8 +309,8 @@ exports[`NumericInput renders correctly with props 1`] = `
 
 .emotion-2 input::-webkit-outer-spin-button,
 .emotion-2 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0px;
+  -webkit-appearance: none;
 }
 
 .emotion-2 input[type="number"] {
@@ -196,8 +318,8 @@ exports[`NumericInput renders correctly with props 1`] = `
 }
 
 .emotion-2 .rc-input-number {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   line-height: 26px;
   font-size: 12px;
   display: inline-block;
@@ -238,20 +360,20 @@ exports[`NumericInput renders correctly with props 1`] = `
 
 .emotion-2 .rc-input-number-input {
   text-align: center;
-  outline: 0px;
-  -moz-appearance: textfield;
+  outline: 0;
   line-height: 26px;
   height: 100%;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  border: 0px;
-  padding: 0px;
+  border: 0;
+  padding: 0;
   width: 99%;
   border-radius: 0px;
   display: block;
   font-size: 22px;
   color: #323232;
   font-family: Ciutadella;
+  -moz-appearance: textfield;
 }
 
 .emotion-2 .rc-input-number-input::-ms-clear {
@@ -278,13 +400,23 @@ exports[`NumericInput renders correctly with props 1`] = `
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0px;
-  padding: 0px;
+  border: 0;
+  padding: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
 }
 
-<Fragment>
+<NumericInput
+  ariaDescription=""
+  highlightInvalid={false}
+  isInvalid={true}
+  isInvalidMessage="mock message"
+  isTabletAndUp={false}
+  label=""
+  onChange={[Function]}
+  setRef={null}
+  value={null}
+>
   <label
     className="emotion-0"
   />
@@ -295,7 +427,7 @@ exports[`NumericInput renders correctly with props 1`] = `
       aria-describedby="undefined-description"
       autoComplete="off"
       downHandler={
-        <MinusIcon
+        <Unknown
           className="runway-numeric-input__decrement_icon"
           height="100%"
           width="30px"
@@ -319,7 +451,7 @@ exports[`NumericInput renders correctly with props 1`] = `
       style={Object {}}
       type="number"
       upHandler={
-        <PlusIcon
+        <Unknown
           className="runway-numeric-input__increment_icon"
           height="100%"
           width="30px"
@@ -327,7 +459,122 @@ exports[`NumericInput renders correctly with props 1`] = `
       }
       useTouch={false}
       value={null}
-    />
+    >
+      <div
+        className="rc-input-number"
+        style={Object {}}
+      >
+        <div
+          className="rc-input-number-handler-wrap"
+        >
+          <InputHandler
+            aria-disabled={false}
+            aria-label="Increase Value"
+            className="rc-input-number-handler rc-input-number-handler-up "
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            prefixCls="rc-input-number"
+            role="button"
+            unselectable="unselectable"
+          >
+            <TouchFeedback
+              activeClassName="rc-input-number-handler-active"
+              disabled={false}
+            >
+              <span
+                aria-disabled={false}
+                aria-label="Increase Value"
+                className="rc-input-number-handler rc-input-number-handler-up "
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                unselectable="unselectable"
+              >
+                <Component
+                  className="runway-numeric-input__increment_icon"
+                  height="100%"
+                  width="30px"
+                >
+                  <span>
+                    Mock Plus Icon
+                  </span>
+                </Component>
+              </span>
+            </TouchFeedback>
+          </InputHandler>
+          <InputHandler
+            aria-disabled={false}
+            aria-label="Decrease Value"
+            className="rc-input-number-handler rc-input-number-handler-down "
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            prefixCls="rc-input-number"
+            role="button"
+            unselectable="unselectable"
+          >
+            <TouchFeedback
+              activeClassName="rc-input-number-handler-active"
+              disabled={false}
+            >
+              <span
+                aria-disabled={false}
+                aria-label="Decrease Value"
+                className="rc-input-number-handler rc-input-number-handler-down "
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                unselectable="unselectable"
+              >
+                <Component
+                  className="runway-numeric-input__decrement_icon"
+                  height="100%"
+                  width="30px"
+                >
+                  <span>
+                    Mock Minus Icon
+                  </span>
+                </Component>
+              </span>
+            </TouchFeedback>
+          </InputHandler>
+        </div>
+        <div
+          className="rc-input-number-input-wrap"
+        >
+          <input
+            aria-describedby="undefined-description"
+            aria-valuemin={-9007199254740991}
+            aria-valuenow={null}
+            autoComplete="off"
+            className="rc-input-number-input"
+            min={-9007199254740991}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseUp={[Function]}
+            required={false}
+            role="spinbutton"
+            step={1}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+    </InputNumber>
     <div
       className="emotion-1"
     >
@@ -344,5 +591,5 @@ exports[`NumericInput renders correctly with props 1`] = `
       </span>
     </div>
   </div>
-</Fragment>
+</NumericInput>
 `;

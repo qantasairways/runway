@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import { css } from 'emotion';
 
 import noop from '../../utils/noop';
 import { mq, fontFamily } from '../../theme/airways';
@@ -56,12 +55,6 @@ export const dialogStylesFullScreen = {
 class ButtonWithDialog extends Component {
   scrollTarget = null;
 
-  scrollLockClass = css({
-    overflow: 'hidden',
-    height: '100%',
-    pageScrollPos: 0
-  });
-
   state = {
     open: false
   };
@@ -74,19 +67,11 @@ class ButtonWithDialog extends Component {
       pageScrollPos: window.scrollY
     });
 
-    if (this.props.shouldAddScrollLockClass) {
-      document.documentElement.classList.add(this.scrollLockClass);
-      document.body.classList.add(this.scrollLockClass);
-    }
-
     document.addEventListener('click', this.handleClickOutside);
     document.addEventListener('keydown', this.handleEscKey);
   };
 
   onExit = () => {
-    document.documentElement.classList.remove(this.scrollLockClass);
-    document.body.classList.remove(this.scrollLockClass);
-
     window.scrollTo(0, this.state.pageScrollPos);
 
     this.props.onBeforeClose();
@@ -234,8 +219,7 @@ ButtonWithDialog.propTypes = {
     entered: PropTypes.shape.isRequired,
     exiting: PropTypes.shape.isRequired
   }).isRequired,
-  hasDialogDimensions: PropTypes.bool,
-  shouldAddScrollLockClass: PropTypes.bool
+  hasDialogDimensions: PropTypes.bool
 };
 
 ButtonWithDialog.defaultProps = {
@@ -248,8 +232,7 @@ ButtonWithDialog.defaultProps = {
   renderHeader: noop,
   renderFooter: noop,
   dialogAriaLabel: '',
-  hasDialogDimensions: false,
-  shouldAddScrollLockClass: false
+  hasDialogDimensions: false
 };
 
 export { ButtonContent };

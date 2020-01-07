@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import ButtonWithDialog from '..';
 
 function openDialog(component) {
@@ -10,7 +10,7 @@ describe('ButtonWithDialog', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = shallow(
+    component = mount(
       <ButtonWithDialog
         renderButtonValue={() => <div>button content</div>}
         dialogStyles={{}}
@@ -25,7 +25,7 @@ describe('ButtonWithDialog', () => {
 
   it('renders correctly with props', () => {
     beforeAll(() => {
-      component = shallow(
+      component = mount(
         <ButtonWithDialog
           closeAriaLabel="Close Aria Label"
           dialogAriaLabel="Dialog Aria Label"
@@ -48,7 +48,7 @@ describe('ButtonWithDialog', () => {
   });
 
   it('renders correctly with one child element', () => {
-    component = shallow(
+    component = mount(
       <ButtonWithDialog
         renderButtonValue={() => <div>button content</div>}
         dialogStyles={{}}

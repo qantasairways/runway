@@ -1,37 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dialog renders correctly with defaults 1`] = `
-<FocusLock>
-  <div
-    aria-label="mock aria label"
-    className="emotion-0"
-    role="dialog"
-  >
+<Fragment>
+  <ForwardRef(render)
+    styles={
+      Object {
+        "html, body": Object {
+          "@media only screen and (max-width: 767px)": Object {
+            "height": "100%",
+            "overflow": "hidden",
+          },
+        },
+      }
+    }
+  />
+  <FocusLock>
     <div>
       mockHeader
     </div>
-    mock content
-    <div>
+"mock content"
+<div>
       mockHeader
     </div>
-  </div>
-</FocusLock>
+  </FocusLock>
+</Fragment>
 `;
 
 exports[`Dialog renders correctly with props provided 1`] = `
-<FocusLock>
-  <div
-    aria-label="mock aria label"
-    className="emotion-0"
-    role="dialog"
-  >
+<Fragment>
+  <ForwardRef(render)
+    styles={
+      Object {
+        "html, body": Object {
+          "@media only screen and (max-width: 767px)": Object {
+            "height": "100%",
+            "overflow": "hidden",
+          },
+        },
+      }
+    }
+  />
+  <FocusLock>
     <div>
       mockHeader
     </div>
-    mock content
-    <div>
+"mock content"
+<div>
       mockHeader
     </div>
-  </div>
-</FocusLock>
+  </FocusLock>
+</Fragment>
 `;

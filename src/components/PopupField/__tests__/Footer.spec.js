@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Footer from '../components/Footer';
 
 jest.mock('shortid', () => ({ generate: () => 'mockId' }));
@@ -13,7 +13,7 @@ describe('Footer', () => {
   };
 
   it('renders correctly with defaults', () => {
-    const component = shallow(<Footer {...requiredProps} />);
+    const component = mount(<Footer {...requiredProps} />);
 
     expect(component).toMatchSnapshot();
   });
@@ -23,9 +23,7 @@ describe('Footer', () => {
       onAction: () => {},
       preFooter: 'mock preFooter node'
     };
-    const component = shallow(
-      <Footer {...requiredProps} {...additionalProps} />
-    );
+    const component = mount(<Footer {...requiredProps} {...additionalProps} />);
 
     expect(component).toMatchSnapshot();
   });

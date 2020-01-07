@@ -130,7 +130,7 @@ exports[`ExternalLink renders correctly when larger viewport 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": <div />,
         },
       ],
@@ -399,7 +399,7 @@ exports[`ExternalLink renders correctly when smaller viewport 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": <div />,
         },
       ],

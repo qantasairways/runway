@@ -1,87 +1,281 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonWithDialog renders correctly with defaults 1`] = `
-.emotion-0 {
+.emotion-3 {
   position: relative;
 }
 
-<div
-  className="emotion-0"
->
-  <Button
-    Icon={null}
-    buttonLabel=""
-    closeAriaLabel=""
-    dialogStyles={Object {}}
-    hasDialogDimensions={false}
-    iconLabelButtonValue={null}
-    onBeforeClose={[Function]}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onClose={[Function]}
-    onOpen={[Function]}
-    open={false}
-    placeHolder=""
-    renderButtonValue={[Function]}
-    renderFooter={[Function]}
-    setButtonRef={[Function]}
-    shouldAddScrollLockClass={false}
-    transitionStyles={
-      Object {
-        "entered": Object {},
-        "entering": Object {},
-        "exiting": Object {},
-      }
+.emotion-2 {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.emotion-1 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  font-size: 1rem;
+}
+
+<ButtonWithDialog
+  closeAriaLabel=""
+  dialogAriaLabel=""
+  dialogStyles={Object {}}
+  hasDialogDimensions={false}
+  onBeforeClose={[Function]}
+  onBlur={[Function]}
+  onClose={[Function]}
+  onOpen={[Function]}
+  renderButtonValue={[Function]}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {},
+      "entering": Object {},
+      "exiting": Object {},
     }
-  />
-  <MediaQueryDetector
-    query="@media only screen and (min-width: 768px)"
+  }
+>
+  <div
+    className="emotion-3"
   >
-    <Component />
-  </MediaQueryDetector>
-</div>
+    <Button
+      Icon={null}
+      buttonLabel=""
+      closeAriaLabel=""
+      dialogStyles={Object {}}
+      hasDialogDimensions={false}
+      iconLabelButtonValue={null}
+      onBeforeClose={[Function]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onClose={[Function]}
+      onOpen={[Function]}
+      open={false}
+      placeHolder=""
+      renderButtonValue={[Function]}
+      renderFooter={[Function]}
+      setButtonRef={[Function]}
+      transitionStyles={
+        Object {
+          "entered": Object {},
+          "entering": Object {},
+          "exiting": Object {},
+        }
+      }
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-2"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="emotion-1"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div>
+            button content
+          </div>
+        </div>
+      </button>
+    </Button>
+    <MediaQueryDetector
+      query="@media only screen and (min-width: 768px)"
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={true}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      />
+    </MediaQueryDetector>
+  </div>
+</ButtonWithDialog>
 `;
 
 exports[`ButtonWithDialog renders correctly with one child element 1`] = `
-.emotion-0 {
+.emotion-3 {
   position: relative;
 }
 
-<div
-  className="emotion-0"
->
-  <Button
-    Icon={null}
-    buttonLabel=""
-    closeAriaLabel=""
-    dialogStyles={Object {}}
-    hasDialogDimensions={false}
-    iconLabelButtonValue={null}
-    onBeforeClose={[Function]}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onClose={[Function]}
-    onOpen={[Function]}
-    open={true}
-    placeHolder=""
-    renderButtonValue={[Function]}
-    renderFooter={[Function]}
-    setButtonRef={[Function]}
-    shouldAddScrollLockClass={false}
-    transitionStyles={
-      Object {
-        "entered": Object {},
-        "entering": Object {},
-        "exiting": Object {},
-      }
+.emotion-2 {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.emotion-1 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  font-size: 1rem;
+}
+
+<ButtonWithDialog
+  closeAriaLabel=""
+  dialogAriaLabel=""
+  dialogStyles={Object {}}
+  hasDialogDimensions={false}
+  onBeforeClose={[Function]}
+  onBlur={[Function]}
+  onClose={[Function]}
+  onOpen={[Function]}
+  renderButtonValue={[Function]}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {},
+      "entering": Object {},
+      "exiting": Object {},
     }
-  />
-  <MediaQueryDetector
-    query="@media only screen and (min-width: 768px)"
+  }
+>
+  <div
+    className="emotion-3"
   >
-    <Component />
-  </MediaQueryDetector>
-</div>
+    <Button
+      Icon={null}
+      buttonLabel=""
+      closeAriaLabel=""
+      dialogStyles={Object {}}
+      hasDialogDimensions={false}
+      iconLabelButtonValue={null}
+      onBeforeClose={[Function]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onClose={[Function]}
+      onOpen={[Function]}
+      open={false}
+      placeHolder=""
+      renderButtonValue={[Function]}
+      renderFooter={[Function]}
+      setButtonRef={[Function]}
+      transitionStyles={
+        Object {
+          "entered": Object {},
+          "entering": Object {},
+          "exiting": Object {},
+        }
+      }
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-2"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="emotion-1"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div>
+            button content
+          </div>
+        </div>
+      </button>
+    </Button>
+    <MediaQueryDetector
+      query="@media only screen and (min-width: 768px)"
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={true}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      />
+    </MediaQueryDetector>
+  </div>
+</ButtonWithDialog>
 `;
 
 exports[`ButtonWithDialog renders correctly with one child function 1`] = `
@@ -144,7 +338,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
   renderButtonValue={[Function]}
   renderFooter={[Function]}
   renderHeader={[Function]}
-  shouldAddScrollLockClass={false}
   transitionStyles={
     Object {
       "entered": Object {},
@@ -173,7 +366,6 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
       renderButtonValue={[Function]}
       renderFooter={[Function]}
       setButtonRef={[Function]}
-      shouldAddScrollLockClass={false}
       transitionStyles={
         Object {
           "entered": Object {},
@@ -226,43 +418,140 @@ exports[`ButtonWithDialog renders correctly with one child function 1`] = `
 `;
 
 exports[`ButtonWithDialog renders correctly with props 1`] = `
-.emotion-0 {
+.emotion-3 {
   position: relative;
 }
 
-<div
-  className="emotion-0"
->
-  <Button
-    Icon={null}
-    buttonLabel=""
-    closeAriaLabel=""
-    dialogStyles={Object {}}
-    hasDialogDimensions={false}
-    iconLabelButtonValue={null}
-    onBeforeClose={[Function]}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onClose={[Function]}
-    onOpen={[Function]}
-    open={false}
-    placeHolder=""
-    renderButtonValue={[Function]}
-    renderFooter={[Function]}
-    setButtonRef={[Function]}
-    shouldAddScrollLockClass={false}
-    transitionStyles={
-      Object {
-        "entered": Object {},
-        "entering": Object {},
-        "exiting": Object {},
-      }
+.emotion-2 {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  padding: 0 15px;
+  cursor: pointer;
+  background-color: #323232;
+  color: #fff;
+  font-family: "Ciutadella",sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.emotion-1 {
+  top: 5px;
+  left: 7px;
+  color: white;
+  text-transform: none;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-0 {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: white;
+  font-size: 1rem;
+}
+
+<ButtonWithDialog
+  closeAriaLabel=""
+  dialogAriaLabel=""
+  dialogStyles={Object {}}
+  hasDialogDimensions={false}
+  onBeforeClose={[Function]}
+  onBlur={[Function]}
+  onClose={[Function]}
+  onOpen={[Function]}
+  renderButtonValue={[Function]}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  transitionStyles={
+    Object {
+      "entered": Object {},
+      "entering": Object {},
+      "exiting": Object {},
     }
-  />
-  <MediaQueryDetector
-    query="@media only screen and (min-width: 768px)"
+  }
+>
+  <div
+    className="emotion-3"
   >
-    <Component />
-  </MediaQueryDetector>
-</div>
+    <Button
+      Icon={null}
+      buttonLabel=""
+      closeAriaLabel=""
+      dialogStyles={Object {}}
+      hasDialogDimensions={false}
+      iconLabelButtonValue={null}
+      onBeforeClose={[Function]}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onClose={[Function]}
+      onOpen={[Function]}
+      open={false}
+      placeHolder=""
+      renderButtonValue={[Function]}
+      renderFooter={[Function]}
+      setButtonRef={[Function]}
+      transitionStyles={
+        Object {
+          "entered": Object {},
+          "entering": Object {},
+          "exiting": Object {},
+        }
+      }
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup="dialog"
+        className="emotion-2"
+        onBlur={[Function]}
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="emotion-1"
+        >
+          <span
+            className="emotion-0"
+          />
+          <div>
+            button content
+          </div>
+        </div>
+      </button>
+    </Button>
+    <MediaQueryDetector
+      query="@media only screen and (min-width: 768px)"
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={true}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      />
+    </MediaQueryDetector>
+  </div>
+</ButtonWithDialog>
 `;

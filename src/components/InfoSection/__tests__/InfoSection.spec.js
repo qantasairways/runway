@@ -1,6 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import InfoSection from '..';
+
+jest.mock('../../../icons/InfoIcon', () => () => <span>Mock Info Icon</span>);
 
 describe('InfoSection', () => {
   it('renders correctly with props', () => {
@@ -9,7 +11,7 @@ describe('InfoSection', () => {
       height: '100px',
       width: '200px'
     };
-    const component = shallow(<InfoSection {...requiredProps} />);
+    const component = mount(<InfoSection {...requiredProps} />);
     expect(component).toMatchSnapshot();
   });
 });

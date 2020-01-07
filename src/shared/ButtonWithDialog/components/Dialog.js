@@ -1,11 +1,13 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Global } from '@emotion/core';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks
 } from 'body-scroll-lock';
+
 import FocusLock from '../../../components/FocusLock';
 
 class Dialog extends Component {
@@ -61,20 +63,32 @@ class Dialog extends Component {
     } = this.props;
 
     return (
-      <FocusLock>
-        <div
-          aria-label={dialogAriaLabel}
-          role="dialog"
-          css={{
-            ...dialogStyles,
-            ...transitionStyles[transitionState]
+      <>
+        <Global
+          styles={{
+            'html, body': {
+              '@media only screen and (max-width: 767px)': {
+                overflow: 'hidden',
+                height: '100%'
+              }
+            }
           }}
-        >
-          {renderHeader()}
-          {content}
-          {renderFooter()}
-        </div>
-      </FocusLock>
+        />
+        <FocusLock>
+          <div
+            aria-label={dialogAriaLabel}
+            role="dialog"
+            css={{
+              ...dialogStyles,
+              ...transitionStyles[transitionState]
+            }}
+          >
+            {renderHeader()}
+            {content}
+            {renderFooter()}
+          </div>
+        </FocusLock>
+      </>
     );
   };
 }

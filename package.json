@@ -36,10 +36,10 @@
   },
   "homepage": "https://github.com/qantasairways/runway#readme",
   "dependencies": {
+    "@emotion/core": "^10.0.27",
     "body-scroll-lock": "^2.6.1",
-    "downshift": "^3.1.12",
+    "downshift": "^4.0.2",
     "ejs": "^2.6.1",
-    "emotion": "^9.2.12",
     "express": "^4.16.4",
     "highlight-words-core": "^1.2.2",
     "lodash.debounce": "4.0.8",
@@ -62,6 +62,7 @@
     "@commitlint/cli": "^8.3.3",
     "@commitlint/config-angular": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
     "@semantic-release/changelog": "^3.0.1",
     "@semantic-release/git": "^7.0.5",
     "@semantic-release/npm": "^5.1.1",
@@ -69,7 +70,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-emotion": "^9.2.11",
+    "babel-plugin-emotion": "^10.0.27",
     "babel-preset-airbnb": "^3.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
@@ -83,8 +84,8 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^3.0.0",
-    "jest": "^23.6.0",
-    "jest-emotion": "^9.2.11",
+    "jest": "^24.9.0",
+    "jest-emotion": "^10.0.27",
     "lint-staged": "^8.1.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.17.0",
@@ -101,13 +102,14 @@
     "webpack-blocks": "^2.0.0-rc"
   },
   "peerDependencies": {
-    "emotion": "^9.2.12",
+    "@emotion/core": "^10.0.27",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
   "babel": {
     "presets": [
-      "airbnb"
+      "airbnb",
+      "@emotion/babel-preset-css-prop"
     ],
     "plugins": [
       "emotion",
@@ -134,9 +136,12 @@
     "singleQuote": true
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ],
     "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+      "enzyme-to-json/serializer",
+      "jest-emotion"
     ],
     "testEnvironment": "node"
   },

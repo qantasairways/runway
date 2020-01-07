@@ -145,10 +145,10 @@ export class PopupField extends Component {
               ref={defaultScrollingContainer ? setScrollTargetRef : null}
               css={{
                 padding: layout.gutter,
-                'overflow-y': defaultScrollingContainer ? 'scroll' : 'hidden',
-                '-webkit-overflow-scrolling': 'touch',
+                overflowY: defaultScrollingContainer ? 'scroll' : 'hidden',
                 flex: '1',
-                '-ms-flex': 'none'
+                WebkitOverflowScrolling: 'touch',
+                MsFlex: 'none'
               }}
             >
               {content}

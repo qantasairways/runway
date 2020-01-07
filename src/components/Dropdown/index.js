@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import {
   CSS_SELECTOR_HOVER,
   CSS_SELECTOR_ACTIVE,
@@ -272,7 +272,10 @@ export default class Dropdown extends React.Component {
             downshiftProps
           };
           return (
-            <div css={dropdownMenuContainerStyles(props, isOpen)}>
+            <div
+              css={dropdownMenuContainerStyles(props, isOpen)}
+              {...downshiftProps.getRootProps()}
+            >
               <SelectOnKeyPressContainer
                 items={props.items}
                 itemToString={props.downShiftProps.itemToString}

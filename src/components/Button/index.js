@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 

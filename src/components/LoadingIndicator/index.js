@@ -1,4 +1,4 @@
-import { css, keyframes } from 'emotion';
+import { css, keyframes } from '@emotion/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { colours } from '../../theme/airways';
