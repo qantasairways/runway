@@ -1,3 +1,10 @@
+## [0.51.2](https://github.com/qantasairways/runway/compare/v0.51.1...v0.51.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* **typeahead:** downshift ref for scrollIntoView ([#174](https://github.com/qantasairways/runway/issues/174)) ([15ebe15](https://github.com/qantasairways/runway/commit/15ebe15a79cc9064e5b72ef21f6807257bf16066))
+
 ## [0.51.1](https://github.com/qantasairways/runway/compare/v0.51.0...v0.51.1) (2019-12-20)
 
 
