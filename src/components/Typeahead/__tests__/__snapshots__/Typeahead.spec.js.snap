@@ -2,15 +2,15 @@
 
 exports[`Typeahead renderItems() returns the correct jsx for custom structure of items 1`] = `
 <ul
-  className="css-1cwu89w"
+  css="unknown styles"
 >
   <li
-    className="css-qrv7uy"
+    css="unknown styles"
   >
     <span>
       o
       <strong
-        className="css-35ezg3"
+        css="unknown styles"
       >
         ra
       </strong>
@@ -18,12 +18,12 @@ exports[`Typeahead renderItems() returns the correct jsx for custom structure of
     </span>
   </li>
   <li
-    className="css-qrv7uy"
+    css="unknown styles"
   >
     <span>
       g
       <strong
-        className="css-35ezg3"
+        css="unknown styles"
       >
         ra
       </strong>
@@ -35,15 +35,15 @@ exports[`Typeahead renderItems() returns the correct jsx for custom structure of
 
 exports[`Typeahead renderItems() returns the correct jsx for simple items array 1`] = `
 <ul
-  className="css-1cwu89w"
+  css="unknown styles"
 >
   <li
-    className="css-qrv7uy"
+    css="unknown styles"
   >
     <span>
       o
       <strong
-        className="css-35ezg3"
+        css="unknown styles"
       >
         ra
       </strong>
@@ -51,12 +51,12 @@ exports[`Typeahead renderItems() returns the correct jsx for simple items array 
     </span>
   </li>
   <li
-    className="css-qrv7uy"
+    css="unknown styles"
   >
     <span>
       g
       <strong
-        className="css-35ezg3"
+        css="unknown styles"
       >
         ra
       </strong>

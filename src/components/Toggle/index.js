@@ -3,7 +3,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
 import Switch from 'react-switch';
 import { colours, fontSize, fontFamily } from '../../theme/airways';
 
@@ -49,20 +48,13 @@ class Toggle extends Component {
     Toggle.isControlled(this.props) ? this.props.checked : this.state.checked;
 
   render = () => {
-    const {
-      handleSize,
-      height,
-      id,
-      label,
-      width,
-      containerClassName
-    } = this.props;
+    const { handleSize, height, id, label, width, className } = this.props;
 
     const checked = this.getCheckedState();
 
     return (
       <label
-        className={containerClassName}
+        className={className}
         css={{
           backgroundColor: colours.mediumGrey,
           display: 'flex',
@@ -98,7 +90,7 @@ class Toggle extends Component {
           checkedIcon={false}
           height={height}
           width={width}
-          className={css(styleOverrides({ handleSize, width, checked }))}
+          css={styleOverrides({ handleSize, width, checked })}
         />
       </label>
     );
@@ -123,7 +115,7 @@ Toggle.propTypes = {
   /** The width of the toggle */
   width: PropTypes.number,
   /* Optional className for the container */
-  containerClassName: PropTypes.string
+  className: PropTypes.string
 };
 
 Toggle.defaultProps = {
@@ -133,7 +125,7 @@ Toggle.defaultProps = {
   handleSize: 26,
   height: 30,
   width: 46,
-  containerClassName: 'react-toggle-container'
+  className: 'react-toggle-container'
 };
 
 export default Toggle;

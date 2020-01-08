@@ -37,22 +37,32 @@ exports[`InfoSection renders correctly with props 1`] = `
   font-family: Ciutadella;
 }
 
-<div
-  className="emotion-3"
+<InfoSection
+  content="mock content"
+  height="100px"
+  width="200px"
 >
-  <span
-    className="emotion-1"
+  <div
+    className="emotion-3"
   >
-    <InfoIcon
-      className="emotion-0"
-      height="16.8px"
-      width="16.8px"
-    />
-  </span>
-  <span
-    className="emotion-2 runway-info-section__text-content"
-  >
-    mock content
-  </span>
-</div>
+    <span
+      className="emotion-1"
+    >
+      <Component
+        className="emotion-0"
+        height="16.8px"
+        width="16.8px"
+      >
+        <span>
+          Mock Info Icon
+        </span>
+      </Component>
+    </span>
+    <span
+      className="runway-info-section__text-content emotion-2"
+    >
+      mock content
+    </span>
+  </div>
+</InfoSection>
 `;

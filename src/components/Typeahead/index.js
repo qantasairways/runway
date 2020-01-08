@@ -42,7 +42,7 @@ function inputStyles() {
     width: '100%',
     padding: '14px 10px 10px 10px',
     borderRadius: '0px',
-    '-webkit-appearance': 'none'
+    WebkitAppearance: 'none'
   };
 }
 
@@ -250,6 +250,7 @@ class Typeahead extends Component {
           getItemProps,
           getLabelProps,
           getMenuProps,
+          getRootProps,
           isOpen,
           inputValue,
           highlightedIndex,
@@ -260,7 +261,10 @@ class Typeahead extends Component {
             selectItemCollector(selectItem);
           }
           return (
-            <div css={typeaheadStyles()}>
+            <div
+              css={typeaheadStyles()}
+              {...getRootProps({}, { suppressRefError: true })}
+            >
               <div css={labelInputContainerStyles()}>
                 {label && (
                   <label {...getLabelProps()} css={labelStyles()}>

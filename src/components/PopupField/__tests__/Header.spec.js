@@ -1,15 +1,17 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Header from '../components/Header';
 
+jest.mock('../../../icons/CrossIcon', () => () => <span>Mock Cross Icon</span>);
 jest.mock('shortid', () => ({ generate: () => 'shortid' }));
+
 const DummyIcon = () => <div>ICON</div>;
 
 describe('Header', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = shallow(<Header closeDialog={() => {}} />);
+    component = mount(<Header closeDialog={() => {}} />);
 
     expect(component).toMatchSnapshot();
   });
@@ -17,7 +19,7 @@ describe('Header', () => {
   it('renders correctly with props provided', () => {
     const renderHeaderChildren = () => <div>HEADER CHILDREN</div>;
 
-    component = shallow(
+    component = mount(
       <Header
         headerLabel="header label"
         headerHeight={50}

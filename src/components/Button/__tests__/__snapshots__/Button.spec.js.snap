@@ -35,15 +35,23 @@ exports[`Button should render correctly in "debug" mode 1`] = `
   transform: translate(1px,1px);
 }
 
-<div
+<Button
   className={null}
+  cssOverrides={Array []}
+  debug="true"
+  label="button"
+  variant="solid"
 >
-  <button
-    className="emotion-0"
-    debug="true"
-    type="button"
+  <div
+    className={null}
   >
-    button
-  </button>
-</div>
+    <button
+      className="emotion-0"
+      debug="true"
+      type="button"
+    >
+      button
+    </button>
+  </div>
+</Button>
 `;

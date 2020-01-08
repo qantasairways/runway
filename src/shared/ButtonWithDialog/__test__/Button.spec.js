@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Button, { ButtonContent } from '../components/Button';
 
 const DummyIcon = () => <div>ICON</div>;
@@ -8,13 +8,13 @@ describe('ButtonContent', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = shallow(<ButtonContent />);
+    component = mount(<ButtonContent />);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with props provided', () => {
-    component = shallow(
+    component = mount(
       <ButtonContent largeValue="Large Value" smallValue="Small Value" />
     );
 
@@ -26,13 +26,13 @@ describe('Button', () => {
   let component;
 
   it('renders correctly with defaults', () => {
-    component = shallow(<Button onClick={() => {}} setButtonRef={() => {}} />);
+    component = mount(<Button onClick={() => {}} setButtonRef={() => {}} />);
 
     expect(component).toMatchSnapshot();
   });
 
   it('renders correctly with props provided', () => {
-    component = shallow(
+    component = mount(
       <Button
         renderButtonvalue={() => 'button value'}
         open
@@ -49,7 +49,7 @@ describe('Button', () => {
   });
 
   it('renders correctly with buttonContent custom element', () => {
-    component = shallow(
+    component = mount(
       <Button
         renderButtonValue={() => <div>BUTTON CONTENT</div>}
         open
