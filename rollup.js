@@ -50,7 +50,13 @@ console.log(
 /**
  * Build
  */
-const externals = ['react', 'react-dom', 'prop-types', 'emotion'];
+const externals = [
+  'react',
+  'react-dom',
+  'prop-types',
+  '@emotion/core',
+  '@emotion/css'
+];
 const makeExternalPredicate = externalsArr => {
   if (externalsArr.length === 0) {
     return () => false;

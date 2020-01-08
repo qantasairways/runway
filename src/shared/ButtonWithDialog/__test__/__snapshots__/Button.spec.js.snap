@@ -44,27 +44,40 @@ exports[`Button renders correctly with buttonContent custom element 1`] = `
   font-size: 1rem;
 }
 
-<button
-  aria-expanded={true}
-  aria-haspopup="dialog"
-  className="emotion-2"
+<Button
+  Icon={null}
+  buttonLabel="field label"
+  icon={[Function]}
+  iconLabelButtonValue={null}
   onBlur={[Function]}
   onClick={[Function]}
-  type="button"
+  open={true}
+  placeHolder="placeholder"
+  renderButtonValue={[Function]}
+  setButtonRef={[Function]}
 >
-  <div
-    className="emotion-1"
+  <button
+    aria-expanded={true}
+    aria-haspopup="dialog"
+    className="emotion-2"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
   >
-    <span
-      className="emotion-0"
+    <div
+      className="emotion-1"
     >
-      field label
-    </span>
-    <div>
-      BUTTON CONTENT
+      <span
+        className="emotion-0"
+      >
+        field label
+      </span>
+      <div>
+        BUTTON CONTENT
+      </div>
     </div>
-  </div>
-</button>
+  </button>
+</Button>
 `;
 
 exports[`Button renders correctly with defaults 1`] = `
@@ -120,25 +133,37 @@ exports[`Button renders correctly with defaults 1`] = `
   letter-spacing: -0.0625rem;
 }
 
-<button
-  aria-expanded={false}
-  aria-haspopup="dialog"
-  className="emotion-3"
+<Button
+  Icon={null}
+  buttonLabel=""
+  iconLabelButtonValue={null}
   onBlur={[Function]}
   onClick={[Function]}
-  type="button"
+  open={false}
+  placeHolder=""
+  renderButtonValue={[Function]}
+  setButtonRef={[Function]}
 >
-  <div
-    className="emotion-2"
+  <button
+    aria-expanded={false}
+    aria-haspopup="dialog"
+    className="emotion-3"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
   >
-    <span
-      className="emotion-0"
-    />
     <div
-      className="emotion-1"
-    />
-  </div>
-</button>
+      className="emotion-2"
+    >
+      <span
+        className="emotion-0"
+      />
+      <div
+        className="emotion-1"
+      />
+    </div>
+  </button>
+</Button>
 `;
 
 exports[`Button renders correctly with props provided 1`] = `
@@ -194,29 +219,43 @@ exports[`Button renders correctly with props provided 1`] = `
   letter-spacing: -0.0625rem;
 }
 
-<button
-  aria-expanded={true}
-  aria-haspopup="dialog"
-  className="emotion-3"
+<Button
+  Icon={null}
+  buttonLabel="field label"
+  icon={[Function]}
+  iconLabelButtonValue={null}
   onBlur={[Function]}
   onClick={[Function]}
-  type="button"
+  open={true}
+  placeHolder="placeholder"
+  renderButtonValue={[Function]}
+  renderButtonvalue={[Function]}
+  setButtonRef={[Function]}
 >
-  <div
-    className="emotion-2"
+  <button
+    aria-expanded={true}
+    aria-haspopup="dialog"
+    className="emotion-3"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
   >
-    <span
-      className="emotion-0"
-    >
-      field label
-    </span>
     <div
-      className="emotion-1"
+      className="emotion-2"
     >
-      placeholder
+      <span
+        className="emotion-0"
+      >
+        field label
+      </span>
+      <div
+        className="emotion-1"
+      >
+        placeholder
+      </div>
     </div>
-  </div>
-</button>
+  </button>
+</Button>
 `;
 
 exports[`ButtonContent renders correctly with defaults 1`] = `
@@ -240,16 +279,21 @@ exports[`ButtonContent renders correctly with defaults 1`] = `
   white-space: nowrap;
 }
 
-<div
-  className="emotion-2"
+<ButtonContent
+  largeButtonValue=""
+  smallButtonValue=""
 >
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-1"
-  />
-</div>
+    className="emotion-2"
+  >
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+  </div>
+</ButtonContent>
 `;
 
 exports[`ButtonContent renders correctly with props provided 1`] = `
@@ -273,14 +317,21 @@ exports[`ButtonContent renders correctly with props provided 1`] = `
   white-space: nowrap;
 }
 
-<div
-  className="emotion-2"
+<ButtonContent
+  largeButtonValue=""
+  largeValue="Large Value"
+  smallButtonValue=""
+  smallValue="Small Value"
 >
   <div
-    className="emotion-0"
-  />
-  <div
-    className="emotion-1"
-  />
-</div>
+    className="emotion-2"
+  >
+    <div
+      className="emotion-0"
+    />
+    <div
+      className="emotion-1"
+    />
+  </div>
+</ButtonContent>
 `;

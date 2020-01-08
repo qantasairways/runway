@@ -46,29 +46,40 @@ exports[`Header renders correctly with defaults 1`] = `
   fill: white;
 }
 
-<div
-  className="emotion-4"
+<Header
+  HeaderIcon={null}
+  closeAriaLabel=""
+  closeDialog={[Function]}
+  headerLabel=""
 >
   <div
-    className="emotion-3"
+    className="emotion-4"
   >
-    <span
-      className="emotion-0"
-    />
-    <button
-      aria-label=""
-      className="emotion-2"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="emotion-3"
     >
-      <CrossIcon
-        className="emotion-1"
-        height="32px"
-        width="32px"
+      <span
+        className="emotion-0"
       />
-    </button>
+      <button
+        aria-label=""
+        className="emotion-2"
+        onClick={[Function]}
+        type="button"
+      >
+        <Component
+          className="emotion-1"
+          height="32px"
+          width="32px"
+        >
+          <span>
+            Mock Cross Icon
+          </span>
+        </Component>
+      </button>
+    </div>
   </div>
-</div>
+</Header>
 `;
 
 exports[`Header renders correctly with props provided 1`] = `
@@ -122,34 +133,51 @@ exports[`Header renders correctly with props provided 1`] = `
   margin-right: 8px;
 }
 
-<div
-  className="emotion-5"
+<Header
+  HeaderIcon={[Function]}
+  closeAriaLabel="close"
+  closeDialog={[Function]}
+  headerHeight={50}
+  headerLabel="header label"
+  renderHeaderChildren={[Function]}
 >
   <div
-    className="emotion-4"
+    className="emotion-5"
   >
-    <DummyIcon
-      className="emotion-0"
-      height="32px"
-      width="32px"
-    />
-    <span
-      className="emotion-1"
+    <div
+      className="emotion-4"
     >
-      header label
-    </span>
-    <button
-      aria-label="close"
-      className="emotion-3"
-      onClick={[Function]}
-      type="button"
-    >
-      <CrossIcon
-        className="emotion-2"
+      <DummyIcon
+        className="emotion-0"
         height="32px"
         width="32px"
-      />
-    </button>
+      >
+        <div>
+          ICON
+        </div>
+      </DummyIcon>
+      <span
+        className="emotion-1"
+      >
+        header label
+      </span>
+      <button
+        aria-label="close"
+        className="emotion-3"
+        onClick={[Function]}
+        type="button"
+      >
+        <Component
+          className="emotion-2"
+          height="32px"
+          width="32px"
+        >
+          <span>
+            Mock Cross Icon
+          </span>
+        </Component>
+      </button>
+    </div>
   </div>
-</div>
+</Header>
 `;

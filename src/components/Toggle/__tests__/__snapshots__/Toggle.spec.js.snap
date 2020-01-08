@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle Controlled should render checked="false" correctly 1`] = `
-.emotion-2 {
+.emotion-3 {
   background-color: #3c3c3c;
   display: -webkit-box;
   display: -webkit-flex;
@@ -49,38 +49,142 @@ exports[`Toggle Controlled should render checked="false" correctly 1`] = `
   box-shadow: inset #626262 0px 0px 0px 2px;
 }
 
-<label
-  className="emotion-2 mockContainerClassName"
-  htmlFor="mockId-3"
+<Toggle
+  checked={false}
+  className="mockContainerClassName"
+  handleSize={26}
+  height={30}
+  id="mockId-3"
+  label="mockLabel"
+  onChange={[Function]}
+  width={46}
 >
-  <span
-    className="emotion-0"
+  <label
+    className="mockContainerClassName emotion-3"
+    htmlFor="mockId-3"
   >
-    mockLabel
-  </span>
-  <ReactSwitch
-    activeBoxShadow="0 0 2px 3px #3bf"
-    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
-    checked={false}
-    checkedIcon={false}
-    className="emotion-1"
-    disabled={false}
-    handleDiameter={26}
-    height={30}
-    id="mockId-3"
-    offColor="#323232"
-    offHandleColor="#b3b3b3"
-    onChange={[Function]}
-    onColor="#8de2e0"
-    onHandleColor="#fff"
-    uncheckedIcon={false}
-    width={46}
-  />
-</label>
+    <span
+      className="emotion-0"
+    >
+      mockLabel
+    </span>
+    <ReactSwitch
+      activeBoxShadow="0 0 2px 3px #3bf"
+      boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+      checked={false}
+      checkedIcon={false}
+      className="emotion-1"
+      disabled={false}
+      handleDiameter={26}
+      height={30}
+      id="mockId-3"
+      offColor="#323232"
+      offHandleColor="#b3b3b3"
+      onChange={[Function]}
+      onColor="#8de2e0"
+      onHandleColor="#fff"
+      uncheckedIcon={false}
+      width={46}
+    >
+      <div
+        className="emotion-1"
+        style={
+          Object {
+            "MozTransition": "opacity 0.25s",
+            "MozUserSelect": "none",
+            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+            "WebkitTransition": "opacity 0.25s",
+            "WebkitUserSelect": "none",
+            "borderRadius": 15,
+            "display": "inline-block",
+            "msUserSelect": "none",
+            "opacity": 1,
+            "position": "relative",
+            "textAlign": "left",
+            "touchAction": "none",
+            "transition": "opacity 0.25s",
+            "userSelect": "none",
+          }
+        }
+      >
+        <div
+          className="react-switch-bg"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "MozTransition": "background 0.25s",
+              "WebkitTransition": "background 0.25s",
+              "background": "#323232",
+              "borderRadius": 15,
+              "cursor": "pointer",
+              "height": 30,
+              "margin": 0,
+              "position": "relative",
+              "transition": "background 0.25s",
+              "width": 46,
+            }
+          }
+        />
+        <div
+          className="react-switch-handle"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "background": "#b3b3b3",
+              "border": 0,
+              "borderRadius": "50%",
+              "boxShadow": "0px 0px 1px 0px rgba(0, 0, 0, 0.3)",
+              "cursor": "pointer",
+              "display": "inline-block",
+              "height": 26,
+              "outline": 0,
+              "position": "absolute",
+              "top": 2,
+              "transform": "translateX(2px)",
+              "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "width": 26,
+            }
+          }
+        />
+        <input
+          checked={false}
+          disabled={false}
+          id="mockId-3"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          style={
+            Object {
+              "border": 0,
+              "clip": "rect(0 0 0 0)",
+              "height": 1,
+              "margin": -1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "absolute",
+              "width": 1,
+            }
+          }
+          type="checkbox"
+        />
+      </div>
+    </ReactSwitch>
+  </label>
+</Toggle>
 `;
 
 exports[`Toggle Controlled should render checked="true" correctly 1`] = `
-.emotion-2 {
+.emotion-3 {
   background-color: #3c3c3c;
   display: -webkit-box;
   display: -webkit-flex;
@@ -128,38 +232,142 @@ exports[`Toggle Controlled should render checked="true" correctly 1`] = `
   box-shadow: none;
 }
 
-<label
-  className="emotion-2 mockContainerClassName"
-  htmlFor="mockId-2"
+<Toggle
+  checked={true}
+  className="mockContainerClassName"
+  handleSize={26}
+  height={30}
+  id="mockId-2"
+  label="mockLabel"
+  onChange={[Function]}
+  width={46}
 >
-  <span
-    className="emotion-0"
+  <label
+    className="mockContainerClassName emotion-3"
+    htmlFor="mockId-2"
   >
-    mockLabel
-  </span>
-  <ReactSwitch
-    activeBoxShadow="0 0 2px 3px #3bf"
-    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
-    checked={true}
-    checkedIcon={false}
-    className="emotion-1"
-    disabled={false}
-    handleDiameter={26}
-    height={30}
-    id="mockId-2"
-    offColor="#323232"
-    offHandleColor="#b3b3b3"
-    onChange={[Function]}
-    onColor="#8de2e0"
-    onHandleColor="#fff"
-    uncheckedIcon={false}
-    width={46}
-  />
-</label>
+    <span
+      className="emotion-0"
+    >
+      mockLabel
+    </span>
+    <ReactSwitch
+      activeBoxShadow="0 0 2px 3px #3bf"
+      boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+      checked={true}
+      checkedIcon={false}
+      className="emotion-1"
+      disabled={false}
+      handleDiameter={26}
+      height={30}
+      id="mockId-2"
+      offColor="#323232"
+      offHandleColor="#b3b3b3"
+      onChange={[Function]}
+      onColor="#8de2e0"
+      onHandleColor="#fff"
+      uncheckedIcon={false}
+      width={46}
+    >
+      <div
+        className="emotion-1"
+        style={
+          Object {
+            "MozTransition": "opacity 0.25s",
+            "MozUserSelect": "none",
+            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+            "WebkitTransition": "opacity 0.25s",
+            "WebkitUserSelect": "none",
+            "borderRadius": 15,
+            "display": "inline-block",
+            "msUserSelect": "none",
+            "opacity": 1,
+            "position": "relative",
+            "textAlign": "left",
+            "touchAction": "none",
+            "transition": "opacity 0.25s",
+            "userSelect": "none",
+          }
+        }
+      >
+        <div
+          className="react-switch-bg"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "MozTransition": "background 0.25s",
+              "WebkitTransition": "background 0.25s",
+              "background": "#8de2e0",
+              "borderRadius": 15,
+              "cursor": "pointer",
+              "height": 30,
+              "margin": 0,
+              "position": "relative",
+              "transition": "background 0.25s",
+              "width": 46,
+            }
+          }
+        />
+        <div
+          className="react-switch-handle"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "background": "#ffffff",
+              "border": 0,
+              "borderRadius": "50%",
+              "boxShadow": "0px 0px 1px 0px rgba(0, 0, 0, 0.3)",
+              "cursor": "pointer",
+              "display": "inline-block",
+              "height": 26,
+              "outline": 0,
+              "position": "absolute",
+              "top": 2,
+              "transform": "translateX(18px)",
+              "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "width": 26,
+            }
+          }
+        />
+        <input
+          checked={true}
+          disabled={false}
+          id="mockId-2"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          style={
+            Object {
+              "border": 0,
+              "clip": "rect(0 0 0 0)",
+              "height": 1,
+              "margin": -1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "absolute",
+              "width": 1,
+            }
+          }
+          type="checkbox"
+        />
+      </div>
+    </ReactSwitch>
+  </label>
+</Toggle>
 `;
 
 exports[`Toggle Uncontrolled should render correctly 1`] = `
-.emotion-2 {
+.emotion-3 {
   background-color: #3c3c3c;
   display: -webkit-box;
   display: -webkit-flex;
@@ -207,32 +415,136 @@ exports[`Toggle Uncontrolled should render correctly 1`] = `
   box-shadow: inset #626262 0px 0px 0px 2px;
 }
 
-<label
-  className="emotion-2 mockContainerClassName"
-  htmlFor="mockId-1"
+<Toggle
+  checked={null}
+  className="mockContainerClassName"
+  handleSize={26}
+  height={30}
+  id="mockId-1"
+  label="mockLabel"
+  onChange={[Function]}
+  width={46}
 >
-  <span
-    className="emotion-0"
+  <label
+    className="mockContainerClassName emotion-3"
+    htmlFor="mockId-1"
   >
-    mockLabel
-  </span>
-  <ReactSwitch
-    activeBoxShadow="0 0 2px 3px #3bf"
-    boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
-    checked={false}
-    checkedIcon={false}
-    className="emotion-1"
-    disabled={false}
-    handleDiameter={26}
-    height={30}
-    id="mockId-1"
-    offColor="#323232"
-    offHandleColor="#b3b3b3"
-    onChange={[Function]}
-    onColor="#8de2e0"
-    onHandleColor="#fff"
-    uncheckedIcon={false}
-    width={46}
-  />
-</label>
+    <span
+      className="emotion-0"
+    >
+      mockLabel
+    </span>
+    <ReactSwitch
+      activeBoxShadow="0 0 2px 3px #3bf"
+      boxShadow="0px 0px 1px 0px rgba(0, 0, 0, 0.3)"
+      checked={false}
+      checkedIcon={false}
+      className="emotion-1"
+      disabled={false}
+      handleDiameter={26}
+      height={30}
+      id="mockId-1"
+      offColor="#323232"
+      offHandleColor="#b3b3b3"
+      onChange={[Function]}
+      onColor="#8de2e0"
+      onHandleColor="#fff"
+      uncheckedIcon={false}
+      width={46}
+    >
+      <div
+        className="emotion-1"
+        style={
+          Object {
+            "MozTransition": "opacity 0.25s",
+            "MozUserSelect": "none",
+            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+            "WebkitTransition": "opacity 0.25s",
+            "WebkitUserSelect": "none",
+            "borderRadius": 15,
+            "display": "inline-block",
+            "msUserSelect": "none",
+            "opacity": 1,
+            "position": "relative",
+            "textAlign": "left",
+            "touchAction": "none",
+            "transition": "opacity 0.25s",
+            "userSelect": "none",
+          }
+        }
+      >
+        <div
+          className="react-switch-bg"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "MozTransition": "background 0.25s",
+              "WebkitTransition": "background 0.25s",
+              "background": "#323232",
+              "borderRadius": 15,
+              "cursor": "pointer",
+              "height": 30,
+              "margin": 0,
+              "position": "relative",
+              "transition": "background 0.25s",
+              "width": 46,
+            }
+          }
+        />
+        <div
+          className="react-switch-handle"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "background": "#b3b3b3",
+              "border": 0,
+              "borderRadius": "50%",
+              "boxShadow": "0px 0px 1px 0px rgba(0, 0, 0, 0.3)",
+              "cursor": "pointer",
+              "display": "inline-block",
+              "height": 26,
+              "outline": 0,
+              "position": "absolute",
+              "top": 2,
+              "transform": "translateX(2px)",
+              "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "width": 26,
+            }
+          }
+        />
+        <input
+          checked={false}
+          disabled={false}
+          id="mockId-1"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          style={
+            Object {
+              "border": 0,
+              "clip": "rect(0 0 0 0)",
+              "height": 1,
+              "margin": -1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "absolute",
+              "width": 1,
+            }
+          }
+          type="checkbox"
+        />
+      </div>
+    </ReactSwitch>
+  </label>
+</Toggle>
 `;

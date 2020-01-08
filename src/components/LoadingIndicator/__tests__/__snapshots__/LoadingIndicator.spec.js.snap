@@ -1,47 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoadingIndicator should render correctly with props 1`] = `
+@keyframes animation-0 {
+  from {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  80% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  80% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes animation-0 {
+  from {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  80% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
 .emotion-4 {
   position: relative;
   margin: auto;
   text-align: center;
   width: 3rem;
-}
-
-.emotion-3 {
-  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  background-color: #626262;
-  border-radius: 100%;
-  display: inline-block;
-  height: 0.75rem;
-  width: 0.75rem;
-}
-
-.emotion-1 {
-  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  background-color: #626262;
-  border-radius: 100%;
-  display: inline-block;
-  height: 0.75rem;
-  width: 0.75rem;
-  -webkit-animation-delay: 0.32s;
-  animation-delay: 0.32s;
-  margin-right: 0.25rem;
-}
-
-.emotion-2 {
-  -webkit-animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  animation: animation-1oih9nn 1.4s ease-in-out infinite both;
-  background-color: #626262;
-  border-radius: 100%;
-  display: inline-block;
-  height: 0.75rem;
-  width: 0.75rem;
-  -webkit-animation-delay: 0.16s;
-  animation-delay: 0.16s;
-  margin-right: 0.25rem;
 }
 
 .emotion-0 {
@@ -56,22 +98,62 @@ exports[`LoadingIndicator should render correctly with props 1`] = `
   width: 1px;
 }
 
-<div
-  className="emotion-4"
+.emotion-1 {
+  -webkit-animation: animation-0 1.4s ease-in-out infinite both;
+  animation: animation-0 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+  -webkit-animation-delay: 0.32s;
+  animation-delay: 0.32s;
+  margin-right: 0.25rem;
+}
+
+.emotion-2 {
+  -webkit-animation: animation-0 1.4s ease-in-out infinite both;
+  animation: animation-0 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s;
+  margin-right: 0.25rem;
+}
+
+.emotion-3 {
+  -webkit-animation: animation-0 1.4s ease-in-out infinite both;
+  animation: animation-0 1.4s ease-in-out infinite both;
+  background-color: #626262;
+  border-radius: 100%;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+<LoadingIndicator
+  screenReaderText="loading"
 >
-  <span
-    className="emotion-0"
+  <div
+    className="emotion-4"
   >
-    loading
-  </span>
-  <div
-    className="emotion-1"
-  />
-  <div
-    className="emotion-2"
-  />
-  <div
-    className="emotion-3"
-  />
-</div>
+    <span
+      className="emotion-0"
+    >
+      loading
+    </span>
+    <div
+      className="emotion-1"
+    />
+    <div
+      className="emotion-2"
+    />
+    <div
+      className="emotion-3"
+    />
+  </div>
+</LoadingIndicator>
 `;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import { css } from 'emotion';
 
 import noop from '../../utils/noop';
 import { mq, fontFamily } from '../../theme/airways';
@@ -18,11 +17,30 @@ const getRootContainerStyles = hasDialogDimensions => ({
   })
 });
 
+// TODO - implement using portals and remove this function.
 function addQComZIndex(zIndex) {
   const main = document.querySelector('main');
   if (main) {
     main.style.zIndex = zIndex;
   }
+}
+
+/**
+ * Trick iOS safari into showing the bottom toolbar when the dialog opens
+ */
+function addScrollLockStyles() {
+  const { documentElement, body } = document;
+  documentElement.style.overflow = 'hidden';
+  documentElement.style.height = '100%';
+  body.style.overflow = 'hidden';
+  body.style.height = '100%';
+}
+function removeScrollLockStyles() {
+  const { documentElement, body } = document;
+  documentElement.style.overflow = 'auto';
+  documentElement.style.height = 'auto';
+  body.style.overflow = 'auto';
+  body.style.height = 'auto';
 }
 
 export const transitionStylesSlideUp = {
@@ -56,12 +74,6 @@ export const dialogStylesFullScreen = {
 class ButtonWithDialog extends Component {
   scrollTarget = null;
 
-  scrollLockClass = css({
-    overflow: 'hidden',
-    height: '100%',
-    pageScrollPos: 0
-  });
-
   state = {
     open: false
   };
@@ -75,8 +87,7 @@ class ButtonWithDialog extends Component {
     });
 
     if (this.props.shouldAddScrollLockClass) {
-      document.documentElement.classList.add(this.scrollLockClass);
-      document.body.classList.add(this.scrollLockClass);
+      addScrollLockStyles();
     }
 
     document.addEventListener('click', this.handleClickOutside);
@@ -84,8 +95,9 @@ class ButtonWithDialog extends Component {
   };
 
   onExit = () => {
-    document.documentElement.classList.remove(this.scrollLockClass);
-    document.body.classList.remove(this.scrollLockClass);
+    if (this.props.shouldAddScrollLockClass) {
+      removeScrollLockStyles();
+    }
 
     window.scrollTo(0, this.state.pageScrollPos);
 

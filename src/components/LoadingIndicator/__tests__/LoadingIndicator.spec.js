@@ -1,10 +1,10 @@
 import React from 'react';
 import LoadingIndicator from '..';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 describe('LoadingIndicator', () => {
   it('should render correctly with props', () => {
-    const component = shallow(<LoadingIndicator screenReaderText="loading" />);
+    const component = mount(<LoadingIndicator screenReaderText="loading" />);
 
     expect(component).toMatchSnapshot();
   });
