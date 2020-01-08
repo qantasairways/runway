@@ -1,3 +1,10 @@
+# [0.52.0](https://github.com/qantasairways/runway/compare/v0.51.2...v0.52.0) (2020-01-08)
+
+
+### Features
+
+* **packages:** upgrades Emotion v10, Downshift v4, Jest v24, Rollup v1 ([#178](https://github.com/qantasairways/runway/issues/178)) ([7e290f9](https://github.com/qantasairways/runway/commit/7e290f9cbb68eb15f815f690c3b69fdbe250718f))
+
 ## [0.51.2](https://github.com/qantasairways/runway/compare/v0.51.1...v0.51.2) (2020-01-07)
 
 
