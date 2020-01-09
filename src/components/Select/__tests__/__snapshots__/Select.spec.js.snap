@@ -10,21 +10,6 @@ exports[`Select renders correctly with defaults 1`] = `
 }
 
 .emotion-5 {
-  width: 100%;
-  height: 100%;
-}
-
-.emotion-4 {
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  box-sizing: border-box;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -32,21 +17,13 @@ exports[`Select renders correctly with defaults 1`] = `
   padding: 0 15px;
   font-size: 1rem;
   font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.56;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
   background: #3c3c3c;
-  border: 0;
   color: #fff;
   -webkit-text-decoration: none;
   text-decoration: none;
   width: 100%;
   height: 100%;
-  max-width: 100%;
 }
 
 .emotion-0 {
@@ -61,7 +38,49 @@ exports[`Select renders correctly with defaults 1`] = `
   fill: #fff;
   vertical-align: middle;
   padding: 0;
-  box-sizing: content-box;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  max-width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.56;
+  background: #3c3c3c;
+  color: #fff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
 }
 
 <Select
@@ -185,8 +204,18 @@ exports[`Select renders correctly with defaults 1`] = `
           onChange={null}
           renderItem={[Function]}
         >
-          <div
+          <ButtonBase
+            aria-activedescendant={null}
+            aria-haspopup={true}
+            aria-label={null}
             className="emotion-5"
+            data-toggle={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            type="button"
           >
             <button
               aria-activedescendant={null}
@@ -253,7 +282,7 @@ exports[`Select renders correctly with defaults 1`] = `
                 </ChevronDown>
               </span>
             </button>
-          </div>
+          </ButtonBase>
         </DropdownMenu>
       </SelectOnKeyPressContainer>
     </div>
@@ -262,11 +291,6 @@ exports[`Select renders correctly with defaults 1`] = `
 `;
 
 exports[`Select renders correctly with props provided 1`] = `
-.emotion-5 {
-  width: 100%;
-  height: 100%;
-}
-
 .emotion-0 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -283,17 +307,7 @@ exports[`Select renders correctly with props provided 1`] = `
   max-width: 100%;
 }
 
-.emotion-4 {
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  box-sizing: border-box;
+.emotion-5 {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -301,15 +315,8 @@ exports[`Select renders correctly with props provided 1`] = `
   padding: 0;
   font-size: 1rem;
   font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.56;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
   background: #3c3c3c;
-  border: 0;
   color: #8de2e0;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -317,7 +324,6 @@ exports[`Select renders correctly with props provided 1`] = `
   width: -moz-fit-content;
   width: fit-content;
   height: 20px;
-  max-width: 100%;
 }
 
 .emotion-1 {
@@ -326,7 +332,51 @@ exports[`Select renders correctly with props provided 1`] = `
   fill: #8de2e0;
   vertical-align: middle;
   padding: 0;
-  box-sizing: content-box;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  max-width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.56;
+  background: #3c3c3c;
+  color: #8de2e0;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 20px;
 }
 
 <Select
@@ -511,8 +561,18 @@ exports[`Select renders correctly with props provided 1`] = `
           renderItem={[Function]}
           withPadding={true}
         >
-          <div
+          <ButtonBase
+            aria-activedescendant={null}
+            aria-haspopup={true}
+            aria-label=" Menu, name:apple selected"
             className="emotion-5"
+            data-toggle={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            type="button"
           >
             <button
               aria-activedescendant={null}
@@ -581,7 +641,7 @@ exports[`Select renders correctly with props provided 1`] = `
                 </ChevronDown>
               </span>
             </button>
-          </div>
+          </ButtonBase>
         </DropdownMenu>
       </SelectOnKeyPressContainer>
     </div>

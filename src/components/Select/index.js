@@ -6,8 +6,9 @@ import { css } from 'emotion';
 
 import SelectOnKeyPressContainer from './components/SelectOnKeyPressContainer';
 
-import List from '../List';
-import MenuItem from '../MenuItem';
+import { ButtonBase } from '../ButtonBase';
+import { List } from '../List';
+import { MenuItem } from '../MenuItem';
 import ChevronDown from '../../icons/ChevronDown';
 import noop from '../../utils/noop';
 import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
@@ -30,26 +31,16 @@ export function dropdownMenuContainerStyles({
 
 export function buttonStyles({ highlighted, inline, height }) {
   return css({
-    label: 'runway-dropdown__button-wrapper',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    boxSizing: 'border-box',
     justifyContent: 'space-between',
-    padding: inline ? 0 : `0 ${layout.gutter}`,
-    fontSize: fontSize.label,
-    fontWeight: highlighted ? fontWeight.bold : fontWeight.regular,
-    fontStyle: 'normal',
-    fontStretch: 'normal',
-    lineHeight: 1.56,
-    letterSpacing: 'normal',
-    background: colours.mediumGrey,
-    border: 0,
-    color: highlighted ? colours.highlights : colours.white,
-    textDecoration: highlighted ? 'underline' : 'none',
-    width: inline ? 'fit-content' : '100%',
-    height,
-    maxWidth: '100%'
+    padding: inline ? 0 : `0 ${layout.gutter}`, // TODO: remove variants
+    fontSize: fontSize.label, // TODO: better name this variable
+    fontWeight: highlighted ? fontWeight.bold : fontWeight.regular, // TODO: remove variants
+    lineHeight: 1.56, // TODO: Line heights are bad
+    background: colours.mediumGrey, // TODO: theme this bad boy
+    color: highlighted ? colours.highlights : colours.white, // TODO: remove variants
+    textDecoration: highlighted ? 'underline' : 'none', // TODO: remove variants
+    width: inline ? 'fit-content' : '100%', // TODO: remove variants
+    height // TODO: why, if anything should be padding :scream:
   });
 }
 
@@ -60,13 +51,19 @@ export function buttonSvgStyles({ highlighted }) {
     height: '100%',
     fill: highlighted ? colours.highlights : colours.white,
     verticalAlign: 'middle',
-    padding: 0,
-    boxSizing: 'content-box'
+    padding: 0
   });
 }
 
 function DropdownMenu(props) {
-  const { items, renderItem, downshiftProps, menuWidth, ariaLabel } = props;
+  const {
+    items,
+    renderItem,
+    downshiftProps,
+    menuWidth,
+    ariaLabel,
+    className
+  } = props;
 
   const {
     isOpen,
@@ -80,16 +77,17 @@ function DropdownMenu(props) {
 
   const inputProps = getInputProps();
 
+  const toggleButtonProps = getToggleButtonProps({
+    'aria-activedescendant': inputProps['aria-activedescendant'],
+    'aria-label':
+      selectedItem && `${ariaLabel} Menu, ${selectedItem.name} selected`
+  });
+
   return (
-    <div css={{ width: '100%', height: '100%' }}>
-      <button
-        css={buttonStyles(props)}
-        type="button"
-        {...getToggleButtonProps({
-          'aria-activedescendant': inputProps['aria-activedescendant'],
-          'aria-label':
-            selectedItem && `${ariaLabel} Menu, ${selectedItem.name} selected`
-        })}
+    <React.Fragment>
+      <ButtonBase
+        css={css(buttonStyles(props), className)}
+        {...toggleButtonProps}
       >
         <span
           css={{
@@ -103,9 +101,9 @@ function DropdownMenu(props) {
         <span css={buttonSvgStyles(props)}>
           <ChevronDown css={buttonSvgStyles(props)} />
         </span>
-      </button>
+      </ButtonBase>
       {!isOpen ? null : (
-        <List {...getMenuProps()}>
+        <List {...getMenuProps()} width={menuWidth}>
           {items.map((item, index) => {
             const itemProps = getItemProps({
               highlighted: highlightedIndex === index,
@@ -122,7 +120,7 @@ function DropdownMenu(props) {
           })}
         </List>
       )}
-    </div>
+    </React.Fragment>
   );
 }
 

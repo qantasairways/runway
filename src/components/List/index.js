@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-export function styles({ width }) {
+export function styles({ width = '100%' }) {
   return css({
-    label: 'runway-dropdown__menu',
     minWidth: '240px',
     borderRadius: '4px',
     boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.2)',
@@ -16,29 +15,24 @@ export function styles({ width }) {
     margin: 0,
     top: '0',
     left: '0',
-    width: width || '100%',
+    width,
     boxSizing: 'border-box',
     padding: '10px'
   });
 }
 
-const List = React.forwardRef(function List(props, ref) {
-  const {
-    component: Component = 'ul',
-    children,
-    menuWidth,
-    ...otherProps
-  } = props;
+export function List(props) {
+  const { component: Component = 'ul', children, ...otherProps } = props;
+
   return (
-    <Component css={styles({ menuWidth })} {...otherProps}>
+    <Component css={styles(props)} {...otherProps}>
       {children}
     </Component>
   );
-});
+}
 
 List.propTypes = {
   children: PropTypes.node,
-  component: PropTypes.elementType
+  component: PropTypes.elementType,
+  width: PropTypes.string
 };
-
-export default List;

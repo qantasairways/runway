@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
+import { colours } from '../../theme/airways';
 import {
   CSS_SELECTOR_HOVER,
   CSS_SELECTOR_ACTIVE,
@@ -24,29 +24,21 @@ export function styles({ highlighted }) {
   });
 }
 
-const ListItem = React.forwardRef(function ListItem(props, ref) {
-  const {
-    component: Component = 'li',
-    children: childrenProp = [],
-    ...otherProps
-  } = props;
+export function ListItem(props) {
+  const { component: Component = 'li', children, ...otherProps } = props;
 
   const componentProps = {
     ...otherProps
   };
-
-  const children = React.Children.toArray(childrenProp);
 
   return (
     <Component css={styles(componentProps)} {...componentProps}>
       {children}
     </Component>
   );
-});
+}
 
 ListItem.propTypes = {
-  children: PropTypes.node, // TODO: make a custom propType validation that needs to be treeshaken for efficiency yo
+  children: PropTypes.node,
   highlighted: PropTypes.bool // TODO: deprecate this as its a crappy api name should be selected which is way more dope
 };
-
-export default ListItem;

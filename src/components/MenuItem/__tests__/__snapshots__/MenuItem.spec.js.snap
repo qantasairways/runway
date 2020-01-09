@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem should match the snapshot when a simple textual child is given 1`] = `
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-1 {
+  visibility: hidden;
+  margin-right: 10px;
+}
+
+.emotion-0 {
+  width: 24px;
+  fill: #323232;
+}
+
+.emotion-2 {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+<ListItem>
+  <span
+    className="emotion-3"
+  >
+    <span
+      className="emotion-1"
+    >
+      <Tick
+        className="emotion-0"
+        height="24"
+        width="24"
+      />
+    </span>
+    <span
+      className="emotion-2"
+    >
+      Economy
+    </span>
+  </span>
+</ListItem>
+`;

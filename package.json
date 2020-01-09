@@ -43,7 +43,7 @@
     "express": "^4.16.4",
     "highlight-words-core": "^1.2.2",
     "lodash.debounce": "4.0.8",
-    "prop-types": "^15.6.2",
+    "prop-types": "^15.7.2",
     "rc-input-number": "^4.5.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -65,6 +65,8 @@
     "@semantic-release/changelog": "^3.0.1",
     "@semantic-release/git": "^7.0.5",
     "@semantic-release/npm": "^5.1.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -134,11 +136,21 @@
     "singleQuote": true
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "@testing-library/react/cleanup-after-each"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "lint-staged": {
     "*.{js,json,css,md}": [

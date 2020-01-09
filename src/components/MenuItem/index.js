@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import { colours, layout, fontWeight, fontSize } from '../../theme/airways';
+import { colours } from '../../theme/airways';
 import TickIcon from '../../icons/Tick';
-import ListItem from '../ListItem';
+import { ListItem } from '../ListItem';
 
 export function itemContainerStyles() {
   return css({
@@ -31,14 +31,9 @@ export function itemSvgStyles() {
   });
 }
 
-const MenuItem = React.forwardRef(function MenuItem(props, ref) {
-  const {
-    component: Component = 'span',
-    children,
-    ...otherProps
-  } = props;
+export function MenuItem(props) {
+  const { component: Component = 'span', children, ...otherProps } = props;
 
-  debugger;
   return (
     <ListItem {...otherProps}>
       <Component css={itemContainerStyles(props)}>
@@ -51,11 +46,10 @@ const MenuItem = React.forwardRef(function MenuItem(props, ref) {
       </Component>
     </ListItem>
   );
-});
+}
 
 MenuItem.propTypes = {
   children: PropTypes.node,
-  component: PropTypes.elementType
+  component: PropTypes.elementType,
+  selected: PropTypes.boolean
 };
-
-export default MenuItem;
