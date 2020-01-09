@@ -6,7 +6,11 @@ import InputNumber from 'rc-input-number';
 import PlusIcon from '../../icons/PlusIcon';
 import MinusIcon from '../../icons/MinusIcon';
 
-import { colours, highlightInvalidField } from '../../theme/airways';
+import {
+  colours,
+  highlightInvalidField,
+  highlightField
+} from '../../theme/airways';
 import { toCx, forAll } from '../../utils/css';
 
 const SELECTORS = {
@@ -17,7 +21,7 @@ const SELECTORS = {
       DISABLED: '.rc-input-number-disabled'
     },
     CONTROLS: {
-      WRAPPER: 'rc-input-number-handler-wrap',
+      WRAPPER: '.rc-input-number-handler-wrap',
       UP: {
         CORE: '.rc-input-number-handler-up',
         DISABLED: '.rc-input-number-handler-up-disabled',
@@ -40,11 +44,6 @@ const SELECTORS = {
   }
 };
 
-const iconWidth = '22px';
-
-const getDisabledCtrlStyles = ({ highlightInvalid }) =>
-  highlightInvalid ? { fill: colours.lighterGrey } : { fill: colours.grey };
-
 const disableNativeNumberInputStyles = {
   [forAll(
     'input::-webkit-outer-spin-button',
@@ -57,6 +56,8 @@ const disableNativeNumberInputStyles = {
     MozAppearance: 'textfield'
   }
 };
+
+const buttonWidth = 51;
 
 const getRcInputNumberStyles = ({ highlightInvalid }) => ({
   ...disableNativeNumberInputStyles,
@@ -72,11 +73,10 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
     position: 'relative',
     width: '100%',
     height: '55px',
-    ...(highlightInvalid && { ...highlightInvalidField, borderRadius: '0px' })
+    ...(highlightInvalid && highlightInvalidField)
   },
   [SELECTORS.RCI.ROOT.FOCUSED]: {
-    borderColor: '#8de2e0',
-    ...(highlightInvalid && { ...highlightInvalidField, borderRadius: '0px' })
+    ...(highlightInvalid || highlightField)
   },
   [SELECTORS.RCI.CONTROLS.UP_AND_DOWN.CORE]: {
     textAlign: 'center',
@@ -89,13 +89,13 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
   [SELECTORS.RCI.CONTROLS.UP.CORE]: {
     position: 'absolute',
     right: '0px',
-    width: `calc(30px + ${iconWidth})`,
+    width: `${buttonWidth}px`,
     height: '100%'
   },
   [SELECTORS.RCI.CONTROLS.DOWN.CORE]: {
     position: 'absolute',
     left: '0px',
-    width: `calc(30px + ${iconWidth})`,
+    width: `${buttonWidth}px`,
     height: '100%'
   },
   [SELECTORS.RCI.INPUT.CORE]: {
@@ -125,17 +125,11 @@ const getRcInputNumberStyles = ({ highlightInvalid }) => ({
     SELECTORS.RCI.CONTROLS.DOWN.DISABLED,
     SELECTORS.RCI.CONTROLS.UP.DISABLED
   )]: {
-    opacity: '0.72'
-  },
-  [forAll(
-    SELECTORS.RCI.CONTROLS.DOWN.DISABLED,
-    SELECTORS.RCI.CONTROLS.UP.DISABLED
-  )]: {
     [forAll(
       SELECTORS.RCI.CONTROLS.UP.ICON,
       SELECTORS.RCI.CONTROLS.DOWN.ICON
     )]: {
-      ...getDisabledCtrlStyles({ highlightInvalid })
+      fill: highlightInvalid ? colours.lighterGrey : colours.grey
     }
   }
 });
@@ -163,7 +157,6 @@ const axValidationContainerStyles = {
 };
 class NumericInput extends Component {
   state = {
-    value: this.props.value,
     ariaValueUpdate: false
   };
 
@@ -183,7 +176,7 @@ class NumericInput extends Component {
   };
 
   overloadedOnChange = value => {
-    this.setState({ value, ariaValueUpdate: true });
+    this.setState({ ariaValueUpdate: true });
     this.props.onChange(value);
   };
 
@@ -206,14 +199,7 @@ class NumericInput extends Component {
   };
 
   render = () => {
-    const {
-      label,
-      id,
-      highlightInvalid,
-      onChange,
-      ariaDescription,
-      ...rest
-    } = this.props;
+    const { label, id, highlightInvalid, min, max, value, setRef } = this.props;
 
     const up = (
       <PlusIcon
@@ -237,7 +223,10 @@ class NumericInput extends Component {
         </label>
         <div css={getRcInputNumberStyles({ highlightInvalid })}>
           <InputNumber
-            {...rest}
+            setRef={setRef}
+            value={value}
+            min={min}
+            max={max}
             type="number"
             id={id}
             onChange={this.overloadedOnChange}
@@ -253,8 +242,8 @@ class NumericInput extends Component {
   };
 
   renderAriaHiddenText = () => {
-    const { ariaDescription } = this.props;
-    const { value, ariaValueUpdate } = this.state;
+    const { ariaDescription, value } = this.props;
+    const { ariaValueUpdate } = this.state;
     return (
       <div css={axValidationContainerStyles}>
         <span aria-live="polite" aria-atomic="true">
@@ -274,7 +263,8 @@ class NumericInput extends Component {
 }
 
 NumericInput.propTypes = {
-  ...InputNumber.propTypes,
+  min: PropTypes.number,
+  max: PropTypes.number,
   /** Flag to display styles to show the current value is invalid */
   highlightInvalid: PropTypes.bool,
   /** Function to set the ref on the input
@@ -285,7 +275,7 @@ NumericInput.propTypes = {
   label: PropTypes.string,
   /** String for the input description */
   ariaDescription: PropTypes.string,
-  /** Optional id string for the input */
+  /** Id string for the input */
   id: PropTypes.string.isRequired,
   /** Triggered when the user changes the value
    *
@@ -301,7 +291,9 @@ NumericInput.defaultProps = {
   label: '',
   ariaDescription: '',
   onChange: () => {},
-  value: null
+  value: null,
+  min: undefined,
+  max: undefined
 };
 
 export default NumericInput;

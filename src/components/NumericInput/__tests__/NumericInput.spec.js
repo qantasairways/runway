@@ -13,9 +13,8 @@ describe('NumericInput', () => {
 
   it('renders correctly with props', () => {
     const additionalProps = {
-      isInvalid: true,
-      isInvalidMessage: 'mock message',
-      isTabletAndUp: false
+      max: 12,
+      id: 'numeric-input-test'
     };
     const component = mount(<NumericInput {...additionalProps} />);
     expect(component).toMatchSnapshot();
