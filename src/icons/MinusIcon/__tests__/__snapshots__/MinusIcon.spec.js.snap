@@ -3,6 +3,7 @@
 exports[`MinusIcon should render 1`] = `
 <svg
   className="my-favourite-icon"
+  focusable="false"
   height="36px"
   viewBox="0 0 24 24"
   width="36px"

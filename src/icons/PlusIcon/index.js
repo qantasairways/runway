@@ -13,6 +13,7 @@ const PlusIcon = ({ className, width, height, ...rest }) => {
       height={height}
       className={className}
       viewBox="0 0 24 24"
+      focusable="false"
       {...rest}
     >
       <defs>
