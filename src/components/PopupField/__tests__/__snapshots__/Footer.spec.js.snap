@@ -55,7 +55,7 @@ exports[`Footer renders correctly with defaults 1`] = `
 }
 
 .emotion-4 {
-  background-color: #ee0000;
+  background-color: #e40000;
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1rem;
@@ -235,7 +235,7 @@ exports[`Footer renders correctly with props 1`] = `
 }
 
 .emotion-5 {
-  background-color: #ee0000;
+  background-color: #e40000;
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1rem;
