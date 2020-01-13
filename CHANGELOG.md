@@ -1,3 +1,10 @@
+## [0.52.1](https://github.com/qantasairways/runway/compare/v0.52.0...v0.52.1) (2020-01-13)
+
+
+### Bug Fixes
+
+* **theme:** change the red color ([#181](https://github.com/qantasairways/runway/issues/181)) ([258cf05](https://github.com/qantasairways/runway/commit/258cf0537bf5e298e35a0de0258d67401537e5b9))
+
 # [0.52.0](https://github.com/qantasairways/runway/compare/v0.51.2...v0.52.0) (2020-01-08)
 
 
