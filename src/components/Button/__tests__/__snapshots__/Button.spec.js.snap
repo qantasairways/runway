@@ -2,7 +2,7 @@
 
 exports[`Button should render correctly in "debug" mode 1`] = `
 .emotion-0 {
-  background-color: #ee0000;
+  background-color: #e40000;
   color: #fff;
   font-family: "Ciutadella",sans-serif;
   font-size: 1rem;
