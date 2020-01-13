@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem should match the snapshot when a simple textual child is given 1`] = `
+.emotion-5 {
+  font-weight: 400;
+  background-color: none;
+  color: #323232;
+  box-sizing: border-box;
+  padding: 10px;
+  min-height: 50px;
+}
+
+.emotion-5:hover,
+.emotion-5:active,
+.emotion-5:focus {
+  background-color: #f4f5f6;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-2 {
+  visibility: visible;
+  margin-right: 10px;
+}
+
+.emotion-0 {
+  width: 24px;
+  fill: #323232;
+}
+
+.emotion-3 {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+<MenuItem
+  selected={true}
+>
+  <ListItem
+    selected={true}
+  >
+    <li
+      className="emotion-5"
+      selected={true}
+    >
+      <span
+        className="emotion-4"
+      >
+        <span
+          className="emotion-2"
+        >
+          <Tick
+            className="emotion-0"
+            height="24"
+            width="24"
+          >
+            <svg
+              className="emotion-0"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <defs>
+                <path
+                  d="M9 16.17L5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z"
+                  id="mockId"
+                />
+              </defs>
+              <g
+                fillRule="evenodd"
+              >
+                <mask
+                  id="mockId"
+                >
+                  <use
+                    xlinkHref="#mockId"
+                  />
+                </mask>
+                <use
+                  fillRule="nonzero"
+                  xlinkHref="#mockId"
+                />
+                <g
+                  mask="url(#mockId)"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </Tick>
+        </span>
+        <span
+          className="emotion-3"
+        >
+          Economy
+        </span>
+      </span>
+    </li>
+  </ListItem>
+</MenuItem>
+`;
