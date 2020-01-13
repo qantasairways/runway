@@ -79,8 +79,11 @@ export const mq = {
 };
 
 export const highlightInvalidField = {
-  borderRadius: '2px',
-  border: 'solid 2px #ed710b'
+  borderColor: colours.warnings
+};
+
+export const highlightField = {
+  borderColor: colours.highlights
 };
 
 export default {

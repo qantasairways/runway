@@ -53,14 +53,14 @@ exports[`NumericInput renders correctly with defaults 1`] = `
 .emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
-  width: calc(30px + 22px);
+  width: 51px;
   height: 100%;
 }
 
 .emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
-  width: calc(30px + 22px);
+  width: 51px;
   height: 100%;
 }
 
@@ -347,14 +347,14 @@ exports[`NumericInput renders correctly with props 1`] = `
 .emotion-2 .rc-input-number-handler-up {
   position: absolute;
   right: 0px;
-  width: calc(30px + 22px);
+  width: 51px;
   height: 100%;
 }
 
 .emotion-2 .rc-input-number-handler-down {
   position: absolute;
   left: 0px;
-  width: calc(30px + 22px);
+  width: 51px;
   height: 100%;
 }
 
@@ -409,22 +409,22 @@ exports[`NumericInput renders correctly with props 1`] = `
 <NumericInput
   ariaDescription=""
   highlightInvalid={false}
-  isInvalid={true}
-  isInvalidMessage="mock message"
-  isTabletAndUp={false}
+  id="numeric-input-test"
   label=""
+  max={12}
   onChange={[Function]}
   setRef={null}
   value={null}
 >
   <label
     className="emotion-0"
+    htmlFor="numeric-input-test"
   />
   <div
     className="emotion-2"
   >
     <InputNumber
-      aria-describedby="undefined-description"
+      aria-describedby="numeric-input-test-description"
       autoComplete="off"
       downHandler={
         <Unknown
@@ -434,9 +434,8 @@ exports[`NumericInput renders correctly with props 1`] = `
         />
       }
       focusOnUpDown={true}
-      isInvalid={true}
-      isInvalidMessage="mock message"
-      isTabletAndUp={false}
+      id="numeric-input-test"
+      max={12}
       min={-9007199254740991}
       onBlur={[Function]}
       onChange={[Function]}
@@ -554,11 +553,14 @@ exports[`NumericInput renders correctly with props 1`] = `
           className="rc-input-number-input-wrap"
         >
           <input
-            aria-describedby="undefined-description"
+            aria-describedby="numeric-input-test-description"
+            aria-valuemax={12}
             aria-valuemin={-9007199254740991}
             aria-valuenow={null}
             autoComplete="off"
             className="rc-input-number-input"
+            id="numeric-input-test"
+            max={12}
             min={-9007199254740991}
             onBlur={[Function]}
             onChange={[Function]}
@@ -585,7 +587,7 @@ exports[`NumericInput renders correctly with props 1`] = `
       <span
         aria-atomic="true"
         aria-live="off"
-        id="undefined-description"
+        id="numeric-input-test-description"
       >
         Current value is null.
       </span>
