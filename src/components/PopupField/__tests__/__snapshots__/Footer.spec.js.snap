@@ -162,18 +162,14 @@ exports[`Footer renders correctly with defaults 1`] = `
         onClick={[Function]}
         variant="solid"
       >
-        <div
-          className="runway-footer__button"
+        <button
+          aria-label="mock closeAriaLabel"
+          className="emotion-4"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            aria-label="mock closeAriaLabel"
-            className="emotion-4"
-            onClick={[Function]}
-            type="button"
-          >
-            mock actionText
-          </button>
-        </div>
+          mock actionText
+        </button>
       </Button>
     </div>
   </div>
@@ -354,18 +350,14 @@ exports[`Footer renders correctly with props 1`] = `
         onClick={[Function]}
         variant="solid"
       >
-        <div
-          className="runway-footer__button"
+        <button
+          aria-label="mock closeAriaLabel"
+          className="emotion-5"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            aria-label="mock closeAriaLabel"
-            className="emotion-5"
-            onClick={[Function]}
-            type="button"
-          >
-            mock actionText
-          </button>
-        </div>
+          mock actionText
+        </button>
       </Button>
     </div>
   </div>

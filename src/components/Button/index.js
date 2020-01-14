@@ -70,15 +70,13 @@ const Button = ({
   cssOverrides,
   ...buttonProps
 }) => (
-  <div className={className}>
-    <button
-      type="button"
-      {...buttonProps}
-      css={[styleMap[variant], ...cssOverrides]}
-    >
-      {label}
-    </button>
-  </div>
+  <button
+    type="button"
+    {...buttonProps}
+    css={[styleMap[variant], ...cssOverrides]}
+  >
+    {label}
+  </button>
 );
 
 Button.propTypes = {

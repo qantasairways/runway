@@ -42,16 +42,12 @@ exports[`Button should render correctly in "debug" mode 1`] = `
   label="button"
   variant="solid"
 >
-  <div
-    className={null}
+  <button
+    className="emotion-0"
+    debug="true"
+    type="button"
   >
-    <button
-      className="emotion-0"
-      debug="true"
-      type="button"
-    >
-      button
-    </button>
-  </div>
+    button
+  </button>
 </Button>
 `;
