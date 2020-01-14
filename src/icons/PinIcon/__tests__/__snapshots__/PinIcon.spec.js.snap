@@ -1,38 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PinIcon should render 1`] = `
-<svg
+<SvgIcon
   className="my-favourite-icon"
-  focusable="false"
   height="36px"
-  viewBox="0 0 24 24"
   width="36px"
 >
-  <defs>
-    <path
-      d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"
-      id="1a2b3c"
-    />
-  </defs>
-  <g
-    fillRule="evenodd"
-    transform="translate(5 2)"
-  >
-    <mask
-      fill="#fff"
-      id="1a2b3c"
-    >
-      <use
-        xlinkHref="#1a2b3c"
-      />
-    </mask>
-    <g
-      mask="url(#1a2b3c)"
-    >
-      <path
-        d="M-5-2h24v24H-5z"
-      />
-    </g>
-  </g>
-</svg>
+  <path
+    d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"
+  />
+</SvgIcon>
 `;

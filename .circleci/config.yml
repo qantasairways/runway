@@ -57,6 +57,7 @@ jobs:
           command: npm test
   publish:
     <<: *defaults
+    working_directory: ~/runway/lib
     steps:
       - attach_workspace:
           at: ~/runway
@@ -66,9 +67,6 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
-        name: Change directory to distribution folder to publish
-        command: cd lib
       - run:
           name: Publish package
           command: npm run semantic-release || true

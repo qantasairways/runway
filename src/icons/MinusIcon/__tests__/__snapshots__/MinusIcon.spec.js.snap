@@ -1,36 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MinusIcon should render 1`] = `
-<svg
+<SvgIcon
   className="my-favourite-icon"
   height="36px"
-  viewBox="0 0 24 24"
   width="36px"
 >
-  <defs>
-    <path
-      d="M17.214 13.25H7.786c-.432 0-.786-.338-.786-.75s.354-.75.786-.75h9.428c.432 0 .786.338.786.75s-.354.75-.786.75z"
-      id="1a2b3c"
-    />
-  </defs>
-  <g
-    fillRule="evenodd"
-  >
-    <mask
-      fill="#fff"
-      id="1a2b3c"
-    >
-      <use
-        xlinkHref="#1a2b3c"
-      />
-    </mask>
-    <g
-      mask="url(#1a2b3c)"
-    >
-      <path
-        d="M0 0h24v24H0z"
-      />
-    </g>
-  </g>
-</svg>
+  <path
+    d="M17.214 13.25H7.786c-.432 0-.786-.338-.786-.75s.354-.75.786-.75h9.428c.432 0 .786.338.786.75s-.354.75-.786.75z"
+  />
+</SvgIcon>
 `;
