@@ -1,37 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PersonIcon should render 1`] = `
-<svg
+<SvgIcon
   className="my-favourite-icon"
-  focusable="false"
   height="36px"
-  viewBox="0 0 24 24"
   width="36px"
 >
-  <defs>
-    <path
-      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-      id="1a2b3c"
-    />
-  </defs>
-  <g
-    fillRule="evenodd"
-  >
-    <mask
-      fill="#fff"
-      id="1a2b3c"
-    >
-      <use
-        xlinkHref="#1a2b3c"
-      />
-    </mask>
-    <g
-      mask="url(#1a2b3c)"
-    >
-      <path
-        d="M.235.235h23v23h-23z"
-      />
-    </g>
-  </g>
-</svg>
+  <path
+    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+  />
+</SvgIcon>
 `;

@@ -1,3 +1,20 @@
+let defaultPresets;
+
+if (process.env.BABEL_ENV === 'es') {
+  defaultPresets = [];
+} else {
+  defaultPresets = [
+    [
+      '@babel/preset-env',
+      {
+        modules: ['esm', 'production-umd'].includes(process.env.BABEL_ENV)
+          ? false
+          : 'commonjs'
+      }
+    ]
+  ];
+}
+
 const productionPlugins = [
   'babel-plugin-transform-react-constant-elements',
   'babel-plugin-transform-dev-warning',
@@ -11,20 +28,16 @@ const productionPlugins = [
 ];
 
 module.exports = {
-  presets: [
-    '@babel/preset-env',
+  presets: defaultPresets.concat([
     '@babel/preset-react',
     '@emotion/babel-preset-css-prop'
-  ],
+  ]),
   plugins: [
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     ['@babel/plugin-proposal-object-rest-spread', { loose: true }],
     '@babel/plugin-transform-runtime',
     '@babel/plugin-transform-object-assign',
-    'emotion',
-    '@babel/plugin-syntax-async-generators',
-    '@babel/plugin-transform-async-to-generator',
-    '@babel/plugin-transform-regenerator'
+    'emotion'
   ],
   env: {
     cjs: {

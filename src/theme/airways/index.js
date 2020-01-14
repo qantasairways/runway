@@ -1,4 +1,4 @@
-import airwaysColours from './colours.json';
+import * as airwaysColours from './colours';
 
 export const airwaysFontFamily = '"Ciutadella", sans-serif';
 

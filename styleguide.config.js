@@ -22,7 +22,7 @@ module.exports = {
     {
       name: 'Components',
       content: 'docs/Components.md',
-      components: () => ['./src/components/*/*.js'],
+      components: () => ['./src/components/*/index.js'],
       exampleMode: 'expand',
       usageMode: 'expand',
       sectionDepth: 0
