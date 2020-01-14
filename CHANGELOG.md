@@ -1,3 +1,10 @@
+## [0.53.1](https://github.com/qantasairways/runway/compare/v0.53.0...v0.53.1) (2020-01-14)
+
+
+### Performance Improvements
+
+* **purge:** the great purge has begun ([#182](https://github.com/qantasairways/runway/issues/182)) ([6341e4d](https://github.com/qantasairways/runway/commit/6341e4d70b23b33dfa9570c499cfd694054a222f))
+
 # [0.53.0](https://github.com/qantasairways/runway/compare/v0.52.1...v0.53.0) (2020-01-13)
 
 

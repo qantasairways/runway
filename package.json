@@ -1,6 +1,6 @@
 {
   "name": "@qantasairways/runway",
-  "version": "0.53.0",
+  "version": "0.53.1",
   "description": "Qantas Style Guide",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
