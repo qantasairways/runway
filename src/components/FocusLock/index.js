@@ -1,91 +1,81 @@
-import React, { Component, Children } from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Adapted from: https://github.com/davidtheclark/tabbable
 const tabbableSelector = [
-  'input:not([type="hidden"])',
+  '[tabindex="0"]',
   'button',
   'select',
   'a[href]',
   'textarea',
-  '[tabindex="0"]',
   'audio[controls]',
   'video[controls]',
+  'input:not([type="hidden"])',
   '[contenteditable]:not([contenteditable="false"])'
 ].join(',');
 
-class LockWrapper extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired
-  };
+const getTabbables = el =>
+  Array.from(el.querySelectorAll(tabbableSelector)).filter(
+    node =>
+      !node.disabled &&
+      node.tabIndex !== -1 &&
+      node.offsetParent !== null && // display: none;
+      window.getComputedStyle(node).visibility !== 'hidden'
+  );
 
-  componentDidMount() {
-    this.previousFocusEl = document.activeElement;
+export default function FocusLock(props) {
+  const { active, returnFocus, as: Container, children } = props;
+  const previousFocusEl = useRef(document.activeElement);
+  const baseRef = useRef();
 
-    // Using findDOMNode as React doesn't support Fragment refs (yet?)
-    // https://github.com/facebook/react/pull/13841#issuecomment-430066195
-    // eslint-disable-next-line react/no-find-dom-node
-    this.base = findDOMNode(this);
-
-    // Tabbable visible elements
-    const tabbables = Array.from(
-      this.base.querySelectorAll(tabbableSelector)
-    ).filter(
-      node =>
-        node.offsetParent !== null &&
-        window.getComputedStyle(node).visibility !== 'hidden'
-    );
-
-    // eslint-disable-next-line prefer-destructuring
-    this.firstFocusEl = tabbables[0];
-    this.lastFocusEl = tabbables[tabbables.length - 1];
-
-    if (this.firstFocusEl) {
-      this.firstFocusEl.focus();
-      this.currentFocusedEl = this.firstFocusEl;
-      document.addEventListener('focusin', this.onFocus);
-    }
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('focusin', this.onFocus);
-    if (this.previousFocusEl) {
-      this.previousFocusEl.focus();
-    }
-  }
-
-  onFocus = event => {
-    // Focused element is inside our component
-    if (this.base.contains(event.target)) {
-      this.currentFocusedEl = event.target;
-    } else {
+  useLayoutEffect(() => {
+    const onFocus = event => {
       // Focused element is _outside_ our component
-      event.preventDefault();
-      if (this.currentFocusedEl === this.lastFocusEl) {
-        this.firstFocusEl.focus();
-      } else if (this.currentFocusedEl === this.firstFocusEl) {
-        this.lastFocusEl.focus();
+      if (active && !baseRef.current.contains(event.target)) {
+        const tabbables = getTabbables(baseRef.current);
+
+        if (tabbables.length) {
+          event.preventDefault();
+          if (event.relatedTarget === tabbables[0]) {
+            tabbables[tabbables.length - 1].focus();
+          } else {
+            tabbables[0].focus();
+          }
+        }
       }
+    };
+
+    const [firstEl] = getTabbables(baseRef.current);
+    if (active && firstEl) {
+      firstEl.focus();
     }
-  };
 
-  render() {
-    const { children } = this.props;
-    // Only allow one single child
-    return Children.only(children);
-  }
+    document.addEventListener('focusin', onFocus);
+
+    return () => {
+      document.removeEventListener('focusin', onFocus);
+
+      // Call previous element focus after removing focus listener to avoid conflicts
+      if (active && returnFocus && previousFocusEl.current) {
+        previousFocusEl.current.focus();
+      }
+    };
+  }, [active]);
+
+  return <Container ref={baseRef}>{children}</Container>;
 }
-
-export default function FocusLock({ active = true, children }) {
-  if (active) {
-    return <LockWrapper>{children}</LockWrapper>;
-  }
-
-  return children;
-}
-
 FocusLock.propTypes = {
+  /** Flag to set if the focus lock is active (default: true) */
   active: PropTypes.bool,
+  /** Flag to set if the focus should return to previous element when lock is deactivated */
+  returnFocus: PropTypes.bool,
+  /** Change internal wrapper element */
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   children: PropTypes.element.isRequired
+};
+
+FocusLock.defaultProps = {
+  active: true,
+  returnFocus: true,
+  as: 'div'
 };
