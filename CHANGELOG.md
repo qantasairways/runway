@@ -1,3 +1,10 @@
+## [0.53.2](https://github.com/qantasairways/runway/compare/v0.53.1...v0.53.2) (2020-01-20)
+
+
+### Bug Fixes
+
+* **focuslock:** update tabbables when children components update ([#169](https://github.com/qantasairways/runway/issues/169)) ([35119d7](https://github.com/qantasairways/runway/commit/35119d765ed0333f42b27ab9a4eb34975e489729))
+
 ## [0.53.1](https://github.com/qantasairways/runway/compare/v0.53.0...v0.53.1) (2020-01-14)
 
 
