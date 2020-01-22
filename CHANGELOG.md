@@ -1,3 +1,10 @@
+## [0.53.3](https://github.com/qantasairways/runway/compare/v0.53.2...v0.53.3) (2020-01-22)
+
+
+### Bug Fixes
+
+* **icons:** add focusable false to icons for ie11 ([#180](https://github.com/qantasairways/runway/issues/180)) ([7762298](https://github.com/qantasairways/runway/commit/7762298ade4d957131254a50a528e0c0e470795e))
+
 ## [0.53.2](https://github.com/qantasairways/runway/compare/v0.53.1...v0.53.2) (2020-01-20)
 
 
