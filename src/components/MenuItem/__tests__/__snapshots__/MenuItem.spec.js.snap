@@ -61,6 +61,7 @@ exports[`MenuItem should match the snapshot when a simple textual child is given
           >
             <svg
               className="emotion-0"
+              focusable="false"
               height="24"
               viewBox="0 0 24 24"
               width="24"

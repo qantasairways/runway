@@ -240,6 +240,7 @@ exports[`Select renders correctly with defaults 1`] = `
                 >
                   <svg
                     className="emotion-1"
+                    focusable="false"
                     height="24"
                     viewBox="0 0 24 24"
                     width="24"
@@ -594,6 +595,7 @@ exports[`Select renders correctly with props provided 1`] = `
                 >
                   <svg
                     className="emotion-1"
+                    focusable="false"
                     height="24"
                     viewBox="0 0 24 24"
                     width="24"
