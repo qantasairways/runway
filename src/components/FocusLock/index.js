@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -24,19 +25,25 @@ const getTabbables = el =>
   );
 
 export default function FocusLock(props) {
-  const { active, returnFocus, as: Container, children } = props;
+  const { active, returnFocus, as: Container, children, ...otherProps } = props;
   const previousFocusEl = useRef(document.activeElement);
-  const baseRef = useRef();
+  const containerRef = useRef();
+  const topRef = useRef();
+  const bottomRef = useRef();
 
   useLayoutEffect(() => {
     const onFocus = event => {
-      // Focused element is _outside_ our component
-      if (active && !baseRef.current.contains(event.target)) {
-        const tabbables = getTabbables(baseRef.current);
+      if (
+        active &&
+        (!containerRef.current.contains(event.target) ||
+          [topRef.current, bottomRef.current].includes(event.target))
+      ) {
+        const tabbables = getTabbables(containerRef.current);
 
         if (tabbables.length) {
           event.preventDefault();
-          if (event.relatedTarget === tabbables[0]) {
+
+          if (event.target === topRef.current) {
             tabbables[tabbables.length - 1].focus();
           } else {
             tabbables[0].focus();
@@ -45,9 +52,9 @@ export default function FocusLock(props) {
       }
     };
 
-    const [firstEl] = getTabbables(baseRef.current);
-    if (active && firstEl) {
-      firstEl.focus();
+    const tabbables = getTabbables(containerRef.current);
+    if (active && tabbables[0]) {
+      tabbables[0].focus();
     }
 
     document.addEventListener('focusin', onFocus);
@@ -62,7 +69,15 @@ export default function FocusLock(props) {
     };
   }, [active]);
 
-  return <Container ref={baseRef}>{children}</Container>;
+  return (
+    <>
+      <span tabIndex={0} ref={topRef} />
+      <Container ref={containerRef} {...otherProps}>
+        {children}
+      </Container>
+      <span tabIndex={0} ref={bottomRef} />
+    </>
+  );
 }
 FocusLock.propTypes = {
   /** Flag to set if the focus lock is active (default: true) */
@@ -70,8 +85,7 @@ FocusLock.propTypes = {
   /** Flag to set if the focus should return to previous element when lock is deactivated */
   returnFocus: PropTypes.bool,
   /** Change internal wrapper element */
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  children: PropTypes.element.isRequired
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 FocusLock.defaultProps = {
