@@ -1,3 +1,10 @@
+# [0.54.0](https://github.com/qantasairways/runway/compare/v0.53.3...v0.54.0) (2020-02-04)
+
+
+### Features
+
+* **focuslock:** add focus traps ([#184](https://github.com/qantasairways/runway/issues/184)) ([8d59223](https://github.com/qantasairways/runway/commit/8d592231cbae16b24b28045c4b0696935ce6ff06))
+
 ## [0.53.3](https://github.com/qantasairways/runway/compare/v0.53.2...v0.53.3) (2020-01-22)
 
 
