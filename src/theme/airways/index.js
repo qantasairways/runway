@@ -1,3 +1,4 @@
+import { css } from '@emotion/core';
 import airwaysColours from './colours.json';
 
 export const airwaysFontFamily = '"Ciutadella", sans-serif';
@@ -32,6 +33,7 @@ export const colours = {
   hightlightsLight: airwaysColours.lightBayBlue,
   hightlightsLighter: airwaysColours.lighterBayBlue,
   warnings: airwaysColours.warningOrange,
+  warningOrangeLight: airwaysColours.warningOrangeLight,
   black: airwaysColours.black
 };
 
@@ -83,6 +85,37 @@ export const highlightInvalidField = {
   border: 'solid 2px #ed710b'
 };
 
+export const resetFormStyles = {
+  appearance: 'none',
+  margin: 0,
+  padding: 0,
+  border: 0,
+  background: 'none',
+  fontFamily: 'inherit',
+  lineHeight: '1',
+  textAlign: 'left',
+  textIndent: 0,
+  textDecoration: 'none',
+  textTransform: 'none'
+};
+
+export const sharedFormControlStyles = hasError =>
+  css(resetFormStyles, {
+    fontSize: '18px',
+    lineHeight: '1.5',
+    width: '100%',
+    color: airwaysColours.charcoal,
+    border: '2px solid',
+    borderColor: hasError ? airwaysColours.warningOrange : airwaysColours.grey,
+    borderRadius: 0,
+    '&:focus': {
+      outline: 0,
+      boxShadow: `0 0 0 1px ${airwaysColours.bayBlue} inset`,
+      borderColor: airwaysColours.bayBlue
+    },
+    padding: '10px 15px'
+  });
+
 export default {
   layout,
   colours,
@@ -90,5 +123,7 @@ export default {
   fontSize,
   fontWeight,
   buttons,
-  highlightInvalidField
+  highlightInvalidField,
+  resetFormStyles,
+  sharedFormControlStyles
 };
